@@ -1,0 +1,130 @@
+// http://trentwalton.com/2013/01/16/windows-phone-8-viewport-fix/
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+// flexible images
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+.ie8 img {
+  width: auto;
+}
+
+.hide {
+    @include visually-hide;
+}
+
+a {
+    color: $link;
+    text-decoration: none;
+    &:visited {
+        color: $linkvisited;
+        text-decoration: none;
+    }
+    &:hover {
+        color: $linkhover;
+        text-decoration: none;
+    }
+}
+
+.page {
+    @include clearfix;
+    width: 85%;
+    margin: 0 auto;
+    @include bp(mama) {
+        width: 70%
+    }
+    @include bp(papa) {
+        max-width: $mama;
+    }
+}
+
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.instagram {
+  @include clearfix;
+  img {
+    float:left;
+    width: 50%;
+    @include bp(papa) {
+        width: 25%;
+    }
+  }
+}
+
+.content img,
+.content .video {
+  @include box-shadow(2px, 2px, 4px, rgba(0, 0, 0, 0.5));
+}
+
+.avatar {
+  text-align: center;
+  a {
+    color: #bbb;
+    &:visited {
+      color: #bbb;
+    }
+    &:hover {
+      color: $link;
+    }
+  }
+}
+
+.righten {
+  @include bp(mama) {
+    float: right;
+    margin-left: em(20);
+    margin-bottom: em(20);
+    max-width: em(300);
+  }
+}
+
+.visually-hide {
+  @include visually-hide;
+}
+
+.footer {
+  border-top: 1px solid #bbb;
+  padding: em(25) 0 em(23) 0;
+  margin: em(25) 0 em(35) 0;
+  text-align: center;
+  clear: both;
+  a {
+    color: #bbb;
+    margin: 0 em(10);
+    &:hover {
+      color: $link;
+    }
+  }
+  i {
+    font-style: normal;
+    font-size: em(36);
+    margin: 0 em(5);
+  }
+}

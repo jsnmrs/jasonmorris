@@ -1,0 +1,16 @@
+name: Jason Morris
+description: Personal site of Jason Morris
+url: http://jsnmrs.com
+twitter: jsnmrs
+github: jsnmrs
+gravatar_url: http://s.gravatar.com/avatar/1b78531c35d3fa8239f8f7a982260c81
+
+safe: true
+lsi: false
+pygments: true
+source: .
+destination: _site
+permalink: /notes/:title/
+timezone: America/New_York
+
+exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json]

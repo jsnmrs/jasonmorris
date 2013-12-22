@@ -1,0 +1,179 @@
+body {
+	font-family: $font-family;
+	font-weight: 400;
+	font-size: percentage(12/$base-size);
+	@include bp(baby) { font-size: percentage(14/$base-size); }
+	@include bp(mama) { font-size: percentage(16/$base-size); }
+	@include bp(papa) { font-size: percentage(18/$base-size); }
+}
+
+h1, h2, h3, h4, h5, h6 { text-rendering: optimizelegibility; font-weight: 400; }
+
+h1 {
+	font-size: em(36);
+	line-height: em(48, 36);
+	margin-bottom: em(36, 36);
+}
+
+h2 {
+	font-size: em(30);
+	line-height: em(36, 30);
+	margin-bottom: em(24, 30);
+}
+
+h3 {
+	font-size: em(24);
+	line-height: em(24, 24);
+	margin-bottom: em(24, 24);
+}
+
+h4 {
+	font-size: em(21);
+	line-height: em(24, 21);
+	margin-bottom: em(24, 21);
+}
+
+h5 {
+	font-size: em(18);
+	line-height: em(24, 18);
+	margin-bottom: em(24, 18);
+}
+
+h6 {
+	font-size: em(16);
+	line-height: em(24);
+	margin-bottom: em(24);
+}
+
+p {
+	font-size: em(16);
+	line-height: em(24);
+	margin-bottom: em(24);
+}
+
+ul, ol {
+	padding: 0;
+	margin: 0 0 em(24) em(32);
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+li {
+	line-height: em(24);
+	p {
+		margin: 0;
+	}
+}
+
+ul.unstyled,
+ol.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+ul.inline,
+ol.inline {
+	margin-left: 0;
+	list-style: none;
+	& > li {
+		@include inline-block;
+		padding-left: em(5);
+		padding-right: em(5);
+	}
+}
+
+dl {
+	margin-bottom: em(16);
+}
+
+dt,
+dd {
+	line-height: em(24);
+}
+
+dt {
+	font-weight: bold;
+	margin-top: em(10);
+}
+
+dd {
+	margin-left: 0;
+	p {
+		margin-top: 0;
+	}
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+cite {
+	font-style: normal;
+}
+
+small {
+	@include smaller;
+}
+
+figure {
+	margin-bottom: em(36);
+}
+
+figcaption {
+	font-size: em(16);
+	line-height: em(24);
+	margin: em(8) 0 em(24) 0;
+	color: #888;
+}
+
+.content {
+	p {
+		font-size: em(20);
+		line-height: em(28);
+		margin-bottom: em(28);
+	}
+}
+
+.content h1,
+#home h1,
+#page h1 {
+	line-height: 1.2;
+	margin: 0.5em 0 0.25em 0;
+	text-align: center;
+}
+
+.content .intro {
+	font-size: em(28);
+}
+
+.date {
+	text-align: center;
+	color: #bbb;
+}
+
+.avatar {
+	font-size: em(30);
+}
+
+.resume {
+	h3 {
+		margin-bottom:0;
+	}
+	h4 {
+		margin: em(5) 0;
+		color: #999;
+		font-size: em(16);
+	}
+	.contact {
+		text-align: center;
+	}
+}
