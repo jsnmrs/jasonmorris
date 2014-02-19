@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 
     open: {
       dev: {
-        path: 'http://127.0.0.1:8000/'
+        path: 'http://127.0.0.1:4000/'
       }
     },
 
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 8000,
+          port: 4000,
           base: './_site/'
         }
       }
