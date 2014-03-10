@@ -42,35 +42,22 @@ module.exports = function(grunt) {
       options: {
         bundleExec: true,
         safe: true,
-        drafts: true,
-        doctor: true
+        drafts: true
       }
     },
 
     watch: {
       scripts: {
         files: ['js/libs/*.js'],
-        tasks: ['jshint', 'uglify', 'jekyll'],
-        options: {
-          livereload: true,
-          spawn: false
-        },
+        tasks: ['jshint', 'uglify', 'jekyll']
       },
       css: {
         files: ['css/scss/*.scss'],
-        tasks: ['sass', 'jekyll'],
-        options: {
-          livereload: true,
-          spawn: false
-        }
+        tasks: ['sass', 'jekyll']
       },
       jekyll: {
         files: ['*.html', '**/*.html', '**/*.md'],
-        tasks: ['jekyll'],
-        options: {
-          livereload: true,
-          spawn: false
-        }
+        tasks: ['jekyll']
       }
     },
 
@@ -89,6 +76,6 @@ module.exports = function(grunt) {
 
   // Default Task is basically a rebuild
   grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'jekyll']);
-  grunt.registerTask('dev', ['jshint', 'uglify', 'sass', 'jekyll', 'connect', 'open', 'watch']);
+  grunt.registerTask('work', ['default', 'connect', 'open', 'watch']);
 
 };
