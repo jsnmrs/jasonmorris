@@ -70,6 +70,21 @@ module.exports = function(grunt) {
       }
     },
 
+    devUpdate: {
+      main: {
+        options: {
+          updateType: 'prompt',
+          reportUpdated: false,
+          semver: false,
+          packages: {
+            devDependencies: true,
+            dependencies: false
+          },
+          packageJson: null
+        }
+      }
+    }
+
   });
 
   require('load-grunt-tasks')(grunt);
@@ -77,5 +92,6 @@ module.exports = function(grunt) {
   // Default Task is basically a rebuild
   grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'jekyll']);
   grunt.registerTask('work', ['default', 'connect', 'open', 'watch']);
+  grunt.registerTask('update', ['devUpdate']);
 
 };
