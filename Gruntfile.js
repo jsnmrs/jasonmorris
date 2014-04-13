@@ -30,6 +30,26 @@ module.exports = function(grunt) {
       }
     },
 
+    autoprefixer: {
+      options: {
+        browsers: ['last 3 version', 'ie 8', 'ie 9']
+      },
+      target: {
+        src: 'css/style.css'
+      },
+    },
+
+    copy: {
+      js: {
+        src: 'js/scripts.js',
+        dest: '_site/js/scripts.js',
+      },
+      css: {
+        src: 'css/style.css',
+        dest: '_site/css/style.css',
+      },
+    },
+
     open: {
       dev: {
         path: 'http://127.0.0.1:4000/'
@@ -49,11 +69,11 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['js/libs/*.js'],
-        tasks: ['jshint', 'uglify', 'jekyll']
+        tasks: ['jshint', 'uglify', 'copy:js']
       },
       css: {
         files: ['css/scss/*.scss'],
-        tasks: ['sass', 'jekyll']
+        tasks: ['sass', 'autoprefixer', 'copy:css']
       },
       jekyll: {
         files: ['*.html', '**/*.html', '**/*.md'],
@@ -89,9 +109,10 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  // Default Task is basically a rebuild
-  grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'jekyll']);
-  grunt.registerTask('work', ['default', 'connect', 'open', 'watch']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'autoprefixer', 'jekyll']);
+  grunt.registerTask('layout', ['jshint', 'uglify', 'sass', 'autoprefixer', 'copy']);
+  grunt.registerTask('work', ['layout', 'connect', 'open', 'watch']);
+  grunt.registerTask('blog', ['jekyll', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };
