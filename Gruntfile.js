@@ -112,7 +112,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'autoprefixer', 'jekyll']);
   grunt.registerTask('layout', ['jshint', 'uglify', 'sass', 'autoprefixer', 'copy']);
   grunt.registerTask('work', ['layout', 'connect', 'open', 'watch']);
-  grunt.registerTask('blog', ['jekyll', 'watch']);
+  grunt.registerTask('blog', ['jekyll', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };

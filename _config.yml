@@ -8,6 +8,7 @@ gravatar_url: http://s.gravatar.com/avatar/1b78531c35d3fa8239f8f7a982260c81
 safe: true
 lsi: false
 pygments: true
+markdown: kramdown
 source: .
 destination: _site
 permalink: /notes/:title/
