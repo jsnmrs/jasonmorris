@@ -9,7 +9,7 @@ $(document).ready(function () {
             success: function (e) {
               $('.instagram').html('');
               for (var t = 0; t < 8; t++) {
-                $(".instagram").append("<div class='instagram-placeholder'><a href='" + e.data[t].link + "'><img class='instagram-image' src='" + e.data[t].images.low_resolution.url + "' /></a></div>");
+                $(".instagram").append("<div class='instagram-placeholder'><a href='" + e.data[t].link + "'><img class='instagram-image' src='" + e.data[t].images.standard_resolution.url + "' /></a></div>");
               }
             }
         });
