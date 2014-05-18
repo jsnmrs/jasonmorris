@@ -4,6 +4,21 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
+    uglify: {
+      plugins: {
+        src: ['js/vendor/jquery.js', 'js/vendor/fittext.js'],
+        dest: 'js/scripts.js'
+      },
+      shiv: {
+        src: ['js/vendor/html5shiv.js'],
+        dest: 'js/html5shiv.js'
+      },
+      picturefill: {
+        src: ['js/vendor/picturefill.js'],
+        dest: 'js/picturefill.js'
+      }
+    },
+
     sass: {
       dist: {
         options: {
@@ -25,6 +40,12 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      js: {
+        expand: true,
+        src: ['js/scripts/*'],
+        dest: '_site/js/scripts/',
+        filter: 'isFile'
+      },
       css: {
         src: 'css/style.css',
         dest: '_site/css/style.css',
@@ -48,6 +69,10 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      scripts: {
+        files: ['js/vendor/*.js'],
+        tasks: ['uglify', 'copy:js']
+      },
       css: {
         files: ['css/scss/*.scss'],
         tasks: ['sass', 'autoprefixer', 'copy:css']
@@ -92,8 +117,8 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
-  grunt.registerTask('layout', ['sass', 'autoprefixer', 'copy']);
+  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'jekyll']);
+  grunt.registerTask('layout', ['uglify', 'sass', 'autoprefixer', 'copy']);
   grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
