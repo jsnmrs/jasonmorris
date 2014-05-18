@@ -64,7 +64,4 @@
         page-break-after: avoid;
     }
     h1 { font-size: em(36) !important;}
-    .footer {
-        @include visually-hide;
-    }
 }

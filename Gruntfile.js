@@ -94,8 +94,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
   grunt.registerTask('layout', ['sass', 'autoprefixer', 'copy']);
-  grunt.registerTask('work', ['layout', 'connect', 'watch']);
-  grunt.registerTask('blog', ['jekyll', 'connect', 'watch']);
+  grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };

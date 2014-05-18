@@ -1,7 +1,3 @@
-// Toolbox
-// --------------------------------
-// Contains non-rendered code ONLY
-
 // Convert px to em
 @function em($pixels, $context: $base-size) {
   @return #{($pixels / ($pixels * 0 + 1)) / ($context / ($context * 0 + 1))}em;
@@ -21,30 +17,8 @@
   }
 }
 
-
-// flatten - reset line-height, top/bottom margin
-@mixin flatten {
-    line-height: 1;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-
-// smaller - shrink font-size
-@mixin smaller {
-    font-size: 87.5%;
-}
-
-
-@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
-    -webkit-box-shadow:$top $left $blur $color #{$inset};
-    -moz-box-shadow:$top $left $blur $color #{$inset};
-    box-shadow:$top $left $blur $color #{$inset};
-}
-
-
 // self-clearing floats
-@mixin clearfix {
+%clearfix {
   &:before,
   &:after {
     content:" ";
@@ -58,9 +32,8 @@
   }
 }
 
-
 // visually hide - still available to screen readers
-@mixin visually-hide {
+%visually-hide {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -69,14 +42,4 @@
     padding: 0;
     position: absolute;
     width: 1px;
-}
-
-
-// Legacy support for inline-block in IE7 (maybe IE6)
-@mixin inline-block {
-  display: inline-block;
-  vertical-align: baseline;
-  zoom: 1;
-  *display: inline;
-  *vertical-align: auto;
 }
