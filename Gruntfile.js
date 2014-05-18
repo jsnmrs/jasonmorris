@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       options: {
         bundleExec: true,
         safe: true,
-        drafts: true
+        drafts: false
       }
     },
 
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
   grunt.registerTask('layout', ['sass', 'autoprefixer', 'copy']);
-  grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'watch']);
+  grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };
