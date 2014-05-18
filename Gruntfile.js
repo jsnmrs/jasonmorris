@@ -4,21 +4,6 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    jshint: {
-      beforeconcat: ['js/libs/instagram.js', 'Gruntfile.js']
-    },
-
-    uglify: {
-      plugins: {
-        src: [
-          'js/libs/jquery-1.10.2.js',
-          'js/libs/jquery.fittext.js',
-          'js/libs/instagram.js'
-        ],
-        dest: 'js/scripts.js'
-      }
-    },
-
     sass: {
       dist: {
         options: {
@@ -40,10 +25,6 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      js: {
-        src: 'js/scripts.js',
-        dest: '_site/js/scripts.js',
-      },
       css: {
         src: 'css/style.css',
         dest: '_site/css/style.css',
@@ -67,17 +48,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      scripts: {
-        files: ['js/libs/*.js'],
-        tasks: ['jshint', 'uglify', 'copy:js']
-      },
       css: {
         files: ['css/scss/*.scss'],
         tasks: ['sass', 'autoprefixer', 'copy:css']
-      },
-      jekyll: {
-        files: ['*.html', '**/*.html', '**/*.md'],
-        tasks: ['jekyll']
       }
     },
 
@@ -109,10 +82,10 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'autoprefixer', 'jekyll']);
-  grunt.registerTask('layout', ['jshint', 'uglify', 'sass', 'autoprefixer', 'copy']);
-  grunt.registerTask('work', ['layout', 'connect', 'open', 'watch']);
-  grunt.registerTask('blog', ['jekyll', 'connect', 'open', 'watch']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
+  grunt.registerTask('layout', ['sass', 'autoprefixer', 'copy']);
+  grunt.registerTask('work', ['layout', 'connect', 'watch']);
+  grunt.registerTask('blog', ['jekyll', 'connect', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };
