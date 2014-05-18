@@ -1,0 +1,19 @@
+// Base
+
+// Viewport declarations - http://trentwalton.com/2013/01/16/windows-phone-8-viewport-fix/
+@-webkit-viewport{width:device-width;}
+@-moz-viewport{width:device-width;}
+@-ms-viewport{width:device-width;}
+@-o-viewport{width:device-width;}
+@viewport{width:device-width;}
+
+// Box sizing - http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*, *:after, *:before {box-sizing: border-box;}
+
+// flexible images - http://webdesignerwall.com/tutorials/5-useful-css-tricks-for-responsive-design
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}

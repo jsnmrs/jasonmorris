@@ -1,9 +1,19 @@
+/*!
+       _                                                  _
+      (_)___ __________  ____  ____ ___  ____  __________(_)____ _________  ____ ___
+     / / __ `/ ___/ __ \/ __ \/ __ `__ \/ __ \/ ___/ ___/ / ___// ___/ __ \/ __ `__ \
+    / / /_/ (__  ) /_/ / / / / / / / / / /_/ / /  / /  / (__  )/ /__/ /_/ / / / / / /
+ __/ /\__,_/____/\____/_/ /_/_/ /_/ /_/\____/_/  /_/  /_/____(_)___/\____/_/ /_/ /_/
+/___/
+
+*/
+@import "normalize";
+@import "toolbox";
+@import "base";
+
 $baby:    30em; // 480px
 $mama:    48em; // 768px
 $papa:    64em; // 1024px
-
-@import "normalize";
-@import "bits";
 
 $link:            #15c;
 $linkvisited:     $link;
@@ -12,9 +22,6 @@ $linkhover:       darken($link, 20%);
 $font-family:     Merriweather, Times, "Times New Roman", serif;
 $base-size:       16;
 
-/*!
-jsnmrs.com
-*/
 @import "typography";
 @import "layout";
 @import "print";
