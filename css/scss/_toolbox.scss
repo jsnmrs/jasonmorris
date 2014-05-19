@@ -5,15 +5,19 @@
 
 
 // Breakpoints
-@mixin bp($point) {
-  @if $point == 'baby' {
-    @media (min-width: $baby) { @content; }
+@mixin bp($size, $no-mqs: "none") {
+  @if $no-mqs == "none" {
+    @media screen and (min-width: $size) {
+      @content;
+    }
   }
-  @if $point == 'mama' {
-    @media (min-width: $mama) { @content; }
-  }
-  @if $point == 'papa' {
-    @media (min-width: $papa) { @content; }
+  @else if $no-mqs == "ie" {
+    .lt-ie9 & {
+      @content;
+    }
+    @media screen and (min-width: $size) {
+      @content;
+    }
   }
 }
 

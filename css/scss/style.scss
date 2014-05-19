@@ -10,18 +10,7 @@
 @import "normalize";
 @import "toolbox";
 @import "base";
-
-$baby:    30em; // 480px
-$mama:    48em; // 768px
-$papa:    64em; // 1024px
-
-$link:            #15c;
-$linkvisited:     $link;
-$linkhover:       darken($link, 20%);
-
-$font-family:     "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-size:       16;
-
+@import "variables";
 @import "typography";
 @import "layout";
 @import "print";
