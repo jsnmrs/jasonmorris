@@ -2,13 +2,31 @@
     @extend %clearfix;
     max-width: 90%;
     margin: 0 auto;
+    h1,
     p {
       margin-left: auto;
       margin-right: auto;
     }
 }
 
+header {
+  a {
+    display: block;
+    background-color: #ddd;
+    border-radius: .5em;
+    padding: .5em;
+    width: 2.5em;
+    text-align: center;
+  }
+}
+
 .post {
+  h1 {
+    max-width: em(512, 36);
+  }
+  p {
+    max-width: em(512);
+  }
   img {
     display: block;
     margin: 1em auto;
@@ -18,6 +36,7 @@
     color: #666;
     font-style: italic;
     margin: .5em 0 1.5em;
+    text-align: center;
   }
 }
 
@@ -45,4 +64,8 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.date {
+  color: #bbb;
 }

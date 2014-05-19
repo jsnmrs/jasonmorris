@@ -4,7 +4,7 @@ body {
 	font-size: 90%;
 	@include bp($small) { font-size: 95%; }
 	@include bp($medium) { font-size: 100%; }
-	@include bp($large) { font-size: 115%; }
+	@include bp($large) { font-size: 135%; }
 }
 
 a {
@@ -132,17 +132,12 @@ cite {
 }
 
 header {
-	text-align: center;
 	margin: 1em 0;
 }
 
 .post {
-	p {
-		max-width: 32em;
+	h1 {
+		text-align: left;
 	}
 }
 
-.date {
-	text-align: center;
-	color: #bbb;
-}
