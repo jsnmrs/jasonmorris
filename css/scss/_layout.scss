@@ -10,6 +10,7 @@
     }
 }
 
+/*
 header {
   background: $link;
   position: fixed;
@@ -26,6 +27,14 @@ header {
       color: #fff;
     }
   }
+}
+*/
+
+header {
+  background-color: #eee;
+  margin: 0;
+  padding: 2em;
+  text-align: center;
 }
 
 .post {
@@ -51,9 +60,13 @@ header {
 .feature {
   @extend %clearfix;
   max-width: 100%;
+  margin-bottom: 2em;
   article {
     width: 50%;
     float: left;
+    @include bp($medium) {
+      width: 25%;
+    }
   }
 }
 

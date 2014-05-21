@@ -1,11 +1,10 @@
 body {
 	font-family: $font-family;
 	font-weight: 400;
-	font-size: 90%;
+	font-size: 95%;
 	transition: font-size .5s ease;
-	@include bp($small) { font-size: 95%; }
-	@include bp($medium) { font-size: 120%; }
-	@include bp($large) { font-size: 145%; }
+	@include bp($medium) { font-size: 130%; }
+	@include bp($large) { font-size: 160%; }
 }
 
 a {
