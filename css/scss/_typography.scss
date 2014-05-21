@@ -2,9 +2,10 @@ body {
 	font-family: $font-family;
 	font-weight: 400;
 	font-size: 90%;
+	transition: font-size .5s ease;
 	@include bp($small) { font-size: 95%; }
-	@include bp($medium) { font-size: 100%; }
-	@include bp($large) { font-size: 135%; }
+	@include bp($medium) { font-size: 120%; }
+	@include bp($large) { font-size: 145%; }
 }
 
 a {
@@ -29,7 +30,7 @@ h4,
 h5,
 h6 {
 	text-rendering: optimizelegibility;
-	font-weight: 400;
+	font-weight: 700;
 }
 
 h1 {

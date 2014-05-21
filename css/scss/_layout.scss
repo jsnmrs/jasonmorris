@@ -1,7 +1,8 @@
 .page {
     @extend %clearfix;
+    position: relative;
     max-width: 90%;
-    margin: 0 auto;
+    margin: 1.5em auto 0;
     h1,
     p {
       margin-left: auto;
@@ -10,13 +11,20 @@
 }
 
 header {
+  background: $link;
+  position: fixed;
+  top: .3em;
+  left: .3em;
+  width: 2.5em;
+  margin-top: 0;
   a {
+    color: #fff;
     display: block;
-    background-color: #ddd;
-    border-radius: .5em;
     padding: .5em;
-    width: 2.5em;
     text-align: center;
+    &:visited {
+      color: #fff;
+    }
   }
 }
 
