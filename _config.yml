@@ -17,7 +17,4 @@ timezone: America/New_York
 paginate: 20
 paginate_path: ":num"
 
-gems:
-- jekyll-sitemap
-
 exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json]
