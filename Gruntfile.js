@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
     uglify: {
       plugins: {
-        src: ['js/vendor/jquery.js', 'js/vendor/fittext.js'],
+        src: ['js/vendor/jquery.js', 'js/vendor/fittext.js', 'js/vendor/fitvids.js'],
         dest: 'js/scripts.js'
       },
       shiv: {
