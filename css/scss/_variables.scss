@@ -7,5 +7,6 @@ $link:              #15c;
 $link-visited:      $link;
 $link-hover:        darken($link, 20%);
 
-$font-family:     "Source Serif Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family:       "Source Serif Pro", serif;
+$font-family-sans:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-size:       16;

@@ -15,9 +15,9 @@ header {
     font-size: 1.5em;
     width: 2em;
     height: 2em;
-    padding: .05em 0 0 .08em;
+    padding: 0 .05em;
     background-color: #fff;
-    box-shadow: 0 0 0 .1em rgba(0,0,0,.05), 0 0 0 .2em rgba(245, 246, 206, .7), 0 0 0 .4em rgba(0,0,0,.4);
+    box-shadow: 0 0 0 .1em rgba(0,0,0,.02), 0 0 0 .2em rgba(245, 246, 206, .7), 0 0 0 .4em rgba(0,0,0,.4);
     color: rgba(0,0,0,.4);
     border-radius: 1em;
     &:visited {
@@ -31,6 +31,7 @@ header {
 
 .post {
   h1 {
+    text-align: center;
     max-width: em(512, 36);
     margin-left: em(32, 36);
     margin-right: em(32, 36);
@@ -77,6 +78,7 @@ header {
 
 
 .info {
+  @extend %clearfix;
   padding: 9em 3em;
   background-attachment: fixed;
   margin-top: 5em;
@@ -94,8 +96,16 @@ header {
     background-position: top center;
     background-image: url("https://farm6.staticflickr.com/5482/14218273236_b0c8fc420d_h.jpg");
   }
+  .bio {
+    float: right;
+    width: 50%;
+    background-color: rgba(0,0,0,.7);
+    padding: 1em;
+    color: #fff;
+  }
 }
 
 .date {
   color: #999;
+  text-align: center;
 }
