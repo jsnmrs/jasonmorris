@@ -5,10 +5,28 @@
 }
 
 header {
-  background-color: #222;
-  margin: 0;
+  margin: 1em 0 0;
   padding: 1em;
   text-align: center;
+  a {
+    display: block;
+    margin: 0 auto;
+    line-height: 2em;
+    font-size: 1.5em;
+    width: 2em;
+    height: 2em;
+    padding: .05em 0 0 .08em;
+    background-color: #fff;
+    box-shadow: 0 0 0 .1em rgba(0,0,0,.05), 0 0 0 .2em rgba(245, 246, 206, .7), 0 0 0 .4em rgba(0,0,0,.4);
+    color: rgba(0,0,0,.4);
+    border-radius: 1em;
+    &:visited {
+      color: rgba(0,0,0,.4);
+    }
+    span {
+      @extend %visually-hide;
+    }
+  }
 }
 
 .post {
@@ -57,13 +75,14 @@ header {
   }
 }
 
+
 .info {
   padding: 9em 3em;
   background-attachment: fixed;
   margin-top: 5em;
   margin-bottom: 5em;
   background-image: url("https://farm6.staticflickr.com/5482/14218273236_2ecbf703ba.jpg");
-  background-position: top center;
+  background-position: center left;
   background-repeat: no-repeat;
   @include bp($small) {
     background-image: url("https://farm6.staticflickr.com/5482/14218273236_2ecbf703ba_c.jpg");
@@ -72,6 +91,7 @@ header {
     background-image: url("https://farm6.staticflickr.com/5482/14218273236_2ecbf703ba_b.jpg");
   }
   @include bp($large) {
+    background-position: top center;
     background-image: url("https://farm6.staticflickr.com/5482/14218273236_b0c8fc420d_h.jpg");
   }
 }
