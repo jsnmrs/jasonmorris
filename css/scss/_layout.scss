@@ -1,3 +1,6 @@
+body {
+  color: #222;
+}
 .page {
     @extend %clearfix;
     position: relative;
@@ -30,6 +33,16 @@ header {
     span {
       @extend %visually-hide;
     }
+  }
+}
+
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  margin: 1em 0 0;
+  padding: 1em 0;
+  p {
+    margin-bottom: 1em;
   }
 }
 
@@ -69,6 +82,9 @@ header {
   iframe {
     display: block;
     margin: 1em auto;
+  }
+  .video {
+    margin-bottom: 2em;
   }
   .caption {
     max-width: inherit;
