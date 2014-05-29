@@ -16,6 +16,9 @@ fittext: .65
               <!--[if IE 9]></video><![endif]-->
               <img srcset="{% if post.feature-image-320 %}{{ post.feature-image-320 }}{%else%}http://www.fillmurray.com/320/320{%endif%}" alt="{{ post.title }}">
             </picture>
+            <div class="post-title">
+              <h2>{{ post.title }}</h2>
+            </div>
           </a>
         </article>
       {% endfor %}
