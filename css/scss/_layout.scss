@@ -17,11 +17,15 @@ header {
     height: 2em;
     padding: 0 .05em;
     background-color: #fff;
-    box-shadow: 0 0 0 .1em rgba(0,0,0,.02), 0 0 0 .2em rgba(245, 246, 206, .7), 0 0 0 .4em rgba(0,0,0,.4);
-    color: rgba(0,0,0,.4);
+    box-shadow: 0 0 0 .1em #ccc, 0 0 0 .2em rgba(245, 246, 206, .7), 0 0 0 .4em rgba(0, 0, 0, .2);
+    color: rgba(0,0,0,.2);
     border-radius: 1em;
+    transition: box-shadow .5s ease, color .5s ease;
     &:visited {
       color: rgba(0,0,0,.4);
+    }
+    &:hover {
+      box-shadow: 0 0 0 .1em #ccc, 0 0 0 .2em rgba(245, 246, 206, .9), 0 0 0 .4em rgba(0, 0, 0, .8);
     }
     span {
       @extend %visually-hide;
@@ -48,6 +52,18 @@ header {
       margin-left: auto;
       margin-right: auto;
     }
+  }
+  ul {
+    max-width: em(512);
+    margin-left: em(32);
+    margin-right: em(32);
+    @include bp($small-medium) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  li {
+    margin-left: em(16);
   }
   img,
   iframe {
