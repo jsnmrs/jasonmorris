@@ -19,6 +19,18 @@ module.exports = function(grunt) {
       }
     },
 
+    scsslint: {
+      allFiles: [
+        'css/scss/*.scss',
+      ],
+      options: {
+        bundleExec: true,
+        config: '.scss-lint.yml',
+        reporterOutput: null,
+        colorizeOutput: true
+      },
+    },
+
     sass: {
       dist: {
         options: {
@@ -74,7 +86,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['css/scss/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'copy:css']
+        tasks: ['scsslint', 'sass', 'autoprefixer', 'copy:css']
       },
       jekyll: {
         files: ['*.html',
@@ -115,9 +127,10 @@ module.exports = function(grunt) {
   });
 
   require('load-grunt-tasks')(grunt);
+  require('time-grunt')(grunt);
 
-  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'jekyll']);
-  grunt.registerTask('layout', ['uglify', 'sass', 'autoprefixer', 'copy']);
+  grunt.registerTask('default', ['uglify', 'scsslint', 'sass', 'autoprefixer', 'jekyll']);
+  grunt.registerTask('layout', ['uglify', 'scsslint', 'sass', 'autoprefixer', 'copy']);
   grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
