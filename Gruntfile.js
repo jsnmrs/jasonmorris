@@ -34,7 +34,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          style: 'compressed',
+          sourcemap: true
         },
         files: {
           'css/style.css': 'css/scss/style.scss'
@@ -44,7 +45,8 @@ module.exports = function(grunt) {
 
     autoprefixer: {
       options: {
-        browsers: ['last 3 version', 'ie 8', 'ie 9']
+        browsers: ['last 3 version', 'ie 8', 'ie 9'],
+        map: true
       },
       target: {
         src: 'css/style.css'
