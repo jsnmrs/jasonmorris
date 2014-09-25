@@ -77,7 +77,7 @@ module.exports = function(grunt) {
       dest: "_site",
       options: {
         bundleExec: true,
-        drafts: false
+        drafts: true
       }
     },
 
