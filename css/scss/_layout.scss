@@ -70,7 +70,7 @@ footer {
       margin-right: auto;
     }
   }
-  ul {
+  ul, ol {
     max-width: em(512);
     margin-left: em(32);
     margin-right: em(32);
@@ -80,7 +80,8 @@ footer {
     }
   }
   li {
-    margin-left: em(16);
+    margin-left: em(32);
+    margin-bottom: em(8);
   }
   img,
   iframe {
