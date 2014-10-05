@@ -5,10 +5,6 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     uglify: {
-      plugins: {
-        src: ['js/vendor/jquery.js', 'js/vendor/fittext.js', 'js/vendor/fitvids.js'],
-        dest: 'js/scripts.js'
-      },
       shiv: {
         src: ['js/vendor/html5shiv.js'],
         dest: 'js/html5shiv.js'
