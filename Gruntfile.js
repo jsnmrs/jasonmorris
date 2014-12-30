@@ -36,42 +36,29 @@ module.exports = function(grunt) {
       },
     },
 
-    copy: {
-      js: {
-        expand: true,
-        src: ['js/scripts/*'],
-        dest: '_site/js/scripts/',
-        filter: 'isFile'
-      },
-      css: {
-        src: 'css/style.css',
-        dest: '_site/css/style.css',
-      },
-    },
-
     open: {
       dev: {
         path: 'http://127.0.0.1:4000/'
       }
     },
 
-    jekyll: {
-      src: ".",
-      dest: "_site",
-      options: {
-        bundleExec: true,
-        drafts: false
+    shell: {
+      jekyllServe: {
+        command: "bundle exec jekyll serve --baseurl="
+      },
+      jekyllBuild: {
+        command: "bundle exec jekyll build --config _config-dev.yml"
       }
     },
 
     watch: {
       scripts: {
         files: ['js/vendor/*.js'],
-        tasks: ['uglify', 'copy:js']
+        tasks: ['uglify', 'shell:jekyllBuild']
       },
       css: {
         files: ['css/scss/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'copy:css']
+        tasks: ['sass', 'autoprefixer', 'shell:jekyllBuild']
       },
       jekyll: {
         files: ['*.html',
@@ -114,9 +101,9 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
-  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'jekyll']);
-  grunt.registerTask('layout', ['uglify', 'sass', 'autoprefixer', 'copy']);
-  grunt.registerTask('work', ['jekyll', 'layout', 'connect', 'open', 'watch']);
+  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'shell:jekyllBuild']);
+  grunt.registerTask('layout', ['uglify', 'sass', 'autoprefixer', 'shell:jekyllBuild', 'watch']);
+  grunt.registerTask('serve', ['shell:jekyllBuild']);
   grunt.registerTask('update', ['devUpdate']);
 
 };

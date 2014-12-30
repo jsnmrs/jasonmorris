@@ -1,6 +1,6 @@
 name: Jason Morris
 description: Personal site of Jason Morris
-url: http://jasonmorris.com
+url: ""
 
 twitter: jsnmrs
 github: jsnmrs
@@ -15,7 +15,7 @@ timezone: America/New_York
 paginate: 20
 paginate_path: ":num"
 
-exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json]
+exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json, .git, .gitignore, .DS_Store, readme.md]
 
 gems:
 - jekyll-redirect-from
