@@ -43,9 +43,6 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      jekyllServe: {
-        command: "bundle exec jekyll serve --baseurl="
-      },
       jekyllBuild: {
         command: "bundle exec jekyll build --config _config-dev.yml"
       }
@@ -68,7 +65,7 @@ module.exports = function(grunt) {
                 '_drafts/*.md',
                 '_posts/*.html',
                 '_posts/*.md'],
-        tasks: ['jekyll']
+        tasks: ['shell:jekyllBuild']
       }
     },
 
@@ -102,8 +99,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'shell:jekyllBuild']);
-  grunt.registerTask('layout', ['uglify', 'sass', 'autoprefixer', 'shell:jekyllBuild', 'watch']);
-  grunt.registerTask('serve', ['shell:jekyllBuild']);
+  grunt.registerTask('work', ['default', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };
