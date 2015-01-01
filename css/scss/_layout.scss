@@ -22,9 +22,9 @@ body {
     }
     &.intro {
       color: #fff;
-      padding: 2.85em .25em .25em;
+      padding: 3.5em .25em .25em;
       @include bp($medium) {
-        padding-top: 3em;
+        padding-top: 2.5em;
       }
       h1, span {
         margin: 0;
