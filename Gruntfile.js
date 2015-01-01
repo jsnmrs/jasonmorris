@@ -36,6 +36,19 @@ module.exports = function(grunt) {
       },
     },
 
+    copy: {
+      js: {
+        expand: true,
+        src: ['js/scripts/*'],
+        dest: '_site/js/scripts/',
+        filter: 'isFile'
+      },
+      css: {
+        src: 'css/style.css',
+        dest: '_site/css/style.css',
+      },
+    },
+
     open: {
       dev: {
         path: 'http://127.0.0.1:4000/'
@@ -51,11 +64,11 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['js/vendor/*.js'],
-        tasks: ['uglify', 'shell:jekyllBuild']
+        tasks: ['uglify', 'copy:js']
       },
       css: {
         files: ['css/scss/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'shell:jekyllBuild']
+        tasks: ['sass', 'autoprefixer', 'copy:css']
       },
       jekyll: {
         files: ['*.html',
@@ -99,6 +112,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'shell:jekyllBuild']);
+  grunt.registerTask('layout', ['connect', 'open', 'watch']);
   grunt.registerTask('work', ['default', 'connect', 'open', 'watch']);
   grunt.registerTask('update', ['devUpdate']);
 
