@@ -22,29 +22,17 @@ body {
     }
     &.intro {
       color: #fff;
-      padding: 3.5em .25em .25em;
-      @include bp($medium) {
-        padding-top: 2.5em;
-      }
-      h1, span {
+      h1 {
         margin: 0;
-        padding: 0;
+        padding: 18% 0;
         font-size: 13vw;
         font-weight: 400;
         text-align: center;
         @include bp($medium) {
-          font-size: 8vw;
+          font-size: 6vw;
         }
       }
-      span {
-        display: block;
-        font-size: 11vw;
-        margin-top:-.25em;
-        color: rgba(255,255,255,.8);
-        @include bp($medium) {
-          font-size: 6.75vw;
-        }
-      }
+
     }
     .post-title {
       position: absolute;
