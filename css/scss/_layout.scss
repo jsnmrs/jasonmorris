@@ -22,45 +22,53 @@ body {
     }
     &.intro {
       color: #fff;
-      padding: 2.5em .25em .25em;
+      padding: 2.85em .25em .25em;
       @include bp($medium) {
-        padding-top: 1.55em;
+        padding-top: 3em;
       }
       h1, span {
         margin: 0;
         padding: 0;
-        font-size: 15vw;
+        font-size: 13vw;
         font-weight: 400;
         text-align: center;
         @include bp($medium) {
-          font-size: 8.8vw;
+          font-size: 8vw;
         }
       }
       span {
         display: block;
-        font-size: 13vw;
+        font-size: 11vw;
         margin-top:-.25em;
         color: rgba(255,255,255,.8);
         @include bp($medium) {
-          font-size: 7.25vw;
+          font-size: 6.75vw;
         }
       }
     }
     .post-title {
       position: absolute;
-      bottom: 0;
-      color: #fff;
-      opacity: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, .55);
+      bottom: 0;
+      right: 0;
+      color: #fff;
+      opacity: 0;
+      background: rgba(0, 0, 0, .65);
       transition: all 0.2s ease-in-out;
       h2 {
-        margin: 1em;
-        font-size: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.25em;
+        margin-top: 0;
         &:after {
           font-weight: 400;
           content:'\00a0\2192';
+        }
+        @include bp($medium) {
+          font-size: 1.25em;
         }
       }
       &:hover {
