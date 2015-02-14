@@ -6,6 +6,11 @@ twitter: jsnmrs
 github: jsnmrs
 gravatar_url: http://s.gravatar.com/avatar/1b78531c35d3fa8239f8f7a982260c81
 
+# Local server settings
+port: 4000
+host: 127.0.0.1
+
+
 lsi: false
 markdown: kramdown
 source: .
