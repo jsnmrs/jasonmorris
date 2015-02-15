@@ -2,12 +2,6 @@ scss_files: 'css/scss/*.scss'
 
 linters:
 
-  QualifyingElement:
-    enabled: false
-
-  VendorPrefixes:
-    enabled: false
-
   Indentation:
     severity: warning
     width: 2
