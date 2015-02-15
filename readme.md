@@ -1,4 +1,4 @@
-# jasonmorris.com ![Build status](https://travis-ci.org/jsnmrs/jsnmrs.github.io.svg?branch=master)
+# jasonmorris.com ![Build status](https://travis-ci.org/jsnmrs/jsnmrs.github.io.svg?branch=master) [![Dependency Status](https://gemnasium.com/jsnmrs/jsnmrs.github.io.svg)](https://gemnasium.com/jsnmrs/jsnmrs.github.io)
 This is the code repository for my personal website. Take a look :eyes:
 
 ## Borrowed techniques:
