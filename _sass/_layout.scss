@@ -22,6 +22,12 @@ body {
     @include bp($medium) {
       width: 25%;
     }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
