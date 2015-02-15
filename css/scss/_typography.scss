@@ -1,19 +1,21 @@
 body {
-	font-family: $font-family;
-	font-weight: 400;
-	font-size: 95%;
-	transition: font-size .5s ease;
-	@include bp($medium) { font-size: 130%; }
-	@include bp($large) { font-size: 160%; }
+  font-family: $font-family;
+  font-size: 95%;
+  font-weight: 400;
+  transition: font-size .5s ease;
+  @include bp($medium) { font-size: 130%; }
+  @include bp($large) { font-size: 160%; }
 }
 
 a {
   color: $link;
   text-decoration: none;
+
   &:visited {
     color: $link-visited;
     text-decoration: none;
   }
+
   &:hover,
   &:focus,
   &:active {
@@ -28,115 +30,116 @@ h3,
 h4,
 h5,
 h6 {
-	text-rendering: optimizelegibility;
-	font-weight: 700;
+  font-weight: 700;
+  text-rendering: optimizelegibility;
 }
 
 h1 {
-	font-size: em(36);
-	line-height: 1.2;
-	margin: 0.5em 0 0.25em 0;
-	text-align: center;
+  font-size: em(36);
+  line-height: 1.2;
+  margin: .5em 0 .25em;
+  text-align: center;
 }
 
 h2 {
-	font-size: em(30);
-	line-height: em(36, 30);
-	margin-bottom: em(24, 30);
+  font-size: em(30);
+  line-height: em(36, 30);
+  margin-bottom: em(24, 30);
 }
 
 h3 {
-	font-size: em(24);
-	line-height: em(24, 24);
-	margin-bottom: em(24, 24);
+  font-size: em(24);
+  line-height: em(24, 24);
+  margin-bottom: em(24, 24);
 }
 
 h4 {
-	font-size: em(21);
-	line-height: em(24, 21);
-	margin-bottom: em(24, 21);
+  font-size: em(21);
+  line-height: em(24, 21);
+  margin-bottom: em(24, 21);
 }
 
 h5 {
-	font-size: em(18);
-	line-height: em(24, 18);
-	margin-bottom: em(24, 18);
+  font-size: em(18);
+  line-height: em(24, 18);
+  margin-bottom: em(24, 18);
 }
 
 h6 {
-	font-size: em(16);
-	line-height: em(24);
-	margin-bottom: em(24);
+  font-size: em(16);
+  line-height: em(24);
+  margin-bottom: em(24);
 }
 
 p {
-	font-size: em(16);
-	line-height: em(24);
-	margin-bottom: em(24);
+  font-size: em(16);
+  line-height: em(24);
+  margin-bottom: em(24);
 }
 
 ul,
 ol {
-	padding: 0;
-	margin: 0 0 em(24) em(32);
+  margin: 0 0 em(24) em(32);
+  padding: 0;
 }
 
 ul {
-	list-style-type: circle;
+  list-style-type: circle;
 }
 
 li {
-	line-height: em(24);
+  line-height: em(24);
 }
 
 dl {
-	margin-bottom: em(16);
+  margin-bottom: em(16);
 }
 
 dt,
 dd {
-	line-height: em(24);
+  line-height: em(24);
 }
 
 dt {
-	font-weight: bold;
-	margin-top: em(10);
+  font-weight: bold;
+  margin-top: em(10);
 }
 
 dd {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 em {
-	font-style: italic;
+  font-style: italic;
 }
 
 cite {
-	font-style: normal;
+  font-style: normal;
 }
 
 .unstyled {
-	margin-left: 0;
-	list-style: none;
+  list-style: none;
+  margin-left: 0;
 }
 
 .inline {
-	margin-left: 0;
-	list-style: none;
-	& > li {
-		display: inline-block;
-  	vertical-align: baseline;
-		padding-left: em(5);
-		padding-right: em(5);
-	}
+  list-style: none;
+  margin-left: 0;
+
+  > li {
+    display: inline-block;
+    padding-left: em(5);
+    padding-right: em(5);
+    vertical-align: baseline;
+  }
 }
 
 .post {
-	h1 {
-		text-align: left;
-	}
+  h1 {
+    text-align: left;
+  }
 }

@@ -1,7 +1,7 @@
-@import "normalize";
-@import "toolbox";
-@import "base";
-@import "webfont";
+@import 'normalize';
+@import 'toolbox';
+@import 'base';
+@import 'webfont';
 
 $small:             30em;   // 480px
 $small-medium:      37.5em; // 600px
@@ -14,6 +14,6 @@ $font-family:       "Source Serif Pro", serif;
 $font-family-sans:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-size:         16;
 
-@import "typography";
-@import "layout";
-@import "print";
+@import 'typography';
+@import 'layout';
+@import 'print';
