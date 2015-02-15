@@ -20,7 +20,7 @@ timezone: America/New_York
 paginate: 20
 paginate_path: ":num"
 
-exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json]
+exclude: [node_modules, Gemfile, Gemfile.lock, Gruntfile.js, package.json, js/vendor]
 
 gems:
 - jekyll-redirect-from
