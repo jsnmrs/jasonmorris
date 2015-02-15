@@ -10,6 +10,9 @@ gravatar_url: http://s.gravatar.com/avatar/1b78531c35d3fa8239f8f7a982260c81
 port: 4000
 host: 127.0.0.1
 
+sass:
+  sass_dir: _sass
+  style: :compressed
 
 lsi: false
 markdown: kramdown
