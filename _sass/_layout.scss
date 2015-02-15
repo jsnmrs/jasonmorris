@@ -148,3 +148,25 @@ body {
   color: #999;
   text-align: center;
 }
+
+.back {
+  background: rgba(0, 0, 0, .75);
+  border-radius: .75em;
+  color: #fff;
+  display: block;
+  font-size: 1.5em;
+  margin: 2em auto;
+  max-width: 3em;
+  padding: .75em;
+  text-align: center;
+  transition: all .3s ease-in-out;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba(0, 0, 0, .45);
+  }
+}
