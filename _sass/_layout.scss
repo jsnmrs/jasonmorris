@@ -18,7 +18,7 @@
     position: relative;
     width: 50%;
 
-    @include bp($medium) {
+    @include bp($small-medium) {
       width: 25%;
     }
 
@@ -39,7 +39,7 @@
     padding: 18% 0;
     text-align: center;
 
-    @include bp($medium) {
+    @include bp($small-medium) {
       font-size: 6vw;
     }
   }
