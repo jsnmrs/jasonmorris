@@ -1,7 +1,6 @@
 ---
 layout: home
 title:
-fittext: .65
 ---
 
 <section class="feature">
@@ -12,7 +11,7 @@ fittext: .65
       {% for post in paginator.posts %}
         <article>
           <a href="{{ post.url }}">
-            <img src="{% if post.feature-image-320 %}{{ post.feature-image-320 }}{%else%}http://www.fillmurray.com/320/320{%endif%}" srcset="{% if post.feature-image-800 %}{{ post.feature-image-800 }}{%else%}http://www.fillmurray.com/800/800{%endif%} 640w, {% if post.feature-image-1000 %}{{ post.feature-image-1000 }}{%else%}http://www.fillmurray.com/1000/1000{%endif%} 800w" alt="{{ post.title }}">
+            <img src="{% if post.feature-image-320 %}{{ post.feature-image-320 }}{%else%}http://www.fillmurray.com/320/320{%endif%}" srcset="{% if post.feature-image-800 %}{{ post.feature-image-800 }}{%else%}http://www.fillmurray.com/800/800{%endif%} 640w" alt="{{ post.title }}">
             <div class="post-title">
               <h2>{{ post.title }}</h2>
             </div>

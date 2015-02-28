@@ -1,3 +1,7 @@
+.home {
+  background: rgba(0, 0, 0, .9);
+}
+
 .page {
   @extend %clearfix;
   margin: 0 auto;
@@ -6,7 +10,6 @@
 
 .feature {
   @extend %clearfix;
-  background: rgba(0, 0, 0, .9);
   margin-bottom: 0;
   max-width: 100%;
 
