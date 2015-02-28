@@ -1,4 +1,5 @@
 body {
+  color: $body-color;
   font-family: $font-family;
   font-size: 95%;
   font-weight: 400;
@@ -27,59 +28,45 @@ a {
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
+h4 {
+  font-weight: 600;
   text-rendering: optimizelegibility;
 }
 
 h1 {
-  font-size: em(36);
+  font-size: 2.25em;
   line-height: 1.2;
   margin: .5em 0 .25em;
   text-align: center;
 }
 
 h2 {
-  font-size: em(30);
-  line-height: em(36, 30);
-  margin-bottom: em(24, 30);
+  font-size: 1.875em;
+  line-height: 1.2;
+  margin-bottom: .8em;
 }
 
 h3 {
-  font-size: em(24);
-  line-height: em(24, 24);
-  margin-bottom: em(24, 24);
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
 }
 
 h4 {
-  font-size: em(21);
-  line-height: em(24, 21);
-  margin-bottom: em(24, 21);
-}
-
-h5 {
-  font-size: em(18);
-  line-height: em(24, 18);
-  margin-bottom: em(24, 18);
-}
-
-h6 {
-  font-size: em(16);
-  line-height: em(24);
-  margin-bottom: em(24);
+  font-size: 1.3125em;
+  line-height: 1.143;
+  margin-bottom: 1.143em;
 }
 
 p {
-  font-size: em(16);
-  line-height: em(24);
-  margin-bottom: em(24);
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
 }
 
 ul,
 ol {
-  margin: 0 0 em(24) em(32);
+  margin: 0 0 1.5em 2em;
   padding: 0;
 }
 
@@ -88,21 +75,21 @@ ul {
 }
 
 li {
-  line-height: em(24);
+  line-height: 1.5;
 }
 
 dl {
-  margin-bottom: em(16);
+  margin-bottom: 1;
 }
 
 dt,
 dd {
-  line-height: em(24);
+  line-height: 1.5;
 }
 
 dt {
-  font-weight: bold;
-  margin-top: em(10);
+  font-weight: 600;
+  margin-top: .625em;
 }
 
 dd {
@@ -115,27 +102,6 @@ strong {
 
 em {
   font-style: italic;
-}
-
-cite {
-  font-style: normal;
-}
-
-.unstyled {
-  list-style: none;
-  margin-left: 0;
-}
-
-.inline {
-  list-style: none;
-  margin-left: 0;
-
-  > li {
-    display: inline-block;
-    padding-left: em(5);
-    padding-right: em(5);
-    vertical-align: baseline;
-  }
 }
 
 .post {

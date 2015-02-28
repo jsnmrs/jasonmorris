@@ -1,23 +1,7 @@
-// Convert px to em
-@function em($pixels, $context: $base-size) {
-  @return #{($pixels / ($pixels * 0 + 1)) / ($context / ($context * 0 + 1))}em;
-}
-
-
 // Breakpoints
-@mixin bp($size, $no-mqs: 'none') {
-  @if $no-mqs == 'none' {
-    @media screen and (min-width: $size) {
-      @content;
-    }
-  } @else if $no-mqs == 'ie' {
-    .lt-ie9 & {
-      @content;
-    }
-
-    @media screen and (min-width: $size) {
-      @content;
-    }
+@mixin bp($size) {
+  @media screen and (min-width: $size) {
+    @content;
   }
 }
 
