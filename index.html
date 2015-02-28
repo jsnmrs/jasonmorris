@@ -11,7 +11,7 @@ title:
       {% for post in paginator.posts %}
         <article>
           <a href="{{ post.url }}">
-            <img src="{% if post.feature-image-320 %}{{ post.feature-image-320 }}{%else%}http://www.fillmurray.com/320/320{%endif%}" srcset="{% if post.feature-image-800 %}{{ post.feature-image-800 }}{%else%}http://www.fillmurray.com/800/800{%endif%} 640w" alt="{{ post.title }}">
+            <img src="{% if post.feature-image-320 %}{{ post.feature-image-320 }}{%else%}http://www.fillmurray.com/320/320{%endif%}" srcset="{% if post.feature-image-640 %}{{ post.feature-image-640 }}{%else%}http://www.fillmurray.com/640/640{%endif%} 640w" alt="{{ post.title }}">
             <div class="post-title">
               <h2>{{ post.title }}</h2>
             </div>
