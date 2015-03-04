@@ -29,7 +29,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
+  color: $black;
+  font-weight: 400;
   text-rendering: optimizelegibility;
 }
 
@@ -88,7 +89,8 @@ dd {
 }
 
 dt {
-  font-weight: 600;
+  color: $black;
+  font-weight: 400;
   margin-top: .625em;
 }
 
