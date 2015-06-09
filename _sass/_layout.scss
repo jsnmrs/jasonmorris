@@ -171,4 +171,8 @@
   &:focus {
     background: rgba(0, 0, 0, .45);
   }
+
+  span {
+    @extend %visually-hide;
+  }
 }
