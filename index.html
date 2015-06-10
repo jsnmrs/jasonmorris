@@ -14,7 +14,7 @@ class: home
           <a href="{{ post.url }}">
             <img src="{% if post.feature-image-500 %}{{ post.feature-image-500 }}{%else%}http://www.fillmurray.com/500/500{%endif%}" alt=" ">
             <div class="post-title">
-              <h2>{{ post.title }}</h2>
+              <h2>{{ post.title }}<span aria-hidden="true"> &rarr;</span></h2>
             </div>
           </a>
         </article>

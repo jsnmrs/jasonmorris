@@ -70,11 +70,6 @@
     @include bp($medium) {
       font-size: 1.25em;
     }
-
-    &:after {
-      content: '\00a0\2192';
-      font-weight: 400;
-    }
   }
 
   &:hover {
@@ -172,7 +167,7 @@
     background: rgba(0, 0, 0, .45);
   }
 
-  span {
+  .visuallyhidden {
     @extend %visually-hide;
   }
 }
