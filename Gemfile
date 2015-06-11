@@ -6,4 +6,5 @@ group :test do
   gem 'rake'
   gem 'html-proofer'
   gem 'scss-lint'
+  gem 'ra11y'
 end
