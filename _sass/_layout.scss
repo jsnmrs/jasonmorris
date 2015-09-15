@@ -10,16 +10,29 @@
 
 .feature {
   @extend %clearfix;
+  float: left;
   margin-bottom: 0;
-  max-width: 100%;
+  max-width: 66.6%;
+
+  @include bp($small) {
+    max-width: 75%;
+  }
+
+  @include bp($medium) {
+    max-width: 66.6%;
+  }
 
   article {
     float: left;
     position: relative;
-    width: 50%;
+    width: 100%;
+
+    @include bp($small) {
+      width: 50%;
+    }
 
     @include bp($medium) {
-      width: 25%;
+      width: 33.3%;
     }
 
     a {
@@ -35,9 +48,9 @@
 
   h1 {
     color: $white;
-    font-size: 13vw;
+    font-size: 9vw;
     margin: 0;
-    padding: 18% 0;
+    padding: 16% 0;
     text-align: center;
 
     @include bp($medium) {
@@ -59,7 +72,7 @@
 
   h2 {
     color: $white;
-    font-size: 1.75em;
+    font-size: 1em;
     left: 50%;
     margin-top: 0;
     position: absolute;
@@ -67,13 +80,53 @@
     transform: translate(-50%, -50%);
     width: 70%;
 
-    @include bp($medium) {
+    @include bp($large) {
       font-size: 1.25em;
     }
   }
 
   &:hover {
     opacity: 1;
+  }
+}
+
+.photos {
+  @extend %clearfix;
+  background-color: $white;
+  float: left;
+  margin-bottom: 0;
+  max-width: 33.3%;
+
+  @include bp($small) {
+    max-width: 25%;
+  }
+
+  @include bp($medium) {
+    max-width: 33.3%;
+  }
+
+  article {
+    float: left;
+    position: relative;
+    width: 100%;
+
+    @include bp($medium) {
+      width: 50%;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  h2 {
+    font-size: .75em;
+
+    @include bp($medium) {
+      font-size: 1em;
+    }
   }
 }
 
