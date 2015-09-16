@@ -36,7 +36,6 @@
 }
 
 .photos {
-  background-color: $white;
   max-width: 25%;
   @include bp($medium) { max-width: 33.3%; }
 
@@ -46,9 +45,9 @@
   }
 
   .loading {
-    display: block;
-    height: 100vh;
-    width: 33.3vw;
+    color: $gray;
+    font-size: .5em;
+    margin: 3em 1em
   }
 }
 
