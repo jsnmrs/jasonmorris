@@ -23,8 +23,12 @@ timezone: America/New_York
 paginate: 20
 paginate_path: ":num"
 
+feed:
+  path: atom.xml
+
 exclude: [Gemfile, Gemfile.lock]
 
 gems:
+- jekyll-feed
 - jekyll-redirect-from
 - jekyll-sitemap
