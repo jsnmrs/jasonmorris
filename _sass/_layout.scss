@@ -8,38 +8,47 @@
   position: relative;
 }
 
-.feature {
+.block {
   @extend %clearfix;
   float: left;
   margin-bottom: 0;
-  max-width: 66.6%;
 
-  @include bp($small) {
-    max-width: 75%;
-  }
-
-  @include bp($medium) {
-    max-width: 66.6%;
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   article {
     float: left;
     position: relative;
+  }
+}
+
+.feature {
+  max-width: 75%;
+  @include bp($medium) { max-width: 66.6%; }
+
+  article {
+    width: 50%;
+    @include bp($medium) { width: 33.3%; }
+  }
+}
+
+.photos {
+  background-color: $white;
+  max-width: 25%;
+  @include bp($medium) { max-width: 33.3%; }
+
+  article {
     width: 100%;
+    @include bp($medium) { width: 50%; }
+  }
 
-    @include bp($small) {
-      width: 50%;
-    }
-
-    @include bp($medium) {
-      width: 33.3%;
-    }
-
-    a {
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
+  .loading {
+    display: block;
+    height: 100vh;
+    width: 33.3vw;
   }
 }
 
@@ -82,51 +91,15 @@
 
     @include bp($large) {
       font-size: 1.25em;
+
+      .photos & {
+        font-size: 1em;
+      }
     }
   }
 
   &:hover {
     opacity: 1;
-  }
-}
-
-.photos {
-  @extend %clearfix;
-  background-color: $white;
-  float: left;
-  margin-bottom: 0;
-  max-width: 33.3%;
-
-  @include bp($small) {
-    max-width: 25%;
-  }
-
-  @include bp($medium) {
-    max-width: 33.3%;
-  }
-
-  article {
-    float: left;
-    position: relative;
-    width: 100%;
-
-    @include bp($medium) {
-      width: 50%;
-    }
-
-    a {
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  h2 {
-    font-size: .75em;
-
-    @include bp($medium) {
-      font-size: 1em;
-    }
   }
 }
 

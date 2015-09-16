@@ -16,36 +16,15 @@
     content: ' (' attr(href) ')';
   }
 
-  // scss-lint:disable QualifyingElement
-  abbr[title]:after {
-    content: ' (' attr(title) ')';
-  }
-
   // Don't show links for images, or javascript/internal links
   // scss-lint:disable QualifyingElement
-  .ir a:after,
-  a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: '';
   }
 
-  pre,
-  blockquote {
-    border: 1px solid $gray-light;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group; // h5bp.com/t
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
   img {
     max-width: 100%;
+    page-break-inside: avoid;
   }
 
   @page {
