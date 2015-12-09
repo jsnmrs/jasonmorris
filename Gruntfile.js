@@ -30,6 +30,12 @@ module.exports = function(grunt) {
       }
     },
 
+    shell: {
+      build: {
+        command: 'bundle exec jekyll build'
+      }
+    },
+
     htmllint: {
       all: {
         options: {
@@ -94,6 +100,7 @@ module.exports = function(grunt) {
   grunt.registerTask('audit-html', ['htmllint']);
   grunt.registerTask('audit-scss', ['scsslint']);
   grunt.registerTask('audit-a11y', ['accessibility']);
+  grunt.registerTask('build-test', ['shell', 'htmllint', 'accessibility', 'scsslint']);
   grunt.registerTask('update', ['devUpdate']);
 
 };

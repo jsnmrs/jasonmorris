@@ -16,6 +16,7 @@
     "grunt-dev-update": "^1.0.1",
     "grunt-html": "^5.0.1",
     "grunt-scss-lint": "^0.3.8",
+    "grunt-shell": "^1.1.2",
     "js-yaml": "^3.4.6",
     "load-grunt-tasks": "^3.1.0",
     "tap-spec": "~4.1.1",
@@ -23,7 +24,7 @@
     "time-grunt": "^1.2.2"
   },
   "scripts": {
-    "test": "tape _test/jasonmorris.test.js | tap-spec && grunt audit-html && grunt audit-a11y"
+    "test": "tape _test/jasonmorris.test.js | tap-spec && grunt build-test"
   },
   "author": "Jason Morris"
 }
