@@ -26,7 +26,7 @@ paginate_path: ":num"
 feed:
   path: atom.xml
 
-exclude: [Gemfile, Gemfile.lock]
+exclude: [Gemfile, Gemfile.lock, node_modules]
 
 gems:
 - jekyll-feed
