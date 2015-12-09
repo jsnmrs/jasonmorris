@@ -1,8 +1,8 @@
 language: node_js
 node_js: "stable"
-rvm: 2.1
+rvm:
+  - 2.1
 before_install:
-  - ruby -v
   - gem install bundler
   - bundle install
   - npm install -g grunt-cli
