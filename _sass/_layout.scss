@@ -43,7 +43,7 @@
 }
 
 .feature {
-  max-width: 75%;
+  max-width: 79.95%;
   @include bp($medium) { max-width: 66.6%; }
 
   article {
@@ -53,7 +53,7 @@
 }
 
 .photos {
-  max-width: 25%;
+  max-width: 20.05%;
   @include bp($medium) { max-width: 33.3%; }
 
   article {
@@ -79,11 +79,12 @@
     color: $white;
     font-size: 9vw;
     margin: 0;
-    padding: 16% 0;
+    padding: 25% 0;
     text-align: center;
 
     @include bp($medium) {
       font-size: 6vw;
+      padding: 20% 0;
     }
   }
 }
