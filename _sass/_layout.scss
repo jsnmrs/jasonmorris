@@ -1,5 +1,5 @@
 .home {
-  background: rgba(0, 0, 0, .9);
+  background: rgba($black, .9);
 
   h1 {
     @extend %visually-hide;
@@ -89,7 +89,7 @@
 }
 
 .post-title {
-  background: rgba(0, 0, 0, .65);
+  background: rgba($black, .65);
   bottom: 0;
   color: $white;
   height: 100%;
@@ -209,7 +209,7 @@
 }
 
 .back {
-  background: rgba(0, 0, 0, .75);
+  background: rgba($black, .75);
   border-radius: .75em;
   color: $white;
   display: block;
@@ -226,6 +226,6 @@
 
   &:hover,
   &:focus {
-    background: rgba(0, 0, 0, .45);
+    background: rgba($black, .45);
   }
 }
