@@ -3,10 +3,10 @@ scss_files: '_sass/*.scss'
 exclude: '_sass/_normalize.scss'
 
 linters:
-
   Indentation:
     severity: warning
     width: 2
-
   NestingDepth:
+    enabled: false
+  PseudoElement:
     enabled: false
