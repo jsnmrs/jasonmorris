@@ -8,7 +8,7 @@
     <meta name="description" content="{{ site.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
-    <script src="/js/picturefill.js" async></script>
+    {% if page.class != "home" %}<script src="/js/picturefill.js" async></script>{% endif %}
     <style type="text/css">
       {% capture include_to_scssify %}
         {% include style.scss %}
