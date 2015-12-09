@@ -52,43 +52,6 @@
   }
 }
 
-.photos {
-  max-width: 20.05%;
-  @include bp($medium) { max-width: 33.3%; }
-
-  article {
-    width: 100%;
-    @include bp($medium) { width: 50%; }
-  }
-
-  h2 {
-    @extend %visually-hide;
-  }
-
-  .loading {
-    color: $gray;
-    font-size: .5em;
-    margin: 3em 1em;
-  }
-}
-
-.intro {
-  color: $white;
-
-  h3 {
-    color: $white;
-    font-size: 9vw;
-    margin: 0;
-    padding: 25% 0;
-    text-align: center;
-
-    @include bp($medium) {
-      font-size: 6vw;
-      padding: 20% 0;
-    }
-  }
-}
-
 .post-title {
   background: rgba($black, .65);
   bottom: 0;
@@ -113,15 +76,53 @@
 
     @include bp($large) {
       font-size: 1.25em;
-
-      .photos & {
-        font-size: 1em;
-      }
     }
   }
 
   &:hover {
     opacity: 1;
+  }
+}
+
+.photos {
+  max-width: 20.05%;
+  @include bp($medium) { max-width: 33.3%; }
+
+  article {
+    width: 100%;
+    @include bp($medium) { width: 50%; }
+  }
+
+  h2 {
+    @extend %visually-hide;
+  }
+
+  .loading {
+    color: $gray;
+    font-size: .5em;
+    margin: 3em 1em;
+  }
+
+  .post-title {
+    font-size: .8em;
+    @include bp($medium) { font-size: .9em; }
+  }
+}
+
+.intro {
+  color: $white;
+
+  h3 {
+    color: $white;
+    font-size: 9vw;
+    margin: 0;
+    padding: 25% 0;
+    text-align: center;
+
+    @include bp($medium) {
+      font-size: 6vw;
+      padding: 20% 0;
+    }
   }
 }
 
