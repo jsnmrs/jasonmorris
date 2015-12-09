@@ -21,11 +21,20 @@
     display: block;
     height: 100%;
     width: 100%;
+
+    &:focus {
+      outline: 1px solid $white;
+
+      .post-title {
+        opacity: 1;
+      }
+    }
   }
 
   article {
     float: left;
     position: relative;
+
   }
 
   h2 {
