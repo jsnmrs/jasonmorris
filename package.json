@@ -22,7 +22,7 @@
     "time-grunt": "^1.2.2"
   },
   "scripts": {
-    "test": "tape _test/jasonmorris.test.js | tap-spec"
+    "test": "tape _test/jasonmorris.test.js | tap-spec && scss-lint _sass/*.scss"
   },
   "author": "Jason Morris"
 }
