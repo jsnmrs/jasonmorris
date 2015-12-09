@@ -1,5 +1,9 @@
 .home {
   background: rgba(0, 0, 0, .9);
+
+  h1 {
+    @extend %visually-hide;
+  }
 }
 
 .page {
@@ -23,6 +27,10 @@
     float: left;
     position: relative;
   }
+
+  h2 {
+    @extend %visually-hide;
+  }
 }
 
 .feature {
@@ -44,6 +52,10 @@
     @include bp($medium) { width: 50%; }
   }
 
+  h2 {
+    @extend %visually-hide;
+  }
+
   .loading {
     color: $gray;
     font-size: .5em;
@@ -54,7 +66,7 @@
 .intro {
   color: $white;
 
-  h1 {
+  h3 {
     color: $white;
     font-size: 9vw;
     margin: 0;
@@ -78,7 +90,8 @@
   transition: all .2s ease-in-out;
   width: 100%;
 
-  h2 {
+  h2,
+  h3 {
     color: $white;
     font-size: 1em;
     left: 50%;
@@ -145,6 +158,8 @@
 
   img,
   iframe {
+    background-color: $white;
+    color: $black;
     display: block;
     margin: 1em auto;
   }
@@ -162,12 +177,10 @@
   }
 }
 
-.fluid-video {
-  margin: 1em;
-}
-
 .date {
   color: $gray-light;
+  font-size: 1em;
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -190,9 +203,5 @@
   &:hover,
   &:focus {
     background: rgba(0, 0, 0, .45);
-  }
-
-  .visuallyhidden {
-    @extend %visually-hide;
   }
 }
