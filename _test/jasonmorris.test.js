@@ -7,7 +7,6 @@ var path = '_posts/';
 // build array of _posts
 var posts = fs.readdirSync(path);
 
-
 function readPost(filename) {
   var buffer = fs.readFileSync(filename),
   file = buffer.toString('utf8');
