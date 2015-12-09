@@ -40,6 +40,17 @@ module.exports = function(grunt) {
       }
     },
 
+    scsslint: {
+      all: [
+        '_sass/*.scss',
+      ],
+      options: {
+        bundleExec: true,
+        config: '.scss-lint.yml',
+        colorizeOutput: true
+      }
+    },
+
     accessibility: {
       options : {
         accessibilityLevel: 'WCAG2AA',
@@ -81,6 +92,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'uglify']);
   grunt.registerTask('work', ['default', 'watch']);
   grunt.registerTask('audit-html', ['htmllint']);
+  grunt.registerTask('audit-scss', ['scsslint']);
   grunt.registerTask('audit-a11y', ['accessibility']);
   grunt.registerTask('update', ['devUpdate']);
 
