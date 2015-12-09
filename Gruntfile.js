@@ -12,6 +12,11 @@ module.exports = function(grunt) {
           'js/scripts.js': ['js/vendor/jquery.js', 'js/lib/insta.js']
         }
       },
+      html5shiv: {
+        files: {
+          'js/html5shiv.js': ['js/vendor/html5shiv.js']
+        }
+      },
       picturefill: {
         files: {
           'js/picturefill.js': ['js/vendor/picturefill.js']
