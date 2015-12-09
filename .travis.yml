@@ -1,7 +1,8 @@
 language: node_js
 node_js: "stable"
 before_install:
-  - gem install scss-lint
+  - gem install bundler
+  - bundle install
   - npm install -g grunt-cli
-install: npm install
+  - npm install
 sudo: false
