@@ -50,6 +50,7 @@ module.exports = function(grunt) {
         },
         ignore : [
           'WCAG2A.Principle1.Guideline1_1.1_1_1.H67.2', // empty alt tag warning
+          'WCAG2AA.Principle1.Guideline1_3.1_3_1.H48' // navigation section warning
           ]
       },
       test : {
