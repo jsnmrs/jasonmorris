@@ -4,20 +4,25 @@ title:
 class: home
 ---
 
+<h1>Jason Morris</h1>
+
 <section class="block feature">
+  <h2>Posts</h2>
   <article class="intro">
-    <h1>Jason Morris</h1>
+    <h3>Jason Morris</h3>
   </article>
 {% for post in paginator.posts %}
   <article>
     <a href="{{ post.url }}">
-      <img src="{% if post.feature-image-500 %}{{ post.feature-image-500 }}{%else%}http://www.fillmurray.com/500/500{%endif%}" alt=" ">
+      <img src="{% if post.feature-image-500 %}{{ post.feature-image-500 }}{%else%}http://www.fillmurray.com/500/500{%endif%}" alt="">
       <div class="post-title">
-        <h2>{{ post.title }}<span aria-hidden="true"> &rarr;</span></h2>
+        <h3>{{ post.title }}<span aria-hidden="true"> &rarr;</span></h3>
       </div>
     </a>
   </article>
 {% endfor %}
 </section>
 
-<section class="block photos"></section>
+<section class="block photos">
+  <h2>Photos</h2>
+</section>
