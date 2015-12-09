@@ -20,8 +20,10 @@
 
 // visually hide - still available to screen readers
 %visually-hide {
+  background-color: $white;
   border: 0;
   clip: rect(0 0 0 0);
+  color: $black;
   height: 1px;
   margin: -1px;
   overflow: hidden;
