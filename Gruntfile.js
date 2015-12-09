@@ -3,25 +3,19 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     jshint: {
-      beforeconcat: ['js/insta.js']
+      beforeconcat: ['js/lib/insta.js']
     },
 
     uglify: {
-      plugins: {
+      scripts: {
         files: {
-          //'js/scripts.js': ['js/insta.js']
+          'js/scripts.js': ['js/vendor/jquery.js', 'js/lib/insta.js']
         }
-      }
-    },
-
-    imagemin: {
-      main: {
-        files: [{
-          expand: true,
-          cwd: 'img/',
-          src: ['**/*.{png,jpg,gif}'],
-          dest: 'img/'
-        }]
+      },
+      picturefill: {
+        files: {
+          'js/picturefill.js': ['js/vendor/picturefill.js']
+        }
       }
     },
 
@@ -32,17 +26,8 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['js/**/*.js'],
-        tasks: ['jshint']
+        tasks: ['jshint', 'uglify']
       }
-    },
-
-    purifycss: {
-      options: {},
-      target: {
-        src: ['_site/**/*.html', '_site/js/*.js'],
-        css: ['_site/css/*.css'],
-        dest: 'tmp/purestyles.css'
-      },
     },
 
     htmllint: {
@@ -92,10 +77,8 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
-  grunt.registerTask('default', ['jshint']);
-  grunt.registerTask('images', ['imagemin']);
+  grunt.registerTask('default', ['jshint', 'uglify']);
   grunt.registerTask('work', ['default', 'watch']);
-  grunt.registerTask('audit-css', ['purifycss']);
   grunt.registerTask('audit-html', ['htmllint']);
   grunt.registerTask('audit-a11y', ['accessibility']);
   grunt.registerTask('update', ['devUpdate']);
