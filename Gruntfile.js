@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         command: 'bundle exec jekyll build'
       },
       linkcheck: {
-        command: "htmlproof ./_site --alt-ignore '/.*/' --verbose"
+        command: "htmlproof ./_site --alt-ignore '/.*/'"
       }
     },
 
