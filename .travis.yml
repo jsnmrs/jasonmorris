@@ -1,10 +1,12 @@
 language: node_js
 node_js: "stable"
 before_install:
-  - rvm install ruby-2.1.1
-  - rvm use 2.1.1
+  - rvm use 2.2.2
   - gem install bundler
   - bundle install
   - npm install -g grunt-cli
   - npm install
 sudo: false
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
