@@ -38,6 +38,9 @@ module.exports = function(grunt) {
     shell: {
       build: {
         command: 'bundle exec jekyll build'
+      },
+      linkcheck: {
+        command: "htmlproof ./_site --alt-ignore '/.*/' --verbose"
       }
     },
 
@@ -105,7 +108,7 @@ module.exports = function(grunt) {
   grunt.registerTask('audit-html', ['htmllint']);
   grunt.registerTask('audit-scss', ['scsslint']);
   grunt.registerTask('audit-a11y', ['accessibility']);
-  grunt.registerTask('build-test', ['shell', 'htmllint', 'accessibility', 'scsslint']);
+  grunt.registerTask('build-test', ['shell:build', 'htmllint', 'accessibility', 'scsslint', 'shell:linkcheck']);
   grunt.registerTask('update', ['devUpdate']);
 
 };
