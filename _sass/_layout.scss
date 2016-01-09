@@ -43,12 +43,11 @@
 }
 
 .feature {
-  max-width: 79.95%;
-  @include bp($medium) { max-width: 66.6%; }
+  max-width: 100%;
 
   article {
     width: 50%;
-    @include bp($medium) { width: 33.3%; }
+    @include bp($medium) { width: 25%; }
   }
 }
 
@@ -81,31 +80,6 @@
 
   &:hover {
     opacity: 1;
-  }
-}
-
-.photos {
-  max-width: 20.05%;
-  @include bp($medium) { max-width: 33.3%; }
-
-  article {
-    width: 100%;
-    @include bp($medium) { width: 50%; }
-  }
-
-  h2 {
-    @extend %visually-hide;
-  }
-
-  .loading {
-    color: $gray;
-    font-size: .5em;
-    margin: 3em 1em;
-  }
-
-  .post-title {
-    font-size: .8em;
-    @include bp($medium) { font-size: .9em; }
   }
 }
 

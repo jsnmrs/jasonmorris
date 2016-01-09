@@ -3,15 +3,10 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     jshint: {
-      beforeconcat: ['js/lib/insta.js', '_test/jasonmorris.test.js']
+      beforeconcat: ['_test/jasonmorris.test.js']
     },
 
     uglify: {
-      scripts: {
-        files: {
-          'js/scripts.js': ['js/vendor/jquery.js', 'js/lib/insta.js']
-        }
-      },
       html5shiv: {
         files: {
           'js/html5shiv.js': ['js/vendor/html5shiv.js']
