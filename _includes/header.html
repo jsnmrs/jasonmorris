@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
     <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
-    {% if page.class != "home" %}<script src="/js/picturefill.js" async></script>{% endif %}
+    {% if page.class == "photo" %}<script src="/js/picturefill.js" async></script>{% endif %}
   </head>
 
   <body{% if page.class == "home" %} class="home"{% endif %}>
