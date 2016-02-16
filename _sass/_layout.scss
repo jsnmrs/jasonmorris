@@ -131,11 +131,50 @@ hr {
 
 .home {
   h1 {
-    font-size: 4em;
+    font-size: 3.75em;
     margin: .5em 0 0;
 
     @include bp($small-medium) {
       margin-top: .25em;
     }
+  }
+}
+
+.intro {
+  @extend %clearfix;
+  margin-bottom: 2em;
+  margin-top: 2em;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  img {
+    margin-bottom: .5em;
+  }
+
+  .caption {
+    color: $gray;
+    font-size: .85em;
+    margin-top: 0;
+
+    @include bp($medium) {
+      font-size: .65em;
+    }
+  }
+}
+
+.third {
+  @include bp($medium) {
+    float: left;
+    width: 33.333%;
+  }
+}
+
+.two-thirds {
+  @include bp($medium) {
+    float: left;
+    padding-right: 2em;
+    width: 66.666%;
   }
 }
