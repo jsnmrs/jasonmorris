@@ -3,9 +3,8 @@ body {
   font-family: $font-family;
   font-size: 95%;
   font-weight: 400;
-  transition: font-size .5s ease;
   @include bp($medium) { font-size: 130%; }
-  @include bp($large) { font-size: 160%; }
+  @include bp($large) { font-size: 150%; }
 }
 
 a {
@@ -37,7 +36,6 @@ h1 {
   font-size: 2.25em;
   line-height: 1.2;
   margin: .5em 0 .25em;
-  text-align: center;
 }
 
 h2 {
@@ -82,8 +80,27 @@ em {
   font-style: italic;
 }
 
-.post {
-  h1 {
-    text-align: left;
+pre,
+code {
+  background-color: $purple-accent;
+  border: 1px solid $gray-accent;
+  border-radius: .25em;
+  font-size: 1em;
+}
+
+code {
+  display: inline-block;
+  padding: .1em .3em;
+}
+
+pre {
+  overflow-x: scroll;
+  padding: .5em .75em;
+
+  > code {
+    background-color: transparent; // prevent clipping
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
