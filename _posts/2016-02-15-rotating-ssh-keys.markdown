@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Rotating SSH Keys"
-category: til
+category: "til"
+category-full: "today I learned"
 tags:
 - osx
 - security

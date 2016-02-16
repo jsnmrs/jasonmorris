@@ -1,3 +1,7 @@
+body {
+  background-color: #f9f9f9;
+}
+
 
 .content {
   @extend %clearfix;
@@ -5,6 +9,56 @@
   max-width: 40em;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+.logo-box {
+  margin: 2em auto 1.5em;
+  text-align: center;
+}
+
+.logo {
+  background: rgba($black, .75);
+  border-radius: 2em;
+  font-size: 1.25em;
+  padding: .5em;
+  transition: all .3s ease-in-out;
+
+  &:link,
+  &:visited {
+    color: $white;
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba($black, .45);
+  }
+}
+
+.post-list {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 2em;
+  margin-top: 2em;
+
+  a {
+    border: 1px solid $gray-accent;
+    display: block;
+    margin-bottom: -1px;
+    padding: .35em .5em .25em;
+
+    &:hover,
+    &:focus {
+      background-color: $gray-accent;
+    }
+  }
+}
+
+.tag {
+  color: $black;
+  font-size: .5em;
+  letter-spacing: .1em;
+  padding: 0 .25em;
+  text-transform: uppercase;
 }
 
 img,
@@ -15,13 +69,6 @@ iframe {
   margin: 1em auto;
 }
 
-.post {
-  h1 {
-    text-align: center;
-  }
-}
-
-
 .video {
   margin-bottom: 2em;
 }
@@ -29,7 +76,8 @@ iframe {
 .caption {
   color: $gray;
   font-style: italic;
-  margin: .5em 0 1.5em;}
+  margin: .5em 0 1.5em;
+}
 
 hr {
   border: 0;
@@ -72,5 +120,16 @@ hr {
   &:hover,
   &:focus {
     background: rgba($black, .45);
+  }
+}
+
+.home {
+  h1 {
+    font-size: 11vw;
+    margin: .5em 0 0;
+
+    @include bp($small-medium) {
+      margin-top: 0;
+    }
   }
 }
