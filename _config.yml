@@ -30,5 +30,6 @@ exclude: [Gemfile, Gemfile.lock, node_modules, Gruntfile.js, package.json, readm
 
 gems:
 - jekyll-feed
+- jekyll-paginate
 - jekyll-redirect-from
 - jekyll-sitemap
