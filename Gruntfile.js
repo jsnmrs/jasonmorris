@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         command: 'bundle exec jekyll serve --watch'
       },
       linkCheck: {
-        command: "htmlproof ./_site --alt-ignore '/.*/'"
+        command: "htmlproofer ./_site --alt-ignore '/.*/'"
       }
     },
 
