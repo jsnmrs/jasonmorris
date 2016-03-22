@@ -120,7 +120,7 @@ module.exports = function(grunt) {
   grunt.registerTask('a11y', ['accessibility']);
 
   // grunt build-test - Task for TravicCI to run
-  grunt.registerTask('build-test', ['shell:jekyllBuild', 'htmllint', 'accessibility', 'scsslint', 'shell:linkCheck']);
+  grunt.registerTask('build-test', ['shell:jekyllBuild', 'accessibility', 'scsslint', 'shell:linkCheck']);
 
   // grunt update - Find new versions of Grunt libraries
   grunt.registerTask('update', ['devUpdate']);
