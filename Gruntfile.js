@@ -29,8 +29,8 @@ module.exports = function(grunt) {
       jekyllServe: {
         command: 'bundle exec jekyll serve --watch'
       },
-      linkCheck: {
-        command: "htmlproofer ./_site --alt-ignore '/.*/'"
+      htmlproofer: {
+        command: "htmlproofer ./_site --allow-hash-href --check-html --empty-alt-ignore"
       }
     },
 
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
   grunt.registerTask('js', ['jshint', 'uglify']);
 
   // grunt validate-html - Validate compiled site's HTML
-  grunt.registerTask('validate-html', ['htmllint']);
+  grunt.registerTask('validate-html', ['htmllint', 'shell:htmlproofer']);
 
   // grunt validate-scss - Validate compiled site's SCSS
   grunt.registerTask('validate-scss', ['scsslint']);
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
   grunt.registerTask('a11y', ['accessibility']);
 
   // grunt build-test - Task for TravicCI to run
-  grunt.registerTask('build-test', ['shell:jekyllBuild', 'accessibility', 'scsslint', 'shell:linkCheck']);
+  grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint']);
 
   // grunt update - Find new versions of Grunt libraries
   grunt.registerTask('update', ['devUpdate']);
