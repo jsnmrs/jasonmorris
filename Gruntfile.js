@@ -21,6 +21,17 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: 'img/'
+        }]
+      }
+    },
+
     // Shell - Jekyll build and serve tasks via shell
     shell: {
       jekyllBuild: {
@@ -99,13 +110,13 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // grunt - runs js, then serve tasks (see below)
-  grunt.registerTask('default', ['js', 'serve']);
+  grunt.registerTask('default', ['js', 'imagemin', 'serve']);
 
   // grunt serve - Serve and watch Jekyll site + SCSS compilation
   grunt.registerTask('serve', ['shell:jekyllServe']);
 
   // grunt build - Run js, imagemin tasks, then build Jekyll site + SCSS compilation
-  grunt.registerTask('build', ['js', 'shell:jekyllBuild']);
+  grunt.registerTask('build', ['js', 'imagemin', 'shell:jekyllBuild']);
 
   // grunt js - Error checks, concatenation, minify JS
   grunt.registerTask('js', ['jshint', 'uglify']);
