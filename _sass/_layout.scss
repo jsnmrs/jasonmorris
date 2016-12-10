@@ -17,7 +17,7 @@ body {
 }
 
 .logo {
-  background: rgba($black, .75);
+  background-color: rgba($black, .75);
   border-radius: 2em;
   font-size: 1.25em;
   padding: .5em;
@@ -30,7 +30,7 @@ body {
 
   &:hover,
   &:focus {
-    background: rgba($black, .45);
+    background-color: rgba($black, .45);
   }
 }
 
@@ -108,7 +108,7 @@ hr {
 }
 
 .back {
-  background: rgba($black, .75);
+  background-color: rgba($black, .75);
   border-radius: .75em;
   color: $white;
   display: block;
@@ -125,7 +125,7 @@ hr {
 
   &:hover,
   &:focus {
-    background: rgba($black, .45);
+    background-color: rgba($black, .45);
   }
 }
 
