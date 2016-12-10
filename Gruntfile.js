@@ -80,7 +80,8 @@ module.exports = function(grunt) {
         ignore : [
           'WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2', // empty alt tag warning
           'WCAG2AA.Principle1.Guideline1_3.1_3_1.H48', // navigation section warning
-          'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs' // abs pos contrast warning
+          'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs', // abs pos contrast warning
+          'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage' // text on background image
           ]
       },
       test : {
@@ -129,6 +130,9 @@ module.exports = function(grunt) {
 
   // grunt a11y - Validate compiled site's accessibility
   grunt.registerTask('a11y', ['accessibility']);
+
+  // grunt lint - Run all linters
+  grunt.registerTask('lint', ['htmllint', 'shell:htmlproofer', 'scsslint', 'accessibility']);
 
   // grunt build-test - Task for TravicCI to run
   grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint']);
