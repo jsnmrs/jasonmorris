@@ -13,6 +13,11 @@ module.exports = function(grunt) {
         files: {
           'js/picturefill.js': ['js/vendor/picturefill.js']
         }
+      },
+      serviceworker: {
+        files: {
+          './sw.js': ['js/lib/sw.js']
+        }
       }
     },
 
