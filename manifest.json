@@ -1,0 +1,20 @@
+{
+  "short_name": "jasonmorris",
+  "name": "jasonmorris.com",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    }
+  ],
+  "background_color": "#FFFFFF",
+  "theme_color": "#727272",
+  "start_url": "/",
+  "display": "browser"
+}
