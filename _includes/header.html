@@ -13,6 +13,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
     {% if page.class == "photo" %}<script src="/js/picturefill.js" defer></script>{% endif %}
+    <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }</script>
     <style type="text/css">
       {% capture include_to_scssify %}
         {% include style.scss %}
