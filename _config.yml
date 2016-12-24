@@ -21,8 +21,6 @@ source: .
 destination: _site
 permalink: /:categories/:title/
 timezone: America/New_York
-paginate: 20
-paginate_path: ":num"
 
 feed:
   path: atom.xml
