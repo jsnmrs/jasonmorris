@@ -8,8 +8,10 @@ body {
 }
 
 a {
-  color: $link;
-  text-decoration: none;
+  &:link {
+    color: $link;
+    text-decoration: none;
+  }
 
   &:visited {
     color: $link-visited;
