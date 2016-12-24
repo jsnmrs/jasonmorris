@@ -1,6 +1,5 @@
 # https://github.com/18F/frontend/blob/18f-pages-staging/.scss-lint.yml
 scss_files: '_sass/*.scss'
-exclude: '_sass/_normalize.scss'
 
 linters:
   BangFormat:

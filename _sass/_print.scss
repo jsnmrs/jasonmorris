@@ -6,20 +6,25 @@
     text-shadow: none;
   }
 
-  a,
-  a:visited {
+  a {
     text-decoration: underline;
-  }
 
-  // scss-lint:disable QualifyingElement
-  a[href]:after {
-    content: ' (' attr(href) ')';
-  }
+    &:visited {
+      text-decoration: underline;
+    }
 
-  // Don't show links for images, or javascript/internal links
-  // scss-lint:disable QualifyingElement
-  a[href^="#"]:after {
-    content: '';
+    &[href] {
+      :after {
+        content: ' (' attr(href) ')';
+      }
+    }
+
+    // Don't show links for images, or javascript/internal links
+    &[href^='#'] {
+      &:after {
+        content: '';
+      }
+    }
   }
 
   img {

@@ -19,15 +19,37 @@
 }
 
 // visually hide - still available to screen readers
+// https://github.com/h5bp/html5-boilerplate/issues/194/
+// https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
 %visually-hide {
-  background-color: $white;
   border: 0;
   clip: rect(0 0 0 0);
-  color: $black;
   height: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap; // avoid smushed text for screen readers
   width: 1px;
+}
+
+// Force word wrapping - useful for long URLs
+// https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+%word-wrap {
+  // scss-lint:disable VendorPrefix
+  // These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  // This is the dangerous one in WebKit, as it breaks things wherever
+  // word-break: break-all;
+  // Instead use this non-standard one:
+  word-break: break-word;
+
+  // Adds a hyphen where the word breaks, if supported (No Blink)
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }

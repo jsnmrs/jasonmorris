@@ -1,36 +1,16 @@
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
+// normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css
 
 html {
-  font-family: sans-serif; /* 1 */
-  line-height: 1.15; /* 2 */
-  -ms-text-size-adjust: 100%; /* 3 */
-  -webkit-text-size-adjust: 100%; /* 3 */
+  // scss-lint:disable VendorPrefix
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
 
 body {
   margin: 0;
 }
-
-/**
- * Add the correct display in IE 9-.
- */
 
 article,
 aside,
@@ -41,114 +21,55 @@ section {
   display: block;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in IE.
- */
-
 figcaption,
 figure,
-main { /* 1 */
+main {
   display: block;
 }
-
-/**
- * Add the correct margin in IE 8.
- */
 
 figure {
   margin: 1em 40px;
 }
 
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
 }
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * 1. Remove the gray background on active links in IE 10.
- * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
- */
 
 a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+
+  &:active,
+  &:hover {
+    outline-width: 0;
+  }
 }
-
-/**
- * Remove the outline on focused links when they are also active or hovered
- * in all browsers (opinionated).
- */
-
-a:active,
-a:hover {
-  outline-width: 0;
-}
-
-/**
- * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
- */
 
 strong {
+  // sass-lint:disable no-duplicate-properties
+  // scss-lint:disable DuplicateProperty
   font-weight: inherit;
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-strong {
   font-weight: bolder;
 }
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
 
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
 
 sub,
 sup {
@@ -166,30 +87,17 @@ sup {
   top: -0.5em;
 }
 
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
 audio,
 video {
   display: inline-block;
 }
 
-/**
- * Remove the border on images inside links in IE 10-.
- */
-
 img {
   border-style: none;
 }
 
-/**
- * Hide the overflow in IE.
- */
-
-svg:not(:root) {
-  overflow: hidden;
+svg {
+  &:not(:root) {
+    overflow: hidden;
+  }
 }

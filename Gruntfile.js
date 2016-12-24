@@ -126,7 +126,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // grunt - runs js, then serve tasks (see below)
-  grunt.registerTask('default', ['js', 'imagemin', 'scsslint', 'serve']);
+  grunt.registerTask('default', ['js', 'imagemin', 'scsslint', 'sasslint', 'serve']);
 
   // grunt serve - Serve and watch Jekyll site + SCSS compilation
   grunt.registerTask('serve', ['shell:jekyllServe']);
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
   grunt.registerTask('lint', ['htmllint', 'shell:htmlproofer', 'scsslint', 'accessibility']);
 
   // grunt build-test - Task for TravicCI to run
-  grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint']);
+  grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint', 'sasslint']);
 
   // grunt update - Find new versions of Grunt libraries
   grunt.registerTask('update', ['devUpdate']);

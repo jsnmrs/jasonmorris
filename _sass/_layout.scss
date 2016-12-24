@@ -16,7 +16,7 @@ body {
 }
 
 .logo {
-  background-color: rgba($black, .75);
+  background-color: $black-trans-75;
   border-radius: 2em;
   font-size: 1.25em;
   padding: .5em;
@@ -29,7 +29,7 @@ body {
 
   &:hover,
   &:focus {
-    background-color: rgba($black, .45);
+    background-color: $black-trans-45;
   }
 }
 
@@ -111,9 +111,8 @@ hr {
 }
 
 .back {
-  background-color: rgba($black, .75);
+  background-color: $black-trans-75;
   border-radius: .75em;
-  color: $white;
   display: block;
   font-size: 1.5em;
   margin: 2em auto;
@@ -122,13 +121,15 @@ hr {
   text-align: center;
   transition: all .3s ease-in-out;
 
+  &:link,
   &:visited {
     color: $white;
   }
 
   &:hover,
   &:focus {
-    background-color: rgba($black, .45);
+    background-color: $black-trans-45;
+    color: $white;
   }
 }
 
