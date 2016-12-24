@@ -59,6 +59,13 @@ module.exports = function(grunt) {
       }
     },
 
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml',
+      },
+      target: ['_sass/\*.scss']
+    },
+
     // SCSS lint - check SCSS formatting
     scsslint: {
       all: [
@@ -114,7 +121,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // grunt - runs js, then serve tasks (see below)
-  grunt.registerTask('default', ['js', 'imagemin', 'serve']);
+  grunt.registerTask('default', ['js', 'imagemin', 'scsslint', 'serve']);
 
   // grunt serve - Serve and watch Jekyll site + SCSS compilation
   grunt.registerTask('serve', ['shell:jekyllServe']);
