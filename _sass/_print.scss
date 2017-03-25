@@ -12,19 +12,21 @@
     &:visited {
       text-decoration: underline;
     }
+  }
 
-    &[href] {
-      :after {
-        content: ' (' attr(href) ')';
-      }
-    }
+  a[href]:after {
+    content: ' [' attr(href) ']';
+    font-size: .75em;
+    font-style: normal;
+  }
 
-    // Don't show links for images, or javascript/internal links
-    &[href^='#'] {
-      &:after {
-        content: '';
-      }
-    }
+  // Don't show links for images, or javascript/internal links
+  a[href^='#']:after {
+    content: '';
+  }
+
+  a[href='/']:after {
+    content: ' [aka ' attr(title) ']';
   }
 
   img {
@@ -50,5 +52,9 @@
 
   h1 {
     font-size: 2.25em;
+  }
+
+  .back {
+    display: none;
   }
 }
