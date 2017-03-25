@@ -147,7 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask('a11y', ['accessibility']);
 
   // grunt lint - Run all linters
-  grunt.registerTask('lint', ['htmllint', 'shell:htmlproofer', 'scsslint', 'accessibility']);
+  grunt.registerTask('lint', ['htmllint', 'shell:htmlproofer', 'scsslint', 'sasslint', 'accessibility']);
 
   // grunt build-test - Task for TravicCI to run
   grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint', 'sasslint']);
