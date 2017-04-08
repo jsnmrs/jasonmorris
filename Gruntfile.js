@@ -113,7 +113,7 @@ module.exports = function(grunt) {
           connectivity: 'Cable',
           budget: {
         		visualComplete: '1500',
-        		SpeedIndex: '800'
+        		SpeedIndex: '1000'
           }
         }
       },
@@ -123,7 +123,7 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '3000',
+        		visualComplete: '3500',
         		SpeedIndex: '2000'
           }
         }
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
           connectivity: 'Cable',
           budget: {
         		visualComplete: '1500',
-        		SpeedIndex: '800'
+        		SpeedIndex: '1000'
           }
         }
       },
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '3000',
+        		visualComplete: '4500',
         		SpeedIndex: '2000'
           }
         }
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
           connectivity: 'Cable',
           budget: {
         		visualComplete: '1500',
-        		SpeedIndex: '800'
+        		SpeedIndex: '1000'
           }
         }
       },
@@ -167,7 +167,7 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '3000',
+        		visualComplete: '4500',
         		SpeedIndex: '2000'
           }
         }
