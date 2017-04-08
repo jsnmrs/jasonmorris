@@ -112,8 +112,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: 'Cable',
           budget: {
-        		visualComplete: '3000',
-        		SpeedIndex: '2000'
+        		visualComplete: '1500',
+        		SpeedIndex: '800'
           }
         }
       },
@@ -123,8 +123,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '6500',
-        		SpeedIndex: '5000'
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
           }
         }
       },
@@ -134,8 +134,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: 'Cable',
           budget: {
-        		visualComplete: '3000',
-        		SpeedIndex: '2000'
+        		visualComplete: '1500',
+        		SpeedIndex: '800'
           }
         }
       },
@@ -145,8 +145,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '6500',
-        		SpeedIndex: '5000'
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
           }
         }
       },
@@ -156,8 +156,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: 'Cable',
           budget: {
-        		visualComplete: '3000',
-        		SpeedIndex: '2000'
+        		visualComplete: '1500',
+        		SpeedIndex: '800'
           }
         }
       },
@@ -167,8 +167,8 @@ module.exports = function(grunt) {
           key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
           connectivity: '3G',
           budget: {
-        		visualComplete: '6500',
-        		SpeedIndex: '5000'
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
           }
         }
       }
@@ -192,7 +192,7 @@ module.exports = function(grunt) {
           url: "https://jasonmorris.com/",
           locale: "en_US",
           strategy: "desktop",
-          threshold: 50
+          threshold: 95
         }
       },
       postMobile: {
@@ -200,7 +200,7 @@ module.exports = function(grunt) {
           url: "https://jasonmorris.com/bikes/twenty-years-later/",
           locale: "en_US",
           strategy: "mobile",
-          threshold: 50
+          threshold: 95
         }
       },
       postDesktop: {
@@ -208,7 +208,7 @@ module.exports = function(grunt) {
           url: "https://jasonmorris.com/bikes/twenty-years-later/",
           locale: "en_US",
           strategy: "desktop",
-          threshold: 50
+          threshold: 95
         }
       },
       postVideoMobile: {
@@ -216,7 +216,7 @@ module.exports = function(grunt) {
           url: "https://jasonmorris.com/bikes/deck-dancing/",
           locale: "en_US",
           strategy: "mobile",
-          threshold: 50
+          threshold: 95
         }
       },
       postVideoDesktop: {
@@ -224,7 +224,7 @@ module.exports = function(grunt) {
           url: "https://jasonmorris.com/bikes/deck-dancing/",
           locale: "en_US",
           strategy: "desktop",
-          threshold: 50
+          threshold: 95
         }
       },
     },
