@@ -104,6 +104,131 @@ module.exports = function(grunt) {
       }
     },
 
+    // Performance Auditing
+    perfbudget: {
+      homeCable: {
+        options: {
+          url: 'https://jasonmorris.com/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: 'Cable',
+          budget: {
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
+          }
+        }
+      },
+      home3G: {
+        options: {
+          url: 'https://jasonmorris.com/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: '3G',
+          budget: {
+        		visualComplete: '6500',
+        		SpeedIndex: '5000'
+          }
+        }
+      },
+      postCable: {
+        options: {
+          url: 'https://jasonmorris.com/bikes/twenty-years-later/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: 'Cable',
+          budget: {
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
+          }
+        }
+      },
+      post3G: {
+        options: {
+          url: 'https://jasonmorris.com/bikes/twenty-years-later/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: '3G',
+          budget: {
+        		visualComplete: '6500',
+        		SpeedIndex: '5000'
+          }
+        }
+      },
+      postVideoCable: {
+        options: {
+          url: 'https://jasonmorris.com/bikes/deck-dancing/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: 'Cable',
+          budget: {
+        		visualComplete: '3000',
+        		SpeedIndex: '2000'
+          }
+        }
+      },
+      postVideo3G: {
+        options: {
+          url: 'https://jasonmorris.com/bikes/deck-dancing/',
+          key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+          connectivity: '3G',
+          budget: {
+        		visualComplete: '6500',
+        		SpeedIndex: '5000'
+          }
+        }
+      }
+    },
+
+    pagespeed: {
+      options: {
+        nokey: true,
+        url: "https://jasonmorris.com/"
+      },
+      homeMobile: {
+        options: {
+          url: "https://jasonmorris.com/",
+          locale: "en_US",
+          strategy: "mobile",
+          threshold: 50
+        }
+      },
+      homeDesktop: {
+        options: {
+          url: "https://jasonmorris.com/",
+          locale: "en_US",
+          strategy: "desktop",
+          threshold: 50
+        }
+      },
+      postMobile: {
+        options: {
+          url: "https://jasonmorris.com/bikes/twenty-years-later/",
+          locale: "en_US",
+          strategy: "mobile",
+          threshold: 50
+        }
+      },
+      postDesktop: {
+        options: {
+          url: "https://jasonmorris.com/bikes/twenty-years-later/",
+          locale: "en_US",
+          strategy: "desktop",
+          threshold: 50
+        }
+      },
+      postVideoMobile: {
+        options: {
+          url: "https://jasonmorris.com/bikes/deck-dancing/",
+          locale: "en_US",
+          strategy: "mobile",
+          threshold: 50
+        }
+      },
+      postVideoDesktop: {
+        options: {
+          url: "https://jasonmorris.com/bikes/deck-dancing/",
+          locale: "en_US",
+          strategy: "desktop",
+          threshold: 50
+        }
+      },
+    },
+
     // Update - find new versions of Grunt dependencies
     devUpdate: {
       main: {
@@ -148,6 +273,9 @@ module.exports = function(grunt) {
 
   // grunt lint - Run all linters
   grunt.registerTask('lint', ['htmllint', 'shell:htmlproofer', 'scsslint', 'sasslint', 'accessibility']);
+
+  // grunt performance - Run all performance checks
+  grunt.registerTask('performance', ['perfbudget', 'pagespeed']);
 
   // grunt build-test - Task for TravicCI to run
   grunt.registerTask('build-test', ['shell:jekyllBuild', 'shell:htmlproofer', 'accessibility', 'scsslint', 'sasslint']);
