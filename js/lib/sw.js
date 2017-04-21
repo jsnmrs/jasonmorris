@@ -14,9 +14,7 @@ var version = 'v1::';
 var offlineFundamentals = [
   '/index.html',
   '/fonts/SourceSerifPro-Regular.woff',
-  '/img/jason-iceland-320.jpg',
-  '/img/jason-iceland-640.jpg',
-  '/js/picturefill.js'
+  '/img/jason-iceland-320.jpg'
 ];
 
 /* The install event fires when the service worker is first installed.
