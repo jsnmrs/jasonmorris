@@ -5,8 +5,11 @@ var imagemin      = require('gulp-imagemin');
 var jshint        = require('gulp-jshint');
 var merge         = require('merge-stream');
 var newer         = require('gulp-newer');
+var psi           = require('psi');
 var scsslint      = require('gulp-scss-lint');
 var uglify        = require('gulp-uglify');
+
+var site = "https://jasonmorris.com";
 
 
 // Default task - build, launch BrowserSync, and watch files
@@ -103,6 +106,27 @@ gulp.task('jshint', function() {
   return gulp.src(['_js/lib/*', 'gulpfile.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
+});
+
+
+// Google Pagespeed Insights
+gulp.task('mobile', function () {
+    return psi(site, {
+        nokey: 'true',
+        strategy: 'mobile',
+    }).then(function (data) {
+        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+        console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
+    });
+});
+
+gulp.task('desktop', function () {
+    return psi(site, {
+        nokey: 'true',
+        strategy: 'desktop',
+    }).then(function (data) {
+        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+    });
 });
 
 // To-do
