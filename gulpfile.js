@@ -1,4 +1,5 @@
 var gulp          = require('gulp');
+var axe           = require('gulp-axe-webdriver');
 var browserSync   = require('browser-sync');
 var cp            = require('child_process');
 var imagemin      = require('gulp-imagemin');
@@ -15,10 +16,9 @@ var site = "https://jasonmorris.com";
 // Default task - build, launch BrowserSync, and watch files
 gulp.task('default', ['browser-sync', 'watch']);
 
-gulp.task('build', ['images', 'css', 'js', 'jekyll-build']);
+gulp.task('build', ['images', 'js', 'jekyll-build']);
 
-gulp.task('css', ['scsslint']);
-gulp.task('js', ['jshint', 'js-smush']);
+gulp.task('lint', ['scsslint', 'jshint', 'axe']);
 
 
 // Watch tasks - images, JS, SCSS, HTML/markdown
@@ -78,7 +78,7 @@ gulp.task('images', function() {
 
 
 // Concatenate, uglify JS files
-gulp.task('js-smush', function() {
+gulp.task('js', function() {
 
   var options = {
     preserveComments: 'license',
@@ -127,6 +127,15 @@ gulp.task('desktop', function () {
     }).then(function (data) {
         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
     });
+});
+
+gulp.task('axe', function(done) {
+  var options = {
+    urls: ['_site/**/*.html'],
+    a11yCheckOptions: ['wcag2aa', 'wcag2a', 'best-practice'],
+    showOnlyViolations: true
+  };
+  return axe(options, done);
 });
 
 // To-do
