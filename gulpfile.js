@@ -132,6 +132,7 @@ gulp.task('desktop', function () {
 gulp.task('axe', function(done) {
   var options = {
     urls: ['_site/**/*.html'],
+    browser: 'phantomjs',
     a11yCheckOptions: ['wcag2aa', 'wcag2a', 'best-practice'],
     showOnlyViolations: true
   };
