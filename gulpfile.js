@@ -2,6 +2,7 @@ var gulp          = require('gulp');
 var axe           = require('gulp-axe-webdriver');
 var browserSync   = require('browser-sync');
 var cp            = require('child_process');
+var htmlhint      = require("gulp-htmlhint");
 var imagemin      = require('gulp-imagemin');
 var jshint        = require('gulp-jshint');
 var merge         = require('merge-stream');
@@ -18,7 +19,7 @@ gulp.task('default', ['browser-sync', 'watch']);
 
 gulp.task('build', ['images', 'js', 'jekyll-build']);
 
-gulp.task('lint', ['scsslint', 'jshint', 'axe']);
+gulp.task('lint', ['scsslint', 'htmllint', 'jshint', 'axe']);
 
 
 // Watch tasks - images, JS, SCSS, HTML/markdown
@@ -50,13 +51,6 @@ gulp.task('browser-sync', ['build'], function() {
     host: '127.0.0.1',
     port: 4000
   });
-});
-
-
-// SCSS linting - using scss_lint gem via bundle exec
-gulp.task('scsslint', function() {
-  return gulp.src(['_sass/**/*.scss'])
-    .pipe(scsslint({bundleExec: true}));
 });
 
 
@@ -101,6 +95,22 @@ gulp.task('js', function() {
 });
 
 
+// SCSS linting - using scss_lint gem via bundle exec
+gulp.task('scsslint', function() {
+  return gulp.src(['_sass/**/*.scss'])
+    .pipe(scsslint({bundleExec: true}))
+    .pipe(scsslint.failReporter());
+});
+
+
+// HTML linting
+gulp.task('htmllint', function() {
+  return gulp.src(['_site/**/*.html'])
+    .pipe(htmlhint())
+    .pipe(htmlhint.failReporter());
+});
+
+
 // JS linting
 gulp.task('jshint', function() {
   return gulp.src(['_js/lib/*', 'gulpfile.js'])
@@ -109,35 +119,37 @@ gulp.task('jshint', function() {
 });
 
 
-// Google Pagespeed Insights
-gulp.task('mobile', function () {
-    return psi(site, {
-        nokey: 'true',
-        strategy: 'mobile',
-    }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-        console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
-    });
-});
-
-gulp.task('desktop', function () {
-    return psi(site, {
-        nokey: 'true',
-        strategy: 'desktop',
-    }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-    });
-});
-
+// Accessibility tests using aXe
 gulp.task('axe', function(done) {
   var options = {
     urls: ['_site/**/*.html'],
     browser: 'phantomjs',
     a11yCheckOptions: ['wcag2aa', 'wcag2a', 'best-practice'],
-    showOnlyViolations: true
+    showOnlyViolations: false
   };
   return axe(options, done);
 });
+
+
+// Google Pagespeed Insights
+// gulp.task('mobile', function () {
+//     return psi(site, {
+//         nokey: 'true',
+//         strategy: 'mobile',
+//     }).then(function (data) {
+//         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+//         console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
+//     });
+// });
+//
+// gulp.task('desktop', function () {
+//     return psi(site, {
+//         nokey: 'true',
+//         strategy: 'desktop',
+//     }).then(function (data) {
+//         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+//     });
+// });
 
 // To-do
 // Performance tasks
