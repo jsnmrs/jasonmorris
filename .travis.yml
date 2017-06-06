@@ -1,11 +1,16 @@
 language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules
 rvm:
-  - 2.2
-before_install:
-  - gem install bundler
-  - bundle install
-  - npm install
-sudo: false
+- 2.2
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+sudo: false
+before_install:
+- bundle install
+- nvm install 5.0.3
+- nvm use 5.0.3
+- npm install
