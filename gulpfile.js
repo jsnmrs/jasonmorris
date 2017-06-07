@@ -75,7 +75,6 @@ gulp.task('images', function() {
 gulp.task('js', function() {
 
   var options = {
-    preserveComments: 'license',
     mangle : true,
     compress : true
   };
