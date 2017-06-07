@@ -5,6 +5,7 @@ before_install:
   - rvm use 2.4.0
   - gem install bundler
   - bundle install
+  - rm ./package-lock.json
   - npm install
 sudo: false
 env:
