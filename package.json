@@ -26,7 +26,7 @@
     "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "tape _test/jasonmorris.test.js | tap-spec && gulp build && gulp lint"
+    "test": "gulp build && gulp lint"
   },
   "author": "Jason Morris"
 }
