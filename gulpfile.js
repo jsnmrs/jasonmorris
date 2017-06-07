@@ -11,14 +11,11 @@ var psi           = require('psi');
 var scsslint      = require('gulp-scss-lint');
 var uglify        = require('gulp-uglify');
 
-var site = "https://jasonmorris.com";
-
 
 // Default task - build, launch BrowserSync, and watch files
 gulp.task('default', ['browser-sync', 'watch']);
 
 gulp.task('build', ['images', 'js', 'jekyll-build']);
-
 gulp.task('lint', ['scsslint', 'htmllint', 'jshint', 'axe']);
 
 
@@ -131,26 +128,21 @@ gulp.task('axe', function(done) {
 
 
 // Google Pagespeed Insights
-// gulp.task('mobile', function () {
-//     return psi(site, {
-//         nokey: 'true',
-//         strategy: 'mobile',
-//     }).then(function (data) {
-//         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-//         console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
-//     });
-// });
-//
-// gulp.task('desktop', function () {
-//     return psi(site, {
-//         nokey: 'true',
-//         strategy: 'desktop',
-//     }).then(function (data) {
-//         console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-//     });
-// });
+gulp.task('mobile', function () {
+    return psi(site, {
+        nokey: 'true',
+        strategy: 'mobile',
+    }).then(function (data) {
+        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+        console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
+    });
+});
 
-// To-do
-// Performance tasks
-// HTML validation tasks
-// Accessibility scan tasks
+gulp.task('desktop', function () {
+    return psi(site, {
+        nokey: 'true',
+        strategy: 'desktop',
+    }).then(function (data) {
+        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
+    });
+});
