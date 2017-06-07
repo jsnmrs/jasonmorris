@@ -6,7 +6,6 @@ before_install:
   - gem install bundler
   - bundle install
   - rm ./package-lock.json
-  - npm install
 sudo: false
 env:
   global:
