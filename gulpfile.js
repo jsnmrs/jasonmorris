@@ -23,7 +23,7 @@ gulp.task('lint', ['scsslint', 'htmllint', 'jshint', 'axe']);
 gulp.task('watch', function () {
     gulp.watch('img/*', ['images']);
     gulp.watch('js/**/*.js', ['js']);
-    gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*', '_sass/**/*.scss'], ['jekyll-rebuild']);
 });
 
 

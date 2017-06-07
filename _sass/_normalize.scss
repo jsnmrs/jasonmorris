@@ -1,8 +1,7 @@
-// normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css
+// normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css
 
 html {
   // scss-lint:disable VendorPrefix
-  font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -10,30 +9,6 @@ html {
 
 body {
   margin: 0;
-}
-
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-figcaption,
-figure,
-main {
-  display: block;
-}
-
-figure {
-  margin: 1em 40px;
 }
 
 hr {
@@ -48,19 +23,11 @@ pre {
 }
 
 a {
-  background-color: transparent;
+  // scss-lint:disable VendorPrefix
   -webkit-text-decoration-skip: objects;
-
-  &:active,
-  &:hover {
-    outline-width: 0;
-  }
 }
 
 strong {
-  // sass-lint:disable no-duplicate-properties
-  // scss-lint:disable DuplicateProperty
-  font-weight: inherit;
   font-weight: bolder;
 }
 
@@ -69,35 +36,4 @@ kbd,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
-}
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-audio,
-video {
-  display: inline-block;
-}
-
-img {
-  border-style: none;
-}
-
-svg {
-  &:not(:root) {
-    overflow: hidden;
-  }
 }
