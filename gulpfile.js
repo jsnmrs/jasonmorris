@@ -30,7 +30,7 @@ gulp.task('watch', function () {
 // Jekyll build - using GitHub Pages spec via bundle exec
 gulp.task('jekyll-build', function (done) {
   browserSync.notify('Building Jekyll');
-  return cp.spawn('bundle', ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
+  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_local-config.yml'], {stdio: 'inherit'})
     .on('close', done);
 });
 
