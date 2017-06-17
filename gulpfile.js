@@ -51,7 +51,7 @@ gulp.task('browser-sync', ['build'], function() {
 
 
 gulp.task('images', function() {
-  return gulp.src(['img/*.{png,svg,jpg,gif}', '*.{png,svg,jpg,gif}'])
+  return gulp.src(['img/*.{png,svg,jpg,gif}'])
     .pipe(newer('img'))
     .pipe(imagemin([
     	imagemin.jpegtran({progressive: true}),
