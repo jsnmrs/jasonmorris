@@ -42,7 +42,6 @@ body {
 .caption {
   color: $gray;
   font-size: .85em;
-  font-style: italic;
   margin: .5em 0 1.5em;
 }
 
@@ -113,14 +112,14 @@ main > figure {
   margin: 1.5em 0 .5em;
 }
 
-article {
+section {
   display: grid;
   grid-column-gap: 1em;
   grid-template-columns: 2fr 1fr;
   margin-bottom: 2em;
 }
 
-.hey {
+article {
   grid-column: 1 / span 2;
 
   @include bp($medium) {
@@ -128,7 +127,7 @@ article {
   }
 }
 
-.photo {
+aside {
   grid-column: 1 / span 2;
 
   @include bp($medium) {
