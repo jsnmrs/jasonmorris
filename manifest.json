@@ -1,6 +1,6 @@
 {
-  "short_name": "jasonmorris",
-  "name": "jasonmorris.com",
+  "short_name": "jsnmrs",
+  "name": "jason morris",
   "icons": [
     {
       "src": "/apple-touch-icon.png",
@@ -8,13 +8,18 @@
       "type": "image/png"
     },
     {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "/jason-iceland-320.jpg",
+      "sizes": "320x320",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/jason-iceland-640.jpg",
+      "sizes": "640x640",
       "type": "image/jpg"
     }
   ],
   "background_color": "#F9F9F9",
   "theme_color": "#727272",
   "start_url": "/",
-  "display": "browser"
+  "display": "minimal-ui"
 }
