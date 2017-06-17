@@ -38,10 +38,14 @@ h1 {
   line-height: 1.2;
   margin: .5em 0 .25em;
   text-align: center;
+
+  .home & {
+    font-size: 3.5em;
+  }
 }
 
 h2 {
-  font-size: 1.875em;
+  font-size: 1.8em;
   line-height: 1.2;
   margin: .4em 0 .2em;
 }
