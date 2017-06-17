@@ -73,15 +73,14 @@ linters:
   PropertyCount:
     enabled: true
     include_nested: false
-    max_properties: 10
+    max_properties: 15
   PropertySortOrder:
     enabled: false
     ignore_unspecified: false
     severity: warning
     separate_groups: false
   PropertySpelling:
-    enabled: true
-    extra_properties: []
+    enabled: false
   PseudoElement:
     enabled: false
   QualifyingElement:

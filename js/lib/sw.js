@@ -13,7 +13,7 @@ var version = 'v1::';
 */
 var offlineFundamentals = [
   '/index.html',
-  '/fonts/SourceSerifPro-Regular.woff',
+  '/fonts/ssp.woff',
   '/img/jason-iceland-320.jpg'
 ];
 

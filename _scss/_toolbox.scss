@@ -5,19 +5,6 @@
   }
 }
 
-// self-clearing floats
-%clearfix {
-  &:before,
-  &:after {
-    content: ' ';
-    display: table;
-  }
-
-  &:after {
-    clear: both;
-  }
-}
-
 // visually hide - still available to screen readers
 // https://github.com/h5bp/html5-boilerplate/issues/194/
 // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe

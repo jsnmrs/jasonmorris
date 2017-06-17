@@ -2,17 +2,11 @@
 layout: compress
 ---
 {% include header.html %}
-{% include top.html %}
-    <div class="page">
-      <main class="post">
-        <div class="logo-box"><a href="/" class="logo" title="Jason Morris">JM</a></div>
-        <div class="content">
-          <h1>{{ page.title }}</h1>
-          {% if page.date %}<p class="date">{{ page.date | date: "%B %-d, %Y" }}</p>{% endif %}
-          {{ content }}
-          <a class="back" href="/" aria-label="back to home" title="back to home">&larr;</a>
-        </div>
-      </main>
-    </div>
-{% include bottom.html %}
+  <main>
+    <a href="/" class="circle" title="Jason Morris">JM</a>
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}<p class="date">{{ page.date | date: "%B %-d, %Y" }}</p>{% endif %}
+    {{ content }}
+    <a href="/" class="circle back" aria-label="back to home" title="back to home">&larr;</a>
+  </main>
 {% include footer.html %}

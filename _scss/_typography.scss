@@ -28,9 +28,8 @@ a {
 
 h1,
 h2,
-h3,
-h4 {
-  color: $black;
+h3 {
+  color: $body-color;
   font-weight: 400;
 }
 
@@ -44,25 +43,19 @@ h1 {
 h2 {
   font-size: 1.875em;
   line-height: 1.2;
-  margin-bottom: .8em;
+  margin: .4em 0 .2em;
 }
 
 h3 {
   font-size: 1.5em;
   line-height: 1;
-  margin-bottom: 1em;
-}
-
-h4 {
-  font-size: 1.3125em;
-  line-height: 1.143;
-  margin-bottom: 1.143em;
+  margin: 0 0 1em;
 }
 
 p {
   font-size: 1em;
   line-height: 1.5;
-  margin-bottom: 1.5em;
+  margin: .5em 0 1em;
 }
 
 ul,
@@ -83,13 +76,17 @@ em {
   font-style: italic;
 }
 
+strong {
+  font-weight: bolder;
+}
+
 pre,
 code {
   background-color: $purple-accent;
   border: 1px solid $gray-accent;
   border-radius: .25em;
   font-family: $font-family-mono;
-  font-size: 1em;
+  font-size: .8em;
 }
 
 code {

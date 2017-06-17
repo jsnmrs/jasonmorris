@@ -1,4 +1,5 @@
 var gulp          = require('gulp');
+var autoprefixer  = require('autoprefixer');
 var axe           = require('gulp-axe-webdriver');
 var browserSync   = require('browser-sync');
 var cp            = require('child_process');
@@ -7,41 +8,39 @@ var imagemin      = require('gulp-imagemin');
 var jshint        = require('gulp-jshint');
 var merge         = require('merge-stream');
 var newer         = require('gulp-newer');
+var postcss       = require('gulp-postcss');
 var psi           = require('psi');
+var sass          = require('gulp-sass');
 var scsslint      = require('gulp-scss-lint');
 var uglify        = require('gulp-uglify');
 
 
-// Default task - build, launch BrowserSync, and watch files
 gulp.task('default', ['browser-sync', 'watch']);
-
 gulp.task('build', ['images', 'js', 'jekyll-build']);
+gulp.task('css', ['sass']);
 gulp.task('lint', ['scsslint', 'htmllint', 'jshint', 'axe']);
 
 
-// Watch tasks - images, JS, SCSS, HTML/markdown
 gulp.task('watch', function () {
     gulp.watch('img/*', ['images']);
     gulp.watch('js/**/*.js', ['js']);
-    gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*', '_sass/**/*.scss'], ['jekyll-rebuild']);
+    gulp.watch('_scss/**/*.scss', ['jekyll-rebuild']);
+    gulp.watch(['index.html', '_includes/*', '_layouts/*.html', '*.md', '_posts/*', '_sass/**/*.scss'], ['jekyll-rebuild']);
 });
 
 
-// Jekyll build - using GitHub Pages spec via bundle exec
-gulp.task('jekyll-build', function (done) {
+gulp.task('jekyll-build', ['css'], function (done) {
   browserSync.notify('Building Jekyll');
   return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_local-config.yml'], {stdio: 'inherit'})
     .on('close', done);
 });
 
 
-// Jekyll rebuild - hook for Jekyll build after file changes
 gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
     browserSync.reload();
 });
 
 
-// Local server - starts after initial build tasks finish
 gulp.task('browser-sync', ['build'], function() {
   browserSync({
     server: {baseDir: '_site'},
@@ -51,11 +50,8 @@ gulp.task('browser-sync', ['build'], function() {
 });
 
 
-// Image optimization - JPG, GIF, PNG, SVG
-// Writes to base image directory and _site image directory (for immediate refresh)
-// Only runs on images that are newer than the versions in public/img/
 gulp.task('images', function() {
-  return gulp.src('img/*')
+  return gulp.src(['img/*.{png,svg,jpg,gif}', '*.{png,svg,jpg,gif}'])
     .pipe(newer('img'))
     .pipe(imagemin([
     	imagemin.jpegtran({progressive: true}),
@@ -68,9 +64,7 @@ gulp.task('images', function() {
 });
 
 
-// Concatenate, uglify JS files
 gulp.task('js', function() {
-
   var options = {
     mangle : true,
     compress : true
@@ -91,15 +85,26 @@ gulp.task('js', function() {
 });
 
 
-// SCSS linting - using scss_lint gem via bundle exec
+gulp.task('sass', function () {
+  return gulp.src('_scss/**/*.scss')
+    .pipe(sass({
+      outputStyle: 'compressed',
+      onError: browserSync.notify
+    }))
+    .pipe(postcss([autoprefixer()]))
+    .pipe(gulp.dest('_includes/'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
+
+
 gulp.task('scsslint', function() {
-  return gulp.src(['_sass/**/*.scss'])
+  return gulp.src(['_scss/**/*.scss'])
     .pipe(scsslint({bundleExec: true}))
     .pipe(scsslint.failReporter());
 });
 
 
-// HTML linting
 gulp.task('htmllint', function() {
   return gulp.src(['_site/**/*.html'])
     .pipe(htmlhint())
@@ -107,7 +112,6 @@ gulp.task('htmllint', function() {
 });
 
 
-// JS linting
 gulp.task('jshint', function() {
   return gulp.src(['_js/lib/*', 'gulpfile.js'])
     .pipe(jshint())
@@ -115,7 +119,6 @@ gulp.task('jshint', function() {
 });
 
 
-// Accessibility tests using aXe
 gulp.task('axe', function(done) {
   var options = {
     urls: ['_site/**/*.html'],
@@ -127,7 +130,6 @@ gulp.task('axe', function(done) {
 });
 
 
-// Google Pagespeed Insights
 gulp.task('mobile', function () {
     return psi(site, {
         nokey: 'true',

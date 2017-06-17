@@ -1,9 +1,7 @@
 @media print {
   * {
     background: transparent;
-    box-shadow: none;
     color: $black; // Black prints faster: h5bp.com/s
-    text-shadow: none;
   }
 
   a {

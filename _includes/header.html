@@ -16,11 +16,11 @@
     {% if page.class == "photo" %}<script src="/js/picturefill.js" defer></script>{% endif %}
     {% if site.environment != "local" %}<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }</script>{% endif %}
     <style type="text/css">
-      {% capture include_to_scssify %}
-        {% include style.scss %}
+      {% capture include_to_cssify %}
+        {% include style.css %}
       {% endcapture %}
-      {{ include_to_scssify | scssify }}
+      {{ include_to_cssify | cssify }}
     </style>
   </head>
 
-  <body{% if page.bodyclass == "home" %} class="home"{% endif %}>
+  <body>

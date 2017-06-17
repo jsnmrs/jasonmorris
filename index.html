@@ -2,28 +2,27 @@
 layout: home
 title:
 class: photo
-bodyclass: home
 ---
 
 <h1>Jason Morris</h1>
 
-<ul class="post-list">
+<ul>
 {% for post in site.posts %}
   <li>
-    <a href="{{ post.url }}">{{ post.title }} <span class="tag">{% if post.category-full %}{{ post.category-full }}{% else %}{{ post.category }}{% endif %}</span></a>
+    <a href="{{ post.url }}">{{ post.title }} <span>{% if post.category-full %}{{ post.category-full }}{% else %}{{ post.category }}{% endif %}</span></a>
   </li>
 {% endfor %}
 </ul>
 
-<div class="intro">
+<article>
   <h2>Hey, I&rsquo;m Jason.</h2>
-  <div class="two-thirds">
+  <div class="hey">
     <p>There are a surprising number of folks who go by the same name. Their friends email me constantly.</p>
     <p>I wrote my first bit of HTML in a Notepad window sometime in 1998 and never stopped.</p>
     <p>Through a combination of genetics and general curiosity, I constantly tinker. Online or offline, I enjoy taking things apart, learning how they work, and (hopefully) putting them back together.</p>
     <p>This is my website. I&rsquo;m also occasionally on <a href="https://twitter.com/jsnmrs">Twitter</a>, <a href="https://instagram.com/jsnmrs">Instagram</a>, and <a href="https://github.com/jsnmrs">GitHub</a>.</p>
   </div>
-  <div class="third">
+  <div class="photo">
     <picture>
       <source media="(max-width: 48em)" srcset="/img/jason-iceland-640.jpg">
       <source media="(min-width: 48em)" srcset="/img/jason-iceland-320.jpg">
@@ -31,4 +30,4 @@ bodyclass: home
     </picture>
     <p class="caption">Waterfall pitstop off of Route 1 in Iceland</p>
   </div>
-</div>
+</article>
