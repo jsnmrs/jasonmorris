@@ -4,7 +4,6 @@ before_install:
   - rvm install 2.4.0
   - rvm use 2.4.0
   - bundle install
-  - rm ./package-lock.json
 sudo: false
 env:
   global:
