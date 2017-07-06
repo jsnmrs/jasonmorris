@@ -11,14 +11,14 @@ var newer         = require('gulp-newer');
 var postcss       = require('gulp-postcss');
 var psi           = require('psi');
 var sass          = require('gulp-sass');
-var scsslint      = require('gulp-scss-lint');
+var sassLint      = require('gulp-sass-lint');
 var uglify        = require('gulp-uglify');
 
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('build', ['images', 'js', 'jekyll-build']);
 gulp.task('css', ['sass']);
-gulp.task('lint', ['scsslint', 'htmllint', 'jshint', 'axe']);
+gulp.task('lint', ['sasslint', 'htmllint', 'jshint', 'axe']);
 
 
 gulp.task('watch', function () {
@@ -97,11 +97,11 @@ gulp.task('sass', function () {
 });
 
 
-
-gulp.task('scsslint', function() {
-  return gulp.src(['_scss/**/*.scss'])
-    .pipe(scsslint({bundleExec: true}))
-    .pipe(scsslint.failReporter());
+gulp.task('sasslint', function () {
+  return gulp.src('_scss/**/*.scss')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
 
 
