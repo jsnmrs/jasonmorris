@@ -45,35 +45,37 @@ body {
   margin: .5em 0 1.5em;
 }
 
-.home ul {
-  list-style-type: none;
-  margin-bottom: 2em;
-  margin-left: 0;
-  margin-top: 2em;
+.home {
+  ul {
+    list-style-type: none;
+    margin-bottom: 2em;
+    margin-left: 0;
+    margin-top: 2em;
 
-  li {
-    border-bottom: 1px solid $gray-accent;
+    li {
+      border-bottom: 1px solid $gray-accent;
 
-    &:last-child {
-      border-bottom: 0;
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      span {
+        color: $black;
+        font-size: .5em;
+        letter-spacing: .1em;
+        padding: 0 .25em;
+        text-transform: uppercase;
+      }
     }
 
-    span {
-      color: $black;
-      font-size: .5em;
-      letter-spacing: .1em;
-      padding: 0 .25em;
-      text-transform: uppercase;
-    }
-  }
+    a {
+      display: block;
+      padding: .45em .5em .35em;
 
-  a {
-    display: block;
-    padding: .45em .5em .35em;
-
-    &:hover,
-    &:focus {
-      background-color: $gray-accent;
+      &:hover,
+      &:focus {
+        background-color: $gray-accent;
+      }
     }
   }
 }
@@ -98,9 +100,9 @@ main {
   display: grid;
   grid-column-gap: 1em;
   grid-template-columns:
-    [full-start] minmax(0, 1fr)
-    [main-start] minmax(0, 40em) [main-end]
-    minmax(0, 1fr) [full-end];
+  [full-start] minmax(0, 1fr)
+  [main-start] minmax(0, 40em) [main-end]
+  minmax(0, 1fr) [full-end];
 }
 
 main > * {
