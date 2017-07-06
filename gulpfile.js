@@ -9,16 +9,16 @@ var jshint        = require('gulp-jshint');
 var merge         = require('merge-stream');
 var newer         = require('gulp-newer');
 var postcss       = require('gulp-postcss');
-var psi           = require('psi');
 var sass          = require('gulp-sass');
 var sassLint      = require('gulp-sass-lint');
 var uglify        = require('gulp-uglify');
+var webpagetest   = require('gulp-webpagetest');
 
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('build', ['images', 'js', 'jekyll-build']);
 gulp.task('css', ['sass']);
-gulp.task('lint', ['sasslint', 'htmllint', 'jshint', 'axe']);
+gulp.task('lint', ['sasslint', 'htmllint', 'jshint', 'axe', 'webpagetest']);
 
 
 gulp.task('watch', function () {
@@ -130,21 +130,16 @@ gulp.task('axe', function(done) {
 });
 
 
-gulp.task('mobile', function () {
-    return psi(site, {
-        nokey: 'true',
-        strategy: 'mobile',
-    }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-        console.log('Usability score: ' + data.ruleGroups.USABILITY.score);
-    });
-});
-
-gulp.task('desktop', function () {
-    return psi(site, {
-        nokey: 'true',
-        strategy: 'desktop',
-    }).then(function (data) {
-        console.log('Speed score: ' + data.ruleGroups.SPEED.score);
-    });
-});
+gulp.task('webpagetest', webpagetest({
+  url: 'https://jasonmorris.com',
+  key: 'A.e04d20f893fadb3ae5c4f06494a457c8',
+  location: 'Dulles:Chrome',
+  firstViewOnly: true,
+  budget: {
+    SpeedIndex: 1000,
+    visualComplete: 1000
+  },
+  callback: function() {
+    console.log('WPT test done !');
+  }
+}));
