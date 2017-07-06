@@ -101,7 +101,7 @@ gulp.task('sasslint', function () {
   return gulp.src('_scss/**/*.scss')
     .pipe(sassLint())
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    .pipe(sassLint.failOnError());
 });
 
 
