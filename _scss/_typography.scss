@@ -8,21 +8,20 @@ body {
 }
 
 a {
+  text-decoration: none;
+  
   &:link {
     color: $link;
-    text-decoration: none;
   }
 
   &:visited {
     color: $link-visited;
-    text-decoration: none;
   }
 
   &:hover,
   &:focus,
   &:active {
-    color: $link-hover;
-    text-decoration: none;
+    color: $link-hover
   }
 }
 

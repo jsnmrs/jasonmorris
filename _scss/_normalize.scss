@@ -8,6 +8,5 @@ html {
 }
 
 a {
-  // scss-lint:disable VendorPrefix
-  -webkit-text-decoration-skip: objects;
+  text-decoration-skip: objects;
 }
