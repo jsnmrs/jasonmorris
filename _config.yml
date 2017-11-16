@@ -19,6 +19,6 @@ feed:
 
 exclude: [CNAME, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, package-lock.json, readme.md]
 
-gems:
+plugins:
 - jekyll-feed
 - jekyll-sitemap
