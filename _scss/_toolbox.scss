@@ -23,7 +23,7 @@
 // Force word wrapping - useful for long URLs
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
 %word-wrap {
-  // scss-lint:disable VendorPrefix
+  // sass-lint:disable no-misspelled-properties
   // These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
