@@ -8,8 +8,8 @@
     "url": "https://github.com/jsnmrs/jsnmrs.github.io.git"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
-    "browser-sync": "^2.18.13",
+    "autoprefixer": "^7.2.3",
+    "browser-sync": "^2.21.0",
     "gulp": "^3.9.1",
     "gulp-axe-webdriver": "^1.4.0",
     "gulp-htmlhint": "^1.0.0",
@@ -31,5 +31,8 @@
   "scripts": {
     "test": "tape _test/jasonmorris.test.js | tap-spec && gulp build && gulp lint"
   },
-  "author": "Jason Morris"
+  "author": "Jason Morris",
+  "dependencies": {
+    "npm-check-updates": "^2.14.0"
+  }
 }
