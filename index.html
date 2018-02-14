@@ -9,7 +9,7 @@ class: photo
 <ul>
 {% for post in site.posts %}
   <li>
-    <a href="{{ post.url }}">{{ post.title }} <span>{% if post.category-full %}{{ post.category-full }}{% else %}{{ post.category }}{% endif %}</span></a>
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </li>
 {% endfor %}
 </ul>
