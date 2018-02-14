@@ -34,14 +34,12 @@ body {
 
 .date {
   color: $gray-light;
-  font-size: 1em;
   line-height: 1.5;
   text-align: center;
 }
 
 .caption {
   color: $gray;
-  font-size: .85em;
   margin: .5em 0 1.5em;
 }
 
@@ -57,14 +55,6 @@ body {
 
       &:last-child {
         border-bottom: 0;
-      }
-
-      span {
-        color: $black;
-        font-size: .5em;
-        letter-spacing: .1em;
-        padding: 0 .25em;
-        text-transform: uppercase;
       }
     }
 

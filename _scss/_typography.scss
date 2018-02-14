@@ -1,7 +1,7 @@
 body {
   color: $body-color;
   font-family: $font-family;
-  font-size: 95%;
+  font-size: 100%;
   font-weight: 400;
   @include bp($medium) { font-size: 130%; }
   @include bp($large) { font-size: 150%; }
@@ -89,7 +89,7 @@ code {
   border: 1px solid $gray-accent;
   border-radius: .25em;
   font-family: $font-family-mono;
-  font-size: .8em;
+  font-size: 1em;
 }
 
 code {
