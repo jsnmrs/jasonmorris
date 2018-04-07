@@ -70,17 +70,12 @@ gulp.task('js', function() {
     compress : true
   };
 
-  var picturefill = gulp.src(['js/vendor/picturefill.js'])
-    .pipe(uglify(options))
-    .pipe(gulp.dest('_site/js/'))
-    .pipe(gulp.dest('js/'));
-
   var sw = gulp.src(['js/lib/sw.js'])
     .pipe(uglify(options))
     .pipe(gulp.dest('_site/'))
     .pipe(gulp.dest('./'));
 
-  return merge(picturefill, sw)
+  return merge(sw)
     .pipe(browserSync.reload({stream: true}));
 });
 
