@@ -18,7 +18,7 @@ var webpagetest   = require('gulp-webpagetest');
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('build', ['images', 'js', 'jekyll-build']);
 gulp.task('css', ['sass', 'sasslint']);
-gulp.task('lint', ['sasslint', 'htmllint', 'jshint', 'axe', 'webpagetest']);
+gulp.task('lint', ['sasslint', 'htmllint', 'jshint', 'webpagetest']);
 
 
 gulp.task('watch', function () {
