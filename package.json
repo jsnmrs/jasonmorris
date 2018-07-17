@@ -8,10 +8,10 @@
     "url": "https://github.com/jsnmrs/jsnmrs.github.io.git"
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.2",
-    "browser-sync": "^2.24.4",
+    "autoprefixer": "^9.0.0",
+    "browser-sync": "^2.24.5",
     "gulp": "^3.9.1",
-    "gulp-axe-webdriver": "^2.1.1",
+    "gulp-axe-webdriver": "^2.1.2",
     "gulp-htmlhint": "^2.1.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-jshint": "^2.1.0",
