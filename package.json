@@ -35,9 +35,10 @@
     "stylelint:fix": "stylelint _scss/**/*.scss --fix",
     "htmllint": "htmlhint _site/**/*.html",
     "eslint": "eslint js/**/*.js",
+    "eslint:fix": "eslint js/**/*.js --fix",
     "html": "npm run test && npm run jekyll && npm run htmllint",
     "css": "npm run stylelint && npm run scss && npm run autoprefixer",
-    "js": "npm run eslint && npm run uglify",
+    "js": "npm run uglify",
     "build": "npm run css && npm run js && npm run html"
   }
 }
