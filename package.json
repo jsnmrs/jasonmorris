@@ -32,6 +32,7 @@
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
     "test": "tape _test/jasonmorris.test.js | tap-spec",
     "stylelint": "stylelint _scss/**/*.scss",
+    "stylelint:fix": "stylelint _scss/**/*.scss --fix",
     "htmllint": "htmlhint _site/**/*.html",
     "eslint": "eslint js/**/*.js",
     "html": "npm run test && npm run jekyll && npm run htmllint",

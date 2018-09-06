@@ -13,18 +13,18 @@
   }
 
   // sass-lint:disable force-attribute-nesting, force-pseudo-nesting
-  a[href]:after {
+  a[href]::after {
     content: ' [' attr(href) ']';
-    font-size: .75em;
+    font-size: 0.75em;
     font-style: normal;
   }
 
   // Don't show links for images, or javascript/internal links
-  a[href^='#']:after {
+  a[href^='#']::after {
     content: '';
   }
 
-  a[href='/']:after {
+  a[href='/']::after {
     content: ' [aka ' attr(title) ']';
   }
   // sass-lint:enable force-attribute-nesting, force-pseudo-nesting
@@ -35,7 +35,7 @@
   }
 
   @page {
-    margin: .5cm;
+    margin: 0.5cm;
   }
 
   p,

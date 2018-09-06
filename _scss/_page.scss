@@ -14,8 +14,8 @@ body {
   font-size: 1.25em;
   width: 2.25em;
   height: 2.25em;
-  transition: all .3s ease-in-out;
-  margin: 1em auto .5em;
+  transition: all 0.3s ease-in-out;
+  margin: 1em auto 0.5em;
 
   &:link,
   &:visited {
@@ -40,7 +40,7 @@ body {
 
 .caption {
   color: $gray;
-  margin: .5em 0 1.5em;
+  margin: 0.5em 0 1.5em;
 }
 
 .home {
@@ -60,7 +60,7 @@ body {
 
     a {
       display: block;
-      padding: .45em .5em .35em;
+      padding: 0.45em 0.5em 0.35em;
 
       &:hover,
       &:focus {
@@ -90,9 +90,9 @@ main {
   display: grid;
   grid-column-gap: 1em;
   grid-template-columns:
-  [full-start] minmax(0, 1fr)
-  [main-start] minmax(0, 40em) [main-end]
-  minmax(0, 1fr) [full-end];
+    [full-start] minmax(0, 1fr)
+    [main-start] minmax(0, 40em) [main-end]
+    minmax(0, 1fr) [full-end];
 }
 
 main > * {
@@ -101,7 +101,7 @@ main > * {
 
 main > figure {
   grid-column: full;
-  margin: 1.5em 0 .5em;
+  margin: 1.5em 0 0.5em;
 }
 
 section {
