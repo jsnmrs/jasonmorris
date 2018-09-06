@@ -30,15 +30,16 @@
     "autoprefixer": "postcss -u autoprefixer -r _includes/*.css",
     "uglify": "uglifyjs js/lib/sw.js -m -o sw.js",
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
-    "test": "tape _test/jasonmorris.test.js | tap-spec",
+    "postlint": "tape _test/jasonmorris.test.js | tap-spec",
     "stylelint": "stylelint _scss/**/*.scss",
     "stylelint:fix": "stylelint _scss/**/*.scss --fix",
     "htmllint": "htmlhint _site/**/*.html",
     "eslint": "eslint js/**/*.js",
     "eslint:fix": "eslint js/**/*.js --fix",
-    "html": "npm run test && npm run jekyll && npm run htmllint",
+    "html": "npm run postlint && npm run jekyll && npm run htmllint",
     "css": "npm run stylelint && npm run scss && npm run autoprefixer",
     "js": "npm run uglify",
-    "build": "npm run css && npm run js && npm run html"
+    "build": "npm run css && npm run js && npm run html",
+    "test": "npm run build"
   }
 }
