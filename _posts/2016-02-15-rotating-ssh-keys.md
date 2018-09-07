@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Rotating SSH Keys"
-category: "til"
-category-full: "today I learned"
+title: 'Rotating SSH Keys'
+category: 'til'
+category-full: 'today I learned'
 tags:
-- osx
-- security
-- setup
-- ssh
+  - osx
+  - security
+  - setup
+  - ssh
 ---
 
 Rotating your SSH keys every once in a while is good digital hygiene.
@@ -28,7 +28,7 @@ Generate a strong passphrase for your new SSH key. I use [1Password](https://agi
 
 Create your new SSH key pair. If you already have a key named "id_rsa", this will overwrite it.
 
-`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -C "comment describing key" `
+`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -C "comment describing key"`
 
 When prompted, enter the passphrase you generated earlier.
 
@@ -44,7 +44,7 @@ To make sure the SSH agent is running, first run:
 
 `eval "$(ssh-agent -s)"`
 
-To add the new SSH key pair to the SSH agent and to the Mac OS X [Keychain](https://en.wikipedia.org/wiki/Keychain_(software)), run:
+To add the new SSH key pair to the SSH agent and to the Mac OS X [Keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>), run:
 
 `ssh-add -K ~/.ssh/id_rsa`
 
