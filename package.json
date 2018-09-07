@@ -34,7 +34,7 @@
     "postlint": "tape _test/jasonmorris.test.js | tap-spec",
     "stylelint": "stylelint _scss/**/*.scss",
     "stylelint:fix": "stylelint _scss/**/*.scss --fix",
-    "prettier": "prettier --single-quote --write **/*.{md,js,scss,html}",
+    "prettier": "prettier --single-quote --write **/*.{md,js,html}",
     "htmllint": "htmlhint _site/**/*.html",
     "eslint": "eslint js/**/*.js",
     "eslint:fix": "eslint js/**/*.js --fix",
