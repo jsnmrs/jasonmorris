@@ -4,11 +4,11 @@ title: Where Do You See Yourself in 20 Years?
 class: photo
 category: bikes
 tags:
-- photo
-- youth
+  - photo
+  - youth
 ---
 
-*Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)*.
+_Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)_.
 
 “How long have you been riding?” You’ve been asked that question countless times. My memory and date math skills are underwhelming at best, so scraping together a sarcastic “too long” is usually my response. Thinking back, I do remember the first time I pedaled towards a jump and actually got my wheels off the ground.
 
@@ -20,7 +20,7 @@ Armed with some encouragement from my grandfather, I pedaled into the grass and 
 
 I couldn’t tell you how old I was at the time, no idea of the year, but I remember clearly how stoked I was to hit a jump on my bike. Thinking back, I always wished that I had a photo of me hitting that jump on my little 20″ bike.
 
-***
+---
 
 A few weeks ago, Hurricane Irene barreled up the East Coast and caused substantial flooding in some parts of the Northeast. My parents’ house fell into the crosshairs of a swelling creek that had no regards for its long-standing banks. Water consumed the basement and took out everything that wasn’t within a few feet of the ceiling. Spending the day afterwards in waist deep water, we saved what we could. It was just stuff, after all. Everyone was safe. I pulled several boxes of photographs out of the water and handed them up to my Mom, fairly certain they were a lost cause.
 

@@ -4,9 +4,9 @@ title: Deck Dancing via Tripod
 class: photo
 category: bikes
 tags:
-- video
-- bmx
-- skatepark
+  - video
+  - bmx
+  - skatepark
 ---
 
 While I&rsquo;m usually content shooting photos and video of other people, sometimes I feel like capturing some of my own riding. Most times that means setting up the camera on a tripod and pressing record.

@@ -4,10 +4,10 @@ title: Lords of Fun
 class: photo
 category: bikes
 tags:
-- video
-- bmx
-- photo
-- motorcycles
+  - video
+  - bmx
+  - photo
+  - motorcycles
 ---
 
 I was fortunate enough to have a few photos published in issue 2 of Albion Magazine a little while back. I went on a road trip from Richmond, Virginia to the Outer Banks of North Carolina in a caravan including a green limousine and about a dozen motorcycles. [Propsbmx.tv](https://vimeo.com/32484086) filmed the entire trip and we posted a bunch of [photos over on Least Most](https://leastmost.com/features/lords-of-fun-2-photos/), too.

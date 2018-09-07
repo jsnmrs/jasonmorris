@@ -5,9 +5,9 @@ class: photo
 category: photo
 category-full: photography
 tags:
-- photo
-- waterfall
-- slow-shutter
+  - photo
+  - waterfall
+  - slow-shutter
 ---
 
 I spent the morning on a quick hike with my good friend Eric, just over the New York border in Massachusetts. [Cascade Falls](http://berkshirehiking.com/hikes/the_cascades.html) to be exact. Still unchecked on my photographic learning list was the infamous, dragged-shutter rushing-water photo. I had a lot of fun figuring these out.
