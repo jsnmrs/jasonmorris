@@ -38,9 +38,14 @@ body {
   text-align: center;
 }
 
+figcaption,
 .caption {
   color: $gray;
   margin: 0.5em 0 1.5em;
+}
+
+figcaption {
+  text-align: center;
 }
 
 .home {
