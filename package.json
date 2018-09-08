@@ -11,9 +11,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
-    "eslint": "^5.5.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
     "htmlhint": "^0.10.1",
     "js-yaml": "^3.12.0",
     "node-sass": "^4.9.3",
@@ -23,26 +20,21 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-scss": "^3.3.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
-    "uglify-js": "^3.4.9"
+    "tape": "^4.9.1"
   },
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
-    "uglify": "uglifyjs js/lib/sw.js -m -o sw.js",
+    "stylelint": "stylelint _scss/**/*.scss",
+    "stylelint:fix": "stylelint _scss/**/*.scss --fix",
+    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
     "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
     "postlint": "tape _test/jasonmorris.test.js | tap-spec",
-    "stylelint": "stylelint _scss/**/*.scss",
-    "stylelint:fix": "stylelint _scss/**/*.scss --fix",
     "prettier": "prettier --single-quote --write **/*.{md,js}",
     "htmllint": "htmlhint _site/**/*.html",
-    "eslint": "eslint js/**/*.js",
-    "eslint:fix": "eslint js/**/*.js --fix",
     "html": "npm run postlint && npm run jekyll && npm run htmllint",
-    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
-    "js": "npm run uglify",
-    "build": "npm run prettier && npm run css && npm run js && npm run html",
+    "build": "npm run prettier && npm run css && npm run html",
     "test": "npm run build"
   }
 }
