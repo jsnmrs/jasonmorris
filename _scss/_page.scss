@@ -24,7 +24,9 @@ body {
 
   &:hover,
   &:focus {
-    background-color: $black-trans-45;
+    background-image: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 110%;
+    transition: all 0.3s ease-in-out;
   }
 }
 
