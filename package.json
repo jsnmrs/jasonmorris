@@ -28,7 +28,7 @@
   },
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
-    "autoprefixer": "postcss -u autoprefixer -r _includes/*.css",
+    "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
     "uglify": "uglifyjs js/lib/sw.js -m -o sw.js",
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
     "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
