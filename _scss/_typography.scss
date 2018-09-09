@@ -11,6 +11,7 @@ body {
 
 a {
   text-decoration: none;
+  text-decoration-skip: objects;
 
   &:link {
     color: $link;

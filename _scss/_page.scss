@@ -24,7 +24,7 @@ body {
 
   &:hover,
   &:focus {
-    background-image: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+    background-image: linear-gradient(to bottom, $rainbow);
     background-size: 110%;
     transition: all 0.3s ease-in-out;
   }
@@ -96,8 +96,7 @@ hr {
 main {
   display: grid;
   grid-column-gap: 1em;
-  grid-template-columns:
-    [full-start] minmax(0, 1fr)
+  grid-template-columns: [full-start] minmax(0, 1fr)
     [main-start] minmax(0, 40em) [main-end]
     minmax(0, 1fr) [full-end];
 }
