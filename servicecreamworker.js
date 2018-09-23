@@ -21,7 +21,7 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
   const staticAssets = [
     "/fonts/ssp.woff2",
     "/img/jason-iceland-320.jpg",
-    "/img/jason-iceland-640.jpg"
+    "/img/jason-iceland-640.jpg",
     "/apple-touch-icon.png"
   ];
 
