@@ -15,7 +15,7 @@
     "js-yaml": "^3.12.0",
     "node-sass": "^4.9.3",
     "postcss-cli": "^6.0.0",
-    "prettier": "^1.14.2",
+    "prettier": "^1.14.3",
     "stylelint": "^9.5.0",
     "stylelint-scss": "^3.3.0",
     "tap-spec": "^5.0.0",
