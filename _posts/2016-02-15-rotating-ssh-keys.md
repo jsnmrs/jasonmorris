@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Rotating SSH Keys'
+offline: true
 category: 'til'
 category-full: 'today I learned'
 tags:
