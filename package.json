@@ -34,6 +34,7 @@
     "htmllint": "htmlhint _site/**/*.html",
     "html": "npm run postlint && npm run jekyll && npm run htmllint",
     "build": "npm run prettier && npm run css && npm run html",
+    "work": "npm run build && npm run jekyll:serve",
     "test": "npm run build"
   }
 }
