@@ -26,7 +26,12 @@ body {
   &:focus {
     background-image: linear-gradient(to bottom, $rainbow);
     background-size: 110%;
-    transition: all 0.3s ease-in-out;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .circle {
+    transition: none;
   }
 }
 
