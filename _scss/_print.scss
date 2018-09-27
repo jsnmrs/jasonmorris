@@ -12,7 +12,6 @@
     }
   }
 
-  // sass-lint:disable force-attribute-nesting, force-pseudo-nesting
   a[href]::after {
     content: ' [' attr(href) ']';
     font-size: 0.75em;
@@ -27,7 +26,6 @@
   a[href='/']::after {
     content: ' [aka ' attr(title) ']';
   }
-  // sass-lint:enable force-attribute-nesting, force-pseudo-nesting
 
   img {
     max-width: 100%;

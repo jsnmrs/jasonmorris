@@ -25,7 +25,6 @@
 // Force word wrapping - useful for long URLs
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
 %word-wrap {
-  // sass-lint:disable no-misspelled-properties
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
