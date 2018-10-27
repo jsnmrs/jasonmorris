@@ -21,7 +21,7 @@ a {
     color: $link;
 
     @media (prefers-color-scheme: dark) {
-      color: lighten($link, 35%);
+      color: lighten($link, 40%);
     }
   }
 
@@ -29,7 +29,7 @@ a {
     color: $link-visited;
 
     @media (prefers-color-scheme: dark) {
-      color: lighten($link-visited, 35%);
+      color: lighten($link-visited, 40%);
     }
   }
 
@@ -39,7 +39,7 @@ a {
     color: $link-hover;
 
     @media (prefers-color-scheme: dark) {
-      color: lighten($link-hover, 35%);
+      color: lighten($link-hover, 40%);
     }
   }
 }
