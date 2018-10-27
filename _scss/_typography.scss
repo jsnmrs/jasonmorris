@@ -7,6 +7,10 @@ body {
   @include bp($medium) { font-size: 130%; }
 
   @include bp($large) { font-size: 150%; }
+
+  @media (prefers-color-scheme: dark) {
+    color: $gray-barely;
+  }
 }
 
 a {
@@ -15,16 +19,28 @@ a {
 
   &:link {
     color: $link;
+
+    @media (prefers-color-scheme: dark) {
+      color: lighten($link, 35%);
+    }
   }
 
   &:visited {
     color: $link-visited;
+
+    @media (prefers-color-scheme: dark) {
+      color: lighten($link-visited, 35%);
+    }
   }
 
   &:hover,
   &:focus,
   &:active {
     color: $link-hover;
+
+    @media (prefers-color-scheme: dark) {
+      color: lighten($link-hover, 35%);
+    }
   }
 }
 
@@ -33,6 +49,10 @@ h2,
 h3 {
   color: $body-color;
   font-weight: 400;
+
+  @media (prefers-color-scheme: dark) {
+    color: $gray-barely;
+  }
 }
 
 h1 {
@@ -93,6 +113,12 @@ code {
   border-radius: 0.25em;
   font-family: $font-family-mono;
   font-size: 1em;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $black;
+    border: 1px solid $gray;
+    color: $white;
+  }
 }
 
 code {

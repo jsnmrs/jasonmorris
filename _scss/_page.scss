@@ -1,6 +1,10 @@
 body {
   background-color: $gray-barely;
   margin: 0;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $black;
+  }
 }
 
 // stylelint-disable a11y/media-prefers-reduced-motion
@@ -29,6 +33,10 @@ body {
     background-size: 110%;
     transition: all 0.3s ease-in-out;
   }
+
+  @media (prefers-color-scheme: dark) {
+    border: 1px solid $white;
+  }
 }
 // stylelint-enable
 
@@ -40,12 +48,20 @@ body {
   color: $gray-light;
   line-height: 1.5;
   text-align: center;
+
+  @media (prefers-color-scheme: dark) {
+    color: $gray-accent;
+  }
 }
 
 figcaption,
 .caption {
   color: $gray;
   margin: 0.5em 0 1.5em;
+
+  @media (prefers-color-scheme: dark) {
+    color: $gray-accent;
+  }
 }
 
 figcaption {
@@ -62,6 +78,10 @@ figcaption {
     li {
       border-bottom: 1px solid $gray-accent;
 
+      @media (prefers-color-scheme: dark) {
+        border-bottom-color: $gray;
+      }
+
       &:last-child {
         border-bottom: 0;
       }
@@ -74,6 +94,11 @@ figcaption {
       &:hover,
       &:focus {
         background-color: $gray-accent;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: inherit;
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -88,6 +113,10 @@ hr {
   padding: 0;
   box-sizing: content-box;
   overflow: visible;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $gray;
+  }
 }
 
 .block-photo {
