@@ -1,10 +1,6 @@
 body {
-  background-color: $gray-barely;
+  background-color: $background;
   margin: 0;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $black;
-  }
 }
 
 // stylelint-disable a11y/media-prefers-reduced-motion
@@ -33,10 +29,6 @@ body {
     background-size: 110%;
     transition: all 0.3s ease-in-out;
   }
-
-  @media (prefers-color-scheme: dark) {
-    border: 1px solid $white;
-  }
 }
 // stylelint-enable
 
@@ -45,23 +37,15 @@ body {
 }
 
 .date {
-  color: $gray-light;
+  color: $text-accent;
   line-height: 1.5;
   text-align: center;
-
-  @media (prefers-color-scheme: dark) {
-    color: $gray-accent;
-  }
 }
 
 figcaption,
 .caption {
-  color: $gray;
+  color: $text-accent;
   margin: 0.5em 0 1.5em;
-
-  @media (prefers-color-scheme: dark) {
-    color: $gray-accent;
-  }
 }
 
 figcaption {
@@ -76,11 +60,7 @@ figcaption {
     margin-top: 2em;
 
     li {
-      border-bottom: 1px solid $gray-accent;
-
-      @media (prefers-color-scheme: dark) {
-        border-bottom-color: $gray;
-      }
+      border-bottom: 1px solid $background-accent;
 
       &:last-child {
         border-bottom: 0;
@@ -93,12 +73,7 @@ figcaption {
 
       &:hover,
       &:focus {
-        background-color: $gray-accent;
-
-        @media (prefers-color-scheme: dark) {
-          background-color: inherit;
-          text-decoration: underline;
-        }
+        background-color: $background-accent;
       }
     }
   }
@@ -106,17 +81,13 @@ figcaption {
 
 hr {
   border: 0;
-  border-top: 1px solid $gray-accent;
+  border-top: 1px solid $background-accent;
   display: block;
   height: 1px;
   margin: 3em 2em;
   padding: 0;
   box-sizing: content-box;
   overflow: visible;
-
-  @media (prefers-color-scheme: dark) {
-    border-top-color: $gray;
-  }
 }
 
 .block-photo {
