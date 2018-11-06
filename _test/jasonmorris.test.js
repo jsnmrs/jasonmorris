@@ -50,8 +50,6 @@ posts.forEach(function(post) {
 
   test(path + post, function(t) {
     t.ok(metadata.title, 'must have a title');
-    t.ok(metadata.layout, 'must have a layout');
-    t.equal(metadata.layout, 'post', 'must have layout: post');
 
     if (metadata.tags) {
       t.equal(metadata.tags.length < 5, true, 'no more than 4 tags');

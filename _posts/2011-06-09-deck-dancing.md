@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Deck Dancing via Tripod
-class: photo
 category: bikes
 tags:
   - video

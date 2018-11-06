@@ -40,6 +40,10 @@ body {
 }
 // stylelint-enable
 
+.top {
+  margin: 1em 0 0.5em;
+}
+
 .back {
   margin-bottom: 1em;
 }
@@ -47,7 +51,7 @@ body {
 .date {
   color: $gray-light;
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
 
   @media (prefers-color-scheme: dark) {
     color: $gray-accent;

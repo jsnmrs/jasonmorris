@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Lords of Fun
-class: photo
 category: bikes
 tags:
   - video

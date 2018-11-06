@@ -42,7 +42,7 @@
     "test": "npm run build",
     "watch:scss": "onchange '_scss/*.scss' -e '_site/**' -- npm run css && npm run jekyll",
     "watch:css": "onchange '_includes/*.css' -e '_site/**' -- npm run jekyll",
-    "watch:html": "onchange '_posts/*.html' -e '_site/**' -- npm run jekyll",
+    "watch:html": "onchange '_posts/*' -e '_site/**' -- npm run jekyll",
     "work": "npm run build && npm-run-all --parallel serve watch:*"
   }
 }

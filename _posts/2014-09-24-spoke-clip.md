@@ -1,9 +1,6 @@
 ---
-layout: post
 title: Fork Seal Clip for a 1982 Suzuki GS850L Motorcycle
-class: photo
 category: diy
-category-full: 'do it yourself'
 tags:
   - motorcycle
   - diy

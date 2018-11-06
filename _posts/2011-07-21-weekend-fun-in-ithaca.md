@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Weekend Fun in Ithaca
-class: photo
 category: bikes
 tags:
   - photo

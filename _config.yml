@@ -3,7 +3,6 @@ description: Personal site of Jason Morris
 url: https://jasonmorris.com
 enforce_ssl: jasonmorris.com
 
-# Local server settings
 port: 4000
 host: 127.0.0.1
 
@@ -39,3 +38,10 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
+
+defaults:
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'
