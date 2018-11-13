@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Bikes and Barns
-class: photo
 category: bikes
 tags:
   - video

@@ -1,9 +1,6 @@
 ---
-layout: post
 title: Saturday Morning in the Berkshires
-class: photo
 category: photo
-category-full: photography
 tags:
   - photo
   - waterfall

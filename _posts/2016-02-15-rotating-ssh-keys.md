@@ -1,14 +1,14 @@
 ---
-layout: post
-title: 'Rotating SSH Keys'
+title: Rotating SSH Keys
+category: code
 offline: true
-category: 'til'
-category-full: 'today I learned'
+redirect_from:
+  - /til/rotating-ssh-keys/
 tags:
-  - osx
+  - macOS
   - security
   - setup
-  - ssh
+  - SSH
 ---
 
 Rotating your SSH keys every once in a while is good digital hygiene.
@@ -74,4 +74,4 @@ If the key works, you'll be greeted with:
 
 ## Backup folder
 
-The backup folder you created at the start of this process holds your old SSH keys. Until you've confirmed that all of the services you connect to over SSH are working with your new key, I'd keep the backed up keys around to be safe.
+The backup folder you created at the start of this process holds your old SSH keys. Until you've confirmed that all of the services you connect to over SSH are working with your new key, hang onto the back up keys to be safe.

@@ -3,7 +3,6 @@ description: Personal site of Jason Morris
 url: https://jasonmorris.com
 enforce_ssl: jasonmorris.com
 
-# Local server settings
 port: 4000
 host: 127.0.0.1
 
@@ -18,17 +17,31 @@ feed:
   path: atom.xml
 
 exclude:
-  [
-    CNAME,
-    Gemfile,
-    Gemfile.lock,
-    node_modules,
-    gulpfile.js,
-    package.json,
-    package-lock.json,
-    readme.md,
-  ]
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+  - readme.md
 
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
   - jekyll-sitemap
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+defaults:
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Where Do You See Yourself in 20 Years?
-class: photo
-offline: true
 category: bikes
+offline: true
 tags:
   - photo
   - youth
