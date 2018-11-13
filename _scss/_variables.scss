@@ -5,8 +5,6 @@ $large:             64em;   // 1024px
 
 $black:             #222;
 $black-print:       #000;
-$black-trans-75:    rgba($black, 0.75);
-$black-trans-45:    rgba($black, 0.45);
 $gray:              #666;
 $gray-dark:         #444;
 $gray-light:        #727272;
@@ -15,26 +13,32 @@ $gray-barely:       #f9f9f9;
 $purple-accent:     #eef;
 $white:             #fff;
 $blue:              #15c;
+$blue-dark:         #092e6e;
 $blue-light:        #39cccc;
+$blue-lighter:      #b3ebeb;
 $rainbow:           #f00, #ffa500, #ff0, #008000, #0ff, #4b0082, #ee82ee;
 
 $font-family:       'Source Serif Pro', serif;
 $font-family-mono:  'Source Code Pro', Courier, monospace, monospace;
 
-$background:          $gray-barely;
-$background-accent:   $gray-accent;
-$text:                $black;
-$text-accent:         $gray-dark;
-$link:                $blue;
-$link-visited:        $blue;
-$link-hover:          darken($blue, 20%);
+:root {
+  --background: #f9f9f9;
+  --background-accent: #ddd;
+  --text: #222;
+  --text-accent: #444;
+  --link: #15c;
+  --link-visited: #15c;
+  --link-hover: #092e6e;
+}
 
 @media (prefers-color-scheme: dark) {
-  $background:          $black;
-  $background-accent:   $gray-dark;
-  $text:                $gray-barely;
-  $text-accent:         $gray-accent;
-  $link:                $blue-light;
-  $link-visited:        $blue-light;
-  $link-hover:          lighten($blue-light, 20%);
+  :root {
+    --background: #222;
+    --background-accent: #444;
+    --text: #f9f9f9;
+    --text-accent: #ddd;
+    --link: #39cccc;
+    --link-visited: #39cccc;
+    --link-hover: #b3ebeb;
+  }
 }
