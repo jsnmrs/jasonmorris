@@ -1,5 +1,5 @@
 body {
-  color: $text;
+  color: var(--text);
   font-family: $font-family;
   font-size: 100%;
   font-weight: 400;
@@ -14,24 +14,24 @@ a {
   text-decoration-skip: objects;
 
   &:link {
-    color: $link;
+    color: var(--link);
   }
 
   &:visited {
-    color: $link-visited;
+    color: var(--link-visited);
   }
 
   &:hover,
   &:focus,
   &:active {
-    color: $link-hover;
+    color: var(--link-hover);
   }
 }
 
 h1,
 h2,
 h3 {
-  color: $text;
+  color: var(--text);
   font-weight: 400;
 }
 
@@ -43,10 +43,6 @@ h1 {
 
   .home & {
     font-size: 3.5em;
-  }
-
-  .post & {
-    text-align: left;
   }
 }
 
@@ -92,22 +88,16 @@ strong {
 
 pre,
 code {
-  background-color: $purple-accent;
-  border: 1px solid $gray-accent;
+  background-color: var(--background-accent);
+  border: 1px solid var(--background-accent);
+  color: var(--text);
   border-radius: 0.25em;
   font-family: $font-family-mono;
   font-size: 1em;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $black;
-    border: 1px solid $gray;
-    color: $white;
-  }
 }
 
 code {
   display: inline-block;
-  line-height: 1.2;
   padding: 0.01em 0.5em;
 }
 
