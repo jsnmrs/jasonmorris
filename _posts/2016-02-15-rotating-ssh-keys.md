@@ -59,6 +59,10 @@ Add the public key to your GitHub account by following their [Adding a new SSH k
 
 `pbcopy < ~/.ssh/id_rsa.pub`
 
+In the event that `pbcopy` isn't available, print the public key to the console for copy/pasting with:
+
+`cat ~/.ssh/id_rsa.pub`
+
 Then you'll be able to paste the key into your [GitHub SSH Key page](https://github.com/settings/ssh) to enable your new key.
 
 While you're there, it's a good opportunity to review any other SSH keys you have in GitHub and rotate/remove as needed.
