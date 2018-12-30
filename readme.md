@@ -1,6 +1,6 @@
 # jasonmorris.com ![Build status](https://travis-ci.org/jsnmrs/jsnmrs.github.io.svg?branch=master)
 
-This is the code repository for my personal website. Take a look :eyes:
+This is the code repository for my personal website.
 
 ## Borrowed techniques:
 
