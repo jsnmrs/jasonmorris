@@ -23,7 +23,7 @@
     "stylelint-a11y": "^1.1.9",
     "stylelint-scss": "^3.4.4",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "tape": "^4.9.2"
   },
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
