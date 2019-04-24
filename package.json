@@ -35,7 +35,7 @@
     "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
     "postlint": "tape _test/jasonmorris.test.js | tap-spec",
     "prettier": "prettier --single-quote --write **/*.{yml,md,js}",
-    "htmllint": "htmlhint _site/**/*.html",
+    "htmllint": "htmlhint _site/",
     "html": "npm run postlint && npm run jekyll && npm run htmllint",
     "build": "npm run prettier && npm run css && npm run html",
     "serve": "browser-sync start --server '_site' --files '_site/**/*.html'",
