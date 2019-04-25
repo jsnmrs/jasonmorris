@@ -127,7 +127,7 @@ article {
   }
 }
 
-aside {
+.photo {
   grid-column: 1 / span 2;
 
   @include bp($medium) {
