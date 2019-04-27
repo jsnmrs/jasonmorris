@@ -1,25 +1,26 @@
-$small:             30em;   // 480px
-$small-medium:      37.5em; // 600px
-$medium:            48em;   // 768px
-$large:             64em;   // 1024px
+$small: 30em; // 480px
+$small-medium: 37.5em; // 600px
+$medium: 48em; // 768px
+$large: 64em; // 1024px
 
-$black:             #222;
-$black-print:       #000;
-$gray:              #666;
-$gray-dark:         #444;
-$gray-light:        #727272;
-$gray-accent:       #ddd;
-$gray-barely:       #f9f9f9;
-$purple-accent:     #eef;
-$white:             #fff;
-$blue:              #15c;
-$blue-dark:         #092e6e;
-$blue-light:        #39cccc;
-$blue-lighter:      #b3ebeb;
-$rainbow:           #f00, #ffa500, #ff0, #008000, #0ff, #4b0082, #ee82ee;
+$black: #222;
+$black-print: #000;
+$gray: #666;
+$gray-dark: #444;
+$gray-light: #727272;
+$gray-accent: #ddd;
+$gray-barely: #f9f9f9;
+$purple-accent: #eef;
+$white: #fff;
+$blue: #15c;
+$blue-dark: #092e6e;
+$blue-light: #39cccc;
+$blue-lighter: #b3ebeb;
+$transparent: transparent;
+$rainbow: #f00, #ffa500, #ff0, #008000, #0ff, #4b0082, #ee82ee;
 
-$font-family:       'Source Serif Pro', serif;
-$font-family-mono:  'Source Code Pro', Courier, monospace, monospace;
+$font-family: "Source Serif Pro", serif;
+$font-family-mono: "Source Code Pro", Courier, monospace, monospace;
 
 :root {
   --background: #{$gray-barely};

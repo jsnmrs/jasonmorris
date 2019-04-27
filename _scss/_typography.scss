@@ -1,12 +1,19 @@
+html {
+  font-size: 100%;
+
+  @include bp($medium) {
+    font-size: 130%;
+  }
+
+  @include bp($large) {
+    font-size: 150%;
+  }
+}
+
 body {
   color: var(--text);
   font-family: $font-family;
-  font-size: 100%;
   font-weight: 400;
-
-  @include bp($medium) { font-size: 130%; }
-
-  @include bp($large) { font-size: 150%; }
 }
 
 a {
@@ -36,37 +43,37 @@ h3 {
 }
 
 h1 {
-  font-size: 2.25em;
+  font-size: 2.25rem;
   line-height: 1.2;
-  margin: 0.5em 0 0.25em;
-  text-align: center;
+  margin: 0.5rem 0 0.25rem;
 
   .home & {
-    font-size: 3.5em;
+    font-size: 3.5rem;
+    text-align: center;
   }
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 1.8rem;
   line-height: 1.2;
-  margin: 0.4em 0 0.2em;
+  margin: 0.4rem 0 0.2rem;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1em;
+  margin: 0 0 1rem;
 }
 
 p {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.5;
-  margin: 0.5em 0 1em;
+  margin: 0.5rem 0 1rem;
 }
 
 ul,
 ol {
-  margin: 0 0 1.5em 2em;
+  margin: 0 0 1.5rem 2rem;
   padding: 0;
 }
 
@@ -83,30 +90,30 @@ em {
 }
 
 strong {
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 pre,
 code {
   background-color: var(--background-accent);
-  border: 1px solid var(--background-accent);
+  border: 0.1rem solid var(--background-accent);
   color: var(--text);
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   font-family: $font-family-mono;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 code {
   display: inline-block;
-  padding: 0.01em 0.5em;
+  padding: 0.01rem 0.5rem;
 }
 
 pre {
   overflow-x: scroll;
-  padding: 0.5em 0.75em;
+  padding: 0.5rem 0.75rem;
 
   > code {
-    background-color: transparent; // prevent clipping
+    background-color: $transparent; // prevent clipping
     border: 0;
     padding-left: 0;
     padding-right: 0;

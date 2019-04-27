@@ -1,7 +1,7 @@
 @media print {
   * {
     background: transparent;
-    color: $black-print; // Black prints faster: h5bp.com/s
+    color: $black-print;
   }
 
   a {
@@ -13,27 +13,22 @@
   }
 
   a[href]::after {
-    content: ' [' attr(href) ']';
-    font-size: 0.75em;
+    content: " [" attr(href) "]";
+    font-size: 0.75rem;
     font-style: normal;
   }
 
-  // Don't show links for images, or javascript/internal links
-  a[href^='#']::after {
-    content: '';
+  a[href^="#"]::after {
+    content: "";
   }
 
-  a[href='/']::after {
-    content: ' [aka ' attr(title) ']';
+  a[href="/"]::after {
+    content: " [aka " attr(title) "]";
   }
 
   img {
     max-width: 100%;
     page-break-inside: avoid;
-  }
-
-  @page {
-    margin: 0.5cm;
   }
 
   p,
@@ -49,12 +44,10 @@
   }
 
   h1 {
-    font-size: 2.25em;
+    font-size: 2.25rem;
   }
 
-  // stylelint-disable a11y/no-display-none
   .back {
     display: none;
   }
-  // stylelint-enable
 }

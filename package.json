@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",
-    "browser-sync": "^2.26.4",
+    "browser-sync": "^2.26.5",
     "htmlhint": "^0.11.0",
     "js-yaml": "^3.13.1",
     "node-sass": "^4.11.0",
@@ -22,6 +22,10 @@
     "prettier": "^1.17.0",
     "stylelint": "^10.0.1",
     "stylelint-a11y": "^1.1.11",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
+    "stylelint-declaration-use-variable": "^1.7.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-scss": "^3.6.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
@@ -29,9 +33,9 @@
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
-    "stylelint": "stylelint _scss/**/*.scss",
-    "stylelint:fix": "stylelint _scss/**/*.scss --fix",
-    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
+    "stylelint": "stylelint \"_scss/**/*.scss\"",
+    "stylelint:fix": "stylelint \"_scss/**/*.scss\" --fix",
+    "css": "npm run stylelint:fix && npm run scss && npm run autoprefixer",
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
     "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
     "postlint": "tape _test/jasonmorris.test.js | tap-spec",
@@ -40,11 +44,11 @@
     "html": "npm run postlint && npm run jekyll && npm run htmllint",
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
     "build": "npm run prettier && npm run css && npm run html && npm run pa11y",
-    "serve": "browser-sync start --server '_site' --files '_site/**/*.html'",
+    "serve": "browser-sync start --server \"_site\" --files \"_site/**/*.html\"",
     "test": "npm run build",
-    "watch:scss": "onchange '_scss/*.scss' -e '_site/**' -- npm run css && npm run jekyll",
-    "watch:css": "onchange '_includes/*.css' -e '_site/**' -- npm run jekyll",
-    "watch:html": "onchange '_posts/*' -e '_site/**' -- npm run jekyll",
+    "watch:scss": "onchange \"_scss/*.scss\" -e \"_site/**\" -- npm run css && npm run jekyll",
+    "watch:css": "onchange \"_includes/*.css\" -e \"_site/**\" -- npm run jekyll",
+    "watch:html": "onchange \"_posts/*\" -e \"_site/**\" -- npm run jekyll",
     "work": "npm run build && npm-run-all --parallel serve watch:*"
   }
 }

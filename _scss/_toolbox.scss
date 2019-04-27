@@ -1,32 +1,36 @@
-// Breakpoints
 @mixin bp($size) {
-
   @media screen and (min-width: $size) {
 
     @content;
   }
 }
 
-// visually hide - still available to screen readers
-// https://github.com/h5bp/html5-boilerplate/issues/194/
-// https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-%visually-hide {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
+// https://allyjs.io/tutorials/hiding-elements.html#2017-edition-of-visuallyhidden
+// stylelint-disable plugin/no-unsupported-browser-features
+%u-hidden-visually:not(:focus):not(:active) {
   position: absolute;
-  white-space: nowrap; // avoid smushed text for screen readers
-  width: 1px;
+  width: 0.1rem;
+  height: 0.1rem;
+  margin: -0.1rem;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
+// stylelint-enable
 
-// Force word wrapping - useful for long URLs
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+// stylelint-disable plugin/no-unsupported-browser-features
 %word-wrap {
   overflow-wrap: break-word;
   word-wrap: break-word;
+  -ms-word-break: break-all;
   word-break: break-word;
+  -ms-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
+  -moz-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
+  -webkit-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
   hyphens: auto;
 }
+// stylelint-enable
