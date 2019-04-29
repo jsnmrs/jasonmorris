@@ -1,10 +1,15 @@
 {
+   "extends": [
+    "stylelint-config-rational-order"
+  ],
   "plugins": [
     "stylelint-a11y",
     "stylelint-declaration-block-no-ignored-properties",
     "stylelint-declaration-use-variable",
     "stylelint-no-unsupported-browser-features",
-    "stylelint-scss"
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-config-rational-order/plugin"
   ],
   "rules": {
     "at-rule-empty-line-before": ["always", "except": ["blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]],
@@ -169,6 +174,13 @@
     "scss/selector-no-redundant-nesting-selector": true,
 
 
-    "sh-waqar/declaration-use-variable": [["/color/", "z-index"]],
+    "sh-waqar/declaration-use-variable": [["/color/", "font-family", "z-index", { ignoreValues: ["auto", "transparent", "inherit", "0"] }]],
+
+
+    "order/properties-order": [],
+    "plugin/rational-order": [true, {
+      "border-in-box-model": false,
+      "empty-line-between-groups": false,
+    }]
   }
 }
