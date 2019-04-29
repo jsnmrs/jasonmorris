@@ -1,23 +1,26 @@
+// stylelint-disable plugin/no-unsupported-browser-features, sh-waqar/declaration-use-variable
+
 @font-face {
-  font-display: optional;
-  font-family: "Source Serif Pro";
   font-weight: 400;
+  font-family: "Source Serif Pro";
   font-style: normal;
-  font-stretch: normal; // stylelint-disable-line plugin/no-unsupported-browser-features
+  font-stretch: normal;
   src: local("Source Serif Pro"),
     local("SourceSerifPro-Regular"),
     url("/fonts/ssp.woff2") format("woff2"),
     url("/fonts/ssp.woff") format("woff");
+  font-display: optional;
 }
 
 @font-face {
-  font-display: optional;
-  font-family: "Source Code Pro";
   font-weight: 400;
+  font-family: "Source Code Pro";
   font-style: normal;
-  font-stretch: normal; // stylelint-disable-line plugin/no-unsupported-browser-features
+  font-stretch: normal;
   src: local("Source Code Pro"),
     local("SourceCodePro-Regular"),
     url("/fonts/scp.woff2") format("woff2"),
     url("/fonts/scp.woff") format("woff");
+  font-display: optional;
 }
+// stylelint-enable

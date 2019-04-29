@@ -1,7 +1,7 @@
 @media print {
   * {
-    background: transparent;
     color: $black-print;
+    background: transparent;
   }
 
   a {
@@ -13,9 +13,9 @@
   }
 
   a[href]::after {
-    content: " [" attr(href) "]";
     font-size: 0.75rem;
     font-style: normal;
+    content: " [" attr(href) "]";
   }
 
   a[href^="#"]::after {

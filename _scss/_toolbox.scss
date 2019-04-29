@@ -12,25 +12,25 @@
   width: 0.1rem;
   height: 0.1rem;
   margin: -0.1rem;
-  border: 0;
   padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
   overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
 }
 // stylelint-enable
 
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
-// stylelint-disable plugin/no-unsupported-browser-features
+// stylelint-disable plugin/no-unsupported-browser-features, property-no-vendor-prefix
 %word-wrap {
-  overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
   word-break: break-word;
-  -ms-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
-  -moz-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
-  -webkit-hyphens: auto; // stylelint-disable-line property-no-vendor-prefix
+  overflow-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 // stylelint-enable
