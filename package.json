@@ -30,7 +30,7 @@
     "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.8.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.10.2"
+    "tape": "^4.11.0"
   },
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
