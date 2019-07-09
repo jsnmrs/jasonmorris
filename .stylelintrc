@@ -164,11 +164,13 @@
 
     "scss/at-extend-no-missing-placeholder": [true, { "severity": "warning" }],
     "scss/at-import-no-partial-leading-underscore": true,
+    "scss/comment-no-loud": true,
     "scss/declaration-nested-properties": "never",
     "scss/dollar-variable-colon-space-after": "always",
     "scss/dollar-variable-colon-space-before": "never",
     "scss/dollar-variable-no-missing-interpolation": true,
     "scss/double-slash-comment-whitespace-inside": "always",
+    "scss/function-color-relative": true,
     "scss/operator-no-unspaced": true,
     "scss/partial-no-import": true,
     "scss/selector-no-redundant-nesting-selector": true,
