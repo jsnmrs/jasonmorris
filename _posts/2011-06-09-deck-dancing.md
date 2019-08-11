@@ -14,5 +14,5 @@ I gathered up some of those tripod clips and put together a quick video that my 
 After watching this, I realized that in addition to the riding and filming, I also built every ramp you&rsquo;ll see in this video. Sometimes you have to take things into your own hands.
 
 <figure class="video">
-  <iframe src="https://player.vimeo.com/video/26322334?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" title="Deck Dancing Video" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://player.vimeo.com/video/26322334?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" title="Deck Dancing Video" width="800" height="450" frameborder="0" loading="lazy" allowfullscreen></iframe>
 </figure>

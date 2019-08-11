@@ -32,5 +32,5 @@ Instructions for replacing fork seal clips on a 1982 Suzuki GS850L motorcycle:
 Job well done.
 
 <figure>
-  <img src="/img/spoke-clip-540.jpg" sizes="100vw" srcset="/img/spoke-clip-640.jpg 640w, /img/spoke-clip-1024.jpg 800w, /img/spoke-clip-1600.jpg 1024w" alt="Fork clip mod">
+  <img src="/img/spoke-clip-540.jpg" sizes="100vw" loading="lazy" srcset="/img/spoke-clip-640.jpg 640w, /img/spoke-clip-1024.jpg 800w, /img/spoke-clip-1600.jpg 1024w" alt="Fork clip mod">
 </figure>
