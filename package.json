@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
+    "constyble": "^1.2.0",
     "htmlhint": "^0.11.0",
     "js-yaml": "^3.13.1",
     "node-sass": "^4.12.0",
@@ -28,16 +29,17 @@
     "stylelint-declaration-use-variable": "^1.7.0",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.0.1",
-    "stylelint-scss": "^3.9.4",
+    "stylelint-scss": "^3.10.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
   "scripts": {
     "scss": "node-sass --output-style compressed -o _includes _scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
+    "constyble": "constyble \"_includes/style.css\"",
     "stylelint": "stylelint \"_scss/**/*.scss\"",
     "stylelint:fix": "stylelint \"_scss/**/*.scss\" --fix",
-    "css": "npm run stylelint:fix && npm run scss && npm run autoprefixer",
+    "css": "npm run stylelint:fix && npm run scss && npm run autoprefixer && npm run constyble",
     "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
     "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
     "postlint": "tape _test/jasonmorris.test.js | tap-spec",
