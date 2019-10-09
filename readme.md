@@ -1,4 +1,4 @@
-# jasonmorris.com ![Build status](https://travis-ci.org/jsnmrs/jsnmrs.github.io.svg?branch=master)
+# jasonmorris.com [![Build Status](https://travis-ci.com/jsnmrs/jsnmrs.github.io.svg?branch=master)](https://travis-ci.com/jsnmrs/jsnmrs.github.io)
 
 This is the code repository for my personal website.
 
