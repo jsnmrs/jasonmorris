@@ -15,7 +15,7 @@
     "constyble": "^1.2.0",
     "htmlhint": "^0.11.0",
     "js-yaml": "^3.13.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.0",
     "pa11y-ci": "^2.3.0",
