@@ -29,7 +29,7 @@
     "stylelint-declaration-use-variable": "^1.7.2",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.1.1",
-    "stylelint-scss": "^3.12.0",
+    "stylelint-scss": "^3.12.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
