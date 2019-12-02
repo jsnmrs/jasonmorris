@@ -10,7 +10,7 @@
     "url": "https://github.com/jsnmrs/jsnmrs.github.io.git"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.2",
+    "autoprefixer": "^9.7.3",
     "browser-sync": "^2.26.7",
     "constyble": "^1.2.0",
     "htmlhint": "^0.11.0",
