@@ -22,7 +22,7 @@
     "properties.prefixed.totalUnique": 5,
     "properties.browserhacks.total": 0,
     "properties.browserhacks.totalUnique": 0,
-    "properties.total": 150,
+    "properties.total": 175,
     "properties.totalUnique": 60,
     "rules.total": 75,
     "rules.empty.total": 0,
@@ -72,7 +72,7 @@
     "values.fontfamilies.totalUnique": 2,
     "values.fontsizes.total": 15,
     "values.fontsizes.totalUnique": 10,
-    "values.zindexes.total": 0,
+    "values.zindexes.total": 5,
     "values.zindexes.totalUnique": 5,
     "values.prefixed.total": 0,
     "values.total": 200
