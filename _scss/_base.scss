@@ -29,3 +29,18 @@ img {
     max-height: 95vh;
   }
 }
+
+.skip {
+  position: absolute;
+  left: -999rem;
+
+  &:active,
+  &:focus {
+    position: fixed;
+    left: 0;
+    z-index: 100;
+    display: block;
+    padding: 0.75rem;
+    background-color: var(--background);
+  }
+}
