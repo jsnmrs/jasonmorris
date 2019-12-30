@@ -107,6 +107,29 @@ main > figure {
   margin: 1.5rem auto 0.5rem;
 }
 
+.side {
+  grid-column: main;
+  width: 100%;
+  background-color: var(--background-accent);
+
+  @include bp($medium) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  figcaption {
+    padding: 1rem 0.5rem 0.5rem;
+
+    @include bp($medium) {
+      flex-shrink: 0;
+      width: 50%;
+      margin: 0;
+      padding: 1rem;
+      text-align: left;
+    }
+  }
+}
+
 section {
   display: grid;
   grid-column-gap: 1rem;
