@@ -1,6 +1,6 @@
 {
   "name": "jasonmorris",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Jason Morris",
   "license": "MIT",
   "description": "jasonmorris.com",
@@ -14,6 +14,7 @@
     "browser-sync": "^2.26.7",
     "constyble": "^1.3.0",
     "htmlhint": "^0.11.0",
+    "husky": "^3.1.0",
     "js-yaml": "^3.13.1",
     "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5",
@@ -34,25 +35,26 @@
     "tape": "^4.12.1"
   },
   "scripts": {
-    "scss": "node-sass --output-style compressed -o _includes _scss",
-    "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
-    "constyble": "constyble \"_includes/style.css\" | tap-spec",
-    "stylelint": "stylelint \"_scss/**/*.scss\"",
-    "stylelint:fix": "stylelint \"_scss/**/*.scss\" --fix",
-    "css": "npm run stylelint:fix && npm run scss && npm run autoprefixer && npm run constyble",
-    "jekyll": "bundle exec jekyll build --config _config.yml,_local-config.yml",
-    "jekyll:serve": "bundle exec jekyll serve --watch --config _config.yml,_local-config.yml",
-    "postlint": "tape _test/jasonmorris.test.js | tap-spec",
-    "prettier": "prettier --single-quote --write **/*.{yml,md,js}",
-    "htmllint": "htmlhint _site/",
-    "html": "npm run postlint && npm run jekyll && npm run htmllint",
-    "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-    "build": "npm run prettier && npm run css && npm run html && npm run pa11y",
-    "serve": "browser-sync start --server \"_site\" --files \"_site/**/*.html\"",
-    "test": "npm run build",
-    "watch:scss": "onchange \"_scss/*.scss\" -e \"_site/**\" -- npm run css && npm run jekyll",
-    "watch:css": "onchange \"_includes/*.css\" -e \"_site/**\" -- npm run jekyll",
-    "watch:html": "onchange \"_posts/*\" -e \"_site/**\" -- npm run jekyll",
-    "work": "npm run build && npm-run-all --parallel serve watch:*"
+    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
+      "stylelint": "stylelint \"_scss/**/*.scss\" --fix",
+      "scss": "node-sass --output-style compressed -o _includes _scss",
+      "autoprefixer": "postcss --no-map -u autoprefixer -r _includes/*.css",
+    "html": "bundle exec jekyll build --config _config.yml,_local-config.yml",
+    "lint": "npm run stylelint && npm run constyble && npm run htmllint && npm run metalint && npm run pa11y && npm run prettier",
+      "constyble": "constyble \"_includes/style.css\" | tap-spec",
+      "htmllint": "htmlhint _site/",
+      "metalint": "tape _test/jasonmorris.test.js | tap-spec",
+      "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
+      "prettier": "prettier --single-quote --write **/*.{yml,md,js}",
+    "test": "npm run build && npm run lint",
+      "build": "npm run css && npm run html",
+    "work": "npm-run-all --parallel serve watch",
+      "serve": "browser-sync start --server \"_site\" --files \"_site/**/*.html\"",
+      "watch": "onchange \"_scss/*.scss\" -e \"_site/**\" -- npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
