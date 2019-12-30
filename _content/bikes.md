@@ -81,11 +81,11 @@ permalink: bikes/
   <figcaption>2003 Kink JC</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-020-blackbike-01.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-020-blackbike.jpg" loading="lazy" alt="">
   <figcaption>S&M Blackbike</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-021-jc-2004-02.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-021-jc-2004.jpg" loading="lazy" alt="">
   <figcaption>2004 Kink JC</figcaption>
 </figure>
 <figure class="side">
@@ -97,7 +97,7 @@ permalink: bikes/
   <figcaption>Macneil Ruben</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-024-pantera-01.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-024-pantera.jpg" loading="lazy" alt="">
   <figcaption>Fly Pantera</figcaption>
 </figure>
 <figure class="side">
@@ -109,11 +109,11 @@ permalink: bikes/
   <figcaption>Fly Three Amigos 2</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-025-3-amigos-08.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-025-3-amigos-03.jpg" loading="lazy" alt="">
   <figcaption>Fly Three Amigos 3</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-025-3-amigos-11.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-025-3-amigos-04.jpg" loading="lazy" alt="">
   <figcaption>Fly Three Amigos 4</figcaption>
 </figure>
 <figure class="side">
@@ -121,24 +121,24 @@ permalink: bikes/
   <figcaption>Volume Biz 81</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-027-second-wave-01.jpg" loading="lazy" alt="">
-  <figcaption>Sunday Second Wave 1</figcaption>
+  <img src="/img/bikes/bikes-027-second-wave.jpg" loading="lazy" alt="">
+  <figcaption>Sunday Second Wave</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-028-funday-01.jpg" loading="lazy" alt="">
-  <figcaption>Sunday Funday 1</figcaption>
+  <img src="/img/bikes/bikes-028-funday.jpg" loading="lazy" alt="">
+  <figcaption>Sunday Funday</figcaption>
 </figure>
 <figure class="side">
   <img src="/img/bikes/bikes-029-dyno-compe.jpg" loading="lazy" alt="">
   <figcaption>1996 Dyno Compe</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-030-gypsy-02.jpg" loading="lazy" alt="">
+  <img src="/img/bikes/bikes-030-gypsy-01.jpg" loading="lazy" alt="">
   <figcaption>FBM Gypsy 1</figcaption>
 </figure>
 <figure class="side">
-  <img src="/img/bikes/bikes-030-gypsy-06.jpg" loading="lazy" alt="">
-  <figcaption>FBM Gypsy 3</figcaption>
+  <img src="/img/bikes/bikes-030-gypsy-02.jpg" loading="lazy" alt="">
+  <figcaption>FBM Gypsy 2</figcaption>
 </figure>
 <figure class="side">
   <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
