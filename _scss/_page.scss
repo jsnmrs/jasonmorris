@@ -107,17 +107,22 @@ main > figure {
   margin: 1.5rem auto 0.5rem;
 }
 
-.side {
+.card {
   grid-column: main;
   width: 100%;
+  margin: 0.5rem 0 1rem;
   background-color: var(--background-accent);
 
   @include bp($medium) {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
-  figcaption {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card__content {
     padding: 1rem 0.5rem 0.5rem;
 
     @include bp($medium) {
