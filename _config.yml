@@ -45,3 +45,7 @@ defaults:
       type: 'posts'
     values:
       layout: 'post'
+
+collections:
+  content:
+    output: true
