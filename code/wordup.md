@@ -1,11 +1,9 @@
 ---
 title: Wordup
-category: code
+date: 2018-11-05T12:00:00Z
+layout: post
+tags: post
 offline: true
-tags:
-  - format
-  - convert
-  - tools
 ---
 
 I built this tool called [Wordup](https://communicatehealth.github.io/wordup/) to convert content from Word documents into HTML or Markdown.

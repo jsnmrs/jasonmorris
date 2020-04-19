@@ -1,14 +1,9 @@
 ---
 title: Rotating SSH Keys
-category: code
+date: 2016-02-15T12:00:00Z
+layout: post
+tags: post
 offline: true
-redirect_from:
-  - /til/rotating-ssh-keys/
-tags:
-  - macOS
-  - security
-  - setup
-  - SSH
 ---
 
 Rotating your SSH keys every once in a while is good digital hygiene.

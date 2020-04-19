@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} &ndash; {% endif %}{{ site.name }}</title>
+    <title>{% if title %}{{ title }} &ndash; {% endif %}{{ site.name }}</title>
     <meta name="author" content="{{ site.name }}">
     <meta name="description" content="{{ site.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,12 +13,10 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
     <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }</script>
-    <style>
-      {% capture include_to_cssify %}
-        {% include style.css %}
-      {% endcapture %}
-      {{ include_to_cssify | cssify }}
-    </style>
+    {% capture css %}
+      {% include "style.css" %}
+    {% endcapture %}
+    <style>{{ css | cssmin }}</style>
   </head>
 
   <body>
