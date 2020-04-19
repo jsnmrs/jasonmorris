@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('favicon.ico');
   eleventyConfig.addPassthroughCopy('manifest.json');
   eleventyConfig.addPassthroughCopy('apple-touch-icon.png');
+  eleventyConfig.addPassthroughCopy('.nojekyll');
 
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
