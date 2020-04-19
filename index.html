@@ -2,17 +2,14 @@
 layout: home
 title:
 class: photo
-permalink: /
 ---
 
 <h1>Jason Morris</h1>
 
 <ul>
-{% for post in site.posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
+{%- for post in collections.post -%}
+  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+{%- endfor -%}
 </ul>
 
 <section id="content">

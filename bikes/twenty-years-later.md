@@ -1,10 +1,9 @@
 ---
 title: Where Do You See Yourself in 20 Years?
-category: bikes
+date: 2011-09-23T12:00:00Z
+layout: post
+tags: post
 offline: true
-tags:
-  - photo
-  - youth
 ---
 
 _Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)_.
