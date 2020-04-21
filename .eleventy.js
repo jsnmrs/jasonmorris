@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('manifest.json');
   eleventyConfig.addPassthroughCopy('apple-touch-icon.png');
   eleventyConfig.addPassthroughCopy('.nojekyll');
+  eleventyConfig.addPassthroughCopy('.htaccess');
 
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
