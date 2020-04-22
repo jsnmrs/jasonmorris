@@ -3,6 +3,8 @@ title: Saturday Morning in the Berkshires
 date: 2011-07-27T12:00:00Z
 layout: post
 tags: post
+category: photo
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 I spent the morning on a quick hike with my good friend Eric, just over the New York border in Massachusetts. [Cascade Falls](http://berkshirehiking.com/hikes/the_cascades.html) to be exact. Still unchecked on my photographic learning list was the infamous, dragged-shutter rushing-water photo. I had a lot of fun figuring these out.

@@ -4,6 +4,8 @@ date: 2011-09-23T12:00:00Z
 layout: post
 tags: post
 offline: true
+category: bikes
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 _Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)_.

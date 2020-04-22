@@ -1,8 +1,4 @@
-CNAME
-Gemfile
-Gemfile.lock
 node_modules
 package.json
 package-lock.json
 readme.md
-_jekyll-site/

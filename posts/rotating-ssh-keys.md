@@ -4,6 +4,8 @@ date: 2016-02-15T12:00:00Z
 layout: post
 tags: post
 offline: true
+category: code
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 Rotating your SSH keys every once in a while is good digital hygiene.
