@@ -3,6 +3,8 @@ title: Deck Dancing via Tripod
 date: 2011-06-09T12:00:00Z
 layout: post
 tags: post
+category: bikes
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 While I&rsquo;m usually content shooting photos and video of other people, sometimes I feel like capturing some of my own riding. Most times that means setting up the camera on a tripod and pressing record.

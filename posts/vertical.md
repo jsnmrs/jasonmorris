@@ -3,6 +3,8 @@ title: Vertical
 date: 2012-02-04T12:00:00Z
 layout: post
 tags: post
+category: photo
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 After stitching together a number of panoramic photos over the years, I realized that I’d never shot one vertically. Rather than brave the cold of February, I decided to play around with a vertical pano indoors.

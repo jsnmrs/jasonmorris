@@ -3,6 +3,8 @@ title: Bikes and Barns
 date: 2011-06-02T12:00:00Z
 layout: post
 tags: post
+category: bikes
+permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
 In Fort Edward, New York, Niles Harris has a mini ramp in his parents&rsquo; barn. We had been talking about shooting a quick video of Niles riding his ramp for months, so one afternoon I made the drive north to give it a swing. We spent a few hours filming without much of a plan.
