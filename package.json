@@ -7,7 +7,7 @@
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jsnmrs/jsnmrs.github.io.git"
+    "url": "https://github.com/jsnmrs/jasonmorris.git"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
