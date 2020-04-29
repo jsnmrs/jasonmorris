@@ -1,3 +1,7 @@
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+Redirect 301 /since https://jsnmrs.github.io/since/
+Redirect 301 /wordup https://jsnmrs.github.io/wordup/
+Redirect 301 /pdfcheck https://jsnmrs.github.io/pdfcheck/
