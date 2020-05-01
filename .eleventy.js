@@ -1,5 +1,6 @@
 const cleanCSS = require("clean-css");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const htmlMinTransform = require('./_transforms/html-min.js');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('home', 'layouts/home.html');
@@ -24,7 +25,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("cssmin", function(code) {
     return new cleanCSS({}).minify(code).styles;
   });
+
   eleventyConfig.addPlugin(pluginRss);
+
+  eleventyConfig.addTransform('htmlmin', htmlMinTransform);
 
   return {
     dir: {
