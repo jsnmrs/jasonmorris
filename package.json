@@ -18,12 +18,10 @@
     "html-minifier": "^4.0.0",
     "htmlhint": "^0.11.0",
     "husky": "^4.2.5",
-    "js-yaml": "^3.13.1",
     "node-sass": "^4.14.0",
     "pa11y-ci": "^2.3.0",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.0.5",
-    "push-dir": "^0.4.1",
     "stylelint": "^13.3.3",
     "stylelint-a11y": "^1.2.3",
     "stylelint-config-rational-order": "^0.1.2",
@@ -36,7 +34,8 @@
     "tap-spec": "^5.0.0"
   },
   "scripts": {
-    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
+    "css": "npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
+    "prettier:scss": "prettier --write \"**/*.scss\"",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "scss": "node-sass --output-style compressed -o _includes scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r \"_includes/*.css\"",
@@ -45,11 +44,10 @@
     "constyble": "constyble \"_includes/style.css\" | tap-spec",
     "htmllint": "htmlhint _site/",
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-    "prettier": "prettier --single-quote --write \"**/*.{yml,md,js}\"",
+    "prettier:config": "prettier --write \"**/*.{yml,md,js}\"",
     "write": "npx @11ty/eleventy --serve",
     "test": "npm run build && npm run lint",
-    "build": "npm run css && npm run html",
-    "deploy": "npm run build && push-dir --dir _site --branch gh-pages --cleanup"
+    "build": "npm run prettier:config && npm run css && npm run html"
   },
   "husky": {
     "hooks": {
