@@ -15,7 +15,7 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
   const offlinePages = [
     "/",
     "/bikes/twenty-years-later/",
-    "/til/rotating-ssh-keys/",
+    "/code/rotating-ssh-keys/",
     "/offline/",
   ];
   const staticAssets = [
