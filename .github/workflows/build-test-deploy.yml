@@ -30,3 +30,12 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.TARGET }}
+  perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webpagetest
+        uses: JCofman/webPagetestAction@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_KEY }}
+          TEST_URL: https://jasonmorris.com
+          WEBPAGETEST_API_KEY: ${{ secrets.WEBPAGETEST_API_KEY }}
