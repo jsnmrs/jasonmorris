@@ -34,7 +34,8 @@
     "tap-spec": "^5.0.0"
   },
   "scripts": {
-    "css": "npm run stylelint && npm run scss && npm run autoprefixer",
+    "css": "npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
+    "prettier:scss": "prettier --write \"**/*.scss\"",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "scss": "node-sass --output-style compressed -o _includes scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r \"_includes/*.css\"",
@@ -43,10 +44,10 @@
     "constyble": "constyble \"_includes/style.css\" | tap-spec",
     "htmllint": "htmlhint _site/",
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-    "prettier": "prettier --write \"**/*.{yml,md,js}\"",
+    "prettier:config": "prettier --write \"**/*.{yml,md,js}\"",
     "write": "npx @11ty/eleventy --serve",
     "test": "npm run build && npm run lint",
-    "build": "npm run prettier && npm run css && npm run html"
+    "build": "npm run prettier:config && npm run css && npm run html"
   },
   "husky": {
     "hooks": {
