@@ -1,6 +1,10 @@
 {
   "ci": {
     "collect": {
+      "url": "http://localhost/",
+      "url": "http://localhost/bikes/where-do-you-see-yourself-in-20-years",
+      "url": "http://localhost/code/rotating-ssh-keys",
+      "url": "http://localhost/bikes/deck-dancing-via-tripod",
       "staticDistDir": "_site"
     },
     "assert": {
