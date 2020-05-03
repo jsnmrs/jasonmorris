@@ -37,3 +37,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_KEY }}
           TEST_URL: https://jasonmorris.com
           WEBPAGETEST_API_KEY: ${{ secrets.WEBPAGETEST_API_KEY }}
+        with:
+          args: first="true" video="false" runs="2"
