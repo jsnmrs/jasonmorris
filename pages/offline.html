@@ -6,9 +6,9 @@ permalink: /offline/
 
 <p>It appears that you are offline. It's ok, it happens to everyone from time to time. I created this page specifically for this scenario.</p>
 
-<p>Here are two posts you can read without being online:</p>
+<p>Here are some posts you can read without being online:</p>
 
-<ul>
+<ul class="chunk">
 {% for post in collections.post %}
   {% if post.data.offline %}
     <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
