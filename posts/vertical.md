@@ -7,9 +7,9 @@ category: photo
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
-After stitching together a number of panoramic photos over the years, I realized that I’d never shot one vertically. Rather than brave the cold of February, I decided to play around with a vertical pano indoors.
+I&rsquo;ve stitched together a bunch of panoramic photos over the years. They were all horizontal, never vertical. Rather than brave the cold of February, I decided to play around with a vertical pano indoors.
 
-Devon Swahlan was patient enough to throw a proper tabletop out of this quarter in Albany while I experimented. The end result was stitched from 12 exposures.
+Devon Swahlan threw a proper tabletop out of this quarterpipe while I experimented. The end result is a blend from 12 exposures.
 
 A fun experiment that makes for tired scroll fingers.
 
