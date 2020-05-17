@@ -10,7 +10,7 @@ permalink: "{{ category }}/{{ title | slug }}/index.html"
 
 Rotating your SSH keys every once in a while is good digital hygiene.
 
-Today, I rotated my SSH keys and configured GitHub to use these new keys. There were a few hangups along the way, but I think it was worth the trouble. Here's the process:
+Today, I rotated my SSH keys and configured GitHub to use these new keys. There were a few hangups along the way, but it was worth the trouble. Here&rsquo;s the process:
 
 ## Make a backup
 
@@ -46,33 +46,33 @@ To add the new SSH key pair to the SSH agent and to the Mac OS X [Keychain](<htt
 
 `ssh-add -K ~/.ssh/id_rsa`
 
-This was hangup #2. When I ran this, I was greeted with "ssh-add: illegal option -- K". It looks like my default "ssh-add" isn't using the same version bundled with OS X. To get around this, I needed to specify the path to the correct version of "ssh-add":
+This was hangup #2. When I ran this, I saw "ssh-add: illegal option -- K". Turns out, my default "ssh-add" isn&rsquo;t using the same version that comes with macOS. To get around this, I needed to specify the path to the correct version of "ssh-add":
 
 `/usr/bin/ssh-add -K ~/.ssh/id_rsa`
 
 ## Add new key to GitHub
 
-Add the public key to your GitHub account by following their [Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) instructions. Essentially, you'll copy your key to your clipboard using:
+Add the public key to your GitHub account by following [these instructions from GitHub](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/). You&rsquo;ll copy your key to your clipboard using:
 
 `pbcopy < ~/.ssh/id_rsa.pub`
 
-In the event that `pbcopy` isn't available, print the public key to the console for copy/pasting with:
+In the event that `pbcopy` isn&rsquo;t available, print the public key to the console for copy/pasting with:
 
 `cat ~/.ssh/id_rsa.pub`
 
-Then you'll be able to paste the key into your [GitHub SSH Key page](https://github.com/settings/ssh) to enable your new key.
+Then you&rsquo;ll be able to paste the key into your [GitHub SSH Key page](https://github.com/settings/ssh) to enable your new key.
 
-While you're there, it's a good opportunity to review any other SSH keys you have in GitHub and rotate/remove as needed.
+While you&rsquo;re there, it&rsquo;s a good opportunity to review any other SSH keys you have in GitHub. Rotate or remove as needed.
 
-## Test new key's access to GitHub
+## Test new key&rsquo;s access to GitHub
 
 Verify you can login to Github with the new SSH key.
 
 `ssh -T git@github.com -i ~/.ssh/id_rsa`
 
-If the key works, you'll be greeted with:
-"Hi &lt;username&gt;! You've successfully authenticated, but GitHub does not provide shell access."
+If the key works, you&rsquo;ll see:
+"Hi &lt;username&gt;! You&rsquo;ve successfully authenticated, but GitHub does not provide shell access."
 
 ## Backup folder
 
-The backup folder you created at the start of this process holds your old SSH keys. Until you've confirmed that all of the services you connect to over SSH are working with your new key, hang onto the back up keys to be safe.
+The backup folder you created at the start of this process holds your old SSH keys. Hang onto the backup until you confirm that the services you connect to over SSH are working with your new key.
