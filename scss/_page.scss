@@ -15,6 +15,11 @@ body {
   line-height: 1;
   background-color: var(--text-accent);
   border-radius: 50%;
+  transition: background-color 0.5s ease;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:link,
   &:visited {
@@ -23,8 +28,18 @@ body {
 
   &:hover,
   &:focus {
-    background-image: linear-gradient(to bottom, $rainbow);
+    background-color: var(--link);
     background-size: 110%;
+    transition: background-color 0.5s ease;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &:focus {
+    outline: 0.1875rem solid var(--link);
+    box-shadow: none;
   }
 }
 
