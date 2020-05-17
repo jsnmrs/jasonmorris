@@ -10,7 +10,7 @@ permalink: "{{ category }}/{{ title | slug }}/index.html"
 
 _Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)_.
 
-“How long have you been riding?” I often say, "Too long." That avoids the date math and serves to temper expectations a bit. Thinking back, I do remember the first time I pedaled towards a  jump and my wheels left the ground.
+“How long have you been riding?” I often say, “Too long.” That avoids the date math and serves to temper expectations a bit. Thinking back, I do remember the first time I pedaled towards a jump and my wheels left the ground.
 
 As a little kid, I’d go for weekend rides along the bike path that follows the Hudson River with my grandparents. Me on my department store 20″ bike and my grandparents on their tandem bike. When my grandmother stayed home, my grandfather rode the tandem bike solo. No worries.
 
