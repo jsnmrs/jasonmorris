@@ -7,8 +7,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Trendz</h2>
-    <p>Made by Royce Union. Similar to <a href="https://bmxmuseum.com/bikes/royce_union/13877">https://bmxmuseum.com/bikes/royce_union/13877</a></p>
+
+## Trendz
+
+Made by Royce Union. Like <a href="https://bmxmuseum.com/bikes/royce_union/13877">https://bmxmuseum.com/bikes/royce_union/13877</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-001-trendz.jpg" loading="lazy" alt="">
@@ -17,8 +20,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1976 Mongoose Supergoose</h2>
-    <p>Given to me by my cousin. Eventually thrown away, due to inability to mount caliper brakes (sigh). Lack of brake bridge leads to 1976 dating. Similar to <a href="https://bmxmuseum.com/bikes/mongoose/103327">https://bmxmuseum.com/bikes/mongoose/103327</a></p>
+
+## 1976 Mongoose Supergoose
+
+Given to me by my cousin. Eventually thrown away, due to inability to mount caliper brakes (sigh). Lack of brake bridge leads to 1976 dating. Like <a href="https://bmxmuseum.com/bikes/mongoose/103327">https://bmxmuseum.com/bikes/mongoose/103327</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -27,8 +33,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1982 Huffy Pro Lightning</h2>
-    <p>Similar to <a href="https://bmxmuseum.com/bikes/huffy/39744">https://bmxmuseum.com/bikes/huffy/39744</a></p>
+
+## 1982 Huffy Pro Lightning
+
+Like <a href="https://bmxmuseum.com/bikes/huffy/39744">https://bmxmuseum.com/bikes/huffy/39744</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-003-pro-lightning.jpg" loading="lazy" alt="">
@@ -37,8 +46,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1984 Huffy Pro Thunder</h2>
-    <p>Similar to <a href="https://bmxmuseum.com/bikes/huffy/76492">https://bmxmuseum.com/bikes/huffy/76492</a></p>
+
+## 1984 Huffy Pro Thunder
+
+Like <a href="https://bmxmuseum.com/bikes/huffy/76492">https://bmxmuseum.com/bikes/huffy/76492</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-004-pro-thunder.jpg" loading="lazy" alt="">
@@ -47,7 +59,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1997 Dyno Compe</h2>
+
+## 1997 Dyno Compe
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-005-dyno-compe.jpg" loading="lazy" alt="">
@@ -56,8 +70,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1997 Mongoose DMC</h2>
-    <p>Similar to <a href="https://bmxmuseum.com/bikes/mongoose/77857">https://bmxmuseum.com/bikes/mongoose/77857</a></p>
+
+## 1997 Mongoose DMC
+
+Like <a href="https://bmxmuseum.com/bikes/mongoose/77857">https://bmxmuseum.com/bikes/mongoose/77857</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-006-dmc.jpg" loading="lazy" alt="">
@@ -66,8 +83,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1998 Mongoose DMC</h2>
-    <p>Similar to <a href="https://bmxmuseum.com/bikes/mongoose/46549">https://bmxmuseum.com/bikes/mongoose/46549</a></p>
+
+## 1998 Mongoose DMC
+
+Like <a href="https://bmxmuseum.com/bikes/mongoose/46549">https://bmxmuseum.com/bikes/mongoose/46549</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -76,8 +96,11 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1999 Mongoose AKA</h2>
-    <p>Similar to <a href="https://bmxmuseum.com/bikes/mongoose/80562">https://bmxmuseum.com/bikes/mongoose/80562</a></p>
+
+## 1999 Mongoose AKA
+
+Like <a href="https://bmxmuseum.com/bikes/mongoose/80562">https://bmxmuseum.com/bikes/mongoose/80562</a>
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -86,7 +109,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>S&M OG Dirtbike</h2>
+
+## S&M OG Dirtbike
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-009-og-dirtbike.jpg" loading="lazy" alt="">
@@ -95,7 +120,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>S&M NG Dirtbike</h2>
+
+## S&M NG Dirtbike
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -104,7 +131,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Standard STA</h2>
+
+## Standard STA
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-011-sta.jpg" loading="lazy" alt="">
@@ -113,7 +142,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Dyno Slammer</h2>
+
+## Dyno Slammer
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -122,7 +153,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Hoffman Taj</h2>
+
+## Hoffman Taj
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-012-taj.jpg" loading="lazy" alt="">
@@ -131,7 +164,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Kink Empire Revision B</h2>
+
+## Kink Empire Revision B
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-013-rev-b.jpg" loading="lazy" alt="">
@@ -140,7 +175,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Dirt Bros</h2>
+
+## Dirt Bros
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -149,7 +186,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Standard 125</h2>
+
+## Standard 125
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -158,7 +197,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Terrible One Barcode</h2>
+
+## Terrible One Barcode
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -167,7 +208,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Bully Hotrod</h2>
+
+## Bully Hotrod
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -176,7 +219,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Alliance</h2>
+
+## Alliance
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -185,7 +230,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>2003 Kink JC</h2>
+
+## 2003 Kink JC
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-019-jc-2003.jpg" loading="lazy" alt="">
@@ -194,7 +241,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>S&M Blackbike</h2>
+
+## S&M Blackbike
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-020-blackbike.jpg" loading="lazy" alt="">
@@ -203,7 +252,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>2004 Kink JC</h2>
+
+## 2004 Kink JC
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-021-jc-2004.jpg" loading="lazy" alt="">
@@ -212,7 +263,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>DK Six Pack</h2>
+
+## DK Six Pack
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-022-six-pack.jpg" loading="lazy" alt="">
@@ -221,7 +274,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Macneil Ruben</h2>
+
+## Macneil Ruben
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -230,7 +285,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Fly Pantera</h2>
+
+## Fly Pantera
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-024-pantera.jpg" loading="lazy" alt="">
@@ -239,7 +296,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Fly Three Amigos</h2>
+
+## Fly Three Amigos
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-025-3-amigos-01.jpg" loading="lazy" alt="">
@@ -251,7 +310,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Volume Biz 81</h2>
+
+## Volume Biz 81
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
@@ -260,7 +321,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Sunday Second Wave</h2>
+
+## Sunday Second Wave
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-027-second-wave.jpg" loading="lazy" alt="">
@@ -269,7 +332,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>Sunday Funday</h2>
+
+## Sunday Funday
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-028-funday.jpg" loading="lazy" alt="">
@@ -278,7 +343,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>1997 Dyno Compe</h2>
+
+## 1997 Dyno Compe
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-029-dyno-compe.jpg" loading="lazy" alt="">
@@ -287,7 +354,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>FBM Gypsy</h2>
+
+## FBM Gypsy
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-030-gypsy-01.jpg" loading="lazy" alt="">
@@ -297,7 +366,9 @@ permalink: "{{ category }}/index.html"
 
 <div class="card">
   <div class="card__content">
-    <h2>FBM Steadfast</h2>
+
+## FBM Steadfast
+
   </div>
   <div class="card__image">
     <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
