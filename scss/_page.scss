@@ -15,16 +15,33 @@ body {
   line-height: 1;
   background-color: var(--text-accent);
   border-radius: 50%;
+  transition: background-color 0.5s ease;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:link,
   &:visited {
     color: var(--background);
+    text-decoration: none;
   }
 
   &:hover,
   &:focus {
-    background-image: linear-gradient(to bottom, $rainbow);
+    color: var(--link);
+    background-color: var(--background);
     background-size: 110%;
+    border: 0.1875rem solid var(--link);
+    transition: background-color 0.5s ease;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 }
 
@@ -67,11 +84,6 @@ figcaption {
   a {
     display: block;
     padding: 0.45rem 0.5rem 0.35rem;
-
-    &:hover,
-    &:focus {
-      background-color: var(--background-accent);
-    }
   }
 }
 
