@@ -24,12 +24,15 @@ body {
   &:link,
   &:visited {
     color: var(--background);
+    text-decoration: none;
   }
 
   &:hover,
   &:focus {
-    background-color: var(--link);
+    color: var(--link);
+    background-color: var(--background);
     background-size: 110%;
+    border: 0.1875rem solid var(--link);
     transition: background-color 0.5s ease;
 
     @media screen and (prefers-reduced-motion: reduce) {
@@ -38,7 +41,6 @@ body {
   }
 
   &:focus {
-    outline: 0.1875rem solid var(--link);
     box-shadow: none;
   }
 }
@@ -82,11 +84,6 @@ figcaption {
   a {
     display: block;
     padding: 0.45rem 0.5rem 0.35rem;
-
-    &:hover,
-    &:focus {
-      background-color: var(--background-accent);
-    }
   }
 }
 
