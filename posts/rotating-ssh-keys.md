@@ -66,12 +66,11 @@ While you&rsquo;re there, it&rsquo;s a good opportunity to review any other SSH 
 
 ## Test new key&rsquo;s access to GitHub
 
-Verify you can login to Github with the new SSH key.
+Verify you can login to GitHub with the new SSH key.
 
 `ssh -T git@github.com -i ~/.ssh/id_rsa`
 
-If the key works, you&rsquo;ll see:
-"Hi &lt;username&gt;! You&rsquo;ve successfully authenticated, but GitHub does not provide shell access."
+If the key works, you&rsquo;ll see a message confirming authentication (and that GitHub doesn&rsquo;t allow shell access).
 
 ## Backup folder
 
