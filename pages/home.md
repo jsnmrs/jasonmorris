@@ -19,7 +19,7 @@ permalink: "/index.html"
 
 ## Hi, I&rsquo;m Jason.
 
-A surprising number of folks who go by the same name. Their friends email me all the time.
+A surprising number of folks go by the same name. Their friends email me all the time.
 
 I wrote my first bit of HTML in a Notepad window sometime in 1998 and never stopped.
 
