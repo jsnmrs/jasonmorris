@@ -30,7 +30,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-declaration-use-variable": "^1.7.2",
     "stylelint-no-unsupported-browser-features": "^4.0.0",
-    "stylelint-order": "^4.0.0",
+    "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.17.2",
     "tap-spec": "^5.0.0"
   },
