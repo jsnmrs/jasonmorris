@@ -1,23 +1,7 @@
 {
   "ci": {
     "collect": {
-      "url": [
-        "http://localhost/bikes/bikes-and-barns/",
-        "http://localhost/bikes/deck-dancing-via-tripod/",
-        "http://localhost/bikes/weekend-fun-in-ithaca/",
-        "http://localhost/photo/saturday-morning-in-the-berkshires/",
-        "http://localhost/bikes/where-do-you-see-yourself-in-20-years/",
-        "http://localhost/bikes/lords-of-fun/",
-        "http://localhost/photo/vertical/",
-        "http://localhost/diy/fork-seal-clip-for-a-1982-suzuki-gs850l-motorcycle/",
-        "http://localhost/code/rotating-ssh-keys/",
-        "http://localhost/code/wordup/",
-        "http://localhost/404.html",
-        "http://localhost/bikes/",
-        "http://localhost/offline/",
-        "http://localhost/"
-      ],
-      "staticDistDir": "_site"
+      "staticDistDir": "./_site"
     },
     "assert": {
       "assertions": {
