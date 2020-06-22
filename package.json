@@ -41,7 +41,7 @@
     "scss": "node-sass --output-style compressed -o _includes scss",
     "autoprefixer": "postcss --no-map -u autoprefixer -r \"_includes/*.css\"",
     "html": "npx @11ty/eleventy",
-    "lint": "npm run constyble && npm run content && npm run htmllint && npm run pa11y",
+    "lint": "npm run constyble && npm run content && npm run htmllint",
     "constyble": "constyble \"_includes/style.css\" | tap-spec",
     "htmllint": "htmlhint _site/",
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
@@ -49,7 +49,8 @@
     "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
     "write": "npx @11ty/eleventy --serve",
     "test": "npm run build && npm run lint",
-    "build": "npm run prettier:config && npm run css && npm run html"
+    "build": "npm run prettier:config && npm run css && npm run html",
+    "health": "npm run pa11y"
   },
   "husky": {
     "hooks": {
