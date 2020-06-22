@@ -12,7 +12,7 @@ I built this tool called [Wordup](https://communicatehealth.github.io/wordup/) t
 
 First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/ckeditor-4/). Second, it passes through vanilla JS to clean up spacing and replaces some strings. Finally, it spits out clean HTML. Check a box and [Turndown.js](https://github.com/domchristie/turndown) converts to Markdown.
 
-[![Wordup screenshot](/img/wordup.png)](https://communicatehealth.github.io/wordup/)
+![Wordup screenshot.](/img/wordup.png)
 
 But converting Word documents to HTML is a solved problem, right?
 
