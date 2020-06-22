@@ -1,6 +1,12 @@
 {
   "ci": {
     "collect": {
+      "url": [
+        "http://localhost/bikes/deck-dancing-via-tripod/",
+        "http://localhost/photo/saturday-morning-in-the-berkshires/",
+        "http://localhost/bikes/where-do-you-see-yourself-in-20-years/",
+        "http://localhost/"
+      ],
       "staticDistDir": "./_site"
     },
     "assert": {
