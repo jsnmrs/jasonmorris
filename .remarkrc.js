@@ -1,43 +1,41 @@
 exports.plugins = [
+  "@double-great/remark-lint-alt-text",
+  ["remark-frontmatter", ["yaml"]],
   [
-    "@double-great/remark-lint-alt-text",
-    ["remark-frontmatter", ["yaml"]],
+    "remark-frontmatter-validator",
     [
-      "remark-frontmatter-validator",
-      [
-        2,
-        {
-          category: {
-            oneOf: ["code", "bikes", "photo", "diy"],
-            type: "string",
-          },
-          date: {
-            required: true,
-            match: "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d",
-          },
-          layout: {
-            match: "post",
-            required: true,
-            type: "string",
-          },
-          permalink: {
-            required: true,
-            type: "string",
-          },
-          tags: {
-            match: "post",
-            required: true,
-            type: "string",
-          },
-          title: {
-            required: true,
-            type: "string",
-          },
-          offline: {
-            type: "boolean",
-          },
+      2,
+      {
+        category: {
+          oneOf: ["code", "bikes", "photo", "diy"],
+          type: "string",
         },
-      ],
+        date: {
+          required: true,
+          type: "date",
+        },
+        layout: {
+          match: "post",
+          required: true,
+          type: "string",
+        },
+        permalink: {
+          required: true,
+          type: "string",
+        },
+        tags: {
+          match: "post",
+          required: true,
+          type: "string",
+        },
+        title: {
+          required: true,
+          type: "string",
+        },
+        offline: {
+          type: "boolean",
+        },
+      },
     ],
   ],
 ];
