@@ -60,7 +60,7 @@ Like [https://bmxmuseum.com/bikes/huffy/76492](https://bmxmuseum.com/bikes/huffy
 <div class="card">
   <div class="card__content">
 
-## 1997 Dyno Compe v1
+## 1997 Dyno Compe verson 1
 
   </div>
   <div class="card__image">
@@ -344,7 +344,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 <div class="card">
   <div class="card__content">
 
-## 1997 Dyno Compe v2
+## 1997 Dyno Compe version 2
 
   </div>
   <div class="card__image">
