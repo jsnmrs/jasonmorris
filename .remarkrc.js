@@ -12,7 +12,7 @@ exports.plugins = [
         },
         date: {
           required: true,
-          type: "date",
+          type: "object",
         },
         layout: {
           match: "post",
