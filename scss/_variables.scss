@@ -31,15 +31,3 @@ $font-family-mono: "Source Code Pro", Courier, monospace, monospace;
   --link-visited: #{$blue};
   --link-hover: #{$blue-dark};
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #{$black};
-    --background-accent: #{$gray-dark};
-    --text: #{$gray-barely};
-    --text-accent: #{$gray-accent};
-    --link: #{$blue-light};
-    --link-visited: #{$blue-light};
-    --link-hover: #{$blue-lighter};
-  }
-}
