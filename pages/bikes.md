@@ -10,7 +10,7 @@ permalink: "{{ category }}/index.html"
 
 ## Trendz
 
-Made by Royce Union. Like <a href="https://bmxmuseum.com/bikes/royce_union/13877">https://bmxmuseum.com/bikes/royce_union/13877</a>
+Made by Royce Union. Like [https://bmxmuseum.com/bikes/royce_union/13877](https://bmxmuseum.com/bikes/royce_union/13877)
 
   </div>
   <div class="card__image">
@@ -23,7 +23,7 @@ Made by Royce Union. Like <a href="https://bmxmuseum.com/bikes/royce_union/13877
 
 ## 1976 Mongoose Supergoose
 
-Given to me by my cousin. Eventually thrown away, due to inability to mount caliper brakes (sigh). Lack of brake bridge leads to 1976 dating. Like <a href="https://bmxmuseum.com/bikes/mongoose/103327">https://bmxmuseum.com/bikes/mongoose/103327</a>
+Given to me by my cousin. Eventually thrown away, due to inability to mount caliper brakes (sigh). Lack of brake bridge leads to 1976 dating. Like [https://bmxmuseum.com/bikes/mongoose/103327](https://bmxmuseum.com/bikes/mongoose/103327)
 
   </div>
   <div class="card__image">
@@ -36,7 +36,7 @@ Given to me by my cousin. Eventually thrown away, due to inability to mount cali
 
 ## 1982 Huffy Pro Lightning
 
-Like <a href="https://bmxmuseum.com/bikes/huffy/39744">https://bmxmuseum.com/bikes/huffy/39744</a>
+Like [https://bmxmuseum.com/bikes/huffy/39744](https://bmxmuseum.com/bikes/huffy/39744)
 
   </div>
   <div class="card__image">
@@ -49,7 +49,7 @@ Like <a href="https://bmxmuseum.com/bikes/huffy/39744">https://bmxmuseum.com/bik
 
 ## 1984 Huffy Pro Thunder
 
-Like <a href="https://bmxmuseum.com/bikes/huffy/76492">https://bmxmuseum.com/bikes/huffy/76492</a>
+Like [https://bmxmuseum.com/bikes/huffy/76492](https://bmxmuseum.com/bikes/huffy/76492)
 
   </div>
   <div class="card__image">
@@ -60,7 +60,7 @@ Like <a href="https://bmxmuseum.com/bikes/huffy/76492">https://bmxmuseum.com/bik
 <div class="card">
   <div class="card__content">
 
-## 1997 Dyno Compe
+## 1997 Dyno Compe v1
 
   </div>
   <div class="card__image">
@@ -73,7 +73,7 @@ Like <a href="https://bmxmuseum.com/bikes/huffy/76492">https://bmxmuseum.com/bik
 
 ## 1997 Mongoose DMC
 
-Like <a href="https://bmxmuseum.com/bikes/mongoose/77857">https://bmxmuseum.com/bikes/mongoose/77857</a>
+Like [https://bmxmuseum.com/bikes/mongoose/77857](https://bmxmuseum.com/bikes/mongoose/77857)
 
   </div>
   <div class="card__image">
@@ -86,7 +86,7 @@ Like <a href="https://bmxmuseum.com/bikes/mongoose/77857">https://bmxmuseum.com/
 
 ## 1998 Mongoose DMC
 
-Like <a href="https://bmxmuseum.com/bikes/mongoose/46549">https://bmxmuseum.com/bikes/mongoose/46549</a>
+Like [https://bmxmuseum.com/bikes/mongoose/46549](https://bmxmuseum.com/bikes/mongoose/46549)
 
   </div>
   <div class="card__image">
@@ -99,7 +99,7 @@ Like <a href="https://bmxmuseum.com/bikes/mongoose/46549">https://bmxmuseum.com/
 
 ## 1999 Mongoose AKA
 
-Like <a href="https://bmxmuseum.com/bikes/mongoose/80562">https://bmxmuseum.com/bikes/mongoose/80562</a>
+Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mongoose/80562)
 
   </div>
   <div class="card__image">
@@ -344,7 +344,7 @@ Like <a href="https://bmxmuseum.com/bikes/mongoose/80562">https://bmxmuseum.com/
 <div class="card">
   <div class="card__content">
 
-## 1997 Dyno Compe
+## 1997 Dyno Compe v2
 
   </div>
   <div class="card__image">

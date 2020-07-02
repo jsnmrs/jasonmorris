@@ -17,7 +17,7 @@ permalink: "/index.html"
 <section id="content">
   <article>
 
-## Hi, I&rsquo;m Jason.
+## Hi, I&rsquo;m Jason
 
 A surprising number of folks go by the same name. Their friends email me all the time.
 
