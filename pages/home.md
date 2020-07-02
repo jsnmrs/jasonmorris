@@ -1,11 +1,9 @@
 ---
 layout: home
-title:
+title: Jason Morris
 class: photo
 permalink: "/index.html"
 ---
-
-# Jason Morris
 
 <ul class="chunk bump">
 {%- assign posts = collections.post | reverse -%}
