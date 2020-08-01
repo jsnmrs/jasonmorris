@@ -17,10 +17,6 @@ body {
   border-radius: 50%;
   transition: background-color 0.5s ease;
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-
   &:link,
   &:visited {
     color: var(--background);
@@ -34,10 +30,6 @@ body {
     background-size: 110%;
     border: 0.1875rem solid var(--link);
     transition: background-color 0.5s ease;
-
-    @media screen and (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
   }
 
   &:focus {
