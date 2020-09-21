@@ -15,7 +15,7 @@ jobs:
         env:
           CI: true
       - name: Deploy over SSH
-        uses: easingthemes/ssh-deploy@v2.1.4
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: ${{ secrets.ARGS }}
