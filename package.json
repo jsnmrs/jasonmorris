@@ -23,7 +23,7 @@
     "node-sass": "^4.14.1",
     "pa11y-ci": "^2.4.0",
     "postcss-cli": "^7.1.2",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "remark-cli": "^8.0.1",
     "remark-frontmatter": "^2.0.0",
     "remark-frontmatter-validator": "^0.4.0",
