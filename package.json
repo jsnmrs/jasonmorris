@@ -13,7 +13,7 @@
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@double-great/remark-lint-alt-text": "^0.6.0",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.0.1",
     "clean-css": "^4.2.3",
     "constyble": "^1.3.0",
     "extra-eyes": "^1.3.0",
@@ -22,7 +22,8 @@
     "husky": "^4.3.0",
     "node-sass": "^4.14.1",
     "pa11y-ci": "^2.4.0",
-    "postcss-cli": "^7.1.2",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.0.0",
     "prettier": "^2.1.2",
     "remark-cli": "^8.0.1",
     "remark-frontmatter": "^2.0.0",
@@ -39,11 +40,11 @@
     "tap-spec": "^5.0.0"
   },
   "scripts": {
-    "css": "npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
+    "css": "npm run browser-list && npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
     "prettier:scss": "prettier --write \"**/*.scss\"",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "scss": "node-sass --output-style compressed -o _includes scss",
-    "autoprefixer": "postcss --no-map -u autoprefixer -r \"_includes/*.css\"",
+    "autoprefixer": "postcss -r \"_includes/*.css\"",
     "html": "npx @11ty/eleventy",
     "lint": "npm run constyble && npm run content && npm run htmllint",
     "lint-md": "remark posts",
@@ -55,7 +56,9 @@
     "write": "npx @11ty/eleventy --serve",
     "test": "npm run build && npm run lint && npm run lint-md",
     "build": "npm run prettier:config && npm run css && npm run html",
-    "health": "npm run pa11y"
+    "health": "npm run pa11y",
+    "browser-list": "echo Browser support list: && npx browserslist",
+    "browser-update": "npx browserslist@latest --update-db"
   },
   "husky": {
     "hooks": {
