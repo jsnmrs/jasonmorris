@@ -8,7 +8,7 @@ category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
 
-I built this tool called [Wordup](https://communicatehealth.github.io/wordup/) to convert content from Word documents into HTML or Markdown.
+I built this tool called [Wordup](https://jsnmrs.github.io/wordup/) to convert content from Word documents into HTML or Markdown.
 
 First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/ckeditor-4/). Second, it passes through vanilla JS to clean up spacing and replaces some strings. Finally, it spits out clean HTML. Check a box and [Turndown.js](https://github.com/domchristie/turndown) converts to Markdown.
 
@@ -50,4 +50,4 @@ WYSIWYG editors in most CMS platforms deal with pasting Word documents, right?
 1. Add markdown conversion and link helpers
 1. Tell people about it
 
-See the code: [https://github.com/communicatehealth/wordup](https://github.com/communicatehealth/wordup)
+See the code: [https://github.com/jsnmrs/wordup](https://github.com/jsnmrs/wordup)
