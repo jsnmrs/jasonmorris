@@ -27,9 +27,9 @@ This is my website. Take a peek under the hood over on [GitHub](https://github.c
 
   </article>
   <div class="photo">
-    <picture>
+    <figure>
       <img src="/img/jason-iceland-320.jpg" width="320" height="320" loading="lazy" alt="Jason in Iceland">
-    </picture>
-    <p class="caption">Waterfall pitstop off of Route 1 in Iceland</p>
+      <figcaption>Waterfall pitstop off of Route 1 in Iceland</figcaption>
+    </figure>
   </div>
 </section>
