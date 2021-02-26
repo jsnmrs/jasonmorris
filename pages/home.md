@@ -5,14 +5,16 @@ class: photo
 permalink: "/index.html"
 ---
 
+<nav>
 <ul class="chunk bump">
 {%- assign posts = collections.post | reverse -%}
 {%- for post in posts -%}
   <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
 {%- endfor -%}
 </ul>
+</nav>
 
-<section id="content">
+<section id="content" tabindex="-1">
   <article>
 
 ## Hi, I&rsquo;m Jason
