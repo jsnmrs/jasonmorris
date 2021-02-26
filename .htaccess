@@ -1,20 +1,106 @@
-<IfModule mod_deflate.c>
-  <FilesMatch "\\.(js|css|html|xml|htm|ico)$">
-    SetOutputFilter DEFLATE
-  </FilesMatch>
-  AddOutputFilterByType DEFLATE text/html text/plain application/javascript text/css
+# Disable directory browsing
+Options All -Indexes
+
+# Add webp image format support
+AddType image/webp .webp
+
+<IfModule mod_rewrite.c>
+  # FollowSymLinks must be enabled for this to work.
+  Options +FollowSymlinks
+
+  # Turning on the rewrite engine is necessary for the following rules and features.
+  RewriteEngine On
+
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  Redirect 301 /til/rotating-ssh-keys /code/rotating-ssh-keys
+  Redirect 301 /since https://jsnmrs.github.io/since
+  Redirect 301 /wordup https://jsnmrs.github.io/wordup
+  Redirect 301 /pdfcheck https://jsnmrs.github.io/pdfcheck
+
+  # Ensure Authorization header is passed along
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
-Redirect 301 /til/rotating-ssh-keys /code/rotating-ssh-keys
-Redirect 301 /since https://jsnmrs.github.io/since
-Redirect 301 /wordup https://jsnmrs.github.io/wordup
-Redirect 301 /pdfcheck https://jsnmrs.github.io/pdfcheck
-
 ErrorDocument 404 /404.html
+
+# Disable server signature
+ServerSignature Off
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/manifest+json
+</Ifmodule>
+
+<IfModule mod_headers.c>
+  Header always append X-Frame-Options SAMEORIGIN
+  Header always set X-Content-Type-Options nosniff
+  RequestHeader unset Proxy
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  RewriteCond %{REQUEST_URI} ^/img
+  RewriteRule ^ - [ENV=IMAGES:true]
+  Header set Cache-Control "public, max-age=31536000, immutable" env=IMAGES
+
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+AddDefaultCharset utf-8
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json   webmanifest
+  AddCharset utf-8 .css \
+    .js \
+    .json \
+    .map \
+    .svg \
+    .webmanifest \
+    .xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  # Automatically add the `Cache-Control` header (as well as the
+  # equivalent `Expires` header).
+  ExpiresActive on
+
+  # By default, inform user agents to cache all resources for 1 year.
+  ExpiresDefault "access plus 1 year"
+
+  # Overwrite the previous for file types whose content usually changes
+  # very often, and thus, should not be cached for such a long period,
+  # or at all.
+
+  # AppCache manifest files
+  ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+  # /favicon.ico (cannot be renamed!)
+  <Files "favicon.ico">
+    ExpiresByType image/x-icon "access plus 1 hour"
+  </Files>
+
+  # Data interchange
+  ExpiresByType application/atom+xml "access plus 20 minutes"
+  ExpiresByType application/rdf+xml "access plus 20 minutes"
+  ExpiresByType application/rss+xml "access plus 20 minutes"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType application/ld+json "access plus 0 seconds"
+  ExpiresByType application/schema+json "access plus 0 seconds"
+  ExpiresByType application/vnd.geo+json "access plus 0 seconds"
+  ExpiresByType text/xml "access plus 0 seconds"
+
+  # HTML
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Set CSP Header
+Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com https://vimeo.com https://player.vimeo.com
