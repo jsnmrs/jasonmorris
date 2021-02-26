@@ -1,6 +1,9 @@
 # Disable directory browsing
 Options All -Indexes
 
+# Add webp image format support
+AddType image/webp .webp
+
 <IfModule mod_rewrite.c>
   # FollowSymLinks must be enabled for this to work.
   Options +FollowSymlinks
