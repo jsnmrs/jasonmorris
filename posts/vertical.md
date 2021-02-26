@@ -13,4 +13,4 @@ Devon Swahlan threw a proper tabletop out of this quarterpipe while I experiment
 
 A fun experiment that makes for tired scroll fingers.
 
-<img src="/img/vertical-1024.jpg" sizes="100vw" loading="lazy" srcset="/img/vertical-2048.jpg 800w, /img/vertical-4759.jpg 1024w" alt="Vertical pano" class="block-photo">
+<img src="/img/vertical-1024.jpg" width="172" height="1024" sizes="100vw" loading="lazy" srcset="/img/vertical-2048.jpg 800w, /img/vertical-4759.jpg 1024w" alt="Vertical panoroma." class="block-photo">

@@ -12,7 +12,9 @@ I built this tool called [Wordup](https://jsnmrs.github.io/wordup/) to convert c
 
 First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/ckeditor-4/). Second, it passes through vanilla JS to clean up spacing and replaces some strings. Finally, it spits out clean HTML. Check a box and [Turndown.js](https://github.com/domchristie/turndown) converts to Markdown.
 
-![Wordup screenshot.](/img/wordup.png)
+<picture>
+  <img src="/img/wordup.png" width="1600" height="939" loading="lazy" alt="Wordup screenshot.">
+</picture>
 
 But converting Word documents to HTML is a solved problem, right?
 
