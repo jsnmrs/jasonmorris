@@ -14,7 +14,7 @@ Made by Royce Union. Like [https://bmxmuseum.com/bikes/royce_union/13877](https:
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-001-trendz.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-001-trendz.jpg" width="1127" height="697" loading="lazy" alt="">
   </div>
 </div>
 
@@ -27,7 +27,7 @@ Given to me by my cousin. Eventually thrown away, due to inability to mount cali
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -40,7 +40,7 @@ Like [https://bmxmuseum.com/bikes/huffy/39744](https://bmxmuseum.com/bikes/huffy
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-003-pro-lightning.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-003-pro-lightning.jpg" width="600" height="450" loading="lazy" alt="">
   </div>
 </div>
 
@@ -53,7 +53,7 @@ Like [https://bmxmuseum.com/bikes/huffy/76492](https://bmxmuseum.com/bikes/huffy
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-004-pro-thunder.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-004-pro-thunder.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -64,7 +64,7 @@ Like [https://bmxmuseum.com/bikes/huffy/76492](https://bmxmuseum.com/bikes/huffy
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-005-dyno-compe.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-005-dyno-compe.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -77,7 +77,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/77857](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-006-dmc.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-006-dmc.jpg" width="528" height="360" loading="lazy" alt="">
   </div>
 </div>
 
@@ -90,7 +90,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/46549](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -103,7 +103,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -114,7 +114,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-009-og-dirtbike.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-009-og-dirtbike.jpg" width="600" height="400" loading="lazy" alt="">
   </div>
 </div>
 
@@ -125,7 +125,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -136,7 +136,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-011-sta.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-011-sta.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -147,7 +147,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -158,7 +158,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-012-taj.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-012-taj.jpg" width="640" height="480" loading="lazy" alt="">
   </div>
 </div>
 
@@ -169,7 +169,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-013-rev-b.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-013-rev-b.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -180,7 +180,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -191,7 +191,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -202,7 +202,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -213,7 +213,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -224,7 +224,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -235,7 +235,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-019-jc-2003.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-019-jc-2003.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -246,7 +246,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-020-blackbike.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-020-blackbike.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -257,7 +257,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-021-jc-2004.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-021-jc-2004.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -268,7 +268,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-022-six-pack.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-022-six-pack.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -279,7 +279,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -290,7 +290,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-024-pantera.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-024-pantera.jpg" width="768" height="1024" loading="lazy" alt="">
   </div>
 </div>
 
@@ -301,10 +301,10 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-025-3-amigos-01.jpg" loading="lazy" alt="">
-    <img src="/img/bikes/bikes-025-3-amigos-02.jpg" loading="lazy" alt="">
-    <img src="/img/bikes/bikes-025-3-amigos-03.jpg" loading="lazy" alt="">
-    <img src="/img/bikes/bikes-025-3-amigos-04.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-025-3-amigos-01.jpg" width="1086" height="724" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-025-3-amigos-02.jpg" width="1024" height="768" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-025-3-amigos-03.jpg" width="1024" height="768" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-025-3-amigos-04.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -315,7 +315,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
 
@@ -326,7 +326,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-027-second-wave.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-027-second-wave.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -337,7 +337,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-028-funday.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-028-funday.jpg" width="1086" height="724" loading="lazy" alt="">
   </div>
 </div>
 
@@ -348,7 +348,7 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-029-dyno-compe.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-029-dyno-compe.jpg" width="1024" height="768" loading="lazy" alt="">
   </div>
 </div>
 
@@ -359,8 +359,8 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-030-gypsy-01.jpg" loading="lazy" alt="">
-    <img src="/img/bikes/bikes-030-gypsy-02.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-030-gypsy-01.jpg" width="1024" height="1024" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-030-gypsy-02.jpg" width="1086" height="724" loading="lazy" alt="">
   </div>
 </div>
 
@@ -371,6 +371,6 @@ Like [https://bmxmuseum.com/bikes/mongoose/80562](https://bmxmuseum.com/bikes/mo
 
   </div>
   <div class="card__image">
-    <img src="/img/bikes/bikes-000.jpg" loading="lazy" alt="">
+    <img src="/img/bikes/bikes-000.jpg" width="1600" height="761" loading="lazy" alt="">
   </div>
 </div>
