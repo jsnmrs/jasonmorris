@@ -12,7 +12,7 @@ In Fort Edward, New York, Niles Harris has a mini ramp in his parents’ barn. W
 At one point, I thought that an overhead shot would look great. I walked out on an exposed beam situated over one side of the ramp. Part way across I looked down to the barn floor, thirteen feet below and froze. Usually, heights don’t bother me. The combination of balance needed for the narrow beam while holding my camera spooked me. I continued out to grab onto an upright beam for support and filmed a few shots before scurrying back to safety. Lesson learned.
 
 <figure>
-  <img src="/img/barn-240.jpg" sizes="100vw" loading="lazy" srcset="/img/barn-800.jpg 640w, /img/barn-1024.jpg 800w" alt="Standing on the rafters">
+  <img src="/img/barn-240.jpg" sizes="100vw" width="159" height="240" loading="lazy" srcset="/img/barn-800.jpg 640w, /img/barn-1024.jpg 800w" alt="Standing on the rafters.">
   <figcaption>From the rafters</figcaption>
 </figure>
 
