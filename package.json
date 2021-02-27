@@ -54,7 +54,7 @@
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
     "prettier:config": "prettier --write \"**/*.{yml,md,js}\"",
     "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
-    "write": "npx @11ty/eleventy --serve",
+    "write": "npm run build && npx @11ty/eleventy --serve",
     "test": "npm run build && npm run lint && npm run lint-md",
     "build": "npm run prettier:config && npm run css && npm run js && npm run html",
     "health": "npm run pa11y",
