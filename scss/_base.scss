@@ -20,11 +20,24 @@ html {
   scroll-padding-top: 5rem;
 }
 
+// https://www.zachleat.com/web/fluid-images/
 img {
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-  border: 0;
+  max-width: 100%;
+
+  &[width] {
+    width: auto; // Defer to max-width
+  }
+
+  &[width][height] {
+    height: auto; // Preserve aspect ratio
+  }
+
+  // Let SVG scale without boundaries
+  &[src$=".svg"] {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
 }
 
 .video {
