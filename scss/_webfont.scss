@@ -7,7 +7,7 @@
   font-stretch: normal;
   src: local("Source Serif Pro"), local("SourceSerifPro-Regular"),
     url("/fonts/ssp.woff2") format("woff2");
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +17,6 @@
   font-stretch: normal;
   src: local("Source Code Pro"), local("SourceCodePro-Regular"),
     url("/fonts/scp.woff2") format("woff2");
-  font-display: optional;
+  font-display: swap;
 }
 // stylelint-enable
