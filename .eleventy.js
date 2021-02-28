@@ -22,6 +22,61 @@ module.exports = function (eleventyConfig) {
     root: ["_includes"],
   });
 
+  eleventyConfig.addShortcode(
+    "picture",
+    function (fileName, ext, width, height, max, alt, caption) {
+      let fullPath = "/img/" + fileName;
+      var sourcesWebp =
+        '<source media="(max-width: 320px)" srcset="' +
+        fullPath +
+        '-240.webp" type="image/webp">' +
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.webp" type="image/webp">';
+      var sourcesVintage =
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        "-800." +
+        ext +
+        '">';
+
+      if (max !== "1600") {
+        sourcesWebp =
+          sourcesWebp +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          '-1024.webp" type="image/webp">';
+
+        sourcesVintage =
+          sourcesVintage +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          "-1024." +
+          ext +
+          '">';
+      }
+
+      if (max == "1600") {
+        sourcesWebp =
+          sourcesWebp +
+          '<source media="(min-width: 1025px)" srcset="' +
+          fullPath +
+          '-1600.webp" type="image/webp">';
+
+        sourcesVintage =
+          sourcesVintage +
+          '<source media="(max-width: 1025px)" srcset="' +
+          fullPath +
+          "-1600." +
+          ext +
+          '">';
+      }
+
+      return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
+    }
+  );
+  // Usage: {% picture "bike-2", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
+
   eleventyConfig.addFilter("cssmin", function (code) {
     return new cleanCSS({}).minify(code).styles;
   });
