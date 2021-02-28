@@ -12,4 +12,3 @@ I spent the morning on a quick hike with my good friend Eric in western Massachu
 {% picture "cascade-1", "jpg", "240", "159", "1600" "Slow shutter shot.", "" %}
 
 {% picture "cascade-2", "jpg", "240", "159", "1600" "Cascade Falls.", "" %}
-
