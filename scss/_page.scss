@@ -54,6 +54,10 @@ figcaption,
 
 figcaption {
   text-align: center;
+
+  &:empty {
+    margin: 0;
+  }
 }
 
 .bump {
@@ -103,6 +107,10 @@ nav {
     [full-start] minmax(0, 1fr)
     [main-start] minmax(0, 40rem) [main-end]
     minmax(0, 1fr) [full-end];
+}
+
+nav {
+  grid-column-gap: 0;
 }
 
 main > *,
