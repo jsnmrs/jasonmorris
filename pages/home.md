@@ -30,7 +30,12 @@ This is my website. Take a peek under the hood over on [GitHub](https://github.c
   </article>
   <div class="photo">
     <figure>
-      <img src="/img/jason-iceland-320.jpg" width="320" height="320" loading="lazy" alt="Jason in Iceland">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/img/jason-iceland-640.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="/img/jason-iceland-320.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="/img/jason-iceland-320.jpg">
+        <img src="/img/jason-iceland-640.jpg" alt="Jason in Iceland." loading="lazy" width="320" height="320">
+      </picture>
       <figcaption>Waterfall pitstop off of Route 1 in Iceland</figcaption>
     </figure>
   </div>
