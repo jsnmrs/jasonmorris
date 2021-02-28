@@ -109,6 +109,10 @@ nav {
     minmax(0, 1fr) [full-end];
 }
 
+nav {
+  grid-column-gap: 0;
+}
+
 main > *,
 nav > * {
   grid-column: main;
