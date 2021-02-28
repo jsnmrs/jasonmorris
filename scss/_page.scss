@@ -54,6 +54,10 @@ figcaption,
 
 figcaption {
   text-align: center;
+
+  &:empty {
+    margin: 0;
+  }
 }
 
 .bump {
