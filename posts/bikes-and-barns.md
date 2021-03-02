@@ -15,6 +15,8 @@ At one point, I thought that an overhead shot would look great. I walked out on 
 
 Here&rsquo;s the result of a few hours at Niles&rsquo; barn. Shot on my Canon T2i with the ISO completely cranked.
 
+{% vimeo "24857706", "video-barn", "800", "450", "Niles Harris - Barn Session"}
+
 <div class="video">
   <iframe src="https://player.vimeo.com/video/24857706?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" title="Niles Harris - Barn Session Video" width="800" height="450" frameborder="0" allowfullscreen></iframe>
 </div>

@@ -77,6 +77,14 @@ module.exports = function (eleventyConfig) {
   );
   // Usage: {% picture "bike-2", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
 
+  eleventyConfig.addShortcode(
+    "vimeo",
+    function (videoId, posterName, width, height, title) {
+      return `<div class="video"></div>`;
+    }
+  );
+  // Usage: {% vimeo "24857706", "video-barn", "800", "450", "Niles Harris - Barn Session"}
+
   eleventyConfig.addFilter("cssmin", function (code) {
     return new cleanCSS({}).minify(code).styles;
   });
