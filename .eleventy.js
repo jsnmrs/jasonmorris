@@ -75,7 +75,7 @@ module.exports = function (eleventyConfig) {
       return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
     }
   );
-  // Usage: {% picture "bike-2", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
+  // Usage: {% picture "file-name", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
 
   eleventyConfig.addShortcode(
     "vimeo",
@@ -83,7 +83,7 @@ module.exports = function (eleventyConfig) {
       return `<div class="video"></div>`;
     }
   );
-  // Usage: {% vimeo "24857706", "video-barn", "800", "450", "Niles Harris - Barn Session"}
+  // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
 
   eleventyConfig.addFilter("cssmin", function (code) {
     return new cleanCSS({}).minify(code).styles;
