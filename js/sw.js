@@ -1,64 +1,58 @@
-/*
-This is modified version of Ethan Marcotte's service worker, which is a (very, very lightly) modified version of Jeremy Keith’s service worker (https://adactio.com/serviceworker.js), with a few additional edits borrowed from Filament Group’s (https://www.filamentgroup.com/sw.js). Stand on the shoulders of giants and geniuses.
-*/
+// This is modified version of Ethan Marcotte's service worker, which is a (very, very lightly) modified version of Jeremy Keith’s service worker (https://adactio.com/serviceworker.js), with a few additional edits borrowed from Filament Group’s (https://www.filamentgroup.com/sw.js).
 
 (function () {
   "use strict";
 
-  const version = "v20210225";
-  const cacheName = version + "::jsnmrs:";
-
-  const staticCacheName = cacheName + "static";
-  const pagesCacheName = cacheName + "pages";
-  const imagesCacheName = cacheName + "images";
-
-  const offlinePages = [
-    "/",
-    "/bikes/twenty-years-later/",
-    "/code/rotating-ssh-keys/",
-    "/offline/",
-  ];
-  const staticAssets = [
-    "/fonts/ssp.woff2",
-    "/img/jason-iceland-320.jpg",
-    "/img/twenty-240.jpg",
-    "/apple-touch-icon.png",
-  ];
+  const version = "v20210225",
+    cacheName = version + "::jsnmrs:",
+    staticCacheName = cacheName + "static",
+    pagesCacheName = cacheName + "pages",
+    imagesCacheName = cacheName + "images",
+    offlinePages = [
+      "/",
+      "/bikes/twenty-years-later/",
+      "/code/rotating-ssh-keys/",
+      "/offline/",
+    ],
+    staticAssets = [
+      "/fonts/ssp.woff2",
+      "/img/jason-iceland-320.jpg",
+      "/img/twenty-240.jpg",
+      "/apple-touch-icon.png",
+    ];
 
   function updateStaticCache() {
     return caches.open(staticCacheName).then((cache) => {
       // These items won't block the installation of the Service Worker
       cache.addAll(
         offlinePages.map(
-          (url) =>
-            new Request(url, {
-              credentials: "include",
-            })
+          (url) => new Request(url, {
+            credentials: "include",
+          })
         )
       );
 
       // These items must be cached for the Service Worker to complete installation
       return cache.addAll(
         staticAssets.map(
-          (url) =>
-            new Request(url, {
-              credentials: "include",
-            })
+          (url) => new Request(url, {
+            credentials: "include",
+          })
         )
       );
     });
   }
 
-  function stashInCache(cacheName, request, response) {
-    caches.open(cacheName).then((cache) => cache.put(request, response));
+  function stashInCache(cacheReference, request, response) {
+    caches.open(cacheReference).then((cache) => cache.put(request, response));
   }
 
   // Limit the number of items in a specified cache.
-  function trimCache(cacheName, maxItems) {
-    caches.open(cacheName).then((cache) => {
+  function trimCache(cacheReference, maxItems) {
+    caches.open(cacheReference).then((cache) => {
       cache.keys().then((keys) => {
         if (keys.length > maxItems) {
-          cache.delete(keys[0]).then(trimCache(cacheName, maxItems));
+          cache.delete(keys[0]).then(trimCache(cacheReference, maxItems));
         }
       });
     });
@@ -77,7 +71,7 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
 
   // Events!
   self.addEventListener("message", (event) => {
-    if (event.data.command == "trimCaches") {
+    if (event.data.command === "trimCaches") {
       trimCache(pagesCacheName, 35);
       trimCache(imagesCacheName, 20);
     }
@@ -92,8 +86,8 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
   });
 
   self.addEventListener("fetch", (event) => {
-    let request = event.request;
-    let url = new URL(request.url);
+    let request = event.request,
+      url = new URL(request.url);
 
     // Ignore non-GET requests
     if (request.method !== "GET") {
@@ -133,6 +127,7 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
       return;
     }
 
+    /* eslint-disable no-shadow */
     if (request.headers.get("Accept").indexOf("video") !== -1) {
       // For non-HTML requests, look in the cache first, fall back to the network
       event.respondWith(
@@ -164,10 +159,12 @@ This is modified version of Ethan Marcotte's service worker, which is a (very, v
                     }
                   );
                 }
+                return false;
               })
           );
         })
       );
     }
+    /* eslint-enable no-shadow */
   });
 })();

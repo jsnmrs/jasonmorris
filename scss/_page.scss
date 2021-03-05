@@ -123,34 +123,6 @@ main > figure {
   margin: 1.5rem auto 0.5rem;
 }
 
-.card {
-  grid-column: main;
-  width: 100%;
-  margin: 0.5rem 0 1rem;
-  background-color: var(--background-accent);
-
-  @include bp($medium) {
-    display: flex;
-    flex-direction: row;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .card__content {
-    padding: 1rem 0.5rem 0.5rem;
-
-    @include bp($medium) {
-      flex-shrink: 0;
-      width: 50%;
-      margin: 0;
-      padding: 1rem;
-      text-align: left;
-    }
-  }
-}
-
 section {
   display: grid;
   grid-column-gap: 1rem;
@@ -180,5 +152,45 @@ article {
 
   figcaption {
     text-align: left;
+  }
+}
+
+.facade {
+  position: relative;
+  margin-bottom: 2rem;
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &:hover,
+    &:focus {
+      .facade__overlay {
+        background-size: 6rem;
+        transition: 0.3s background-size;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    // stylelint-disable sh-waqar/declaration-use-variable
+    background-color: rgba(0, 0, 0, 0.5);
+    // stylelint-enable sh-waqar/declaration-use-variable
+    background-image: url("/img/play.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 5rem;
+    transition: 0.3s background-size;
+    content: " ";
+  }
+
+  img {
+    display: block;
   }
 }

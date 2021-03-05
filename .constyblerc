@@ -52,7 +52,7 @@
     "selectors.complexity.totalUnique": 5,
     "stylesheets.filesize.compressed.gzip.totalBytes": 15000,
     "stylesheets.filesize.uncompressed.totalBytes": 60000,
-    "stylesheets.linesOfCode.sourceLinesOfCode.total": 300,
+    "stylesheets.linesOfCode.sourceLinesOfCode.total": 350,
     "stylesheets.linesOfCode.total": 2,
     "stylesheets.simplicity": 1,
     "stylesheets.size": 50000,
