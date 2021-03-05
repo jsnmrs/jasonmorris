@@ -4,6 +4,7 @@ date: 2016-02-15T12:00:00Z
 layout: post
 tags: post
 offline: true
+has: code
 category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
