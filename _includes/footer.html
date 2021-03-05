@@ -1,4 +1,7 @@
 {% if has %}{% if has == "video" %}
-  <script src="/scripts.js"></script>{% endif %}{% endif %}
+  {% capture js %}
+    {% include "scripts.js" %}
+  {% endcapture %}
+  <script>{{ js }}</script>{% endif %}{% endif %}
   </body>
 </html>
