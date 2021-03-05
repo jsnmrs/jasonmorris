@@ -50,7 +50,7 @@
     "autoprefixer": "postcss -r \"_includes/*.css\"",
     "prettier:js": "prettier --write \"js/*.js\"",
     "eslint": "eslint \"js/*.js\"",
-    "uglify": "uglifyjs js/sw.js -m -o sw.js && uglifyjs js/facade.js -m -o scripts.js",
+    "uglify": "uglifyjs js/sw.js -m -o sw.js && uglifyjs js/facade.js -m -o _includes/scripts.js",
     "js": "npm run prettier:js && npm run eslint && npm run uglify",
     "html": "npx @11ty/eleventy",
     "lint": "npm run constyble && npm run content && npm run htmllint",
