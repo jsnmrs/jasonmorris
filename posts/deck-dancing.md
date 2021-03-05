@@ -3,6 +3,7 @@ title: Deck Dancing via Tripod
 date: 2011-06-09T12:00:00Z
 layout: post
 tags: post
+has: video
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---
@@ -13,6 +14,4 @@ I gathered up some of those tripod clips and put together a short video. My [Lea
 
 Besides the riding and filming, I also built every single ramp you see in this video. That includes both indoor skateparks and the backyard ramps.
 
-<div class="video">
-  <iframe src="https://player.vimeo.com/video/26322334?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" title="Deck Dancing Video" width="800" height="450" frameborder="0" allowfullscreen></iframe>
-</div>
+{% vimeo "26322334", "video-deck-dancing", "800", "450", "Deck dancing" %}
