@@ -1,0 +1,19 @@
+$font-family-mono: "Source Code Pro", Courier, monospace;
+
+// stylelint-disable plugin/no-unsupported-browser-features, sh-waqar/declaration-use-variable
+
+@font-face {
+  font-weight: 400;
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-stretch: normal;
+  src: local("Source Code Pro"), local("SourceCodePro-Regular"),
+    url("/fonts/scp.woff2") format("woff2");
+  font-display: optional;
+}
+// stylelint-enable
+
+pre,
+code {
+  font-family: $font-family-mono;
+}

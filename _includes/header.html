@@ -18,7 +18,10 @@
     {% capture css %}
       {% include "style.css" %}
     {% endcapture %}
-    <style>{{ css | cssmin }}</style>
+    {% capture mono %}
+      {% include "monospace.css" %}
+    {% endcapture %}
+    <style>{{ css | cssmin }}{% if has %}{% if has == "code" %}{{ mono | cssmin }}{% endif %}{% endif %}</style>
   </head>
 
   <body>
