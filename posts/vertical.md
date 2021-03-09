@@ -15,13 +15,9 @@ A fun experiment that makes for tired scroll fingers.
 
 <figure>
   <picture>
-    <source media="(max-width: 320px)" srcset="/img/vertical-500.webp" type="image/webp">
-    <source media="(max-width: 600px)" srcset="/img/vertical-1024.webp" type="image/webp">
     <source media="(max-width: 800px)" srcset="/img/vertical-2048.webp" type="image/webp">
     <source media="(min-width: 1025px)" srcset="/img/vertical-4759.webp" type="image/webp">
-    <source media="(max-width: 600px)" srcset="/img/vertical-1024.jpg">
-    <source media="(max-width: 800px)" srcset="/img/vertical-2048.jpg">
     <source media="(max-width: 1025px)" srcset="/img/vertical-4759.jpg">
-    <img src="/img/vertical-500.jpg" alt="Vertical panoroma." loading="lazy" width="92" height="500">
+    <img src="/img/vertical-2048.jpg" alt="Vertical panoroma." loading="lazy" width="344" height="2048">
   </picture>
 </figure>
