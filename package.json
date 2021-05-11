@@ -23,7 +23,7 @@
     "htmlhint": "^0.14.2",
     "node-sass": "^6.0.0",
     "pa11y-ci": "^2.4.1",
-    "postcss": "^8.2.14",
+    "postcss": "^8.2.15",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.3.0",
     "remark-cli": "^9.0.0",
@@ -39,7 +39,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0",
     "tap-spec": "^5.0.0",
-    "uglify-js": "^3.13.5"
+    "uglify-js": "^3.13.6"
   },
   "scripts": {
     "css": "npm run browser-list && npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
