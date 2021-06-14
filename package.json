@@ -23,7 +23,7 @@
     "htmlhint": "^0.14.2",
     "node-sass": "^6.0.0",
     "pa11y-ci": "^2.4.1",
-    "postcss": "^8.3.0",
+    "postcss": "^8.3.2",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.3.1",
     "remark-cli": "^9.0.0",
