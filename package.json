@@ -22,7 +22,7 @@
     "html-minifier": "^4.0.0",
     "htmlhint": "^0.15.1",
     "node-sass": "^6.0.0",
-    "pa11y-ci": "^2.4.1",
+    "pa11y-ci": "^2.4.2",
     "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.3.1",
