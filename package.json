@@ -45,7 +45,7 @@
     "css": "npm run browser-list && npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
     "prettier:scss": "prettier --write \"**/*.scss\"",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
-    "scss": "sass --style=compressed --no-source-map scss:_includes",
+    "scss": "sass --style=compressed scss:_includes",
     "autoprefixer": "postcss -r \"_includes/*.css\"",
     "prettier:js": "prettier --write \"js/*.js\"",
     "eslint": "eslint \"js/*.js\"",
