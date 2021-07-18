@@ -179,9 +179,9 @@ article {
     bottom: 0;
     left: 0;
     width: 100%;
-    // stylelint-disable sh-waqar/declaration-use-variable
+    // stylelint-disable scale-unlimited/declaration-strict-value
     background-color: rgba(0, 0, 0, 0.5);
-    // stylelint-enable sh-waqar/declaration-use-variable
+    // stylelint-enable scale-unlimited/declaration-strict-value
     background-image: url("/img/play.svg");
     background-repeat: no-repeat;
     background-position: center center;
