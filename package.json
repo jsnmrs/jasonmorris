@@ -25,7 +25,7 @@
     "postcss": "8.3.6",
     "postcss-cli": "8.3.1",
     "prettier": "2.3.2",
-    "remark-cli": "9.0.0",
+    "remark-cli": "10.0.0",
     "remark-frontmatter": "3.0.0",
     "remark-frontmatter-validator": "0.4.0",
     "sass": "1.37.2",
