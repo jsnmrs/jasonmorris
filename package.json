@@ -28,7 +28,7 @@
     "remark-cli": "10.0.0",
     "remark-frontmatter": "4.0.0",
     "remark-frontmatter-validator": "0.4.0",
-    "sass": "1.39.0",
+    "sass": "1.39.2",
     "stylelint": "13.13.1",
     "stylelint-a11y": "1.2.3",
     "stylelint-config-standard": "22.0.0",
