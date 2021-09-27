@@ -14,7 +14,7 @@
     "@11ty/eleventy-plugin-rss": "1.1.1",
     "@double-great/remark-lint-alt-text": "0.7.0",
     "@squoosh/cli": "^0.7.2",
-    "autoprefixer": "10.3.4",
+    "autoprefixer": "10.3.6",
     "clean-css": "5.1.5",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
