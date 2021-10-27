@@ -1,4 +1,5 @@
 {
+  "extends": ["stylelint-config-standard-scss"],
   "plugins": [
     "stylelint-a11y",
     "stylelint-declaration-block-no-ignored-properties",
@@ -7,18 +8,24 @@
     "stylelint-scss",
   ],
   "rules": {
-    "at-rule-empty-line-before": ["always", "except": ["blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]],
+    "alpha-value-notation": null,
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "blockless-after-blockless",
+          "first-nested"
+        ]
+      }
+    ],
     "at-rule-name-case": "lower",
     "at-rule-name-newline-after": null,
     "at-rule-name-space-after": "always-single-line",
-    "at-rule-no-unknown": [ true, {
-      "ignoreAtRules": [
-        "extend",
-        "include",
-        "mixin",
-        "content"
-      ]
-    }],
+    "at-rule-no-unknown": [
+      true,
+      { "ignoreAtRules": ["extend", "include", "mixin", "content"] }
+    ],
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
     "at-rule-semicolon-space-before": "never",
@@ -32,6 +39,7 @@
     "block-opening-brace-newline-before": null,
     "block-opening-brace-space-after": "always-single-line",
     "block-opening-brace-space-before": "always",
+    "color-function-notation": null,
     "color-hex-case": "lower",
     "color-named": "never",
     "color-no-invalid-hex": true,
@@ -89,6 +97,7 @@
     "no-invalid-double-slash-comments": true,
     "no-unknown-animations": true,
     "number-leading-zero": "always",
+    "number-max-precision": null,
     "number-no-trailing-zeros": true,
     "property-case": "lower",
     "property-no-unknown": true,
@@ -96,6 +105,7 @@
     "selector-attribute-brackets-space-inside": "never",
     "selector-attribute-operator-space-after": "never",
     "selector-attribute-operator-space-before": "never",
+    "selector-class-pattern": null,
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
     "selector-list-comma-space-before": "never",
@@ -109,7 +119,7 @@
     "selector-max-specificity": "0,4,2",
     "selector-max-type": 3,
     "selector-max-universal": 2,
-    "selector-no-qualifying-type": [true, { ignore: ["attribute"] }],
+    "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
     "selector-no-vendor-prefix": true,
     "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-no-unknown": true,
@@ -122,7 +132,19 @@
     "string-quotes": "double",
     "unit-no-unknown": true,
     "unit-case": "lower",
-    "unit-allowed-list": ["em", "rem", "%", "s", "ch", "vh", "vw", "deg", "fr", "ms"],
+    "unit-allowed-list": [
+      "em",
+      "rem",
+      "%",
+      "s",
+      "ms",
+      "ch",
+      "vh",
+      "vw",
+      "deg",
+      "fr"
+    ],
+    "value-keyword-case": null,
     "value-list-comma-newline-after": null,
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
@@ -136,23 +158,23 @@
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "error" }],
 
-
     "plugin/declaration-block-no-ignored-properties": true,
 
-
-    "plugin/no-unsupported-browser-features": [true, {
-      "severity": "warning",
-      "ignore": [
-        "calc",
-        "css-featurequeries",
-        "css-gradients",
-        "flexbox",
-        "multicolumn",
-        "outline",
-        "viewport-units"
-      ]
-    }],
-
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "severity": "warning",
+        "ignore": [
+          "calc",
+          "css-featurequeries",
+          "css-gradients",
+          "flexbox",
+          "multicolumn",
+          "outline",
+          "viewport-units"
+        ]
+      }
+    ],
 
     "scss/at-extend-no-missing-placeholder": [true, { "severity": "warning" }],
     "scss/at-import-no-partial-leading-underscore": true,
@@ -165,12 +187,18 @@
     "scss/function-color-relative": true,
     "scss/operator-no-unspaced": true,
     "scss/partial-no-import": true,
+    "scss/percent-placeholder-pattern": null,
     "scss/selector-no-redundant-nesting-selector": true,
 
-
-    "scale-unlimited/declaration-strict-value": [["/color$/", "font-family"], {
-      disableFix: true,
-      ignoreValues: ["0", "auto", "currentColor", "inherit", "transparent"]
-    }]
+    "scale-unlimited/declaration-strict-value": [
+      [
+        "/color$/",
+        "font-family"
+      ],
+      {
+        "disableFix": true,
+        "ignoreValues": ["0", "auto", "currentColor", "inherit", "transparent"]
+      }
+    ]
   }
 }
