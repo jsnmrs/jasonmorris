@@ -5,7 +5,7 @@
     "stylelint-declaration-block-no-ignored-properties",
     "stylelint-declaration-strict-value",
     "stylelint-no-unsupported-browser-features",
-    "stylelint-scss",
+    "stylelint-scss"
   ],
   "rules": {
     "alpha-value-notation": null,
@@ -39,8 +39,8 @@
     "block-opening-brace-newline-before": null,
     "block-opening-brace-space-after": "always-single-line",
     "block-opening-brace-space-before": "always",
-    "color-function-notation": null,
     "color-hex-case": "lower",
+    "color-function-notation": null,
     "color-named": "never",
     "color-no-invalid-hex": true,
     "comment-empty-line-before": "always",
@@ -108,6 +108,7 @@
     "selector-class-pattern": null,
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
+    "selector-id-pattern": null,
     "selector-list-comma-space-before": "never",
     "selector-max-attribute": 2,
     "selector-max-class": 4,
@@ -177,6 +178,7 @@
     ],
 
     "scss/at-extend-no-missing-placeholder": [true, { "severity": "warning" }],
+    "scss/at-mixin-pattern": null,
     "scss/at-import-no-partial-leading-underscore": true,
     "scss/comment-no-loud": true,
     "scss/declaration-nested-properties": "never",
@@ -184,7 +186,7 @@
     "scss/dollar-variable-colon-space-before": "never",
     "scss/dollar-variable-no-missing-interpolation": true,
     "scss/double-slash-comment-whitespace-inside": "always",
-    "scss/function-color-relative": true,
+    "scss/no-global-function-names": null,
     "scss/operator-no-unspaced": true,
     "scss/partial-no-import": true,
     "scss/percent-placeholder-pattern": null,
