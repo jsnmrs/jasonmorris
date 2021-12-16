@@ -35,10 +35,6 @@ jobs:
       - name: Build site and test
         run: npm test
         working-directory: ${{ env.WORK_PATH }}
-  test:
-    name: Test site
-    runs-on: ubuntu-latest
-    steps:
       - name: Run Lighthouse on local build
         uses: treosh/lighthouse-ci-action@v8
         with:
