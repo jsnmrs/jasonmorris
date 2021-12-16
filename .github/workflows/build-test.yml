@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Lighthouse on local build
-        uses: treosh/lighthouse-ci-action@8
+        uses: treosh/lighthouse-ci-action@v8
         with:
           configPath: "./lighthouserc.json"
       - name: Run Accessibility Insights site-wide
