@@ -28,7 +28,7 @@ jobs:
         run: npm install
         working-directory: ${{ env.WORK_PATH }}
       - name: Build site
-        run: npm build
+        run: npm run build
         working-directory: ${{ env.WORK_PATH }}
       - name: Deploy over SSH
         uses: easingthemes/ssh-deploy@v2.2.11
