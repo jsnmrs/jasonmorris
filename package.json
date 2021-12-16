@@ -25,7 +25,6 @@
     "extra-eyes": "3.0.2",
     "html-minifier": "4.0.0",
     "htmlhint": "1.0.0",
-    "pa11y-ci": "3.0.0",
     "postcss": "8.4.5",
     "postcss-cli": "9.1.0",
     "prettier": "2.5.1",
@@ -59,8 +58,7 @@
     "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
     "htmlhint": "htmlhint \"_site/**/*.html\"",
     "markdown": "remark posts",
-    "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-    "test": "npm run build && npm run content && npm run htmlhint && npm run markdown && npm run pa11y",
+    "test": "npm run build && npm run content && npm run htmlhint && npm run markdown",
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   }
 }
