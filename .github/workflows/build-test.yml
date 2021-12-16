@@ -1,0 +1,48 @@
+name: Build and test
+
+on:
+  workflow_dispatch: # enable run button on github.com
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "03 00 * * 4" # Run every Thursday at 12:03am
+
+env:
+  WORK_PATH: "./"
+  LOCK_PATH: "./package-lock.json"
+  NODE_VERSION: "16"
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: Set up Node.js ${{ env.NODE_VERSION }}.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: ${{ env.LOCK_PATH }}
+      - name: Install dependencies
+        run: npm install
+        working-directory: ${{ env.WORK_PATH }}
+      - name: Build site and test
+        run: npm test
+        working-directory: ${{ env.WORK_PATH }}
+      - name: Run Lighthouse on local build
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          configPath: "./lighthouserc.json"
+      - name: Run Accessibility Insights site-wide
+        uses: microsoft/accessibility-insights-action@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          site-dir: ${{ github.workspace }}/_site
+      - name: Upload Accessibility Insights report as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: accessibility-reports
+          path: ${{ github.workspace }}/_accessibility-reports

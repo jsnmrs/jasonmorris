@@ -1,6 +1,6 @@
 {
   "name": "jasonmorris",
-  "version": "0.2.0",
+  "version": "0.9.0",
   "author": "Jason Morris",
   "license": "MIT",
   "description": "jasonmorris.com",
@@ -15,19 +15,19 @@
     "@double-great/remark-lint-alt-text": "0.7.0",
     "autoprefixer": "10.4.0",
     "clean-css": "5.2.2",
-    "eslint": "8.3.0",
+    "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "extra-eyes": "3.0.2",
     "html-minifier": "4.0.0",
     "pa11y-ci": "3.0.0",
-    "postcss": "8.4.4",
-    "postcss-cli": "9.0.2",
-    "prettier": "2.5.0",
+    "postcss": "8.4.5",
+    "postcss-cli": "9.1.0",
+    "prettier": "2.5.1",
     "remark-cli": "10.0.1",
     "remark-frontmatter": "4.0.1",
     "remark-frontmatter-validator": "0.4.0",
-    "sass": "1.44.0",
+    "sass": "1.45.0",
     "stylelint": "14.1.0",
     "stylelint-a11y": "1.2.3",
     "stylelint-config-standard": "24.0.0",
@@ -35,30 +35,33 @@
     "stylelint-declaration-block-no-ignored-properties": "2.5.0",
     "stylelint-declaration-strict-value": "1.8.0",
     "stylelint-no-unsupported-browser-features": "5.0.2",
-    "stylelint-scss": "4.0.0",
-    "uglify-js": "3.14.4"
+    "stylelint-scss": "4.0.1",
+    "uglify-js": "3.14.5"
   },
   "scripts": {
-    "css": "npm run browser-list && npm run prettier:scss && npm run stylelint && npm run scss && npm run autoprefixer",
-    "prettier:scss": "prettier --write \"**/*.scss\"",
+    "prettier": "prettier --write \"**/*.{js,md,scss,yml}\"",
+
+    "browser-list": "echo Browser support list: && npx browserslist",
+    "browser-update": "npx browserslist@latest --update-db",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "scss": "sass --style=compressed scss:_includes",
     "autoprefixer": "postcss -r \"_includes/*.css\"",
-    "prettier:js": "prettier --write \"js/*.js\"",
+    "css": "npm run browser-list && npm run stylelint && npm run scss && npm run autoprefixer",
+
     "eslint": "eslint \"js/*.js\"",
     "uglify": "uglifyjs js/facade.js -m -o _includes/scripts.js",
-    "js": "npm run prettier:js && npm run eslint && npm run uglify",
+    "js": "npm run eslint && npm run uglify",
+
     "html": "npx @11ty/eleventy",
-    "lint": "npm run content",
-    "lint-md": "remark posts",
-    "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-    "prettier:config": "prettier --write \"**/*.{yml,md,js}\"",
+
+    "build": "npm run prettier && npm run css && npm run js && npm run html",
+
     "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
-    "write": "npm run prettier:config && npm run css && npm run js && npx @11ty/eleventy --serve",
-    "test": "npm run build && npm run lint && npm run lint-md",
-    "build": "npm run prettier:config && npm run css && npm run js && npm run html",
-    "health": "npm run pa11y",
-    "browser-list": "echo Browser support list: && npx browserslist",
-    "browser-update": "npx browserslist@latest --update-db"
+    "markdown": "remark posts",
+    "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
+
+    "test": "npm run build && npm run content && npm run markdown && npm run pa11y",
+
+    "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   }
 }
