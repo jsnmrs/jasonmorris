@@ -5,9 +5,6 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - rinse
   schedule:
     - cron: "03 00 * * 4" # Run every Thursday at 12:03am
 
