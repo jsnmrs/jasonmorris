@@ -17,9 +17,14 @@
     "clean-css": "5.2.2",
     "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-compat": "4.0.0",
+    "eslint-plugin-es5": "1.5.0",
+    "eslint-plugin-no-unsanitized": "4.0.1",
     "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-xss": "0.1.11",
     "extra-eyes": "3.0.2",
     "html-minifier": "4.0.0",
+    "htmlhint": "1.0.0",
     "pa11y-ci": "3.0.0",
     "postcss": "8.4.5",
     "postcss-cli": "9.1.0",
@@ -40,28 +45,22 @@
   },
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,md,scss,yml}\"",
-
     "browser-list": "echo Browser support list: && npx browserslist",
     "browser-update": "npx browserslist@latest --update-db",
     "stylelint": "stylelint \"scss/**/*.scss\" --fix",
     "scss": "sass --style=compressed scss:_includes",
     "autoprefixer": "postcss -r \"_includes/*.css\"",
     "css": "npm run browser-list && npm run stylelint && npm run scss && npm run autoprefixer",
-
     "eslint": "eslint \"js/*.js\"",
     "uglify": "uglifyjs js/facade.js -m -o _includes/scripts.js",
     "js": "npm run eslint && npm run uglify",
-
     "html": "npx @11ty/eleventy",
-
     "build": "npm run prettier && npm run css && npm run js && npm run html",
-
     "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
+    "htmlhint": "htmlhint \"_site/**/*.html\"",
     "markdown": "remark posts",
     "pa11y": "pa11y-ci -s https://jasonmorris.com/sitemap.xml",
-
-    "test": "npm run build && npm run content && npm run markdown && npm run pa11y",
-
+    "test": "npm run build && npm run content && npm run htmlhint && npm run markdown && npm run pa11y",
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   }
 }
