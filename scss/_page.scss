@@ -35,6 +35,12 @@ body {
   &:focus {
     box-shadow: none;
   }
+
+  span {
+    @extend %u-hidden-visually;
+
+    display: block;
+  }
 }
 
 .back {
