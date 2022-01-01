@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>{% if title %}{% if title != site.name %}{{ title }} &ndash; {% endif %}{% endif %}{{ site.name }}</title>
-    <meta name="author" content="{{ site.name }}">
-    <meta name="description" content="{{ site.description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="VSNNkE6DbJkLYdmhEb-AvccU_RZckm-s3x80VdYXsQk">
-    <link rel="preload" href="/fonts/ssp.woff2" as="font" type="font/woff2" crossorigin>{% if has %}{% if has == "code" %}
-    <link rel="preload" href="/fonts/scp.woff2" as="font" type="font/woff2" crossorigin>{% endif %}{% endif %}
-    <meta name="theme-color" content="#727272">
-    <meta name="color-scheme" content="only light">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
-    {% capture css %}
-      {% include "style.css" %}
-    {% endcapture %}
-    {% capture mono %}
-      {% include "monospace.css" %}
-    {% endcapture %}
-    <style>{{ css | cssmin }}{% if has %}{% if has == "code" %}{{ mono | cssmin }}{% endif %}{% endif %}</style>
-  </head>
 
-  <body>
-    <header>
-      <a href="#content" class="skip">Skip to content</a>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <title>{% if title %}{% if title != site.name %}{{ title }} &mdash; {% endif %}{% endif %}{{ site.name }}</title>
+  <meta name="author" content="{{ site.name }}">
+  <meta name="description" content="{{ site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="VSNNkE6DbJkLYdmhEb-AvccU_RZckm-s3x80VdYXsQk">
+  <link rel="preload" href="/fonts/ssp.woff2" as="font" type="font/woff2" crossorigin>{% if has == "code" %}
+  <link rel="preload" href="/fonts/scp.woff2" as="font" type="font/woff2" crossorigin>{% endif %}
+  <meta name="theme-color" content="#727272">
+  <meta name="color-scheme" content="only light">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
+  <style>{% include "style.css" %}{% if has == "code" %}{% include "style-mono.css" %}{% endif %}</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#content" class="skip">Skip to content</a>
+</header>

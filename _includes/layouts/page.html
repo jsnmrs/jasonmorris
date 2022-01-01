@@ -1,10 +1,10 @@
 ---
 ---
 {% include "header.html" %}
-  <nav><a href="/" class="circle top" title="Jason Morris">JM</a></nav>
-  <main class="post" id="content">
-    <h1>{{ title }}</h1>
-    {{ content }}
-  </main>
-  <nav><a href="/" class="circle back" aria-label="back to home" title="back to home">&larr;</a></nav>
+{% include "page-header.html" %}
+<main class="post" id="content">
+  <h1>{{ title }}</h1>
+  {{ content }}
+</main>
+{% include "page-footer.html" %}
 {% include "footer.html" %}

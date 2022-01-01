@@ -1,4 +1,3 @@
-const cleanCSS = require("clean-css");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
@@ -102,10 +101,6 @@ module.exports = function (eleventyConfig) {
     }
   );
   // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
-
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return new cleanCSS({}).minify(code).styles;
-  });
 
   eleventyConfig.addPlugin(pluginRss);
 
