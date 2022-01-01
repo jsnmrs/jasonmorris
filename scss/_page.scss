@@ -36,10 +36,8 @@ body {
     box-shadow: none;
   }
 
-  span {
+  .sr {
     @extend %u-hidden-visually;
-
-    display: block;
   }
 }
 
