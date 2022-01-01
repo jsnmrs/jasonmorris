@@ -10,8 +10,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("sw.js");
   eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("manifest.webmanifest");
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon-192.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon-512.png");
   eleventyConfig.addPassthroughCopy(".htaccess");
 
   eleventyConfig.setLiquidOptions({
