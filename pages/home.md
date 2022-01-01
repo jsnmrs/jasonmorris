@@ -31,12 +31,11 @@ This is my website. Take a peek under the hood over on [GitHub](https://github.c
   <div class="photo">
     <figure>
       <picture>
-        <source media="(max-width: 768px)" srcset="/img/jason-iceland-640.webp" type="image/webp">
-        <source media="(min-width: 769px)" srcset="/img/jason-iceland-320.webp" type="image/webp">
-        <source media="(min-width: 769px)" srcset="/img/jason-iceland-320.jpg">
-        <img src="/img/jason-iceland-640.jpg" alt="Jason in Iceland." loading="lazy" width="320" height="320">
+        <source media="(max-width: 768px)" srcset="/img/jason-640.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="/img/jason-320.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="/img/jason-320.jpg">
+        <img src="/img/jason-640.jpg" alt="Jason Morris." loading="lazy" width="320" height="320">
       </picture>
-      <figcaption>Waterfall pitstop off of Route 1 in Iceland</figcaption>
     </figure>
   </div>
 </section>

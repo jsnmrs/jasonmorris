@@ -8,11 +8,6 @@ on:
   schedule:
     - cron: "03 00 * * 4" # Run every Thursday at 12:03am
 
-env:
-  WORK_PATH: "./"
-  LOCK_PATH: "./package-lock.json"
-  NODE_VERSION: "16"
-
 jobs:
   build:
     name: Build site
@@ -20,18 +15,16 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
-      - name: Set up Node.js ${{ env.NODE_VERSION }}.x
+      - name: Set up Node.js 16.x
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 16
           cache: "npm"
-          cache-dependency-path: ${{ env.LOCK_PATH }}
+          cache-dependency-path: "./package-lock.json"
       - name: Install dependencies
         run: npm install
-        working-directory: ${{ env.WORK_PATH }}
       - name: Build site and test
         run: npm test
-        working-directory: ${{ env.WORK_PATH }}
       - name: Run Lighthouse on local build
         uses: treosh/lighthouse-ci-action@v8
         with:

@@ -1,6 +1,4 @@
-const cleanCSS = require("clean-css");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const htmlMinTransform = require("./_transforms/html-min.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("home", "layouts/home.html");
@@ -12,8 +10,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("sw.js");
   eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("manifest.webmanifest");
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon-192.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon-512.png");
   eleventyConfig.addPassthroughCopy(".htaccess");
 
   eleventyConfig.setLiquidOptions({
@@ -104,13 +105,7 @@ module.exports = function (eleventyConfig) {
   );
   // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
 
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return new cleanCSS({}).minify(code).styles;
-  });
-
   eleventyConfig.addPlugin(pluginRss);
-
-  eleventyConfig.addTransform("htmlmin", htmlMinTransform);
 
   return {
     dir: {
