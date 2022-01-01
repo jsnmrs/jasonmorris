@@ -24,7 +24,7 @@
     "eslint-plugin-xss": "0.1.11",
     "extra-eyes": "3.0.2",
     "html-minifier": "4.0.0",
-    "htmlhint": "1.0.0",
+    "htmlhint": "1.1.0",
     "postcss": "8.4.5",
     "postcss-cli": "9.1.0",
     "prettier": "2.5.1",
