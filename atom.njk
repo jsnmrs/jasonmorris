@@ -10,7 +10,7 @@
   <subtitle>{{ site.description }}</subtitle>
   <link href="{{ site.url }}/{{ permalink }}" type="application/atom+xml" rel="self"/>
   <link href="{{ site.url }}" rel="alternate" type="text/html"/>
-  <updated>{{ collections.post | rssLastUpdatedDate }}</updated>
+  <updated>{{ collections.posts | getCollectionNewestGitCommitDate | default(config.now) | rssDate }}</updated>
   <id>{{ site.url }}/</id>
   <author>
     <name>{{ site.name }}</name>
