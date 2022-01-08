@@ -24,7 +24,7 @@ Generate a strong passphrase for your new SSH key. I use [1Password](https://agi
 
 ## Create a new key pair
 
-Create your new SSH key pair. If you already have a key named `id_rsa`, this will overwrite it. When prompted, enter the passphrase you generated earlier
+Create your new SSH key pair. If you already have a key named `id_rsa`, this will overwrite it. When prompted, enter the passphrase you generated earlier.
 
 `ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment describing key"`
 
