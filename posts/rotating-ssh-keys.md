@@ -1,7 +1,7 @@
 ---
 title: Rotating SSH Keys
 date: 2016-02-15T12:00:00Z
-updated: 2022-01-07T22:00:00Z
+updated: 2022-01-08T09:28:00Z
 layout: post
 tags: post
 has: code
@@ -21,7 +21,7 @@ Copy your existing SSH folder to temporary folder for safekeeping.
 
 ## Create a strong passphrase
 
-Generate a strong passphrase for your new SSH key. I use [1Password](https://agilebits.com/onepassword) to generate a nice, long passphrase.
+Generate a strong passphrase for your new SSH key. I use [1Password](https://1password.com/) to generate and store a nice, long passphrase. The [1Password online password generator](https://1password.com/password-generator/) is handy for this, too.
 
 ## Create a new key pair
 
@@ -31,11 +31,11 @@ Create your new SSH key pair. If you already have a key named `id_rsa`, this wil
 
 ## Change permissions
 
-By default, my machine gives this new key permissions of 644 (User read+write, Group read, Other read). I want to change that to 600 (User read+write only) to avoid issues down the road. To change the private and public key files to 600:
+By default, my machine gives this new key permissions of 644 (user read+write, group read, world read). I want to change that to 600 (user read+write only) to avoid issues down the road. SSH connections may fail if the key files have permissions that are too loose. To change the private and public key files to 600:
 
 `chmod 600 ~/.ssh/id_rsa*`
 
-## Add new key to SSH agent and OS X Keychain
+## Add new key to SSH agent and macOS Keychain
 
 To make sure the SSH agent is running, first run:
 
