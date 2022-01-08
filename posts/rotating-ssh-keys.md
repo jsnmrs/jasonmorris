@@ -1,6 +1,7 @@
 ---
 title: Rotating SSH Keys
 date: 2016-02-15T12:00:00Z
+updated: 2022-01-07T22:00:00Z
 layout: post
 tags: post
 has: code

@@ -4,7 +4,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("home", "layouts/home.html");
   eleventyConfig.addLayoutAlias("page", "layouts/page.html");
   eleventyConfig.addLayoutAlias("post", "layouts/post.html");
-  eleventyConfig.addLayoutAlias("compress", "layouts/compress.html");
 
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("img");
