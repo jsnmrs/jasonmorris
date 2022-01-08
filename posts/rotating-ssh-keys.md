@@ -20,19 +20,17 @@ Copy your existing SSH folder to temporary folder for safekeeping.
 
 ## Create a strong passphrase
 
-Generate a strong passphrase for your new SSH key. I use [1Password](https://agilebits.com/onepassword) to generate a nice, long passphrase with at least 2 digits and 2 symbols.
+Generate a strong passphrase for your new SSH key. I use [1Password](https://agilebits.com/onepassword) to generate a nice, long passphrase.
 
 ## Create a new key pair
 
-Create your new SSH key pair. If you already have a key named "id_rsa", this will overwrite it.
+Create your new SSH key pair. If you already have a key named `id_rsa`, this will overwrite it. When prompted, enter the passphrase you generated earlier
 
-`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -C "comment describing key"`
-
-When prompted, enter the passphrase you generated earlier.
+`ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment describing key"`
 
 ## Change permissions
 
-This was hangup #1. By default, my machine gives this new key permissions of 644 (User read+write, Group read, Other read). I want to change that to 600 (User read+write only) to avoid issues down the road. To change both id_rsa files to 600:
+By default, my machine gives this new key permissions of 644 (User read+write, Group read, Other read). I want to change that to 600 (User read+write only) to avoid issues down the road. To change the private and public key files to 600:
 
 `chmod 600 ~/.ssh/id_rsa*`
 
@@ -42,13 +40,9 @@ To make sure the SSH agent is running, first run:
 
 `eval "$(ssh-agent -s)"`
 
-To add the new SSH key pair to the SSH agent and to the Mac OS X [Keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>), run:
+To add the new SSH key pair to the SSH agent and to the macOS [Keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>), run:
 
-`ssh-add -K ~/.ssh/id_rsa`
-
-This was hangup #2. When I ran this, I saw "ssh-add: illegal option -- K". Turns out, my default "ssh-add" isn&rsquo;t using the same version that comes with macOS. To get around this, I needed to specify the path to the correct version of "ssh-add":
-
-`/usr/bin/ssh-add -K ~/.ssh/id_rsa`
+`ssh-add --apple-use-keychain ~/.ssh/id_rsa`
 
 ## Add new key to GitHub
 
