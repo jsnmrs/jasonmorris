@@ -5,7 +5,7 @@ layout: post
 tags: post
 has: code
 category: code
-permalink: "{{ category }}/{{ title | slug }}/index.html"
+permalink: "code/ide-switching/index.html"
 ---
 
 Avoiding decision fatigue is an aspiration of mine. If my lizard brain is at the wheel, some guardrails can be helpful.
