@@ -3,29 +3,31 @@ $small-medium: 37.5em; // 600px
 $medium: 48em; // 768px
 $large: 64em; // 1024px
 
-$black: #222;
-$black-print: #000;
-$gray: #666;
-$gray-dark: #444;
-$gray-light: #727272;
-$gray-accent: #ddd;
-$gray-barely: #f9f9f9;
-$purple-accent: #eef;
+$black: #000;
+$gray-900: #222;
+$gray-800: #444;
+$gray-700: #666;
+$gray-600: #727272;
+$gray-500: #999;
+$gray-400: #bbb;
+$gray-300: #ddd;
+$gray-200: #e6e6e6;
+$gray-100: #f9f9f9;
 $white: #fff;
-$blue: #114db6;
-$blue-dark: #092e6e;
-$blue-light: #39cccc;
-$blue-lighter: #b3ebeb;
-$yellow: #fd0;
+$blue-100: #114db6;
+$blue-200: #092e6e;
+$yellow-100: #fd0;
 $transparent: transparent;
 $font-family: "Source Serif Pro", Georgia, serif;
 
 :root {
-  --background: #{$gray-barely};
-  --background-accent: #{$gray-accent};
-  --text: #{$black};
-  --text-accent: #{$gray-dark};
-  --link: #{$blue};
-  --link-visited: #{$blue};
-  --link-hover: #{$blue-dark};
+  --background: #{$gray-100};
+  --background-border-accent: #{$gray-300};
+  --background-accent: #{$gray-200};
+  --text: #{$gray-900};
+  --text-accent: #{$gray-800};
+  --link: #{$blue-100};
+  --link-visited: #{$blue-100};
+  --link-hover: #{$blue-200};
+  --link-focus: #{$yellow-100};
 }

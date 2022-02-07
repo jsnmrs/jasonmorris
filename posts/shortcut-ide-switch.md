@@ -1,11 +1,12 @@
 ---
 title: "Shortcut: IDE Switching"
+slug: "ide-switching"
 date: 2022-02-06T14:00:00Z
 layout: post
 tags: post
 has: code
 category: code
-permalink: "code/ide-switching/index.html"
+permalink: "{{ category }}/{{ slug }}/index.html"
 ---
 
 Avoiding decision fatigue is an aspiration of mine. If my lizard brain is at the wheel, some guardrails can be helpful.
