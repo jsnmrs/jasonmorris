@@ -24,9 +24,9 @@ exports.plugins = [
           type: "string",
         },
         tags: {
-          match: "post",
+          oneOf: ["post", "code", "bikes", "photo", "diy"],
           required: true,
-          type: "string",
+          type: "object",
         },
         title: {
           required: true,
