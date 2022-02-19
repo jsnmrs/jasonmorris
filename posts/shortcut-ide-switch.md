@@ -3,7 +3,9 @@ title: "Shortcut: IDE Switching"
 slug: "ide-switching"
 date: 2022-02-06T14:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - code
 has: code
 category: code
 permalink: "{{ category }}/{{ slug }}/index.html"

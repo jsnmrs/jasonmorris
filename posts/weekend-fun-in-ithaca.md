@@ -2,7 +2,9 @@
 title: Weekend Fun in Ithaca
 date: 2011-07-21T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - bikes
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---

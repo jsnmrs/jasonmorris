@@ -3,7 +3,9 @@ title: Rotating SSH Keys
 date: 2016-02-15T12:00:00Z
 updated: 2022-01-08T09:28:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - code
 has: code
 category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"

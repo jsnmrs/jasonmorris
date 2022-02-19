@@ -2,7 +2,9 @@
 title: Vertical
 date: 2012-02-04T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - photo
 category: photo
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---

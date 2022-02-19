@@ -2,7 +2,9 @@
 title: Saturday Morning in the Berkshires
 date: 2011-07-27T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - photo
 category: photo
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---

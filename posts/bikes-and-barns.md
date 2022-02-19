@@ -2,7 +2,9 @@
 title: Bikes and Barns
 date: 2011-06-02T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - bikes
 has: video
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
