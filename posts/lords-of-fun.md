@@ -2,7 +2,9 @@
 title: Lords of Fun
 date: 2011-10-01T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - bikes
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
 ---

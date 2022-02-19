@@ -2,7 +2,9 @@
 title: Deck Dancing via Tripod
 date: 2011-06-09T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - bikes
 has: video
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"

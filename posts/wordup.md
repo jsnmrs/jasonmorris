@@ -2,7 +2,9 @@
 title: Wordup
 date: 2018-11-05T12:00:00Z
 layout: post
-tags: post
+tags:
+  - post
+  - code
 has: code
 category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"
