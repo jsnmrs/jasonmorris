@@ -26,7 +26,7 @@ jobs:
       - name: Build site and test
         run: npm test
       - name: Run Lighthouse on local build
-        uses: treosh/lighthouse-ci-action@v8
+        uses: treosh/lighthouse-ci-action@9.3.0
         with:
           configPath: "./lighthouserc.json"
       - name: Run Accessibility Insights site-wide
