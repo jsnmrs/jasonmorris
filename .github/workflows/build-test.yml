@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Node.js 16.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "npm"
@@ -26,7 +26,7 @@ jobs:
       - name: Build site and test
         run: npm test
       - name: Run Lighthouse on local build
-        uses: treosh/lighthouse-ci-action@v8
+        uses: treosh/lighthouse-ci-action@v9
         with:
           configPath: "./lighthouserc.json"
       - name: Run Accessibility Insights site-wide
