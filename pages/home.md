@@ -21,11 +21,9 @@ permalink: "/index.html"
 
 A surprising number of folks go by the same name. Their friends email me all the time.
 
-I wrote my first bit of HTML in a Notepad window sometime in 1998 and never stopped.
+I live in upstate New York with my [talented significant other](https://katydecorah.com) and our 4-year-old kiddo. I’m an accessibility engineer at [CommunicateHealth](https://communicatehealth.com) and co-tinkerer at [doublegreat.dev](https://doublegreat.dev/).
 
-Through a combination of genetics and general curiosity, I tinker. I enjoy taking things apart, learning how they work, and putting them back together.
-
-This is my website. Take a peek under the hood over on [GitHub](https://github.com/jsnmrs/jasonmorris).
+I wrote my first bit of HTML in a Notepad window sometime in 1998 and [never stopped](https://github.com/jsnmrs).
 
   </article>
   <div class="photo">
