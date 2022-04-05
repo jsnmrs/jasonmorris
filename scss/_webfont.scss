@@ -2,11 +2,11 @@
 
 @font-face {
   font-weight: 400;
-  font-family: "Source Serif Pro";
+  font-family: "Atkinson Hyperlegible";
   font-style: normal;
   font-stretch: normal;
-  src: local("Source Serif Pro"), local("SourceSerifPro-Regular"),
-    url("/fonts/ssp.woff2") format("woff2");
+  src: local("Atkinson Hyperlegible"), local("Atkinson-Hyperlegible"),
+    url("/fonts/atkinson-hyperlegible.woff2") format("woff2");
   font-display: optional;
 }
 // stylelint-enable plugin/no-unsupported-browser-features, scale-unlimited/declaration-strict-value
