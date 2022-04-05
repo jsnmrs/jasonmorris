@@ -11,7 +11,7 @@ $font-family-mono: "Source Code Pro", Courier, monospace;
     url("/fonts/scp.woff2") format("woff2");
   font-display: optional;
 }
-// stylelint-enable
+// stylelint-enable plugin/no-unsupported-browser-features, scale-unlimited/declaration-strict-value
 
 pre,
 code {
