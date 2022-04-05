@@ -17,7 +17,7 @@ body {
 }
 
 :any-link {
-  text-decoration-skip: objects;
+  text-decoration-skip-ink: auto;
 
   &:link {
     color: var(--link);
