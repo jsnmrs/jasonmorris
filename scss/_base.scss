@@ -20,6 +20,14 @@ html {
   scroll-padding-top: 5rem;
 }
 
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+}
+
 // https://www.zachleat.com/web/fluid-images/
 img {
   max-width: 100%;
