@@ -18,6 +18,7 @@
 
 html {
   scroll-padding-top: 5rem;
+  text-size-adjust: none; // stylelint-disable-line plugin/no-unsupported-browser-features
 }
 
 img,
