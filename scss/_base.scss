@@ -1,6 +1,6 @@
 *,
-::before,
-::after {
+*::before,
+*::after {
   box-sizing: border-box;
 
   @media (prefers-reduced-motion: reduce) {
@@ -12,12 +12,21 @@
     animation-delay: -1ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    // stylelint-enable
+    // stylelint-enable declaration-no-important, plugin/no-unsupported-browser-features
   }
 }
 
 html {
   scroll-padding-top: 5rem;
+  text-size-adjust: none; // stylelint-disable-line plugin/no-unsupported-browser-features
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
 }
 
 // https://www.zachleat.com/web/fluid-images/

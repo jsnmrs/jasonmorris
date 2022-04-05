@@ -16,7 +16,7 @@ body {
   font-family: $font-family;
 }
 
-a {
+:any-link {
   text-decoration-skip: objects;
 
   &:link {
@@ -33,7 +33,7 @@ a {
     color: var(--link-hover);
   }
 
-  &:focus {
+  &:focus-visible {
     color: var(--text);
     text-decoration: none;
     background-color: var(--link-focus);
@@ -41,6 +41,12 @@ a {
     outline-offset: 0;
     box-shadow: 0 -0.125rem var(--link-focus), 0 0.25rem var(--text);
   }
+
+  // stylelint-disable a11y/no-outline-none
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  // stylelint-enable a11y/no-outline-none
 }
 
 h1,
