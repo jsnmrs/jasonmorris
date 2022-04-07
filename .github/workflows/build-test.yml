@@ -30,7 +30,7 @@ jobs:
         with:
           configPath: "./lighthouserc.json"
       - name: Run Accessibility Insights site-wide
-        uses: microsoft/accessibility-insights-action@v2
+        uses: microsoft/accessibility-insights-action@main
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           site-dir: ${{ github.workspace }}/_site
