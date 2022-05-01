@@ -27,7 +27,7 @@
     "html-minifier": "4.0.0",
     "postcss": "8.4.12",
     "postcss-cli": "9.1.0",
-    "prettier": "2.6.1",
+    "prettier": "2.6.2",
     "remark-cli": "10.0.1",
     "remark-frontmatter": "4.0.1",
     "remark-frontmatter-validator": "0.4.0",
