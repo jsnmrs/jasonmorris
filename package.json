@@ -25,7 +25,7 @@
     "eslint-plugin-xss": "0.1.11",
     "extra-eyes": "3.0.2",
     "html-minifier": "4.0.0",
-    "postcss": "8.4.12",
+    "postcss": "8.4.13",
     "postcss-cli": "9.1.0",
     "prettier": "2.6.1",
     "remark-cli": "10.0.1",
