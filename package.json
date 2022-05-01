@@ -23,7 +23,7 @@
     "eslint-plugin-no-unsanitized": "4.0.1",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-xss": "0.1.11",
-    "extra-eyes": "3.0.2",
+    "extra-eyes": "3.1.0",
     "html-minifier": "4.0.0",
     "postcss": "8.4.12",
     "postcss-cli": "9.1.0",
