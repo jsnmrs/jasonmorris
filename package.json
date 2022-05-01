@@ -40,7 +40,7 @@
     "stylelint-declaration-strict-value": "1.8.0",
     "stylelint-no-unsupported-browser-features": "5.0.3",
     "stylelint-scss": "4.2.0",
-    "uglify-js": "3.15.3"
+    "uglify-js": "3.15.4"
   },
   "scripts": {
     "prettier": "prettier --write \"**/*.{js,md,scss,yml}\"",
