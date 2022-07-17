@@ -1,5 +1,5 @@
 ---
-title: Fork Seal Clip for a 1982 Suzuki GS850L Motorcycle
+title: Fork Seal Clip for a 1982 Suzuki GS850L
 date: 2014-09-24T12:00:00Z
 layout: post
 tags:
