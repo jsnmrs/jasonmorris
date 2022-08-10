@@ -6,7 +6,7 @@
 
 // stylelint-disable property-no-vendor-prefix, plugin/no-unsupported-browser-features
 %u-hidden-visually {
-  &:not(:focus):not(:active) {
+  &:not(:focus, :active) {
     position: absolute;
     width: 0.1rem;
     height: 0.1rem;
