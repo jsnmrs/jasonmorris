@@ -49,7 +49,7 @@ To add the new SSH key pair to the SSH agent and to the macOS [Keychain](<https:
 
 ## Add new key to GitHub
 
-Add the public key to your GitHub account by following [these instructions from GitHub](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/). You&rsquo;ll copy your key to your clipboard using:
+Add the public key to your GitHub account by following [these instructions from GitHub](https://docs.github.com/articles/adding-a-new-ssh-key-to-your-github-account/). You&rsquo;ll copy your key to your clipboard using:
 
 `pbcopy < ~/.ssh/id_rsa.pub`
 
@@ -57,7 +57,7 @@ In the event that `pbcopy` isn&rsquo;t available, print the public key to the co
 
 `cat ~/.ssh/id_rsa.pub`
 
-Then you&rsquo;ll be able to paste the key into your [GitHub SSH Key page](https://github.com/settings/ssh) to enable your new key.
+Then you&rsquo;ll be able to paste the key into your [GitHub SSH Key page](https://github.com/settings/keys) to enable your new key.
 
 While you&rsquo;re there, it&rsquo;s a good opportunity to review any other SSH keys you have in GitHub. Rotate or remove as needed.
 

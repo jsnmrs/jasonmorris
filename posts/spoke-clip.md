@@ -23,7 +23,7 @@ Instructions for replacing fork seal clips on a 1982 Suzuki GS850L motorcycle:
 1. Trace existing fork clip onto a piece of paper, improvising the sections that have dissolved over the course of 30 years.
 1. Take two sets of needle nose pliers and begin bending bicycle spokes into the octagonal shape of the factory part.
 1. As shaping progresses, refer to paper tracing to make sure proper dimensions are matched.
-1. Cut excess spoke end and spoke head using a pair of [Park Tools CN-10 cable cutters](http://www.parktool.com/product/professional-cable-and-housing-cutter-cn-10).
+1. Cut excess spoke end and spoke head using a pair of [Park Tools CN-10 cable cutters](https://www.parktool.com/product/professional-cable-and-housing-cutter-cn-10).
 1. Again, confirm correct shape.
 1. Remark to self that the stainless steel spoke will not rust in the same fashion as the factory part and grin sheepishly.
 1. Insert newly minted fork clip into fork leg using a small screwdriver.
