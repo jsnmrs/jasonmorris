@@ -2,6 +2,7 @@
 layout: home
 title: Jason Morris
 class: photo
+meta: "This is the personal website of Jason Morris — an accessibility engineer and a dialer from upstate New York"
 permalink: "/index.html"
 ---
 
