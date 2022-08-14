@@ -27,13 +27,11 @@ I wrote my first bit of HTML in a Notepad window sometime in 1998 and [never sto
 
   </article>
   <div class="photo">
-    <figure>
-      <picture>
-        <source media="(max-width: 768px)" srcset="/img/jason-640.webp" type="image/webp">
-        <source media="(min-width: 769px)" srcset="/img/jason-320.webp" type="image/webp">
-        <source media="(min-width: 769px)" srcset="/img/jason-320.jpg">
-        <img src="/img/jason-640.jpg" alt="Jason Morris." loading="lazy" width="320" height="320">
-      </picture>
-    </figure>
+    <picture>
+      <source media="(max-width: 768px)" srcset="/img/jason-640.webp" type="image/webp">
+      <source media="(min-width: 769px)" srcset="/img/jason-320.webp" type="image/webp">
+      <source media="(min-width: 769px)" srcset="/img/jason-320.jpg">
+      <img src="/img/jason-640.jpg" alt="Jason Morris." loading="lazy" width="320" height="320">
+    </picture>
   </div>
 </section>
