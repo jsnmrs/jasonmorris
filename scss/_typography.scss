@@ -1,5 +1,5 @@
 html {
-  font-size: 100%;
+  font-size: 110%;
 
   @include bp($medium) {
     font-size: 130%;
@@ -55,7 +55,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--text);
   font-weight: 400;
 }
