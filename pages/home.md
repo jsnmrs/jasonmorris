@@ -15,7 +15,7 @@ permalink: "/index.html"
 </ul>
 </nav>
 
-<section id="content" tabindex="-1">
+<section>
   <article>
 
 ## Hi, I&rsquo;m Jason
