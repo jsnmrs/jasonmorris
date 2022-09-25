@@ -2,6 +2,7 @@ const pluginGitCommitDate = require("eleventy-plugin-git-commit-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addLayoutAlias("doc", "layouts/doc.html");
   eleventyConfig.addLayoutAlias("home", "layouts/home.html");
   eleventyConfig.addLayoutAlias("page", "layouts/page.html");
   eleventyConfig.addLayoutAlias("post", "layouts/post.html");
