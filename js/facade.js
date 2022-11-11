@@ -1,34 +1,29 @@
 (function facadeOverlay() {
   "use strict";
 
-  var videos = document.querySelectorAll(".facade"),
-    videoLinks = document.querySelectorAll(".facade__link"),
-    j;
+  const videos = document.querySelectorAll(".facade"),
+    videoLinks = document.querySelectorAll(".facade__link");
 
-  if (videos.length !== videoLinks.length) {
-    return false;
-  }
-
-  for (j = 0; j < videos.length; j++) {
-    videoLinks[j].addEventListener("click", videoClick, false);
+  if (videos.length === videoLinks.length) {
+    videos.forEach((item, index) => {
+      videoLinks[`${index}`].addEventListener("click", videoClick, false);
+    });
   }
 
   function videoClick(event) {
-    var videoHolder = this.parentNode.children[1],
-      videoIframe;
+    const videoHolder = this.parentNode.children[1];
+    let videoIframe;
 
     event.preventDefault();
     videoHolder.classList.add("video");
     videoIframe = document.createElement("iframe");
     videoIframe.setAttribute(
       "src",
-      "https://player.vimeo.com/video/" +
-        videoHolder.dataset.id +
-        "?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff)"
+      `https://player.vimeo.com/video/${videoHolder.dataset.id}?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff)`
     );
     videoIframe.setAttribute(
       "title",
-      videoHolder.dataset.title + " — embedded video"
+      `${videoHolder.dataset.title} — embedded video`
     );
     videoIframe.setAttribute("width", videoHolder.dataset.width);
     videoIframe.setAttribute("height", videoHolder.dataset.height);
@@ -37,6 +32,4 @@
     videoHolder.appendChild(videoIframe);
     this.remove();
   }
-
-  return true;
 })();
