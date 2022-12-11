@@ -23,6 +23,7 @@ jobs:
         run: npx npm-check-updates -u
       - name: Install dependencies, build, and test
         run: npm install
+      - name: Build site
         run: npm run test
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
