@@ -39,5 +39,4 @@ jobs:
           title: 'Update NPM dependencies'
           body: |
             Updated NPM dependencies via [GitHub Action](https://github.com/jsnmrs/jasonmorris/actions/workflows/dep-dude.yml)
-          reviewers: jsnmrs
 
