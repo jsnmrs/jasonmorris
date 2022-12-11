@@ -32,4 +32,10 @@ jobs:
           commit-message: Update dependencies
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: dependencies
+          delete-branch: true
+          title: 'Update NPM dependencies'
+          body: |
+            Updated NPM dependencies via [GitHub Action](https://github.com/jsnmrs/jasonmorris/actions/workflows/dep-dude.yml)
+          reviewers: jsnmrs
 
