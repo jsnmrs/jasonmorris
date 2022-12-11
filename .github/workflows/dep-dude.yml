@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-        GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
       - name: Checkout branch
         uses: actions/checkout@v3
       - name: Set up Node.js
