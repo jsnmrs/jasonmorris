@@ -2,7 +2,7 @@ name: Build and test
 
 on:
   workflow_dispatch: # enable run button on github.com
-  pull_request
+  pull_request:
   schedule:
     - cron: "03 00 * * 4" # Run every Thursday at 12:03am
 
