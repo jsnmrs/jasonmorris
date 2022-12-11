@@ -3,7 +3,7 @@ name: Dependency updater
 on:
   workflow_dispatch: # enable run button on github.com
   schedule:
-    - cron: '5 18 * * thu'  # At 18:05 on Thursday.
+    - cron: "5 18 * * thu" # At 18:05 on Thursday.
 
 jobs:
   update:
