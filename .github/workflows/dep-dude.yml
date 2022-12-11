@@ -1,0 +1,30 @@
+name: Dependency updater
+
+on:
+  workflow_dispatch: # enable run button on github.com
+  push:
+    branches:
+      - dep-due
+
+jobs:
+  update:
+    name: Update dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
+      - name: Update dependencies
+        run: npx npm-check-updates -u
+      - name: Try to autofix audit issues
+        run: npx audit fix
+      - name: Install dependencies
+        run: npm install
+      - name: Build site
+        run: npm run test
+
