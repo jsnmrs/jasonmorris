@@ -22,7 +22,7 @@ jobs:
       - name: Update dependencies
         run: npx npm-check-updates -u
       - name: Try to autofix audit issues
-        run: npx audit fix
+        run: npm audit fix
       - name: Install dependencies
         run: npm install
       - name: Build site
