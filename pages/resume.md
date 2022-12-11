@@ -10,7 +10,7 @@ meta: "Jason Morris is a front-end developer with over 15 years of creating and 
 
 ## Certifications
 
-[Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/3440d3f6-a554-400a-b43d-69f129c2a8df/) 
+[Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/3440d3f6-a554-400a-b43d-69f129c2a8df/)
 International Association of Accessibility Professionals
 
 ## Experience

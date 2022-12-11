@@ -32,4 +32,3 @@ jobs:
           commit-message: Update dependencies
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-
