@@ -19,18 +19,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "lts/*"
+          node-version: "16"
           cache: "npm"
           cache-dependency-path: "./package-lock.json"
       - name: Install dependencies
         run: npm install
       - name: Build site and test
         run: npm test
+
+      - run: npm run write &
+
       - name: Scan site
         uses: double-great/accessibility-scan-action@v0.1.0
         with:
-          url: "https://www.washington.edu/accesscomputing/AU/before.html"
-          # baselineFile: ${{ github.workspace }}/samples/site.baseline
+          url: "http://localhost:8080"
+          # baselineFile: ${{ github.workspace }}/baseline/site.baseline
 
       - name: Upload report as artifact
         uses: actions/upload-artifact@v3
