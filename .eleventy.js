@@ -110,6 +110,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
 
+  eleventyConfig.setBrowserSyncConfig({
+    online: false,
+  });
+
   return {
     dir: {
       input: "./",
