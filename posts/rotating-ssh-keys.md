@@ -9,6 +9,7 @@ tags:
 has: code
 category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "Creating and wrangling your SSH keys."
 ---
 
 Rotating your SSH keys every once in a while is good digital hygiene.

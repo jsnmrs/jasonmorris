@@ -8,6 +8,7 @@ tags:
 has: video
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "I built ramps, set up cameras on tripods, and then filmed myself riding bmx."
 ---
 
 I’m usually content shooting photos and video of other people. Sometimes I want to capture my own riding. Often that requires setting up the camera on a tripod and pressing record.

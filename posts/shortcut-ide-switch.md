@@ -9,6 +9,7 @@ tags:
 has: code
 category: code
 permalink: "{{ category }}/{{ slug }}/index.html"
+meta: "Muscle memory override when changing IDEs"
 ---
 
 Avoiding decision fatigue is an aspiration of mine. If my lizard brain is at the wheel, some guardrails can be helpful.
