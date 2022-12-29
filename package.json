@@ -31,7 +31,7 @@
     "remark-frontmatter": "4.0.1",
     "remark-frontmatter-validator": "0.4.0",
     "sass": "1.57.1",
-    "stylelint": "14.16.0",
+    "stylelint": "14.16.1",
     "stylelint-config-standard": "29.0.0",
     "stylelint-config-standard-scss": "6.1.0",
     "stylelint-declaration-block-no-ignored-properties": "2.6.0",
