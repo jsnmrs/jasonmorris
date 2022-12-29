@@ -7,6 +7,7 @@ tags:
   - bikes
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "My first bicycle jump, two decades later."
 ---
 
 _Originally posted on the [Least Most](https://leastmost.com/features/where-do-you-see-yourself-in-twenty-years/)_.

@@ -8,9 +8,10 @@ tags:
 has: video
 category: bikes
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "The adventure of filming a short BMX video on a barn mini ramp in Upstate New York."
 ---
 
-In Fort Edward, New York, Niles Harris has a mini ramp in his parents’ barn. We had been talking about shooting a quick video of Niles riding his ramp for months. One afternoon I made the drive north to give it a swing. We spent a few hours filming without much of a plan.
+For several years, Niles Harris had a mini ramp in his parents’ barn, in upstate New York. One afternoon we decided to film a short video of Niles riding the ramp. After a few hours and little planning, I had a handful of clips to edit with.
 
 At one point, I thought that an overhead shot would look great. I walked out on an exposed beam situated over one side of the ramp. Part way across I looked down to the barn floor, thirteen feet below and froze. Usually, heights don’t bother me. The combination of balance needed for the narrow beam while holding my camera spooked me. I continued out to grab onto an upright beam for support and filmed a few shots before scurrying back to safety. Lesson learned.
 

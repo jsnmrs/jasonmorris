@@ -8,6 +8,7 @@ tags:
 has: code
 category: code
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "A tool to paste messy Word document text, then convert to clean HTML and Markdown."
 ---
 
 I built this tool called [Wordup](https://jsnmrs.github.io/wordup/) to convert content from Word documents into HTML or Markdown.
@@ -19,22 +20,22 @@ First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/cke
 But converting Word documents to HTML is a solved problem, right?
 
 1. Search for "Word to HTML conversion"
-1. Search for "Word to _clean_ HTML conversion"
-1. Consider pasting Word document contents into mystery text boxes on several online conversion tools
-1. Wonder how these tools actually work
-1. Wonder about the privacy policies of these tools
-1. Close browser, open Word document
-1. Copy content, paste into text editor
-1. Begin wrapping text in HTML tags
-1. Give up
-1. Open Word document, save as HTML
-1. Open HTML in text editor
-1. Cry a little
-1. Start using find and replace to remove extra markup
-1. Graduate to regex searches
-1. Eventually arrive at relatively clean HTML
-1. Realize that someone sent an updated version of the Word document while working through steps 1-15
-1. Cry a little
+2. Search for "Word to _clean_ HTML conversion"
+3. Consider pasting Word document contents into mystery text boxes on several online conversion tools
+4. Wonder how these tools actually work
+5. Wonder about the privacy policies of these tools
+6. Close browser, open Word document
+7. Copy content, paste into text editor
+8. Begin wrapping text in HTML tags
+9. Give up
+10. Open Word document, save as HTML
+11. Open HTML in text editor
+12. Cry a little
+13. Start using find and replace to remove extra markup
+14. Graduate to regex searches
+15. Eventually arrive at relatively clean HTML
+16. Realize that someone sent an updated version of the Word document while working through steps 1-15
+17. Cry a little
 
 WYSIWYG editors in most CMS platforms deal with pasting Word documents, right?
 

@@ -7,6 +7,7 @@ tags:
   - photo
 category: photo
 permalink: "{{ category }}/{{ title | slug }}/index.html"
+meta: "An obscenely tall, vertical panoramic photo"
 ---
 
 I&rsquo;ve stitched together a bunch of panoramic photos over the years. They were all horizontal, never vertical. Rather than brave the cold of February, I decided to play around with a vertical pano indoors.
