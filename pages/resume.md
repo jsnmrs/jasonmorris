@@ -2,7 +2,7 @@
 layout: doc
 title: Jason Morris
 permalink: "/resume/index.html"
-meta: "Accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences for federal and state governments."
+meta: "Jason Morris is an accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences for federal and state governments."
 ---
 
 <!-- extra-eyes disable assistance -->
