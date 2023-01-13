@@ -53,4 +53,4 @@ WYSIWYG editors in most CMS platforms deal with pasting Word documents, right?
 1. Add markdown conversion and link helpers
 1. Tell people about it
 
-See the code: [https://github.com/jsnmrs/wordup](https://github.com/jsnmrs/wordup)
+Take a look at the [Wordup code over on GitHub](https://github.com/jsnmrs/wordup).
