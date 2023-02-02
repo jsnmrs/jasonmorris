@@ -24,7 +24,7 @@ jobs:
       - name: Build site
         run: npm run build
       - name: Deploy over SSH
-        uses: easingthemes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v4
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: ${{ secrets.ARGS }}
