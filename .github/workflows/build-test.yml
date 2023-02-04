@@ -27,7 +27,7 @@ jobs:
       - run: npm run write &
 
       - name: Scan site
-        uses: double-great/accessibility-scan-action@v0.1.0
+        uses: double-great/accessibility-scan-action@v0.2.0
         with:
           url: "http://localhost:8080"
 
