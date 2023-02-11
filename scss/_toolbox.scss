@@ -4,7 +4,6 @@
   }
 }
 
-// stylelint-disable property-no-vendor-prefix, plugin/no-unsupported-browser-features
 %u-hidden-visually {
   &:not(:focus, :active) {
     position: absolute;
@@ -27,4 +26,3 @@
   overflow-wrap: break-word;
   hyphens: auto;
 }
-// stylelint-enable property-no-vendor-prefix, plugin/no-unsupported-browser-features

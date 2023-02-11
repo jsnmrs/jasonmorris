@@ -27,7 +27,6 @@
       "fr"
     ],
 
-    "a11y/no-outline-none": true,
     "a11y/selector-pseudo-class-focus": true,
     "a11y/font-size-is-readable": [true, { "severity": "warning" }],
     "a11y/no-spread-text": [true, { "severity": "warning" }],

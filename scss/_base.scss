@@ -4,7 +4,7 @@
   box-sizing: border-box;
 
   @media (prefers-reduced-motion: reduce) {
-    // stylelint-disable declaration-no-important, plugin/no-unsupported-browser-features
+    // stylelint-disable declaration-no-important
     background-attachment: initial !important;
     transition-delay: 0s !important;
     transition-duration: 0s !important;
@@ -12,13 +12,13 @@
     animation-delay: -1ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    // stylelint-enable declaration-no-important, plugin/no-unsupported-browser-features
+    // stylelint-enable declaration-no-important
   }
 }
 
 html {
   scroll-padding-top: 5rem;
-  text-size-adjust: none; // stylelint-disable-line plugin/no-unsupported-browser-features
+  text-size-adjust: none; // stylelint-disable-line
 }
 
 img,

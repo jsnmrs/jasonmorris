@@ -46,11 +46,9 @@ body {
     box-shadow: 0 -0.125rem var(--link-focus), 0 0.25rem var(--text);
   }
 
-  // stylelint-disable a11y/no-outline-none
   &:focus:not(:focus-visible) {
     outline: none;
   }
-  // stylelint-enable a11y/no-outline-none
 }
 
 h1,
