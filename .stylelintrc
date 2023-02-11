@@ -12,6 +12,7 @@
       { "ignoreAtRules": ["extend", "include", "mixin", "content"] }
     ],
     "declaration-property-value-no-unknown": true,
+    "import-notation": "string",
     "selector-class-pattern": null,
     "unit-allowed-list": [
       "em",
