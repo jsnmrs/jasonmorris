@@ -6,15 +6,6 @@ meta: "This is the personal website of Jason Morris — an accessibility enginee
 permalink: "/index.html"
 ---
 
-<nav>
-<ul class="chunk bump">
-{%- assign posts = collections.post | reverse -%}
-{%- for post in posts -%}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{%- endfor -%}
-</ul>
-</nav>
-
 <section>
   <article>
 
