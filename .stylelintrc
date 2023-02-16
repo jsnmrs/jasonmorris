@@ -5,7 +5,6 @@
   "plugins": [
     "@double-great/stylelint-a11y"
   ],
-  "customSyntax": "postcss-scss",
   "rules": {
     "declaration-property-value-no-unknown": true,
     "import-notation": "string",
