@@ -17,12 +17,12 @@ International Association of Accessibility Professionals
 
 ### CommunicateHealth
 
-#### Accessibility Engineer (2014 - present)
+#### Accessibility Engineer (2014 - 2023)
 
-- Develops and maintains high-traffic federal government websites, tools, and applications related to public health
-- Assesses and remediates accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
-- Regularly communicates with stakeholders to receive feedback and suggest solutions
-- Delivers web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), Veterans Affairs (VA), and National Institutes of Health (NIH)
+- Developed and maintained high-traffic federal government websites, tools, and applications related to public health
+- Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
+- Regularly communicated with stakeholders to receive feedback and suggest solutions
+- Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), Veterans Affairs (VA), and National Institutes of Health (NIH)
 - Established development team workflow, resulting in zero-config local development environments and increased code consistency
 
 ### The Research Foundation for SUNY
