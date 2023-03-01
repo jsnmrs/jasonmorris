@@ -101,10 +101,37 @@ module.exports = function (eleventyConfig) {
         fullPath +
         '-1280.jpg">';
 
-      return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
+      return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
     }
   );
   // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
+
+  eleventyConfig.addShortcode(
+    "youtube",
+    function (videoId, posterName, width, height, title) {
+      let fullPath = "/img/" + posterName;
+      var sourcesWebp =
+        '<source media="(max-width: 320px)" srcset="' +
+        fullPath +
+        '-320.webp" type="image/webp">' +
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.webp" type="image/webp">' +
+        '<source media="(min-width: 801px)" srcset="' +
+        fullPath +
+        '-1280.webp" type="image/webp">';
+      var sourcesVintage =
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.jpg">' +
+        '<source media="(min-width: 801px)" srcset="' +
+        fullPath +
+        '-1280.jpg">';
+
+      return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
+    }
+  );
+  // Usage: {% youtube "222222222", "poster-name", "800", "450", "Video title"}
 
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
