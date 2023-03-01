@@ -13,14 +13,26 @@
   function videoClick(event) {
     const videoHolder = this.parentNode.children[1];
     let videoIframe;
+    console.log("clicked");
 
     event.preventDefault();
     videoHolder.classList.add("video");
     videoIframe = document.createElement("iframe");
-    videoIframe.setAttribute(
-      "src",
-      `https://player.vimeo.com/video/${videoHolder.dataset.id}?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff)`
-    );
+
+    if (videoHolder.dataset.type == "vimeo") {
+      videoIframe.setAttribute(
+        "src",
+        `https://player.vimeo.com/video/${videoHolder.dataset.id}?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff)`
+      );
+    }
+
+    if (videoHolder.dataset.type == "youtube") {
+      videoIframe.setAttribute(
+        "src",
+        `https://www.youtube-nocookie.com/embed/${videoHolder.dataset.id}?rel=0&amp;showinfo=0)`
+      );
+    }
+
     videoIframe.setAttribute(
       "title",
       `${videoHolder.dataset.title} — embedded video`
