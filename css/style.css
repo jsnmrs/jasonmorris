@@ -1,14 +1,14 @@
 :root {
-  --black: #000;
-  --background: #f9f9f9;
-  --background-border-accent: #ddd;
-  --background-accent: #e6e6e6;
-  --text: #222;
-  --text-accent: #444;
-  --link: #114db6;
-  --link-visited: #114db6;
-  --link-hover: #092e6e;
-  --link-focus: #fd0;
+  --black: hsl(0deg 0% 0%);
+  --background: hsl(0deg 0% 97.6%);
+  --background-border-accent: hsl(0deg 0% 86.7%);
+  --background-accent: hsl(0deg 0% 90.2%);
+  --text: hsl(0deg 0% 13.3%);
+  --text-accent: hsl(0deg 0% 26.7%);
+  --link: hsl(218.2deg 82.9% 39%);
+  --link-visited: var(--link);
+  --link-hover: hsl(218deg 84.9% 23.3%);
+  --link-focus: hsl(52deg 100% 50%);
   --font-family: "Atkinson Hyperlegible", "Helvetica", "Arial", sans-serif;
 }
 
