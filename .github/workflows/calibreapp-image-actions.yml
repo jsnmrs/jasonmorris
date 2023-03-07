@@ -1,11 +1,7 @@
 name: Compress Images
 on:
   pull_request:
-    paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
+
 jobs:
   build:
     # Only run on Pull Requests within the same repository, and not from forks.
