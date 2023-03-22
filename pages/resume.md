@@ -2,11 +2,11 @@
 layout: doc
 title: Jason Morris
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences for federal and state governments."
+meta: "Jason Morris is an accessibility consultant and front-end developer with over 15 years of creating and validating accessible web experiences."
 ---
 
 <!-- extra-eyes disable assistance -->
-<p class="note">Accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences for federal and state governments.</p>
+<p class="note">Accessibility consultant and front-end developer with over 15 years of creating and validating accessible web experiences.</p>
 
 ## Certifications
 
@@ -14,6 +14,10 @@ meta: "Jason Morris is an accessibility engineer and front-end developer with ov
 International Association of Accessibility Professionals
 
 ## Experience
+
+### Perkins Access
+
+#### Senior Digital Accessibility Consultant (2023 - current)
 
 ### CommunicateHealth
 
