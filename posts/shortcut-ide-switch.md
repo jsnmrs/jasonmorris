@@ -14,7 +14,7 @@ meta: "Muscle memory override when changing IDEs"
 
 Avoiding decision fatigue is an aspiration of mine. If my lizard brain is at the wheel, some guardrails can be helpful.
 
-I have used a shell alias to launch my <abbr title="Integrated Development Environment">IDE</abbr> of choice from whatever directory I'm now in for years. If I enter `s`, the current path is opened in [Sublime Text](https://www.sublimetext.com/).
+I have used a shell alias to launch my Integrated Development Environment (IDE) of choice from whatever directory I'm now in for years. If I enter `s`, the current path is opened in [Sublime Text](https://www.sublimetext.com/).
 
 Over time, I've drifted between Sublime Text, Atom (RIP), [Nova](https://nova.app/), and [Visual Studio Code](https://code.visualstudio.com/). As I'm trying a new (to me) IDE, I create a similar alias for the new IDE. Typing `a` opens Atom, typing `c` opens Visual Studio Code, etc.
 
