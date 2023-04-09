@@ -46,22 +46,17 @@ International Association of Accessibility Professionals
 
 ## Awards
 
-[2020 Clearmark Award — Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/)  
-Led the development of an accessibility-focused National Eye Institute redesign
+[2020 Clearmark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused National Eye Institute redesign
 
-[2016 Clearmark Award — Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/)  
-Developed an online guide for parents around physical development delays for the American Academy of Pediatrics
+[2016 Clearmark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed an online guide for parents around physical development delays for the American Academy of Pediatrics
 
-[2011 Best of New York Award for Innovative Use of Technology — Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html)  
-Created a responsive web design for the New York State Office of Temporary and Disability Assistance
+[2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Created a responsive web design for the New York State Office of Temporary and Disability Assistance
 
-2008 Best of the Web Award for State Government Websites — New York State Forum  
-Built Arabic, Chinese, Russian, and Spanish web presence for the New York State Office of Temporary and Disability Assistance
+2008 Best of the Web Award for State Government Websites from the New York State Forum — Built Arabic, Chinese, Russian, and Spanish web presence for the New York State Office of Temporary and Disability Assistance
 
 ## Education
 
-[Russell Sage College](https://www.sage.edu/)  
-Bachelor of Science, Computer Information Systems
+[Russell Sage College](https://www.sage.edu/) — Bachelor of Science, Computer Information Systems
 
 <div class="footnote">
 
