@@ -3,7 +3,8 @@
     "stylelint-config-standard"
   ],
   "plugins": [
-    "@double-great/stylelint-a11y"
+    "@double-great/stylelint-a11y",
+    "stylelint-use-logical"
   ],
   "rules": {
     "declaration-property-value-no-unknown": true,
@@ -16,8 +17,8 @@
       "s",
       "ms",
       "ch",
-      "vh",
-      "vw",
+      "vb",
+      "vi",
       "deg",
       "fr"
     ],
@@ -27,6 +28,8 @@
     "a11y/no-spread-text": [true, { "severity": "warning" }],
     "a11y/no-obsolete-attribute": [true, { "severity": "warning" }],
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
-    "a11y/no-text-align-justify": [true, { "severity": "error" }]
+    "a11y/no-text-align-justify": [true, { "severity": "error" }],
+
+    "csstools/use-logical": [true, { "severity": "error" }]
   }
 }
