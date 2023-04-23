@@ -20,7 +20,7 @@ Over time, I've drifted between Sublime Text, Atom (RIP), [Nova](https://nova.ap
 
 My `.zshrc` or `.bash_profile`, this looks like this:
 
-```bash
+```sh
 alias a="atom ."
 alias c="code ."
 alias n="nova ."
