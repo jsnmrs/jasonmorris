@@ -1,5 +1,6 @@
 const pluginGitCommitDate = require("eleventy-plugin-git-commit-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("doc", "layouts/doc.html");
@@ -135,6 +136,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.setBrowserSyncConfig({
     online: false,
