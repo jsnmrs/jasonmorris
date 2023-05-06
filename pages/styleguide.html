@@ -9,10 +9,7 @@ permalink: "/styleguide/index.html"
 
 <h2>Heading 2</h2>
 <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
-<div class="note">
-  <p>Note: Lorem ipsum dolor sit amet.</p>
-</div>
-<p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
+<p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. <a href="https://jasonmorris.com">This is a link in the middle of a paragraph with particularly lengthy link text to demonstrate link behavior when wrapping lines</a>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
 <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
 <h3>Heading 3</h3>
 <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.</p>
@@ -27,18 +24,18 @@ permalink: "/styleguide/index.html"
 </blockquote>
 <p>Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor.</p>
 <ul>
-  <li>List Item 1</li>
-  <li>List Item 2</li>
-  <li>List Item 3</li>
-  <li>List Item 4</li>
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>List Item</li>
 </ul>
 <p>Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor.</p>
 <figure>
-  <img src="https://dummyimage.com/350x150" alt="A placeholder figure image." />
-  <figcaption>The figcaption element example</figcaption>
+  <img src="/img/jason-640.webp" alt="Jason Morris." />
+  <figcaption>The author’s figcaption</figcaption>
 </figure>
 <hr>
-<p>The <a href="#">a element</a> and <a href="http://example.com">external a element</a> examples</p>
+<p>The <a href="#">a element</a> and <a href="https://jasonmorris.com">external a element</a> examples</p>
 <p>The <abbr>abbr element</abbr> and an <abbr title="Abbreviation">abbr</abbr> element with title examples</p>
 <p>The <button>button element</button> example</p>
 <p>The <code>code element</code> example</p>
@@ -54,26 +51,26 @@ permalink: "/styleguide/index.html"
 <p>The <time datetime="2005-05-15 19:00">time element</time> example</p>
 <p>HTML</p>
 {% highlight html %}
-<ul class="inline">
-  <li>Item</li>
-  <li>Item</li>
-</ul>
+<ol>
+  <li>List Item 1</li>
+  <li>List Item 2
+    <ol>
+      <li>List Item 2.1</li>
+      <li>List Item 2.2</li>
+    </ol>
+  </li>
+</ol>
 {% endhighlight %}
 <p>CSS</p>
 {% highlight css %}
-.btn {
-  padding-block: 0.5rem;
-  padding-inline: 1.25rem;
+.sr {
+  position: absolute;
+  transform: scale(0);
 }
 {% endhighlight %}
 <p>JavaScript</p>
 {% highlight js %}
-// Loop through Divs using Javascript.
-var divs = document.querySelectorAll('div'), i;
-
-for (i = 0; i &lt; divs.length; ++i) {
-  divs[i].style.color = "green";
-}
+document.body.classList.remove('no-js');
 {% endhighlight %}
 <p>Ordered list</p>
 <ol>
@@ -95,21 +92,21 @@ for (i = 0; i &lt; divs.length; ++i) {
 </ol>
 <p>Unordered List</p>
 <ul>
-  <li>List Item 1</li>
-  <li>List Item 2</li>
-  <li>List Item 3
+  <li>List Item</li>
+  <li>List Item</li>
+  <li>List Item
     <ul>
-      <li>List Item 3.1</li>
-      <li>List Item 3.2
+      <li>List Item</li>
+      <li>List Item
         <ul>
-          <li>List Item 3.2.1</li>
-          <li>List Item 3.2.2</li>
+          <li>List Item</li>
+          <li>List Item</li>
         </ul>
       </li>
-      <li>List Item 3.3</li>
+      <li>List Item</li>
     </ul>
   </li>
-  <li>List Item 4</li>
+  <li>List Item</li>
 </ul>
 <p>Definition List</p>
 <dl>
