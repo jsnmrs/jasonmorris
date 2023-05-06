@@ -13,7 +13,6 @@
   function videoClick(event) {
     const videoHolder = this.parentNode.children[1];
     let videoIframe;
-    console.log("clicked");
 
     event.preventDefault();
     videoHolder.classList.add("video");
