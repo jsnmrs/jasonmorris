@@ -1,3 +1,5 @@
+const path = require("path");
+const Image = require("@11ty/eleventy-img");
 const pluginGitCommitDate = require("eleventy-plugin-git-commit-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -74,6 +76,20 @@ module.exports = function (eleventyConfig) {
           ext +
           '">';
       }
+      (async () => {
+        let fullName = "imgsrc/" + fileName + "." + ext;
+        let metadata = await Image(fullName, {
+            widths: [240, 800, 1024, 1600],
+            formats: ["webp", "jpeg"],
+            outputDir: "./images/",
+            filenameFormat: function (id, src, width, format, options) {
+              const extension = path.extname(src);
+              const name = path.basename(src, extension);
+              return `${name}-${width}.${format}`;
+            },
+        });
+      })();
+
 
       return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
     }
