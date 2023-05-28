@@ -80,7 +80,7 @@ module.exports = function (eleventyConfig) {
         let fullName = "imgsrc/" + fileName + "." + ext;
         let metadata = await Image(fullName, {
             widths: [240, 800, 1024, 1600],
-            formats: ["webp", "jpeg"],
+            formats: ["webp", "avif", "jpeg"],
             outputDir: "./images/",
             filenameFormat: function (id, src, width, format, options) {
               const extension = path.extname(src);
