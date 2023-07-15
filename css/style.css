@@ -116,7 +116,9 @@ img[src$=".svg"] {
   font-family: "Atkinson Hyperlegible";
   font-style: normal;
   font-stretch: normal;
-  src: local("Atkinson Hyperlegible"), local("Atkinson-Hyperlegible"),
+  src:
+    local("Atkinson Hyperlegible"),
+    local("Atkinson-Hyperlegible"),
     url("/fonts/atkinson-hyperlegible.woff2") format("woff2");
   font-display: optional;
 }
@@ -158,7 +160,9 @@ body {
   background-color: var(--link-focus);
   outline: 0.1875rem solid transparent;
   outline-offset: 0;
-  box-shadow: 0 -0.125rem var(--link-focus), 0 0.25rem var(--text);
+  box-shadow:
+    0 -0.125rem var(--link-focus),
+    0 0.25rem var(--text);
 }
 
 :any-link:focus:not(:focus-visible) {

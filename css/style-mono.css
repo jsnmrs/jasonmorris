@@ -7,7 +7,9 @@
   font-family: "Source Code Pro";
   font-style: normal;
   font-stretch: normal;
-  src: local("Source Code Pro"), local("SourceCodePro-Regular"),
+  src:
+    local("Source Code Pro"),
+    local("SourceCodePro-Regular"),
     url("/fonts/scp.woff2") format("woff2");
   font-display: optional;
 }
