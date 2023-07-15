@@ -76,7 +76,7 @@ module.exports = function (eleventyConfig) {
       }
 
       return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
-    }
+    },
   );
   // Usage: {% picture "file-name", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
 
@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
         '-1280.jpg">';
 
       return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    }
+    },
   );
   // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
 
@@ -130,7 +130,7 @@ module.exports = function (eleventyConfig) {
         '-1280.jpg">';
 
       return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    }
+    },
   );
   // Usage: {% youtube "222222222", "poster-name", "800", "450", "Video title"}
 
