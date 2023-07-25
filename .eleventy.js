@@ -83,11 +83,14 @@ module.exports = function (eleventyConfig) {
             formats: ["webp", "avif", "jpeg"],
             outputDir: "./img/",
             filenameFormat: function (id, src, width, format, options) {
-              const extension = path.extname(src);
+              let extension = path.extname(src),
+              outExt = format;
               const name = path.basename(src, extension);
-              return `${name}-${width}.${format}`;
+              if (outExt == "jpeg") { outExt = "jpg"; }
+              return `${name}-${width}.${outExt}`;
             },
         });
+        console.log(metadata);
       })();
 
 
