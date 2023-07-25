@@ -16,11 +16,4 @@ Devon Swahlan threw a proper tabletop out of this quarterpipe while I experiment
 
 A fun experiment that makes for tired scroll fingers.
 
-<figure>
-  <picture>
-    <source media="(max-width: 800px)" srcset="/img/vertical-2048.webp" type="image/webp">
-    <source media="(min-width: 1025px)" srcset="/img/vertical-4759.webp" type="image/webp">
-    <source media="(max-width: 1025px)" srcset="/img/vertical-4759.jpg">
-    <img src="/img/vertical-2048.jpg" alt="Vertical panoroma." loading="lazy" width="344" height="2048">
-  </picture>
-</figure>
+{% picture "vertical", "jpg", "344", "2048", "800", "Vertical panorama", "" %}
