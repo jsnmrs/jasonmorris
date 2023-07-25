@@ -45,7 +45,23 @@ module.exports = function (eleventyConfig) {
         ext +
         '">';
 
-      if (max !== "1600") {
+      if (max == "800") {
+        sourcesWebp =
+          sourcesWebp +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          '-800.webp" type="image/webp">';
+
+        sourcesVintage =
+          sourcesVintage +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          "-800." +
+          ext +
+          '">';
+      }
+
+      if (max == "1600" || max == "1024") {
         sourcesWebp =
           sourcesWebp +
           '<source media="(min-width: 801px)" srcset="' +
