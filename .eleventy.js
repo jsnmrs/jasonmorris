@@ -79,29 +79,29 @@ module.exports = function (eleventyConfig) {
       (async () => {
         let fullName = "imgsrc/" + fileName + "." + ext;
         let metadata = await Image(fullName, {
-            widths: [240, 800, 1024, 1600],
-            formats: ["webp", "avif", "jpeg"],
-            outputDir: "./img/",
-            filenameFormat: function (id, src, width, format, options) {
-              let extension = path.extname(src),
+          widths: [240, 800, 1024, 1600],
+          formats: ["webp", "avif", "jpeg"],
+          outputDir: "./img/",
+          filenameFormat: function (id, src, width, format, options) {
+            let extension = path.extname(src),
               outExt = format;
-              const name = path.basename(src, extension);
-              if (outExt == "jpeg") { outExt = "jpg"; }
-              return `${name}-${width}.${outExt}`;
-            },
+            const name = path.basename(src, extension);
+            if (outExt == "jpeg") {
+              outExt = "jpg";
+            }
+            return `${name}-${width}.${outExt}`;
+          },
         });
-        console.log(metadata);
       })();
 
-
       return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
-    }
+    },
   );
   // Usage: {% picture "file-name", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
 
   eleventyConfig.addShortcode(
     "vimeo",
-    function (videoId, posterName, width, height, title) {
+    function (videoId, posterName, ext, width, height, title) {
       let fullPath = "/img/" + posterName;
       var sourcesWebp =
         '<source media="(max-width: 320px)" srcset="' +
@@ -120,15 +120,32 @@ module.exports = function (eleventyConfig) {
         '<source media="(min-width: 801px)" srcset="' +
         fullPath +
         '-1280.jpg">';
+      (async () => {
+        let fullName = "imgsrc/" + posterName + "." + ext;
+        let metadata = await Image(fullName, {
+          widths: [320, 800, 1280],
+          formats: ["webp", "avif", "jpeg"],
+          outputDir: "./img/",
+          filenameFormat: function (id, src, width, format, options) {
+            let extension = path.extname(src),
+              outExt = format;
+            const name = path.basename(src, extension);
+            if (outExt == "jpeg") {
+              outExt = "jpg";
+            }
+            return `${name}-${width}.${outExt}`;
+          },
+        });
+      })();
 
       return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    }
+    },
   );
-  // Usage: {% vimeo "222222222", "poster-name", "800", "450", "Video title"}
+  // Usage: {% vimeo "222222222", "poster-name", "jpg", "800", "450", "Video title"}
 
   eleventyConfig.addShortcode(
     "youtube",
-    function (videoId, posterName, width, height, title) {
+    function (videoId, posterName, ext, width, height, title) {
       let fullPath = "/img/" + posterName;
       var sourcesWebp =
         '<source media="(max-width: 320px)" srcset="' +
@@ -147,9 +164,26 @@ module.exports = function (eleventyConfig) {
         '<source media="(min-width: 801px)" srcset="' +
         fullPath +
         '-1280.jpg">';
+      (async () => {
+        let fullName = "imgsrc/" + posterName + "." + ext;
+        let metadata = await Image(fullName, {
+          widths: [320, 800, 1280],
+          formats: ["webp", "avif", "jpeg"],
+          outputDir: "./img/",
+          filenameFormat: function (id, src, width, format, options) {
+            let extension = path.extname(src),
+              outExt = format;
+            const name = path.basename(src, extension);
+            if (outExt == "jpeg") {
+              outExt = "jpg";
+            }
+            return `${name}-${width}.${outExt}`;
+          },
+        });
+      })();
 
       return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    }
+    },
   );
   // Usage: {% youtube "222222222", "poster-name", "800", "450", "Video title"}
 
