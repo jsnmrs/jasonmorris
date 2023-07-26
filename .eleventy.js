@@ -31,6 +31,13 @@ module.exports = function (eleventyConfig) {
     "picture",
     function (fileName, ext, width, height, max, alt, caption) {
       let fullPath = "/img/" + fileName;
+      var sourcesAvif =
+        '<source media="(max-width: 320px)" srcset="' +
+        fullPath +
+        '-240.avif" type="image/avif">' +
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.avif" type="image/avif">';
       var sourcesWebp =
         '<source media="(max-width: 320px)" srcset="' +
         fullPath +
@@ -46,12 +53,16 @@ module.exports = function (eleventyConfig) {
         '">';
 
       if (max == "800") {
+        sourcesAvif =
+          sourcesAvif +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          '-800.avif" type="image/avif">';
         sourcesWebp =
           sourcesWebp +
           '<source media="(min-width: 801px)" srcset="' +
           fullPath +
           '-800.webp" type="image/webp">';
-
         sourcesVintage =
           sourcesVintage +
           '<source media="(min-width: 801px)" srcset="' +
@@ -62,12 +73,16 @@ module.exports = function (eleventyConfig) {
       }
 
       if (max == "1600" || max == "1024") {
+        sourcesAvif =
+          sourcesAvif +
+          '<source media="(min-width: 801px)" srcset="' +
+          fullPath +
+          '-1024.avif" type="image/avif">';
         sourcesWebp =
           sourcesWebp +
           '<source media="(min-width: 801px)" srcset="' +
           fullPath +
           '-1024.webp" type="image/webp">';
-
         sourcesVintage =
           sourcesVintage +
           '<source media="(min-width: 801px)" srcset="' +
@@ -78,12 +93,16 @@ module.exports = function (eleventyConfig) {
       }
 
       if (max == "1600") {
+        sourcesAvif =
+          sourcesAvif +
+          '<source media="(min-width: 1025px)" srcset="' +
+          fullPath +
+          '-1600.avif" type="image/avif">';
         sourcesWebp =
           sourcesWebp +
           '<source media="(min-width: 1025px)" srcset="' +
           fullPath +
           '-1600.webp" type="image/webp">';
-
         sourcesVintage =
           sourcesVintage +
           '<source media="(max-width: 1025px)" srcset="' +
@@ -110,7 +129,7 @@ module.exports = function (eleventyConfig) {
         });
       })();
 
-      return `<figure><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
+      return `<figure><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture><figcaption>${caption}</figcaption></figure>`;
     },
   );
   // Usage: {% picture "file-name", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
@@ -119,6 +138,16 @@ module.exports = function (eleventyConfig) {
     "vimeo",
     function (videoId, posterName, ext, width, height, title) {
       let fullPath = "/img/" + posterName;
+      var sourcesAvif =
+        '<source media="(max-width: 320px)" srcset="' +
+        fullPath +
+        '-320.avif" type="image/avif">' +
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.avif" type="image/avif">' +
+        '<source media="(min-width: 801px)" srcset="' +
+        fullPath +
+        '-1280.avif" type="image/avif">';
       var sourcesWebp =
         '<source media="(max-width: 320px)" srcset="' +
         fullPath +
@@ -154,7 +183,7 @@ module.exports = function (eleventyConfig) {
         });
       })();
 
-      return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
+      return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
     },
   );
   // Usage: {% vimeo "222222222", "poster-name", "jpg", "800", "450", "Video title"}
@@ -163,6 +192,16 @@ module.exports = function (eleventyConfig) {
     "youtube",
     function (videoId, posterName, ext, width, height, title) {
       let fullPath = "/img/" + posterName;
+      var sourcesAvif =
+        '<source media="(max-width: 320px)" srcset="' +
+        fullPath +
+        '-320.avif" type="image/avif">' +
+        '<source media="(max-width: 800px)" srcset="' +
+        fullPath +
+        '-800.avif" type="image/avif">' +
+        '<source media="(min-width: 801px)" srcset="' +
+        fullPath +
+        '-1280.avif" type="image/avif">';
       var sourcesWebp =
         '<source media="(max-width: 320px)" srcset="' +
         fullPath +
@@ -198,7 +237,7 @@ module.exports = function (eleventyConfig) {
         });
       })();
 
-      return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
+      return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
     },
   );
   // Usage: {% youtube "222222222", "poster-name", "800", "450", "Video title"}
