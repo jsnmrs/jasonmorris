@@ -21,11 +21,6 @@ Other platforms where I maintain a presence with varying degrees of participatio
 
   </article>
   <div class="photo">
-    <picture>
-      <source media="(max-width: 768px)" srcset="/img/jason-640.webp" type="image/webp">
-      <source media="(min-width: 769px)" srcset="/img/jason-320.webp" type="image/webp">
-      <source media="(min-width: 769px)" srcset="/img/jason-320.jpg">
-      <img src="/img/jason-640.jpg" alt="Jason Morris." loading="lazy" width="320" height="320">
-    </picture>
+    {% picture "jason", "jpg", "320", "320", "800" "Jason Morris.", "" %}
   </div>
 </section>
