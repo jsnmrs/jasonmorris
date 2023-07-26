@@ -23,7 +23,7 @@ Several hours later, I had a bunch of regex statements looking through a PDF to 
 
 With some more polishing, a localized (no upload) file `<input>` takes one or more files, runs through the metadata scans, and reports the PDF's settings.
 
-{% youtube "mz3E1LwCVVY", "pdfcheck", "800", "456", "PDFcheck demonstration" %}
+{% youtube "mz3E1LwCVVY", "pdfcheck", "jpg", "800", "456", "PDFcheck demonstration" %}
 
 The end result is a tool that can accept drag and drop of any file, isolate PDF files, and display if any accessibility features exist in the file. While PDFcheck can't verify PDF accessibility, it can quickly find PDF inaccessibility.
 

@@ -1,8 +1,9 @@
 # Disable directory browsing
 Options All -Indexes
 
-# Add webp image format support
+# Add webp and avif image format support
 AddType image/webp .webp
+AddType image/avif .avif
 
 <IfModule mod_rewrite.c>
   # FollowSymLinks must be enabled for this to work.
@@ -53,8 +54,6 @@ ServerSignature Off
   Header set Cache-Control "public, max-age=31536000, immutable" env=IMAGES
 
   Header set X-XSS-Protection "1; mode=block"
-
-  Header always set Permissions-Policy: interest-cohort=()
 </IfModule>
 
 AddDefaultCharset utf-8
