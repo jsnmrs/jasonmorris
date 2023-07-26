@@ -93,7 +93,7 @@ module.exports = function (eleventyConfig) {
           '">';
       }
       (async () => {
-        let fullName = "imgsrc/" + fileName + "." + ext;
+        let fullName = "img/" + fileName + "." + ext;
         let metadata = await Image(fullName, {
           widths: [240, 800, 1024, 1600],
           formats: ["webp", "avif", "jpeg"],
@@ -137,7 +137,7 @@ module.exports = function (eleventyConfig) {
         fullPath +
         '-1280.jpg">';
       (async () => {
-        let fullName = "imgsrc/" + posterName + "." + ext;
+        let fullName = "img/" + posterName + "." + ext;
         let metadata = await Image(fullName, {
           widths: [320, 800, 1280],
           formats: ["webp", "avif", "jpeg"],
@@ -181,7 +181,7 @@ module.exports = function (eleventyConfig) {
         fullPath +
         '-1280.jpg">';
       (async () => {
-        let fullName = "imgsrc/" + posterName + "." + ext;
+        let fullName = "img/" + posterName + "." + ext;
         let metadata = await Image(fullName, {
           widths: [320, 800, 1280],
           formats: ["webp", "avif", "jpeg"],
