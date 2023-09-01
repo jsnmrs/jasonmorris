@@ -31,7 +31,7 @@
     "remark-cli": "11.0.0",
     "remark-frontmatter": "4.0.1",
     "remark-frontmatter-validator": "0.4.0",
-    "stylelint": "15.10.2",
+    "stylelint": "15.10.3",
     "stylelint-config-standard": "34.0.0",
     "stylelint-use-logical": "2.1.0",
     "uglify-js": "3.17.4"
