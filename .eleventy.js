@@ -19,6 +19,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("apple-touch-icon-192.png");
   eleventyConfig.addPassthroughCopy("apple-touch-icon-512.png");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("rss.xsl");
   eleventyConfig.addPassthroughCopy(".htaccess");
 
