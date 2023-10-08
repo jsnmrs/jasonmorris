@@ -4,7 +4,6 @@ Options All -Indexes
 # Add webp and avif image format support
 AddType image/webp .webp
 AddType image/avif .avif
-AddType application/xml .xsl
 
 <IfModule mod_rewrite.c>
   # FollowSymLinks must be enabled for this to work.
