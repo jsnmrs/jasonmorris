@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("manifest.webmanifest");
@@ -21,6 +22,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("apple-touch-icon-512.png");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("rss.xsl");
+  eleventyConfig.addPassthroughCopy("sitemap.xsl");
   eleventyConfig.addPassthroughCopy(".htaccess");
 
   eleventyConfig.setLiquidOptions({
