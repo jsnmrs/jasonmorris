@@ -6,10 +6,10 @@ meta: "This is the personal website of Jason Morris — an accessibility enginee
 permalink: "/index.html"
 ---
 
-<section>
-  <article>
+<div class="outer">
+  <div class="inner">
 
-## Hi, I&rsquo;m Jason
+  <h2 id="intro">Hi, I&rsquo;m Jason</h2>
 
 A surprising number of folks go by the same name. Their friends email me all the time.
 
@@ -19,8 +19,8 @@ I’m a [Certified Professional in Web Accessibility (CPWA)](https://www.credly.
 
 Other platforms where I maintain a presence with varying degrees of participation: <a rel="me" href="https://codepen.io/jsnmrs/">CodePen</a>, <a rel="me" href="https://github.com/jsnmrs">GitHub</a>, <a rel="me" href="https://www.linkedin.com/in/jsnmrs/">LinkedIn</a>, <a rel="me" href="https://indieweb.social/@jasonmorris">Mastodon</a>
 
-  </article>
+  </div>
   <div class="photo">
     {% picture "jason", "jpg", "320", "320", "800" "Jason Morris.", "" %}
   </div>
-</section>
+</div>
