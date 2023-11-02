@@ -83,8 +83,7 @@ img[src$=".svg"] {
 .video {
   position: relative;
   block-size: 0;
-  padding-block-start: 1.5rem;
-  padding-block-end: 51.9%; /* 16:9 */
+  padding-block: 1.5rem 51.9%; /* 16:9 */
 }
 
 .video iframe {
@@ -178,8 +177,7 @@ h4 {
 }
 
 h1 {
-  margin-block-start: 0.5rem;
-  margin-block-end: 0.25rem;
+  margin-block: 0.5rem 0.25rem;
   margin-inline: 0;
   font-size: 2.25rem;
   line-height: 1.2;
@@ -191,35 +189,30 @@ h1 {
 }
 
 h2 {
-  margin-block-start: 0.4rem;
+  margin-block: 0.4rem 0.2rem;
   margin-inline: 0;
-  margin-block-end: 0.2rem;
   font-size: 1.8rem;
   line-height: 1.2;
 }
 
 h3 {
-  margin-block-start: 0;
+  margin-block: 0 1rem;
   margin-inline: 0;
-  margin-block-end: 1rem;
   font-size: 1.5rem;
   line-height: 1;
 }
 
 p {
-  margin-block-start: 0.5rem;
+  margin-block: 0.5rem 1rem;
   margin-inline: 0;
-  margin-block-end: 1rem;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 ul,
 ol {
-  margin-block-start: 0;
-  margin-block-end: 1.5rem;
-  margin-inline-start: 2rem;
-  margin-inline-end: 0;
+  margin-block: 0 1.5rem;
+  margin-inline: 2rem 0;
   padding-block: 0;
   padding-inline: 0;
 }
@@ -246,12 +239,8 @@ code {
   font-size: 1rem;
   font-family: var(--font-family);
   background-color: var(--background-accent);
-  border-block-width: 0.1rem;
-  border-block-style: solid;
-  border-block-color: var(--background-accent);
-  border-inline-width: 0.1rem;
-  border-inline-style: solid;
-  border-inline-color: var(--background-accent);
+  border-block: 0.1rem solid var(--background-accent);
+  border-inline: 0.1rem solid var(--background-accent);
   border-radius: 0.25rem;
   line-height: 1.2;
 }
@@ -283,9 +272,8 @@ pre > code {
   justify-content: center;
   inline-size: 3rem;
   block-size: 3rem;
-  margin-block-start: 1rem;
+  margin-block: 1rem 0.5rem;
   margin-inline: 0;
-  margin-block-end: 0.5rem;
   padding-block-start: 0.15rem;
   font-size: 1.5rem;
   line-height: 1;
@@ -305,12 +293,8 @@ pre > code {
   color: var(--link);
   background-color: var(--background);
   background-size: 110%;
-  border-block-width: 0.1875rem;
-  border-block-style: solid;
-  border-block-color: var(--link);
-  border-inline-width: 0.1875rem;
-  border-inline-style: solid;
-  border-inline-color: var(--link);
+  border-block: 0.1875rem solid var(--link);
+  border-inline: 0.1875rem solid var(--link);
   transition: background-color 0.5s ease;
 }
 
@@ -347,9 +331,8 @@ pre > code {
 
 figcaption,
 .caption {
-  margin-block-start: 0.5rem;
+  margin-block: 0.5rem 1.5rem;
   margin-inline: 0;
-  margin-block-end: 1.5rem;
   color: var(--text-accent);
 }
 
@@ -367,8 +350,7 @@ figcaption:empty {
 }
 
 .doc {
-  margin-block-start: 3rem;
-  margin-block-end: 3rem;
+  margin-block: 3rem;
 }
 
 .doc p,
@@ -385,32 +367,27 @@ figcaption:empty {
 }
 
 .doc h2 {
-  margin-block-start: 2.5rem;
+  margin-block: 2.5rem 0.2rem;
   margin-inline: 0;
-  margin-block-end: 0.2rem;
 }
 
 .doc h3 {
-  margin-block-start: 1.5rem;
+  margin-block: 1.5rem 0;
   margin-inline: 0;
-  margin-block-end: 0;
   font-size: 1.4rem;
   line-height: 1.2;
 }
 
 .doc h3 + h4 {
-  margin-block-start: 0.25rem;
+  margin-block: 0.25rem 0;
   margin-inline: 0;
-  margin-block-end: 0;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .doc ul {
-  margin-block-start: 0.25rem;
-  margin-inline-end: 0;
-  margin-block-end: 2rem;
-  margin-inline-start: 1.5rem;
+  margin-block: 0.25rem 2rem;
+  margin-inline: 1.5rem 0;
 }
 
 .doc li {
@@ -418,8 +395,7 @@ figcaption:empty {
 }
 
 .doc .footnote {
-  margin-block-start: 3rem;
-  margin-block-end: -1.5rem;
+  margin-block: 3rem -1.5rem;
 }
 
 .chunk {
@@ -438,9 +414,8 @@ figcaption:empty {
 
 .chunk a {
   display: block;
-  padding-block-start: 0.45rem;
+  padding-block: 0.45rem 0.35rem;
   padding-inline: 0.5rem;
-  padding-block-end: 0.35rem;
 }
 
 hr {
@@ -484,9 +459,8 @@ nav > * {
 
 main > figure {
   grid-column: full;
-  margin-block-start: 1.5rem;
+  margin-block: 1.5rem 0.5rem;
   margin-inline: auto;
-  margin-block-end: 0.5rem;
 }
 
 section {
