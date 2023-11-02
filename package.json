@@ -31,7 +31,7 @@
     "remark-cli": "12.0.0",
     "remark-frontmatter": "5.0.0",
     "remark-frontmatter-validator": "0.4.0",
-    "stylelint": "15.10.3",
+    "stylelint": "15.11.0",
     "stylelint-config-standard": "34.0.0",
     "stylelint-use-logical": "2.1.0",
     "uglify-js": "3.17.4"
@@ -52,6 +52,6 @@
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "^3.1.1"
+    "@11ty/eleventy-img": "^3.1.8"
   }
 }
