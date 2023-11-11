@@ -63,9 +63,13 @@ permalink: "/styleguide/index.html"
 {% endhighlight %}
 <p>CSS</p>
 {% highlight css %}
-.sr {
+.sr:not(:focus-within, :active) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
   position: absolute;
-  transform: scale(0);
+  white-space: nowrap;
+  width: 1px;
 }
 {% endhighlight %}
 <p>JavaScript</p>
