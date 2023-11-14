@@ -23,4 +23,7 @@ Other platforms where I maintain a presence with varying degrees of participatio
   <div class="photo">
     {% picture "jason", "jpg", "320", "320", "800" "Jason Morris.", "" %}
   </div>
+  <div class="inner">
+    <p>This site is a member of the <a rel="external" href="https://a11y-webring.club/">a11y-webring.club</a>. Check out the <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/prev">previous website</a>, <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/next">next website</a>, or a <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/random">random website</a> from the webring.</p>
+  </div>
 </div>
