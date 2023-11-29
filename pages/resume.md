@@ -19,11 +19,11 @@ International Association of Accessibility Professionals
 
 #### Senior Digital Accessibility Consultant (2023 - current)
 
-- Assesses websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries  
-- Performs manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features  
-- Provides accessibility strategy on complex interfaces, including data visualizations and canvas-centric applications  
-- Delivers training for engineering teams on writing accessible code and integrating accessibility review into development workflow  
-- Consults on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences  
+- Assesses websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
+- Performs manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
+- Provides accessibility strategy on complex interfaces, including data visualizations and canvas-centric applications
+- Delivers training for engineering teams on writing accessible code and integrating accessibility review into development workflow
+- Consults on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
 - Builds browser-based tools to support the accessibility review process
 
 ### CommunicateHealth
