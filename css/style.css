@@ -100,8 +100,7 @@ img[src$=".svg"] {
   inset-inline-start: -999rem;
 }
 
-.skip:active,
-.skip:focus {
+.skip:is(:active, :focus) {
   position: fixed;
   inset-inline-start: 0;
   z-index: 100;
@@ -143,9 +142,7 @@ body {
   color: var(--link-visited);
 }
 
-:any-link:hover,
-:any-link:focus,
-:any-link:active {
+:any-link:is(:hover, :focus, :active) {
   color: var(--link-hover);
 }
 
@@ -283,14 +280,12 @@ pre > code {
   transition: background-color 0.5s ease;
 }
 
-.circle:link,
-.circle:visited {
+.circle:is(:link, :visited) {
   color: var(--background);
   text-decoration: none;
 }
 
-.circle:hover,
-.circle:focus {
+.circle:is(:hover, :focus) {
   color: var(--link);
   background-color: var(--background);
   background-size: 110%;
@@ -524,8 +519,7 @@ main > figure {
   display: block;
 }
 
-.facade__link:hover .facade__overlay,
-.facade__link:focus .facade__overlay {
+.facade__link:is(:hover, :focus) .facade__overlay {
   background-size: 6rem;
   transition: 0.3s background-size;
 }
