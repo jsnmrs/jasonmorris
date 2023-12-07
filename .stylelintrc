@@ -4,7 +4,8 @@
   ],
   "plugins": [
     "@double-great/stylelint-a11y",
-    "stylelint-use-logical"
+    "stylelint-use-logical",
+    "stylelint-plugin-defensive-css"
   ],
   "rules": {
     "declaration-property-value-no-unknown": true,
@@ -29,6 +30,16 @@
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "error" }],
 
-    "csstools/use-logical": [true, { "severity": "error" }]
+    "csstools/use-logical": [true, { "severity": "error" }],
+
+    "plugin/use-defensive-css": [true, {
+      "accidental-hover": true,
+      "background-repeat": true,
+      "custom-property-fallbacks": true,
+      "flex-wrapping": true,
+      "scroll-chaining": true,
+      "scrollbar-gutter": true,
+      "vendor-prefix-grouping": true
+    }]
   }
 }
