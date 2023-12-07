@@ -48,7 +48,9 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
-  overflow: auto;
+  overflow-inline: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
   border-radius: 0.3em;
 }
 

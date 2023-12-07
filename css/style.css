@@ -253,6 +253,8 @@ pre {
   padding-block: 0.5rem;
   padding-inline: 0.75rem;
   overflow-inline: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
 }
 
 pre > code {
@@ -298,16 +300,14 @@ pre > code {
   box-shadow: none;
 }
 
-/* stylelint-disable csstools/use-logical, unit-allowed-list */
 .sr:not(:focus-within, :active) {
   clip-path: inset(50%);
-  height: 1px;
+  block-size: 0.1rem;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
+  inline-size: 0.1rem;
 }
-/* stylelint-enable csstools/use-logical, unit-allowed-list */
 
 .back {
   margin-block-end: 1rem;
