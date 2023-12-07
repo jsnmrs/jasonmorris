@@ -4,7 +4,7 @@ layout: page
 {% if date %}
 <div class="meta">
 <p class="date">{{ page.date | date: "%B %e, %Y" }}</p>
-{% if updated %}<p class="update">[updated {{ updated | date: "%B %e, %Y" }}]{% endif %}</p>
+{% if updated %}<p class="update">[updated {{ updated | date: "%B %e, %Y" }}]</p>{% endif %}
 </div>
 {% endif %}
 {{ content }}
