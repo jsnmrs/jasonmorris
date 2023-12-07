@@ -4,7 +4,7 @@
   ],
   "plugins": [
     "@double-great/stylelint-a11y",
-    "stylelint-use-logical",
+    "stylelint-plugin-logical-css",
     "stylelint-plugin-defensive-css"
   ],
   "rules": {
@@ -30,7 +30,11 @@
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "error" }],
 
-    "csstools/use-logical": [true, { "severity": "error" }],
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning" }
+    ],
+    "plugin/use-logical-units": [true, { "severity": "warning" }],
 
     "plugin/use-defensive-css": [true, {
       "accidental-hover": true,
