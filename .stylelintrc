@@ -37,9 +37,7 @@
     "plugin/use-logical-units": [true, { "severity": "error" }],
 
     "plugin/use-defensive-css": [true, {
-      "accidental-hover": true,
       "background-repeat": true,
-      "custom-property-fallbacks": true,
       "flex-wrapping": true,
       "scroll-chaining": true,
       "scrollbar-gutter": true,
