@@ -32,9 +32,9 @@
 
     "plugin/use-logical-properties-and-values": [
       true,
-      { "severity": "warning" }
+      { "severity": "error" }
     ],
-    "plugin/use-logical-units": [true, { "severity": "warning" }],
+    "plugin/use-logical-units": [true, { "severity": "error" }],
 
     "plugin/use-defensive-css": [true, {
       "accidental-hover": true,
