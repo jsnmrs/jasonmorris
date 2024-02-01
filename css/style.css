@@ -5,6 +5,7 @@
   --background-accent: oklch(92.5% 0 0deg);
   --text: oklch(25.16% 0 0deg);
   --text-accent: oklch(38.7% 0 0deg);
+  --form-accent: rebeccapurple;
   --link: oklch(45.28% 0.177 261.07deg);
   --link-visited: var(--link);
   --link-hover: oklch(32.02% 0.119 260.78deg);
@@ -263,6 +264,27 @@ pre > code {
   background-color: transparent;
   border-block-width: 0;
   border-inline-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+progress {
+  accent-color: var(--form-accent);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* This is intentional and reflects my explicit opinion while understanding recommendations against it. */
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 .circle {
