@@ -33,7 +33,7 @@
     "remark-frontmatter-validator": "1.0.0",
     "stylelint": "16.1.0",
     "stylelint-config-standard": "36.0.0",
-    "stylelint-plugin-defensive-css": "1.0.1",
+    "stylelint-plugin-defensive-css": "1.0.2",
     "stylelint-plugin-logical-css": "1.0.0",
     "uglify-js": "3.17.4"
   },
