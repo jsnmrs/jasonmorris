@@ -3,6 +3,7 @@
     "stylelint-config-standard"
   ],
   "plugins": [
+    "@double-great/stylelint-a11y",
     "stylelint-plugin-logical-css",
     "stylelint-plugin-defensive-css"
   ],
@@ -22,6 +23,12 @@
       "deg",
       "fr"
     ],
+
+    "a11y/font-size-is-readable": [true, { "severity": "warning" }],
+    "a11y/no-spread-text": [true, { "severity": "warning" }],
+    "a11y/no-obsolete-attribute": [true, { "severity": "warning" }],
+    "a11y/no-obsolete-element": [true, { "severity": "warning" }],
+    "a11y/no-text-align-justify": [true, { "severity": "error" }],
 
     "plugin/use-logical-properties-and-values": [
       true,
