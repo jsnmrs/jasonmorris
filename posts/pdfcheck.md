@@ -13,7 +13,7 @@ permalink: "{{ category }}/{{ title | slug }}/index.html"
 meta: "A tool to instantly check a bunch of PDF files for signs of inaccessibility. "
 ---
 
-[PDFcheck](https://jsnmrs.github.io/pdfcheck/) is a single-purpose online tool I built to instantly check a bunch of PDF files for signs of inaccessibility.
+[PDFcheck](https://code.jasonmorris.com/pdfcheck/) is a single-purpose online tool I built to instantly check a bunch of PDF files for signs of inaccessibility.
 
 Over the years, I&rsquo;ve inherited maintenance responsibilities for a website. Often the website has a bunch of PDF files. Determining if any PDFs are tagged for accessibility typically involves opening each file in Adobe Acrobat Pro and inspecting the tags panel. This is tedious.
 

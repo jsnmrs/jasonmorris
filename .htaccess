@@ -19,9 +19,9 @@ AddType image/avif .avif
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
   Redirect 301 /til/rotating-ssh-keys /code/rotating-ssh-keys
-  Redirect 301 /since https://jsnmrs.github.io/since
-  Redirect 301 /wordup https://jsnmrs.github.io/wordup
-  Redirect 301 /pdfcheck https://jsnmrs.github.io/pdfcheck
+  Redirect 301 /since https://code.jasonmorris.com/since
+  Redirect 301 /wordup https://code.jasonmorris.com/wordup
+  Redirect 301 /pdfcheck https://code.jasonmorris.com/pdfcheck
 
   # Ensure Authorization header is passed along
   RewriteCond %{HTTP:Authorization} .
