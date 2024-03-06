@@ -11,7 +11,7 @@ permalink: "{{ category }}/{{ title | slug }}/index.html"
 meta: "A tool to paste messy Word document text, then convert to clean HTML and Markdown."
 ---
 
-[Wordup](https://jsnmrs.github.io/wordup/) is a single-purpose online tool I built to convert content from Word documents into HTML or Markdown.
+[Wordup](https://code.jasonmorris.com/wordup/) is a single-purpose online tool I built to convert content from Word documents into HTML or Markdown.
 
 First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/ckeditor-4/). Second, it passes through vanilla JS to clean up spacing and replaces some strings. Finally, it spits out clean HTML. Check a box and [Turndown.js](https://github.com/mixmark-io/turndown) converts to Markdown.
 
