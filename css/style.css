@@ -574,10 +574,6 @@ main > figure {
     content: "";
   }
 
-  a[href="/"]::after {
-    content: " [aka " attr(title) "]";
-  }
-
   img {
     max-inline-size: 100%;
     page-break-inside: avoid;
