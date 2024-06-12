@@ -2,11 +2,11 @@
 layout: doc
 title: Jason Morris
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility consultant and front-end developer with over 15 years of creating and validating accessible web experiences."
+meta: "Jason Morris is an accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences."
 ---
 
 <!-- extra-eyes disable assistance -->
-<p class="note">Accessibility consultant and front-end developer with over 15 years of creating and validating accessible web experiences.</p>
+<p class="note">Accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences.</p>
 
 ## Certifications
 
@@ -17,14 +17,14 @@ International Association of Accessibility Professionals
 
 ### Perkins Access
 
-#### Senior Digital Accessibility Consultant (2023 - current)
+#### Senior Digital Accessibility Consultant (2023 - 2024)
 
-- Assesses websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
-- Performs manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
-- Provides accessibility strategy on complex interfaces, including data visualizations and canvas-centric applications
-- Delivers training for engineering teams on writing accessible code and integrating accessibility review into development workflow
-- Consults on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
-- Builds browser-based tools to support the accessibility review process
+- Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
+- Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
+- Provided accessibility strategy on complex interfaces, including data visualizations and canvas-centric applications
+- Delivered training for engineering teams on writing accessible code and integrating accessibility review into development workflow
+- Consulted on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
+- Built browser-based tools to support the accessibility review process
 
 ### CommunicateHealth
 
