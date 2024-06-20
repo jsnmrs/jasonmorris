@@ -5,7 +5,7 @@ permalink: "/accessibility/index.html"
 meta: "jasonmorris.com accessibility statement"
 ---
 
-I genuinely care about accessibility. I want this site to be usable to the widest possible audience, regardless of technology or ability. This site strives to conform with level AA of the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) as an effort toward that goal.
+I care about the accessibility of my output. I want this site to be usable to the widest possible audience, regardless of technology or ability. This site strives to conform with level AA of the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) as an effort toward that goal.
 
 ## Accessibility features
 
