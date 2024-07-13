@@ -19,6 +19,23 @@ AddType image/avif .avif
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
   Redirect 301 /til/rotating-ssh-keys /code/rotating-ssh-keys
+  Redirect 301 /defaults /uses
+  Redirect 301 /sitemap /sitemap.xml
+  Redirect 301 /feed /atom.xml
+  Redirect 301 /rss /atom.xml
+  Redirect 301 /rss.xml /atom.xml
+  Redirect 301 /favicon.png /favicon.svg
+  Redirect 301 /a11y /accessibility
+  Redirect 301 /manual /readme
+  Redirect 301 /how-i-like-to-work /readme
+  Redirect 301 /working-with-me /readme
+  Redirect 301 /operating-manual /readme
+  Redirect 301 /cv /resume
+  Redirect 301 /style /styleguide
+  Redirect 301 /html /styleguide
+  Redirect 301 /css /styleguide
+  Redirect 301 /changelog https://github.com/jsnmrs/jasonmorris/commits/main/
+  Redirect 301 /log https://github.com/jsnmrs/jasonmorris/commits/main/
   Redirect 301 /since https://code.jasonmorris.com/since
   Redirect 301 /wordup https://code.jasonmorris.com/wordup
   Redirect 301 /pdfcheck https://code.jasonmorris.com/pdfcheck
