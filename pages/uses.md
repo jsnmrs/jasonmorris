@@ -1,9 +1,9 @@
 ---
 layout: doc
-title: Defaults
+title: /uses
 class: center
-permalink: "/defaults/index.html"
-meta: "My personal defaults"
+permalink: "/uses/index.html"
+meta: "The things I use"
 ---
 
 These are the applications I choose to use.
