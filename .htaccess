@@ -39,6 +39,10 @@ AddType image/avif .avif
   Redirect 301 /since https://code.jasonmorris.com/since
   Redirect 301 /wordup https://code.jasonmorris.com/wordup
   Redirect 301 /pdfcheck https://code.jasonmorris.com/pdfcheck
+  Redirect 301 /codepen https://codepen.io/jsnmrs/
+  Redirect 301 /github https://github.com/jsnmrs
+  Redirect 301 /linkedin https://www.linkedin.com/in/jsnmrs/
+  Redirect 301 /mastodon https://indieweb.social/@jasonmorris
 
   # Ensure Authorization header is passed along
   RewriteCond %{HTTP:Authorization} .
