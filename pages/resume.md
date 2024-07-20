@@ -17,7 +17,9 @@ International Association of Accessibility Professionals
 
 ### Perkins Access
 
-#### Senior Digital Accessibility Consultant (2023 - 2024)
+#### Senior Digital Accessibility Consultant
+
+March 2023 to June 2024 — full-time, remote
 
 - Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
 - Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
@@ -28,7 +30,9 @@ International Association of Accessibility Professionals
 
 ### CommunicateHealth
 
-#### Accessibility Engineer (2014 - 2023)
+#### Accessibility Engineer
+
+March 2014 to March 2023 — full-time, remote
 
 - Developed and maintained high-traffic federal government websites, tools, and applications related to public health
 - Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
@@ -38,18 +42,13 @@ International Association of Accessibility Professionals
 
 ### The Research Foundation for SUNY
 
-#### Senior Programmer/Analyst (2006 - 2014)
+#### Senior Programmer/Analyst
+
+January 2006 to March 2014 — full-time, on-site and hybrid
 
 - Developed and maintained internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA)
 - Maintained compliance with New York State accessibility policy (WCAG 2.0 A)
 - Organized user testing sessions to incrementally improve UX for 200,000 monthly visitors
-
-### Columbia University
-
-#### Web Developer (2006 - 2009)
-
-- Developed a Department of Defense-funded online course for first responders outlining emergency eye care for weapons of mass destruction
-- Designed informational websites for the World Trade Center Evacuation Study and several public health-related studies
 
 ## Awards
 
