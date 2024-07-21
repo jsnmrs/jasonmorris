@@ -2,11 +2,11 @@
 layout: doc
 title: Jason Morris
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences."
+meta: "Jason Morris is an accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences."
 ---
 
 <!-- extra-eyes disable assistance -->
-<p class="note">Accessibility engineer and front-end developer with over 15 years of creating and validating accessible web experiences.</p>
+<p class="note">Accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences.</p>
 
 ## Certifications
 
@@ -17,9 +17,9 @@ International Association of Accessibility Professionals
 
 ### Perkins Access
 
-#### Senior Digital Accessibility Consultant
+Full-time, remote
 
-March 2023 to June 2024 — full-time, remote
+#### Senior Digital Accessibility Consultant (March 2023 to June 2024)
 
 - Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
 - Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
@@ -30,9 +30,13 @@ March 2023 to June 2024 — full-time, remote
 
 ### CommunicateHealth
 
-#### Accessibility Engineer
+Full-time, remote
 
-March 2014 to March 2023 — full-time, remote
+#### Accessibility Engineer (May 2021 to February 2023)
+
+#### Senior Web Developer (January 2019 to April 2021)
+
+#### Web Developer (March 2014 to December 2018)
 
 - Developed and maintained high-traffic federal government websites, tools, and applications related to public health
 - Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
@@ -42,9 +46,11 @@ March 2014 to March 2023 — full-time, remote
 
 ### The Research Foundation for SUNY
 
-#### Senior Programmer/Analyst
+Full-time, on-site and hybrid
 
-January 2006 to March 2014 — full-time, on-site and hybrid
+#### Senior Programmer/Analyst (May 2012 to March 2014)
+
+#### Information Systems Assistant (January 2006 to May 2012)
 
 - Developed and maintained internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA)
 - Maintained compliance with New York State accessibility policy (WCAG 2.0 A)
