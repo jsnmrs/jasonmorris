@@ -11,7 +11,7 @@
   <subtitle>{{ site.description }}</subtitle>
   <link href="{{ site.url }}/{{ permalink }}" type="application/atom+xml" rel="self"/>
   <link href="{{ site.url }}" rel="alternate" type="text/html"/>
-  <updated>{{ collections.posts | getCollectionNewestGitCommitDate | default(config.now) | rssDate }}</updated>
+  <updated>{{ collections.posts | getCollectionNewestGitCommitDate | default(config.now) | dateToRfc3339 }}</updated>
   <id>{{ site.url }}/</id>
   <author>
     <name>{{ site.name }}</name>
@@ -21,8 +21,8 @@
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}"/>
-    <published>{{ post.date | rssDate }}</published>
-    <updated>{% if post.data.updated %}{{ post.data.updated | rssDate }}{% else %}{{ post.date | rssDate }}{% endif %}</updated>
+    <published>{{ post.date | dateToRfc3339 }}</published>
+    <updated>{% if post.data.updated %}{{ post.data.updated | dateToRfc3339 }}{% else %}{{ post.date | dateToRfc3339 }}{% endif %}</updated>
     <id>{{ absolutePostUrl }}</id>
     <content type="html" xml:base="{{ absolutePostUrl }}">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
