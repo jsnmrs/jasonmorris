@@ -29,7 +29,7 @@
     "remark-cli": "12.0.1",
     "remark-frontmatter": "5.0.0",
     "remark-frontmatter-validator": "1.0.0",
-    "stylelint": "16.7.0",
+    "stylelint": "16.8.1",
     "stylelint-config-standard": "36.0.1",
     "stylelint-plugin-defensive-css": "1.0.4",
     "stylelint-plugin-logical-css": "1.2.1",
