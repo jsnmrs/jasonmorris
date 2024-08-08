@@ -137,14 +137,17 @@ body {
 
 :any-link:link {
   color: var(--link);
+  background-color: inherit;
 }
 
 :any-link:visited {
   color: var(--link-visited);
+  background-color: inherit;
 }
 
 :any-link:is(:hover, :focus, :active) {
   color: var(--link-hover);
+  background-color: inherit;
 }
 
 :any-link:hover {
@@ -307,6 +310,7 @@ input[type="submit"] {
 .circle:is(:link, :visited) {
   color: var(--background);
   text-decoration: none;
+  background-color: var(--text-accent);
 }
 
 .circle:is(:hover, :focus) {
@@ -558,7 +562,7 @@ main > figure {
 @media print {
   * {
     color: var(--black);
-    background: transparent;
+    background-color: transparent;
   }
 
   a {
