@@ -5,6 +5,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addLayoutAlias("audiograph", "layouts/audiograph.html");
   eleventyConfig.addLayoutAlias("doc", "layouts/doc.html");
   eleventyConfig.addLayoutAlias("home", "layouts/home.html");
   eleventyConfig.addLayoutAlias("page", "layouts/page.html");
