@@ -41,7 +41,7 @@
     "postcss": "postcss \"css/**/*.css\" --no-map --dir \"_includes\"",
     "css": "npm run stylelint && npm run postcss",
     "eslint": "eslint \"js/*.js\"",
-    "uglify": "uglifyjs js/facade.js -m -o _includes/scripts.js",
+    "uglify": "uglifyjs js/video.js -m -o _includes/video.js && uglifyjs js/audio.js -m -o _includes/audio.js",
     "js": "npm run eslint && npm run uglify",
     "html": "npx @11ty/eleventy",
     "build": "npm run prettier && npm run css && npm run js && npm run html",

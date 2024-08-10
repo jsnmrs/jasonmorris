@@ -1,0 +1,83 @@
+/* shame, shame, I know your name */
+html,
+main {
+  background-color: #000;
+}
+
+.control-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-block-start: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.bind {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#play-pause-btn {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+
+#volume-control {
+  inline-size: 6rem;
+}
+
+figure {
+  margin-block: 0;
+  margin-inline: 0;
+  position: relative;
+}
+
+.contain {
+  position: relative;
+  background-color: #000;
+  color: white;
+  padding: 1rem;
+  text-align: start;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.caption {
+  color: white;
+}
+
+h1 {
+  margin-block: 0;
+}
+
+.blur {
+  color: transparent;
+  text-shadow: 0 0 0.05rem rgb(255 255 255 / 95%);
+}
+
+dd,
+dt {
+  display: inline-block;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+dd {
+  margin-inline-end: 0.5rem;
+}
+
+dt {
+  color: var(--background-accent);
+}
+
+@media screen and (width >= 48em) {
+  .contain {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    max-inline-size: 50ch;
+    background-color: rgb(0 0 0 / 75%);
+  }
+}
