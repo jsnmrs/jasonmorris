@@ -6,11 +6,17 @@ meta: "A photo and a song, number one."
 ---
 
 <style>
+  /* shame, shame, I know your name */
   .control-panel {
     display: flex;
     align-items: center;
     gap: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .bind {
+    display: flex;
+    gap: 20px;
   }
   #playPauseBtn {
     font-size: 18px;
@@ -26,14 +32,11 @@ meta: "A photo and a song, number one."
     position: relative;
   }
   .contain {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
     padding: 1rem;
     text-align: left;
-    max-width: 40ch;
     font-size: 0.9rem;
     line-height: 1.4;
   }
@@ -55,6 +58,15 @@ meta: "A photo and a song, number one."
   }
   dt {
     color: var(--background-accent);
+  }
+  @media screen and (width >= 48em) {
+  .contain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 40ch;
+  }
+}
 </style>
 
 <!-- CSS workaround ↓ -->
@@ -75,9 +87,11 @@ meta: "A photo and a song, number one."
       <div id="player" style="display: none;" data-video-id="n5cgzcjqOtE"></div>
       <div class="control-panel">
         <button id="playPauseBtn">Play</button>
-        <input type="range" id="volumeControl" min="0" max="100" value="75">
-        <label for="volumeControl">Volume</label>
-        <span id="volumeDisplay">75%</span>
+        <div class="bind">
+          <input type="range" id="volumeControl" min="0" max="100" value="75">
+          <label for="volumeControl">Volume</label>
+          <span id="volumeDisplay">75%</span>
+        </div>
       </div>
     </div>
   </div>
