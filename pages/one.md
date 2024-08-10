@@ -7,6 +7,7 @@ meta: "A photo and a song, number one."
 
 <style>
   /* shame, shame, I know your name */
+  html, main { background-color: #000; }
   .control-panel {
     display: flex;
     align-items: center;
@@ -33,7 +34,7 @@ meta: "A photo and a song, number one."
   }
   .contain {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: #000;
     color: white;
     padding: 1rem;
     text-align: left;
@@ -64,7 +65,8 @@ meta: "A photo and a song, number one."
     position: absolute;
     top: 0;
     right: 0;
-    max-width: 40ch;
+    max-width: 50ch;
+    background-color: rgba(0, 0, 0, 0.75);
   }
 }
 </style>
@@ -72,10 +74,10 @@ meta: "A photo and a song, number one."
 <!-- CSS workaround ↓ -->
 <div role="main" id="content" tabindex="-1">
   <div class="audiograph">
-    <h1 class="sr">A photo and a song, number one.<h1>
-    {% picture "dashboard", "jpg", "240", "320", "1600", "Late night dashboard glow. Image description follows.", "" %}
+    <h1 class="sr">Dashboard<h1>
+    {% picture "dashboard", "jpg", "240", "320", "1600", "Late night dashboard glow. Description follows.", "" %}
     <div class="contain">
-      <p class="caption">The neon blue and orange glow from a Volkwagen Rabbit dashboard as seen from the passenger seat. The needles of the gauges are <span class="blur">blurry</span>. The steering wheel in the center of the frame is without a hand. The song that follows plays aloud.</p>
+      <p class="caption">The neon blue and orange glow from a Volkwagen Golf dashboard as seen from the passenger seat. The needles of the gauges are <span class="blur">blurry</span>. The steering wheel in the center of the frame is without a hand. The song that follows plays aloud.</p>
       <dl>
         <dt>Artist:</dt>
         <dd>M83</dd>
