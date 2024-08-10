@@ -1,5 +1,7 @@
 {% if has contains "video" %}
-<script>{% include "scripts.js" %}</script>
+<script>{% include "video.js" %}</script>
+{% elsif has contains "audio" %}
+<script>{% include "audio.js" %}</script>
 {% endif %}
 </body>
 </html>
