@@ -4,12 +4,17 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      github:
+        update-types:
+          - "minor"
+          - "patch"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
-      build-dependencies:
+      build:
         update-types:
           - "minor"
           - "patch"
