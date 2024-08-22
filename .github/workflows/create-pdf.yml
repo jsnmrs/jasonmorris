@@ -1,11 +1,8 @@
-name: Create tagged PDF
-
 on:
   workflow_dispatch: # enable run button on github.com
   push:
     paths:
       - "pages/resume.md"
-
 jobs:
   create:
     name: Create PDF with DocRaptor
@@ -26,10 +23,10 @@ jobs:
       - name: Send to DocRaptor
         run: |
           curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
-              --fail --silent --show-error \
-              --header "Content-Type:application/json" \
-              --data '{"test": true, \
-                  "document_url": "http://localhost:8080/resume/", \
-                  "type": "pdf", \
-                  "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true } }' \
-                  > resume.pdf
+          --fail --silent --show-error \
+          --header "Content-Type:application/json" \
+          --data '{"test": true, \
+          "document_url": "http://localhost:8080/resume/", \
+          "type": "pdf", \
+          "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true } }' \
+          > resume.pdf
