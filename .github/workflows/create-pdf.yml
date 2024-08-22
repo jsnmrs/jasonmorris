@@ -21,7 +21,7 @@ jobs:
           cache-dependency-path: "./package-lock.json"
       - name: Install dependencies
         run: npm install
-      - name: Build site and test
+      - name: Build site
         run: npm run write &
       - name: Send to DocRaptor
         run: |
