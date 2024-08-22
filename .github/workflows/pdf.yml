@@ -1,0 +1,41 @@
+name: Convert URL to PDF
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL to convert to PDF'
+        required: true
+      output_filename:
+        description: 'Output PDF filename'
+        required: true
+        default: 'output.pdf'
+
+jobs:
+  convert_to_pdf:
+    name: Convert URL to PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Convert URL to PDF
+        env:
+          DOCRAPTOR_API_KEY: ${{ secrets.DOCRAPTOR_KEY }}
+        run: |
+          curl -o ${{ github.event.inputs.output_filename }} \
+            --request POST \
+            --header "Content-Type: application/json" \
+            --data '{
+              "user_credentials": "'"$DOCRAPTOR_API_KEY"'",
+              "doc": {
+                "test": true,
+                "document_url": "${{ github.event.inputs.url }}",
+                "type": "pdf",
+                "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true }
+              }
+            }' \
+            https://docraptor.com/docs
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-pdf
+          path: ${{ github.event.inputs.output_filename }}
