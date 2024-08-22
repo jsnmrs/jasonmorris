@@ -2,12 +2,11 @@ name: Create tagged PDF from HTML
 
 on:
   workflow_dispatch: # enable run button on github.com
-  on:
-    push:
-      branches:
-        - main
-      paths:
-        - "pages/resume.md"
+  push:
+    branches:
+      - main
+    paths:
+      - "pages/resume.md"
 
 jobs:
   create:
