@@ -1,4 +1,4 @@
-name: Create tagged PDF from HTML
+name: Create tagged PDF
 
 on:
   workflow_dispatch: # enable run button on github.com
