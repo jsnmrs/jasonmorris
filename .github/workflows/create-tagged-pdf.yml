@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build site and test
-      - run: npm run write &
+        run: npm run write &
       - name: Send to DocRaptor
         run: |
           curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
