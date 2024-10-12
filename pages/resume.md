@@ -15,6 +15,22 @@ International Association of Accessibility Professionals
 
 ## Experience
 
+### CommunicateHealth
+
+Full-time, remote
+
+#### Accessibility Engineer (May 2021 to February 2023, July 2024 to present)
+
+#### Senior Web Developer (January 2019 to April 2021)
+
+#### Web Developer (March 2014 to December 2018)
+
+- Developed and maintained high-traffic federal government websites, tools, and applications related to public health
+- Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
+- Regularly communicated with stakeholders to receive feedback and suggest solutions
+- Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), Veterans Affairs (VA), and National Institutes of Health (NIH)
+- Established development team workflow, resulting in zero-config local development environments and increased code consistency
+
 ### Perkins Access
 
 Full-time, remote
@@ -27,22 +43,6 @@ Full-time, remote
 - Delivered training for engineering teams on writing accessible code and integrating accessibility review into development workflow
 - Consulted on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
 - Built browser-based tools to support the accessibility review process
-
-### CommunicateHealth
-
-Full-time, remote
-
-#### Accessibility Engineer (May 2021 to February 2023)
-
-#### Senior Web Developer (January 2019 to April 2021)
-
-#### Web Developer (March 2014 to December 2018)
-
-- Developed and maintained high-traffic federal government websites, tools, and applications related to public health
-- Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
-- Regularly communicated with stakeholders to receive feedback and suggest solutions
-- Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), Veterans Affairs (VA), and National Institutes of Health (NIH)
-- Established development team workflow, resulting in zero-config local development environments and increased code consistency
 
 ### The Research Foundation for SUNY
 
