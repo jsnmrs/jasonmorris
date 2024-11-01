@@ -51,6 +51,6 @@
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "^4.0.2"
+    "@11ty/eleventy-img": "^5.0.0"
   }
 }
