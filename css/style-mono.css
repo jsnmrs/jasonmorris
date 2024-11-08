@@ -140,18 +140,18 @@ pre[class*="language-"] {
 @media screen and (-ms-high-contrast: active) {
   code[class*="language-"],
   pre[class*="language-"] {
-    color: windowText;
-    background: window;
+    color: CanvasText;
+    background: Canvas;
   }
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background: window;
+    background: Canvas;
   }
 
   .token.important {
     background: highlight;
-    color: window;
+    color: Canvas;
     font-weight: normal;
   }
 
