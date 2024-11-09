@@ -10,7 +10,7 @@ These are the applications I choose to use.
 
 [Slashpages](https://slashpages.net/#defaults) says this &ldquo;defaults&rdquo; concept came from [a Hemispheric Views podcast episode](https://listen.hemisphericviews.com/097). [A directory lists defaults pages](https://defaults.rknight.me) that others have created. I am always fascinated the tools that other folks choose to use, so I decided to create a list of my own.
 
-<!-- extra-eyes disable -->
+<!-- double-check disable -->
 
 - <span aria-hidden="true">📨 </span>Mail Client — [Fastmail](https://www.fastmail.com), [Gmail](https://mail.google.com)
 - <span aria-hidden="true">📮 </span>Mail Server — [Fastmail](https://www.fastmail.com), [Gmail](https://mail.google.com)
