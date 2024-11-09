@@ -21,7 +21,6 @@
     "eslint": "9.14.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
-    "extra-eyes": "3.3.0",
     "html-minifier": "4.0.0",
     "postcss": "8.4.47",
     "postcss-cli": "11.0.0",
@@ -45,12 +44,13 @@
     "js": "npm run eslint && npm run uglify",
     "html": "npx @11ty/eleventy",
     "build": "npm run prettier && npm run css && npm run js && npm run html",
-    "content": "npx extra-eyes {posts,pages} --dict=terms.dic",
+    "content": "double-check {posts,pages}",
     "markdown": "remark posts",
     "test": "npm run build && npm run content && npm run markdown",
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "^5.0.0"
+    "@11ty/eleventy-img": "^5.0.0",
+    "@double-great/double-check": "^0.4.0"
   }
 }

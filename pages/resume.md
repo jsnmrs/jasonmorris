@@ -5,7 +5,7 @@ permalink: "/resume/index.html"
 meta: "Jason Morris is an accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences."
 ---
 
-<!-- extra-eyes disable assistance -->
+<!-- double-check disable assistance -->
 <p class="note">Accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences.</p>
 
 ## Certifications
