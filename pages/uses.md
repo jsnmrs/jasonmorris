@@ -13,7 +13,7 @@ meta: "The things I use"
 
 This has built up over time, with trial and error and plenty selling things on eBay that didn't work for me.
 
-{% picture "desk", "jpg", "240", "159", "1600" "My workspace, including desk and computer. Details follow.", "" %}
+{% picture "desk", "jpg", "240", "159", "1600", "My workspace, including desk and computer. Details follow.", "" %}
 
 1. [Apple MacBook Air M3 1TB 24GB](https://www.apple.com/macbook-air/)
 2. [LG 32&quot; 4K monitor](https://www.amazon.com/dp/B08BCR862L)
@@ -43,7 +43,7 @@ The lights and camera are connected to a [Meross HomeKit surge strip](https://ww
 
 All of the mounting for monitors, camera, microphone, and lights are a variety of [WALI](https://www.amazon.com/stores/WALI/page/9CD1A506-2A19-4EDE-8601-11EE17CCB904) parts.
 
-{% picture "desk-mounts", "jpg", "240", "159", "1600" "A desk mount system for for monitors, camera, microphone, and lights. Various wires are weaved along the structure.", "" %}
+{% picture "desk-mounts", "jpg", "240", "159", "1600", "A desk mount system for for monitors, camera, microphone, and lights. Various wires are weaved along the structure.", "" %}
 
 <h2 id="defaults" tabindex="-1">Defaults</h2>
 

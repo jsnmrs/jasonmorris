@@ -141,7 +141,7 @@ module.exports = function (eleventyConfig) {
       }${caption ? `</figure>` : ""}`;
     },
   );
-  // Usage: {% picture "file-name", "jpg", "240", "159", "1600" "Alt text.", "Caption" %}
+  // Usage: {% picture "file-name", "jpg", "240", "159", "1600", "Alt text.", "Caption" %}
 
   eleventyConfig.addShortcode(
     "vimeo",

@@ -15,12 +15,12 @@ meta: "A tool to paste messy Word document text, then convert to clean HTML and 
 
 First, it uses the built-in paste tools of [CKEditor 4](https://ckeditor.com/ckeditor-4/). Second, it passes through vanilla JS to clean up spacing and replaces some strings. Finally, it spits out clean HTML. Check a box and [Turndown.js](https://github.com/mixmark-io/turndown) converts to Markdown.
 
-{% picture "wordup", "png", "240", "141", "1600" "Wordup screenshot.", "" %}
+{% picture "wordup", "png", "240", "141", "1600", "Wordup screenshot.", "" %}
 
 But converting Word documents to HTML is a solved problem, right?
 
-1. Search for "Word to HTML conversion"
-2. Search for "Word to _clean_ HTML conversion"
+1. Search for &ldquo;Word to HTML conversion&rdquo;
+2. Search for &ldquo;Word to _clean_ HTML conversion&rdquo;
 3. Consider pasting Word document contents into mystery text boxes on several online conversion tools
 4. Wonder how these tools actually work
 5. Wonder about the privacy policies of these tools

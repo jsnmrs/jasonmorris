@@ -28,7 +28,7 @@ A few weeks ago, Hurricane Irene barreled up the East Coast and flooded many are
 
 After a few water-logged hours, I came upstairs to take a break. My Mom handed me a photo she’d pulled out of one of the soaked boxes. It was a photo of me jumping off that concrete wedge on one of our first bike trips.
 
-{% picture "twenty", "jpg", "240", "159", "1600" "The jump.", "" %}
+{% picture "twenty", "jpg", "240", "159", "1600", "The jump.", "" %}
 
 I flipped the photo over, written in ballpoint pen was “Albany bike path, September 1991”.
 
