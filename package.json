@@ -44,13 +44,15 @@
     "js": "npm run eslint && npm run uglify",
     "html": "npx @11ty/eleventy",
     "build": "npm run prettier && npm run css && npm run js && npm run html",
-    "content": "double-check \"{posts,pages}/**/*.{md,html}\"",
+    "content-md": "double-check \"{posts,pages}**/*.md\" --liquid",
+    "content-html": "double-check \"{posts,pages}/**/*.html\" --html --liquid",
+    "content": "npm run content-md && npm run content-html",
     "markdown": "remark posts",
     "test": "npm run build && npm run content && npm run markdown",
     "write": "npm run prettier && npm run css && npm run js && npx @11ty/eleventy --serve"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^5.0.0",
-    "@double-great/double-check": "^0.4.0"
+    "@double-great/double-check": "^0.5.1"
   }
 }

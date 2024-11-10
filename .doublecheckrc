@@ -1,4 +1,6 @@
 {
+  "retext-quotes": true,
+  "retext-contractions": true,
   "retext-simplify": {
     "ignore": [
       "submit",
@@ -15,7 +17,8 @@
       "effect",
       "interface",
       "expiration",
-      "assistance"
+      "assistance",
+      "previous"
     ]
   },
   "retext-spell": {
@@ -36,11 +39,13 @@
       "CommunicateHealth",
       "Compe",
       "Crandall",
+      "CSS",
       "DK",
       "Dirtbike",
       "DMC",
       "dotfiles",
       "Dyno",
+      "Englander",
       "Fastmail",
       "FBM",
       "Feedbin",
@@ -59,10 +64,13 @@
       "Keychain",
       "lifecycle",
       "LinkedIn",
+      "Luc-E",
+      "M83",
       "Macneil",
       "macOS",
       "NG",
       "Niles",
+      "OBX",
       "OG",
       "ok",
       "OmniFocus",
@@ -76,11 +84,14 @@
       "quarterpipe",
       "Reeder",
       "responders",
+      "Richmonders",
       "RSS",
+      "SEL",
       "skateparks",
       "Slashpages",
       "SUNY",
       "Supergoose",
+      "SVG",
       "Swahlan",
       "T2i",
       "Taj",
@@ -90,7 +101,10 @@
       "UX",
       "VoiceOver",
       "WCAG",
+      "vimeo",
+      "webring",
       "Wordup",
+      "youtube",
       "zero-config"
     ]
   }
