@@ -94,3 +94,11 @@ dt {
 .bounce1 {
   vertical-align: bottom;
 }
+
+.tight {
+  letter-spacing: -0.1rem;
+}
+
+.loose {
+  letter-spacing: 0.1rem;
+}
