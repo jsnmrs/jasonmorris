@@ -17,4 +17,4 @@ I gathered up some of those tripod clips and put together a short video. My [Lea
 
 Besides the riding and filming, I also built every single ramp you see in this video. That includes both indoor skateparks and the backyard ramps.
 
-{% vimeo "26322334", "video-deck-dancing", "jpg", "800", "450", "Deck dancing." %}
+{% youtube "HzNKYFt2rqg", "video-deck-dancing", "jpg", "800", "450", "Deck dancing." %}
