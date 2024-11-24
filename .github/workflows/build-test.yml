@@ -7,7 +7,7 @@ on:
     - cron: "03 00 * * 4" # Run every Thursday at 12:03am
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
