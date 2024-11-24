@@ -1,5 +1,6 @@
 ---
 layout: doc
+has: resume
 title: Jason Morris
 permalink: "/resume/index.html"
 meta: "Jason Morris is an accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences."
