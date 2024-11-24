@@ -18,7 +18,7 @@
   <meta name="subject" content="{{ subject }}">{% endif %}{% if keywords %}
   <meta name="keywords" content="{{ keywords }}">{% endif %}
   <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
-  <style>{% include "style.css" %}{% if has contains "code" %}{% include "style-mono.css" %}{% endif %}</style>
+  <style>{% include "style.css" %}{% if has contains "code" %}{% include "style-mono.css" %}{% endif %}{% if has contains "resume" %}{% include "resume.css" %}{% endif %}</style>
 </head>
 
 <body>
