@@ -76,8 +76,6 @@ Full-time, on-site and hybrid
 
 ## Connect
 
-- [hello@jasonmorris.com](mailto:hello@jasonmorris.com)
-- [GitHub @jsnmrs](https://github.com/jsnmrs)
-- [LinkedIn /jsnmrs](https://www.linkedin.com/in/jsnmrs)
+[hello@jasonmorris.com](mailto:hello@jasonmorris.com) [GitHub @jsnmrs](https://github.com/jsnmrs) [LinkedIn /jsnmrs](https://www.linkedin.com/in/jsnmrs)
 
 </div>
