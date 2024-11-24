@@ -425,6 +425,15 @@ figcaption:empty {
   margin-block: 3rem -1.5rem;
 }
 
+.doc .footnote p {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: 0;
+  padding-inline: 0;
+  list-style-type: none;
+  gap: 1rem;
+}
+
 .chunk {
   margin-block-end: 2rem;
   margin-inline-start: 0;
@@ -642,15 +651,6 @@ main > figure {
 
   .doc .footnote {
     margin-block: 0;
-  }
-
-  .doc .footnote ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin-inline: 0;
-    padding-inline: 0;
-    list-style-type: none;
-    gap: 1rem;
   }
 
   .doc a[href]:not(.full)::after {
