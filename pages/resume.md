@@ -1,8 +1,10 @@
 ---
 layout: doc
-title: Jason Morris
+title: Jason Morris resume
 permalink: "/resume/index.html"
 meta: "Jason Morris is an accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences."
+subject: "Accessibility engineer and front-end developer with nearly 20 years of creating and validating accessible web experiences"
+keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, web accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
 <!-- double-check disable assistance -->
