@@ -574,9 +574,9 @@ main > figure {
   }
 
   a[href]::after {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     font-style: normal;
-    content: " [" attr(href) "]";
+    content: " " attr(href);
   }
 
   a[href^="#"]::after {
@@ -604,6 +604,60 @@ main > figure {
     font-size: 2.25rem;
   }
 
+  .doc h1 {
+    font-size: 2.5rem;
+    margin-block: 0.5rem 0.25rem;
+  }
+
+  .doc h2 {
+    font-size: 1.25rem;
+    margin-block: 1rem 0;
+    font-weight: 700;
+  }
+
+  .doc h3 {
+    margin-block: 0.5rem 0;
+    font-size: 1.25rem;
+  }
+
+  .doc h3 + p {
+    margin-block: 0;
+  }
+
+  .doc h4 {
+    margin-block: 0.25rem;
+  }
+
+  .doc h4 + h4 {
+    margin-block: 0.25rem;
+  }
+
+  .doc ul {
+    margin-block-end: 1rem;
+  }
+
+  .doc {
+    margin-block: 0;
+  }
+
+  .doc .footnote {
+    margin-block: 0;
+  }
+
+  .doc .footnote ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+    list-style-type: none;
+    gap: 1rem;
+  }
+
+  .doc a[href]:not(.full)::after {
+    content: "";
+  }
+
+  header,
   .back {
     display: none;
   }
