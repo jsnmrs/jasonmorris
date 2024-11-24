@@ -67,3 +67,9 @@
   display: inline-block;
   margin-inline-end: 1rem;
 }
+
+@media print {
+  .resume a[href]::after {
+    content: "";
+  }
+}
