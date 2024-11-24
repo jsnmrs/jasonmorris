@@ -11,7 +11,7 @@ meta: "Jason Morris is an accessibility engineer and front-end developer with ne
 ## Certifications
 
 [Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/3440d3f6-a554-400a-b43d-69f129c2a8df/)
-International Association of Accessibility Professionals
+International Association of Accessibility Professionals (IAAP)
 
 ## Experience
 
@@ -75,7 +75,7 @@ Full-time, on-site and hybrid
 ## Connect
 
 - [hello@jasonmorris.com](mailto:hello@jasonmorris.com)
-- [GitHub](https://github.com/jsnmrs)
-- [LinkedIn](https://www.linkedin.com/in/jsnmrs)
+- [GitHub @jsnmrs](https://github.com/jsnmrs)
+- [LinkedIn /jsnmrs](https://www.linkedin.com/in/jsnmrs)
 
 </div>
