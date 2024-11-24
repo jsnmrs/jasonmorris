@@ -372,7 +372,7 @@ figcaption:empty {
 }
 
 .doc {
-  margin-block: 0;
+  margin-block: 3rem;
 }
 
 .doc p,
@@ -381,8 +381,7 @@ figcaption:empty {
 }
 
 .doc h1 {
-  font-size: 2.5rem;
-  margin-block: 0.5rem 0.25rem;
+  font-size: 3.3rem;
 }
 
 .doc h1 + p {
@@ -390,21 +389,15 @@ figcaption:empty {
 }
 
 .doc h2 {
-  font-size: 1.25rem;
-  margin-block: 1rem 0;
+  margin-block: 2.5rem 0.2rem;
   margin-inline: 0;
-  font-weight: 700;
 }
 
 .doc h3 {
-  margin-block: 0.5rem 0;
+  margin-block: 1.5rem 0;
   margin-inline: 0;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   line-height: 1.2;
-}
-
-.doc h4 {
-  margin-block: 0.25rem;
 }
 
 .doc h3 + h4 {
@@ -416,11 +409,11 @@ figcaption:empty {
 }
 
 .doc h4 + h4 {
-  margin-block: 0.25rem;
+  margin-block-start: -1rem;
 }
 
 .doc ul {
-  margin-block: 0.25rem 1rem;
+  margin-block: 0.25rem 2rem;
   margin-inline: 1.5rem 0;
 }
 
@@ -428,12 +421,8 @@ figcaption:empty {
   margin-block-end: 0.25rem;
 }
 
-.doc h3 + p {
-  margin-block: 0;
-}
-
 .doc .footnote {
-  margin-block: 0;
+  margin-block: 3rem -1.5rem;
 }
 
 .chunk {
@@ -454,11 +443,6 @@ figcaption:empty {
   display: block;
   padding-block: 0.45rem 0.35rem;
   padding-inline: 0.5rem;
-}
-
-.doc .footnote a {
-  display: inline-block;
-  margin-inline-end: 1rem;
 }
 
 hr {
