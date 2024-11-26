@@ -1,15 +1,10 @@
 .resume {
-  margin-block: 0;
-}
-
-.resume p,
-.resume li {
-  max-block-size: var(--small);
+  margin: 0;
 }
 
 .resume h1 {
   font-size: 2.5rem;
-  margin-block: 0.5rem 0.25rem;
+  margin: 0.5rem 0 0.25rem;
 }
 
 .resume h1 + p {
@@ -61,6 +56,18 @@
 
 .resume .footnote {
   margin-block: 0;
+}
+
+.resume .footnote ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.resume .footnote li {
+  display: inline-block;
+  padding: 0;
+  margin-inline-end: 1rem;
 }
 
 .resume .footnote a {
