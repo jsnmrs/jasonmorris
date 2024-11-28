@@ -1,41 +1,31 @@
-name: Convert URL to PDF
-
+name: Resume to tagged PDF
 on:
-  workflow_dispatch:
-    inputs:
-      url:
-        description: 'URL to convert to PDF'
-        required: true
-      output_filename:
-        description: 'Output PDF filename'
-        required: true
-        default: 'output.pdf'
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  convert_to_pdf:
-    name: Convert URL to PDF
+  generate-pdf:
     runs-on: ubuntu-latest
     steps:
-      - name: Convert URL to PDF
-        env:
-          DOCRAPTOR_API_KEY: ${{ secrets.DOCRAPTOR_KEY }}
-        run: |
-          curl -o ${{ github.event.inputs.output_filename }} \
-            --request POST \
-            --header "Content-Type: application/json" \
-            --data '{
-              "user_credentials": "'"$DOCRAPTOR_API_KEY"'",
-              "doc": {
-                "test": true,
-                "document_url": "${{ github.event.inputs.url }}",
-                "type": "pdf",
-                "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true }
-              }
-            }' \
-            https://docraptor.com/docs
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: generated-pdf
-          path: ${{ github.event.inputs.output_filename }}
+      - name: Generate PDF from DocRaptor
+        run: |
+          curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
+          --fail --silent --show-error \
+          --header "Content-Type:application/json" \
+          --data '{
+            "doc": {
+              "test": true,
+              "document_url": "https://jasonmorris.com/resume",
+              "type": "pdf",
+              "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true }
+            }
+          }' > jason-morris-resume.pdf
+
+      - name: Commit and push if PDF changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add jason-morris-resume.pdf
+          git diff --staged --quiet || (git commit -m "Update resume PDF" && git push)
