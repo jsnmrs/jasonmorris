@@ -42,7 +42,7 @@ Full-time, remote
 
 - Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) for clients in a variety of industries
 - Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, and platform-provided accessibility features
-- Provided accessibility strategy on complex interfaces, including data visualizations and canvas-centric applications
+- Provided accessibility strategy and remediation guidance on complex interfaces, including data visualizations and canvas-centric applications
 - Delivered training for engineering teams on writing accessible code and integrating accessibility review into development workflow
 - Consulted on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
 - Built browser-based tools to support the accessibility review process
