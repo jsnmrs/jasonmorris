@@ -11,7 +11,7 @@ meta: "The things I use"
 
 <h2 id="workspace" tabindex="-1">Workspace</h2>
 
-This has built up over time, with trial and error and plenty selling things on eBay that didn't work for me.
+This setup has built up over time, with trial and error and plenty selling things on eBay that didn't work for me.
 
 {% picture "desk", "jpg", "240", "159", "1600", "My workspace, including desk and computer. Details follow.", "" %}
 
