@@ -56,7 +56,7 @@ Full-time, on-site and hybrid
 #### Information Systems Assistant (January 2006 to May 2012)
 
 - Developed and maintained internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA)
-- Maintained compliance with New York State accessibility policy (WCAG 2.0 A)
+- Maintained compliance with New York State accessibility policy
 - Organized user testing sessions to incrementally improve UX for 200,000 monthly visitors
 
 ## Awards
