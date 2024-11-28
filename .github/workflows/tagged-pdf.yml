@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Pause for 2 minutes for deployment
-        run: sleep 120
+      - name: Pause for 1 minute for deployment
+        run: sleep 60
       - name: Generate PDF from DocRaptor
         run: |
           curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
@@ -22,7 +22,7 @@ jobs:
           --header "Content-Type:application/json" \
           --data '{
             "doc": {
-              "test": true,
+              "test": false,
               "document_url": "https://jasonmorris.com/resume",
               "type": "pdf",
               "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true }
@@ -31,8 +31,6 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
         with:
           commit-message: Update resume PDF
           title: 'Update resume PDF'
