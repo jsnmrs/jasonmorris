@@ -14,10 +14,15 @@
   margin: 0;
 }
 
+.resume p,
+.resume li {
+  font-size: 0.9rem;
+}
+
 .resume h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 0.5rem 0 0.25rem;
+  margin: 0 0 0.25rem !important;
 }
 
 .resume h1 + p {
@@ -37,17 +42,6 @@
 }
 
 .resume h4 {
-  margin: 0.25rem 0;
-}
-
-.resume h3 + h4 {
-  margin: 0.5rem 0 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: var(--text-accent);
-}
-
-.resume h4 + h4 {
   margin: 0.25rem 0;
 }
 
