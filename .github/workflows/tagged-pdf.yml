@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      - name: Pause for 2 minutes for deployment
+        run: sleep 120
       - name: Generate PDF from DocRaptor
         run: |
           curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
