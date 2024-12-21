@@ -1,9 +1,12 @@
-module.exports = {
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
+
+export default {
   plugins: [
-    require("autoprefixer")({
+    autoprefixer({
       grid: false,
     }),
-    require("cssnano")({
+    cssnano({
       preset: "default",
     }),
   ],

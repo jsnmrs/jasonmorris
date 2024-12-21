@@ -1,11 +1,11 @@
 name: Resume to tagged PDF
 on:
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch: # Allows manual triggering
   push:
     branches:
       - main
     paths:
-      - 'pages/resume.md'
+      - "pages/resume.md"
 
 jobs:
   generate-pdf:
@@ -33,7 +33,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: Update resume PDF
-          title: 'Update resume PDF'
+          title: "Update resume PDF"
           body: |
             Automated PDF generation from jasonmorris.com/resume
             - Generated using DocRaptor API (Prince XML)

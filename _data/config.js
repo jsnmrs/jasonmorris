@@ -1,3 +1,1 @@
-module.exports = {
-  now: new Date(),
-};
+export const now = new Date();
