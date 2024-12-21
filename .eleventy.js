@@ -1,10 +1,10 @@
-const path = require("path");
-const Image = require("@11ty/eleventy-img");
-const pluginGitCommitDate = require("eleventy-plugin-git-commit-date");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+import path from "path";
+import Image from "@11ty/eleventy-img";
+import pluginGitCommitDate from "eleventy-plugin-git-commit-date";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("audiograph", "layouts/audiograph.html");
   eleventyConfig.addLayoutAlias("doc", "layouts/doc.html");
   eleventyConfig.addLayoutAlias("home", "layouts/home.html");
@@ -142,7 +142,6 @@ module.exports = function (eleventyConfig) {
       }${caption ? `</figure>` : ""}`;
     },
   );
-  // Usage: {% picture "file-name", "jpg", "240", "159", "1600", "Alt text.", "Caption" %}
 
   eleventyConfig.addShortcode(
     "vimeo",
@@ -196,7 +195,6 @@ module.exports = function (eleventyConfig) {
       return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
     },
   );
-  // Usage: {% vimeo "222222222", "poster-name", "jpg", "800", "450", "Video title"}
 
   eleventyConfig.addShortcode(
     "youtube",
@@ -250,7 +248,6 @@ module.exports = function (eleventyConfig) {
       return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
     },
   );
-  // Usage: {% youtube "222222222", "poster-name", "800", "450", "Video title"}
 
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
@@ -266,4 +263,4 @@ module.exports = function (eleventyConfig) {
       output: "./_site",
     },
   };
-};
+}
