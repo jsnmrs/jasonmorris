@@ -4,255 +4,255 @@ import pluginGitCommitDate from "eleventy-plugin-git-commit-date";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
+// Configuration Constants
+const LAYOUT_ALIASES = {
+  audiograph: "layouts/audiograph.html",
+  doc: "layouts/doc.html",
+  home: "layouts/home.html",
+  page: "layouts/page.html",
+  post: "layouts/post.html",
+  tag: "layouts/tag.html",
+};
+
+const STATIC_ASSETS = [
+  "fonts",
+  "img",
+  "css",
+  "favicon.ico",
+  "favicon.svg",
+  "jason-morris-resume.pdf",
+  "manifest.webmanifest",
+  "apple-touch-icon.png",
+  "apple-touch-icon-192.png",
+  "apple-touch-icon-512.png",
+  "robots.txt",
+  "rss.xsl",
+  "sitemap.xsl",
+  ".htaccess",
+];
+
+const MEDIA_BREAKPOINTS = {
+  mobile: {
+    width: 320,
+    media: "(max-width: 320px)",
+  },
+  tablet: {
+    width: 800,
+    media: "(max-width: 800px)",
+  },
+  desktop: {
+    width: 1024,
+    media: "(min-width: 801px)",
+  },
+  wide: {
+    width: 1600,
+    media: "(min-width: 1025px)",
+  },
+};
+
+const IMAGE_FORMATS = ["avif", "webp", "jpeg"];
+
+// Utility Functions
+/**
+ * Safely processes an image with error handling
+ * @param {string} fileName - Path to the image file
+ * @param {number[]} widths - Array of widths to generate
+ * @param {string[]} formats - Array of formats to generate
+ * @param {string} outputDir - Output directory for processed images
+ * @returns {Promise<Object|null>} - Image metadata or null if processing fails
+ */
+const safeImageProcess = async (
+  fileName,
+  widths,
+  formats,
+  outputDir = "./img/",
+) => {
+  try {
+    return await Image(fileName, {
+      widths,
+      formats,
+      outputDir,
+      filenameFormat: (id, src, width, format) => {
+        const extension = path.extname(src);
+        let outExt = format === "jpeg" ? "jpg" : format;
+        const name = path.basename(src, extension);
+        return `${name}-${width}.${outExt}`;
+      },
+    });
+  } catch (error) {
+    console.error(`Failed to process image: ${error.message}`);
+    return null;
+  }
+};
+
+/**
+ * Generates source sets for different image formats and sizes
+ * @param {string} fullPath - Base path to the image
+ * @param {Array<{width: number, media: string}>} sizes - Array of size configurations
+ * @param {string[]} formats - Array of image formats
+ * @returns {Object} - Object containing source sets for each format
+ */
+const generateSourcesets = (fullPath, sizes, formats) => {
+  const sources = {};
+  formats.forEach((format) => {
+    sources[format] = sizes
+      .map(
+        (size) =>
+          `<source media="${size.media}" srcset="${fullPath}-${size.width}.${format === "jpeg" ? "jpg" : format}" ${format !== "jpeg" ? `type="image/${format}"` : ""}>`,
+      )
+      .join("\n");
+  });
+  return sources;
+};
+
+/**
+ * Creates a picture element with optional caption
+ * @param {Object} sources - Source sets for different formats
+ * @param {string} imgSrc - Default image source
+ * @param {string} alt - Alt text
+ * @param {number} width - Image width
+ * @param {number} height - Image height
+ * @param {string} [caption] - Optional caption
+ * @returns {string} - HTML string for picture element
+ */
+const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
+  const picture = `
+    <picture>
+      ${Object.values(sources).join("\n")}
+      <img
+        src="${imgSrc}"
+        alt="${alt}"
+        loading="lazy"
+        width="${width}"
+        height="${height}"
+      >
+    </picture>
+  `.trim();
+
+  return caption
+    ? `<figure>${picture}<figcaption>${caption}</figcaption></figure>`
+    : picture;
+};
+
+/**
+ * Configures plugins for Eleventy
+ * @param {Object} eleventyConfig - Eleventy configuration object
+ */
+const configurePlugins = (eleventyConfig) => {
+  eleventyConfig.addPlugin(pluginGitCommitDate);
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(syntaxHighlight);
+};
+
+// Main Configuration Function
 export default function (eleventyConfig) {
-  eleventyConfig.addLayoutAlias("audiograph", "layouts/audiograph.html");
-  eleventyConfig.addLayoutAlias("doc", "layouts/doc.html");
-  eleventyConfig.addLayoutAlias("home", "layouts/home.html");
-  eleventyConfig.addLayoutAlias("page", "layouts/page.html");
-  eleventyConfig.addLayoutAlias("post", "layouts/post.html");
-  eleventyConfig.addLayoutAlias("tag", "layouts/tag.html");
+  // Configure Layout Aliases
+  Object.entries(LAYOUT_ALIASES).forEach(([alias, layout]) => {
+    eleventyConfig.addLayoutAlias(alias, layout);
+  });
 
-  eleventyConfig.addPassthroughCopy("fonts");
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("favicon.svg");
-  eleventyConfig.addPassthroughCopy("jason-morris-resume.pdf");
-  eleventyConfig.addPassthroughCopy("manifest.webmanifest");
-  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
-  eleventyConfig.addPassthroughCopy("apple-touch-icon-192.png");
-  eleventyConfig.addPassthroughCopy("apple-touch-icon-512.png");
-  eleventyConfig.addPassthroughCopy("robots.txt");
-  eleventyConfig.addPassthroughCopy("rss.xsl");
-  eleventyConfig.addPassthroughCopy("sitemap.xsl");
-  eleventyConfig.addPassthroughCopy(".htaccess");
+  // Configure Static Asset Copying
+  STATIC_ASSETS.forEach((asset) => {
+    eleventyConfig.addPassthroughCopy(asset);
+  });
 
+  // Configure Liquid Options
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
     strict_filters: true,
     root: ["_includes"],
   });
 
+  // Picture Shortcode
   eleventyConfig.addShortcode(
     "picture",
-    function (fileName, ext, width, height, max, alt, caption) {
-      let fullPath = "/img/" + fileName;
-      var sourcesAvif =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-240.avif" type="image/avif">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.avif" type="image/avif">';
-      var sourcesWebp =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-240.webp" type="image/webp">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.webp" type="image/webp">';
-      var sourcesVintage =
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        "-800." +
-        ext +
-        '">';
+    async function (fileName, ext, width, height, max, alt, caption) {
+      const fullPath = `/img/${fileName}`;
+      const sizes = [];
 
-      if (max == "800") {
-        sourcesAvif =
-          sourcesAvif +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          '-800.avif" type="image/avif">';
-        sourcesWebp =
-          sourcesWebp +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          '-800.webp" type="image/webp">';
-        sourcesVintage =
-          sourcesVintage +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          "-800." +
-          ext +
-          '">';
+      // Configure sizes based on max parameter
+      sizes.push({ width: 240, media: MEDIA_BREAKPOINTS.mobile.media });
+      sizes.push({ width: 800, media: MEDIA_BREAKPOINTS.tablet.media });
+
+      if (max === "1024" || max === "1600") {
+        sizes.push({ width: 1024, media: MEDIA_BREAKPOINTS.desktop.media });
+      }
+      if (max === "1600") {
+        sizes.push({ width: 1600, media: MEDIA_BREAKPOINTS.wide.media });
       }
 
-      if (max == "1600" || max == "1024") {
-        sourcesAvif =
-          sourcesAvif +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          '-1024.avif" type="image/avif">';
-        sourcesWebp =
-          sourcesWebp +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          '-1024.webp" type="image/webp">';
-        sourcesVintage =
-          sourcesVintage +
-          '<source media="(min-width: 801px)" srcset="' +
-          fullPath +
-          "-1024." +
-          ext +
-          '">';
-      }
+      // Process image
+      await safeImageProcess(
+        `img/${fileName}.${ext}`,
+        sizes.map((s) => s.width),
+        IMAGE_FORMATS,
+      );
 
-      if (max == "1600") {
-        sourcesAvif =
-          sourcesAvif +
-          '<source media="(min-width: 1025px)" srcset="' +
-          fullPath +
-          '-1600.avif" type="image/avif">';
-        sourcesWebp =
-          sourcesWebp +
-          '<source media="(min-width: 1025px)" srcset="' +
-          fullPath +
-          '-1600.webp" type="image/webp">';
-        sourcesVintage =
-          sourcesVintage +
-          '<source media="(max-width: 1025px)" srcset="' +
-          fullPath +
-          "-1600." +
-          ext +
-          '">';
-      }
-      (async () => {
-        let fullName = "img/" + fileName + "." + ext;
-        let metadata = await Image(fullName, {
-          widths: [240, 800, 1024, 1600],
-          formats: ["webp", "avif", "jpeg"],
-          outputDir: "./img/",
-          filenameFormat: function (id, src, width, format, options) {
-            let extension = path.extname(src),
-              outExt = format;
-            const name = path.basename(src, extension);
-            if (outExt == "jpeg") {
-              outExt = "jpg";
-            }
-            return `${name}-${width}.${outExt}`;
-          },
-        });
-      })();
+      // Generate sources
+      const sources = generateSourcesets(fullPath, sizes, IMAGE_FORMATS);
 
-      return `${
-        caption ? `<figure>` : ""
-      }<picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-240.${ext}" alt="${alt}" loading="lazy" width="${width}" height="${height}"></picture>${
-        caption ? `<figcaption>${caption}</figcaption>` : ""
-      }${caption ? `</figure>` : ""}`;
+      return createPictureElement(
+        sources,
+        `${fullPath}-240.${ext}`,
+        alt,
+        width,
+        height,
+        caption,
+      );
     },
   );
 
-  eleventyConfig.addShortcode(
-    "vimeo",
-    function (videoId, posterName, ext, width, height, title) {
-      let fullPath = "/img/" + posterName;
-      var sourcesAvif =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-320.avif" type="image/avif">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.avif" type="image/avif">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.avif" type="image/avif">';
-      var sourcesWebp =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-320.webp" type="image/webp">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.webp" type="image/webp">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.webp" type="image/webp">';
-      var sourcesVintage =
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.jpg">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.jpg">';
-      (async () => {
-        let fullName = "img/" + posterName + "." + ext;
-        let metadata = await Image(fullName, {
-          widths: [320, 800, 1280],
-          formats: ["webp", "avif", "jpeg"],
-          outputDir: "./img/",
-          filenameFormat: function (id, src, width, format, options) {
-            let extension = path.extname(src),
-              outExt = format;
-            const name = path.basename(src, extension);
-            if (outExt == "jpeg") {
-              outExt = "jpg";
-            }
-            return `${name}-${width}.${outExt}`;
-          },
-        });
-      })();
+  // Video Shortcodes (Vimeo and YouTube)
+  const createVideoShortcode = (platform) => {
+    return async function (videoId, posterName, ext, width, height, title) {
+      const fullPath = `/img/${posterName}`;
+      const sizes = [
+        { width: 320, media: MEDIA_BREAKPOINTS.mobile.media },
+        { width: 800, media: MEDIA_BREAKPOINTS.tablet.media },
+        { width: 1280, media: MEDIA_BREAKPOINTS.desktop.media },
+      ];
 
-      return `<div class="facade"><a class="facade__link" href="https://vimeo.com/${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="vimeo" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    },
-  );
+      await safeImageProcess(
+        `img/${posterName}.${ext}`,
+        sizes.map((s) => s.width),
+        IMAGE_FORMATS,
+      );
+      const sources = generateSourcesets(fullPath, sizes, IMAGE_FORMATS);
 
-  eleventyConfig.addShortcode(
-    "youtube",
-    function (videoId, posterName, ext, width, height, title) {
-      let fullPath = "/img/" + posterName;
-      var sourcesAvif =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-320.avif" type="image/avif">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.avif" type="image/avif">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.avif" type="image/avif">';
-      var sourcesWebp =
-        '<source media="(max-width: 320px)" srcset="' +
-        fullPath +
-        '-320.webp" type="image/webp">' +
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.webp" type="image/webp">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.webp" type="image/webp">';
-      var sourcesVintage =
-        '<source media="(max-width: 800px)" srcset="' +
-        fullPath +
-        '-800.jpg">' +
-        '<source media="(min-width: 801px)" srcset="' +
-        fullPath +
-        '-1280.jpg">';
-      (async () => {
-        let fullName = "img/" + posterName + "." + ext;
-        let metadata = await Image(fullName, {
-          widths: [320, 800, 1280],
-          formats: ["webp", "avif", "jpeg"],
-          outputDir: "./img/",
-          filenameFormat: function (id, src, width, format, options) {
-            let extension = path.extname(src),
-              outExt = format;
-            const name = path.basename(src, extension);
-            if (outExt == "jpeg") {
-              outExt = "jpg";
-            }
-            return `${name}-${width}.${outExt}`;
-          },
-        });
-      })();
+      const platformUrl =
+        platform === "vimeo"
+          ? `https://vimeo.com/${videoId}`
+          : `https://youtube.com/watch?v=${videoId}`;
 
-      return `<div class="facade"><a class="facade__link" href="https://youtube.com/watch?v=${videoId}"><div class="facade__overlay"></div><picture>${sourcesAvif}${sourcesWebp}${sourcesVintage}<img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}"></picture></a><div class="facade__video" data-type="youtube" data-id="${videoId}" data-width="${width}" data-height="${height}" data-title="${title}"></div></div>`;
-    },
-  );
+      return `
+        <div class="facade">
+          <a class="facade__link" href="${platformUrl}">
+            <div class="facade__overlay"></div>
+            <picture>
+              ${Object.values(sources).join("\n")}
+              <img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}">
+            </picture>
+          </a>
+          <div
+            class="facade__video"
+            data-type="${platform}"
+            data-id="${videoId}"
+            data-width="${width}"
+            data-height="${height}"
+            data-title="${title}"
+          ></div>
+        </div>
+      `.trim();
+    };
+  };
 
-  eleventyConfig.addPlugin(pluginGitCommitDate);
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addShortcode("vimeo", createVideoShortcode("vimeo"));
+  eleventyConfig.addShortcode("youtube", createVideoShortcode("youtube"));
 
+  // Configure Plugins
+  configurePlugins(eleventyConfig);
+
+  // Browser Sync Configuration
   eleventyConfig.setBrowserSyncConfig({
     online: false,
   });
