@@ -28,16 +28,16 @@ jobs:
       - name: Build site and test
         run: npm test
 
-      # - run: npm run write &
+      - run: npm run write &
 
-      # - name: Scan site
-      #   uses: double-great/accessibility-scan-action@v0.3.0
-      #   with:
-      #     url: "http://localhost:8080"
+      - name: Scan site
+        uses: double-great/accessibility-scan-action@v0.4.0
+        with:
+          url: "http://localhost:8080"
 
-      # - name: Upload report as artifact
-      #   uses: actions/upload-artifact@v4
-      #   if: success() || failure()
-      #   with:
-      #     name: "Accessibility report"
-      #     path: ${{ github.workspace }}/_accessibility-reports/
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: "Accessibility report"
+          path: ${{ github.workspace }}/_accessibility-reports/
