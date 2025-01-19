@@ -1,46 +1,34 @@
-(function facadeOverlay() {
+(function () {
   "use strict";
 
-  const videos = document.querySelectorAll(".facade"),
-    videoLinks = document.querySelectorAll(".facade__link");
-
-  if (videos.length === videoLinks.length) {
-    videos.forEach((item, index) => {
-      videoLinks[`${index}`].addEventListener("click", videoClick, false);
-    });
-  }
-
-  function videoClick(event) {
-    const videoHolder = this.parentNode.children[1];
-    let videoIframe;
+  function handleVideoClick(event) {
+    const link = event.target.closest(".facade__link");
+    if (!link) return;
 
     event.preventDefault();
+    const videoHolder = link.nextElementSibling;
+
+    if (!videoHolder) return;
+
+    const { type, id, width, height, title } = videoHolder.dataset;
+
+    const iframe = document.createElement("iframe");
+    const srcUrl =
+      type === "vimeo"
+        ? `https://player.vimeo.com/video/${id}?dnt=true&title=0&byline=0&portrait=0&color=ffffff`
+        : `https://www.youtube-nocookie.com/embed/${id}?rel=0&showinfo=0`;
+
+    iframe.src = srcUrl;
+    iframe.title = `${title} — embedded video`;
+    iframe.width = width;
+    iframe.height = height;
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "");
+
     videoHolder.classList.add("video");
-    videoIframe = document.createElement("iframe");
-
-    if (videoHolder.dataset.type == "vimeo") {
-      videoIframe.setAttribute(
-        "src",
-        `https://player.vimeo.com/video/${videoHolder.dataset.id}?dnt=true&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff`,
-      );
-    }
-
-    if (videoHolder.dataset.type == "youtube") {
-      videoIframe.setAttribute(
-        "src",
-        `https://www.youtube-nocookie.com/embed/${videoHolder.dataset.id}?rel=0&amp;showinfo=0`,
-      );
-    }
-
-    videoIframe.setAttribute(
-      "title",
-      `${videoHolder.dataset.title} — embedded video`,
-    );
-    videoIframe.setAttribute("width", videoHolder.dataset.width);
-    videoIframe.setAttribute("height", videoHolder.dataset.height);
-    videoIframe.setAttribute("frameborder", "0");
-    videoIframe.setAttribute("allowfullscreen", "");
-    videoHolder.appendChild(videoIframe);
-    this.remove();
+    videoHolder.appendChild(iframe);
+    link.remove();
   }
+
+  document.addEventListener("click", handleVideoClick);
 })();
