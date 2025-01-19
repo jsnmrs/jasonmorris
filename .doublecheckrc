@@ -24,6 +24,7 @@
   "retext-spell": {
     "ignore": [
       "1Password",
+      "a11y-webring.club",
       "axe-core",
       "Assistance",
       "Barcode",
@@ -44,6 +45,7 @@
       "Dirtbike",
       "DMC",
       "dotfiles",
+      "doublegreat.dev",
       "Dyno",
       "Englander",
       "Fastmail",

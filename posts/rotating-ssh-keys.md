@@ -26,7 +26,7 @@ cp -a ~/.ssh ~/ssh-backup
 
 ## Create a strong passphrase
 
-Generate a strong passphrase for your new SSH key. I use [1Password](https://1password.com/) to generate and store a nice, long passphrase. The [1Password online password generator](https://1password.com/password-generator/) is handy for this, too.
+Generate a strong passphrase for your new SSH key. I use [1Password](https://1password.com/) to generate and store a nice, long passphrase. The [1Password online password generator](https://1password.com/password-generator) is handy for this, too.
 
 ## Create a new key pair
 

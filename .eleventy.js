@@ -224,7 +224,7 @@ export default function (eleventyConfig) {
       const platformUrl =
         platform === "vimeo"
           ? `https://vimeo.com/${videoId}`
-          : `https://youtube.com/watch?v=${videoId}`;
+          : `https://www.youtube.com/watch?v=${videoId}`;
 
       return `
         <div class="facade">
