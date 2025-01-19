@@ -14,7 +14,7 @@ Instructions for replacing fork seal clips on a 1982 Suzuki GS850L motorcycle:
 
 1. Stare at recently removed, broken, and rusted fork clips.
 2. Find that rebuilding your forks cannot continue until new clips are procured.
-3. Google &ldquo;[1982 Suzuki GS850L fork seal clips](https://www.google.com/#q=1982+Suzuki+GS850L+fork+seal+clips)&rdquo;.
+3. Google &ldquo;[1982 Suzuki GS850L fork seal clips](https://www.google.com/search?q=1982+Suzuki+GS850L+fork+seal+clips)&rdquo;.
 4. Decide that ordering the part online will not yield same day delivery.
 5. Think.
 6. Travel to local bicycle shop and ask for two 15 gauge spokes.
