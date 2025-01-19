@@ -28,7 +28,7 @@ jobs:
       - name: Build site and test
         run: npm test
 
-      - run: npm run write &
+      - run: npm run dev &
 
       - name: Scan site
         uses: double-great/accessibility-scan-action@v0.4.0
