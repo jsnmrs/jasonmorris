@@ -1,56 +1,71 @@
-let script = document.createElement("script");
-script.type = "text/javascript";
-script.src = "https://www.youtube.com/iframe_api";
-document.head.appendChild(script);
+(function () {
+  "use strict";
 
-let player;
-let isPlaying = false;
+  let player;
+  let isPlaying = false;
 
-function onYouTubeIframeAPIReady() {
-  const playerElement = document.getElementById("player");
-  const videoId = playerElement.getAttribute("data-video-id");
+  const script = document.createElement("script");
+  script.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(script);
 
-  player = new YT.Player("player", {
-    height: "0",
-    width: "0",
-    videoId: videoId,
-    playerVars: {
-      autoplay: 0,
-      controls: 0,
-    },
-    events: {
-      onReady: onPlayerReady,
-    },
-  });
-}
+  window.onYouTubeIframeAPIReady = function () {
+    const playerElement = document.getElementById("player");
+    if (!playerElement) return;
 
-function onPlayerReady(event) {
-  const playPauseBtn = document.getElementById("play-pause-btn");
-  playPauseBtn.addEventListener("click", togglePlayPause);
+    const videoId = playerElement.getAttribute("data-video-id");
+    if (!videoId) return;
 
-  const volumeControl = document.getElementById("volume-control");
-  volumeControl.addEventListener("input", updateVolume);
+    player = new YT.Player("player", {
+      height: "0",
+      width: "0",
+      videoId: videoId,
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+      },
+      events: {
+        onReady: initializeControls,
+      },
+    });
+  };
 
-  // Set initial volume
-  updateVolume();
-}
+  function initializeControls() {
+    const playButton = document.getElementById("play-pause-btn");
+    const volumeControl = document.getElementById("volume-control");
 
-function togglePlayPause() {
-  if (isPlaying) {
-    player.pauseVideo();
-    document.getElementById("play-pause-btn").textContent = "Play";
-  } else {
-    player.playVideo();
-    document.getElementById("play-pause-btn").textContent = "Pause";
+    if (!playButton || !volumeControl) return;
+
+    playButton.addEventListener("click", togglePlayPause);
+    volumeControl.addEventListener("input", updateVolume);
+    updateVolume();
   }
-  isPlaying = !isPlaying;
-}
 
-function updateVolume() {
-  const volumeControl = document.getElementById("volume-control");
-  const volumeDisplay = document.getElementById("volume-display");
-  const volume = volumeControl.value;
+  function togglePlayPause() {
+    if (!player) return;
 
-  player.setVolume(volume);
-  volumeDisplay.textContent = volume + "%";
-}
+    const playButton = document.getElementById("play-pause-btn");
+    if (!playButton) return;
+
+    if (isPlaying) {
+      player.pauseVideo();
+      playButton.textContent = "Play";
+    } else {
+      player.playVideo();
+      playButton.textContent = "Pause";
+    }
+    isPlaying = !isPlaying;
+  }
+
+  function updateVolume() {
+    if (!player) return;
+
+    const volumeControl = document.getElementById("volume-control");
+    const volumeDisplay = document.getElementById("volume-display");
+
+    if (!volumeControl || !volumeDisplay) return;
+
+    const volume = volumeControl.value;
+    player.setVolume(volume);
+    volumeDisplay.textContent = volume + "%";
+  }
+})();
