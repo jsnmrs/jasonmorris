@@ -31,7 +31,7 @@ jobs:
       - run: npm run dev &
 
       - name: Scan site
-        uses: double-great/accessibility-scan-action@v0.4.0
+        uses: double-great/accessibility-scan-action@main
         with:
           url: "http://localhost:8080"
 
@@ -41,3 +41,15 @@ jobs:
         with:
           name: "Accessibility report"
           path: ${{ github.workspace }}/_accessibility-reports/
+
+      - uses: actions/github-script@v3
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `${{ steps.scan.outputs['summary-report'] }}`
+            })
