@@ -31,6 +31,7 @@ jobs:
       - run: npm run dev &
 
       - name: Scan site
+        id: scan
         uses: double-great/accessibility-scan-action@main
         with:
           url: "http://localhost:8080"
