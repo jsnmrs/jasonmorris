@@ -22,7 +22,9 @@ International Association of Accessibility Professionals (IAAP)
 
 Full-time, remote
 
-#### Accessibility Engineer (May 2021 to February 2023, July 2024 to present)
+#### Accessibility Engineer, Digital Strategy and Development Team Lead (January 2025 to present)
+
+#### Accessibility Engineer (May 2021 to February 2023, July 2024 to December 2024)
 
 #### Senior Web Developer (January 2019 to April 2021)
 
