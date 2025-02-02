@@ -35,12 +35,14 @@ This is the code repository for my [personal website, jasonmorris.com](https://j
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/jsnmrs/jasonmorris.git
 cd jasonmorris
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -48,11 +50,13 @@ npm install
 ## Development
 
 Start the development server:
+
 ```bash
 npm run dev
 ```
 
 This will:
+
 - Start Eleventy in development mode with live reload
 - Watch and compile CSS files
 - Watch and compile JavaScript files
@@ -60,11 +64,13 @@ This will:
 ## Building
 
 Build the site for production:
+
 ```bash
 npm run build
 ```
 
 This command:
+
 1. Cleans the output directory
 2. Runs all linting tasks
 3. Builds CSS and JavaScript
