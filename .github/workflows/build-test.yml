@@ -28,6 +28,9 @@ jobs:
       - name: Build site and test
         run: npm run build
 
+      - name: Create report directory
+        run: mkdir -p _accessibility-reports
+
       - run: npm run dev &
 
       - name: Scan site
