@@ -10,6 +10,10 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   build:
     name: Build site
@@ -32,6 +36,20 @@ jobs:
         run: mkdir -p _accessibility-reports
 
       - run: npm run dev &
+
+      - name: Wait for server to be ready
+        run: |
+          attempt_counter=0
+          max_attempts=20
+          until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
+            if [ ${attempt_counter} -eq ${max_attempts} ];then
+              echo "Max attempts reached. Server not started."
+              exit 1
+            fi
+            printf '.'
+            attempt_counter=$((attempt_counter+1))
+            sleep 5
+          done
 
       - name: Scan site
         id: scan
