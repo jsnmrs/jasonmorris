@@ -38,7 +38,8 @@ jobs:
       - name: Validate deployment status
         if: steps.wait-for-deploy.outputs.conclusion != 'success'
         run: |
-          echo "Deployment did not complete successfully"
+          echo "Deployment did not complete successfully. Conclusion: ${steps.wait-for-deploy.outputs.conclusion}"
+          echo "Check deployment logs at: https://github.com/${{ github.repository }}/actions"
           exit 1
 
       - name: Generate PDF from DocRaptor
