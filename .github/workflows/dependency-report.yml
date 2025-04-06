@@ -1,0 +1,129 @@
+name: Dependency health report
+
+on:
+  workflow_dispatch: # enable run button on github.com
+  schedule:
+    - cron: "0 8 1 * *" # Run on the 1st of every month at 8:00 UTC
+
+concurrency:
+  group: dependency-report
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  dependency-report:
+    name: Generate dependency health report
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      - name: Generate dependency report
+        id: dependency_check
+        run: |
+          echo "# Dependency Health Report" > dependency-report.md
+          echo "Generated on $(date)" >> dependency-report.md
+          echo "" >> dependency-report.md
+
+          echo "## Outdated Dependencies" >> dependency-report.md
+          echo "" >> dependency-report.md
+          echo "| Package | Current | Latest | Type | Age | Status |" >> dependency-report.md
+          echo "|---------|---------|--------|------|-----|--------|" >> dependency-report.md
+
+          # Get all outdated dependencies with full details
+          npm outdated --json | jq -r 'to_entries | .[] | select(.value.current != .value.latest) |
+            "\(.key) | \(.value.current) | \(.value.latest) | \(.value.type) | \(if .value.latest_publish_date then .value.latest_publish_date else "Unknown" end) | \(
+              if (.value.latest | split(".")[0]) > (.value.current | split(".")[0]) then "⚠️ Major"
+              elif (.value.latest | split(".")[1]) > (.value.current | split(".")[1]) then "🔄 Minor"
+              else "📌 Patch" end
+            )"' | sed 's/ | /|/g' >> dependency-report.md || echo "No outdated dependencies found."
+
+          echo "" >> dependency-report.md
+
+          # Add ncu report (more semantic update info)
+          echo "## Recommended Updates" >> dependency-report.md
+          echo "```" >> dependency-report.md
+          ncu >> dependency-report.md
+          echo "```" >> dependency-report.md
+
+          echo "" >> dependency-report.md
+          echo "## Security Vulnerabilities" >> dependency-report.md
+          echo "```" >> dependency-report.md
+          npm audit --json | jq -r '.metadata.vulnerabilities | "Low: \(.low), Moderate: \(.moderate), High: \(.high), Critical: \(.critical)"' >> dependency-report.md
+          echo "```" >> dependency-report.md
+
+          # Add overall summary
+          OUTDATED_COUNT=$(npm outdated --json | jq 'length')
+          VULNERABILITY_COUNT=$(npm audit --json | jq '.vulnerabilities | length')
+
+          echo "## Summary" >> dependency-report.md
+          echo "- **Total outdated packages:** ${OUTDATED_COUNT:-0}" >> dependency-report.md
+          echo "- **Total vulnerabilities:** ${VULNERABILITY_COUNT:-0}" >> dependency-report.md
+          echo "- **Last Dependabot update:** $(git log --grep='Bump' --date=short --pretty=format:'%ad' | head -n1 || echo 'None found')" >> dependency-report.md
+
+          # Check if dependabot is configured properly
+          if [ -f ".github/dependabot.yml" ]; then
+            echo "- **Dependabot status:** Configured ✅" >> dependency-report.md
+          else
+            echo "- **Dependabot status:** Not configured ❌" >> dependency-report.md
+          fi
+
+          cat dependency-report.md
+
+      - name: Create issue if there are updates
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const reportContent = fs.readFileSync('dependency-report.md', 'utf8');
+
+            // Check if there's anything to report (outdated deps or vulnerabilities)
+            const outdatedMatch = reportContent.match(/Total outdated packages:\s*(\d+)/);
+            const vulnMatch = reportContent.match(/Total vulnerabilities:\s*(\d+)/);
+
+            const outdatedCount = outdatedMatch ? parseInt(outdatedMatch[1]) : 0;
+            const vulnCount = vulnMatch ? parseInt(vulnMatch[1]) : 0;
+
+            if (outdatedCount > 0 || vulnCount > 0) {
+              // Create a title with summary
+              let title = "📦 Monthly Dependency Report";
+              if (vulnCount > 0) {
+                title += ` (${vulnCount} vuln${vulnCount > 1 ? 's' : ''})`;
+              }
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: reportContent,
+                labels: ['dependencies', 'automated-report']
+              });
+
+              console.log('Created dependency report issue');
+            } else {
+              console.log('No outdated dependencies or vulnerabilities found');
+            }
+
+      - name: Save report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-health-report
+          path: dependency-report.md
