@@ -42,8 +42,15 @@ jobs:
         run: npm run build
         timeout-minutes: 15
 
-      - name: Create reports directory
-        run: mkdir -p _reports/{accessibility,performance,seo,links,html,css}
+      - name: Create reports directory with placeholder files
+        run: |
+          mkdir -p _reports/{accessibility,performance,seo,links,html,css}
+          touch _reports/accessibility/.placeholder
+          touch _reports/performance/.placeholder
+          touch _reports/seo/.placeholder
+          touch _reports/links/.placeholder
+          touch _reports/html/.placeholder
+          touch _reports/css/.placeholder
 
       - name: Start development server
         run: |
