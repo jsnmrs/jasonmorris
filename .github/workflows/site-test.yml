@@ -1,0 +1,535 @@
+name: Scheduled Full Site Testing
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # Run every Monday at 1:00 AM UTC
+  workflow_dispatch: # Enable manual triggering
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  setup:
+    name: Setup Environment
+    runs-on: ubuntu-latest
+    outputs:
+      server_url: http://localhost:8080
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache npm packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-deps-
+          # Set reasonable cache expiration
+          retention-days: 7
+
+      - name: Build site
+        run: npm run build
+        timeout-minutes: 15
+
+      - name: Create reports directory
+        run: mkdir -p _reports/{accessibility,performance,seo,links,html,css}
+
+      - name: Start development server
+        run: |
+          npm run dev &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
+
+      - name: Wait for server to be ready
+        timeout-minutes: 2
+        run: |
+          attempt_counter=0
+          max_attempts=40
+          echo "Waiting for server to be ready..."
+          until $(curl --output /dev/null --silent --head --fail --max-time 3 http://localhost:8080); do
+            if [ ${attempt_counter} -eq ${max_attempts} ]; then
+              echo "Max attempts reached. Server not started."
+              exit 1
+            fi
+            echo "Attempt $attempt_counter/$max_attempts - Retrying in 2 seconds..."
+            attempt_counter=$((attempt_counter+1))
+            sleep 2
+          done
+          echo "Server is ready!"
+
+      - name: Upload reports directory for later jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports/
+          retention-days: 14
+
+  accessibility:
+    name: Accessibility Testing
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run accessibility tests (WCAG2AAA)
+        id: a11y_tests
+        run: |
+          npx pa11y-ci --config .pa11yci --json > _reports/accessibility/pa11y-results.json
+          npx pa11y-ci --config .pa11yci --reporter html > _reports/accessibility/pa11y-report.html
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-reports
+          path: _reports/accessibility/
+          retention-days: 14
+
+  performance:
+    name: Performance Testing
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run Lighthouse tests
+        id: lighthouse_tests
+        run: |
+          npx lighthouse ${{ needs.setup.outputs.server_url }} \
+            --chrome-flags="--headless --no-sandbox" \
+            --output html --output json \
+            --output-path=_reports/performance/lighthouse-report
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-reports
+          path: _reports/performance/
+          retention-days: 14
+
+  seo:
+    name: SEO Testing
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run SEO tests with Lighthouse
+        id: seo_tests
+        run: |
+          npx lighthouse ${{ needs.setup.outputs.server_url }} \
+            --only-categories=seo \
+            --chrome-flags="--headless --no-sandbox" \
+            --output html --output json \
+            --output-path=_reports/seo/seo-report
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-reports
+          path: _reports/seo/
+          retention-days: 14
+
+  html-validation:
+    name: HTML Validation
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run HTML validation tests
+        id: html_validation
+        run: |
+          npx html-validate _site --formatter json > _reports/html/html-validation.json
+          npx html-validate _site --formatter stylish > _reports/html/html-validation.txt
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-reports
+          path: _reports/html/
+          retention-days: 14
+
+  css-analysis:
+    name: CSS Analysis
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run CSS analysis
+        id: css_analysis
+        run: |
+          npx stylelint "css/**/*.css" --formatter json > _reports/css/stylelint-results.json
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: css-reports
+          path: _reports/css/
+          retention-days: 14
+
+  link-checker:
+    name: Link Checking
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Download reports directory
+        uses: actions/download-artifact@v4
+        with:
+          name: reports-dir
+          path: _reports
+
+      - name: Run broken link checker
+        id: link_checker
+        run: |
+          npx blc ${{ needs.setup.outputs.server_url }} -ro --exclude-external --filter-level 3 --recursive > _reports/links/internal-links.txt
+          npx blc ${{ needs.setup.outputs.server_url }} -ro --include-external --filter-level 3 --recursive > _reports/links/all-links.txt
+
+          # Generate JSON report for GitHub issue - fixed the REDIRECT grep pattern
+          echo "{" > _reports/links/summary.json
+          echo "  \"internal\": {" >> _reports/links/summary.json
+          echo "    \"broken\": $(grep -c "BROKEN" _reports/links/internal-links.txt || echo 0)," >> _reports/links/summary.json
+          echo "    \"redirects\": $(grep -c "REDIRECT" _reports/links/internal-links.txt || echo 0)" >> _reports/links/summary.json
+          echo "  }," >> _reports/links/summary.json
+          echo "  \"all\": {" >> _reports/links/summary.json
+          echo "    \"broken\": $(grep -c "BROKEN" _reports/links/all-links.txt || echo 0)," >> _reports/links/summary.json
+          echo "    \"redirects\": $(grep -c "REDIRECT" _reports/links/all-links.txt || echo 0)" >> _reports/links/summary.json
+          echo "  }" >> _reports/links/summary.json
+          echo "}" >> _reports/links/summary.json
+        continue-on-error: true
+
+      - name: Upload updated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-reports
+          path: _reports/links/
+          retention-days: 14
+
+  create-report:
+    name: Create Consolidated Report
+    needs: [accessibility, performance, seo, html-validation, css-analysis, link-checker]
+    runs-on: ubuntu-latest
+    if: always()  # Run even if previous jobs failed
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: _reports_all
+
+      - name: Install report generation dependencies
+        run: |
+          npm ci
+          # Use npx instead of global installs to avoid permission issues and redundancy
+          # Pin versions for better reproducibility and cache efficiency
+          echo "Using npx for one-time tool execution"
+
+      - name: Process reports
+        id: process_reports
+        run: |
+          # Create a directory for the consolidated report
+          mkdir -p _consolidated_report
+
+          # Initialize report status
+          REPORT_STATUS="success"
+          ERRORS_FOUND=0
+          WARNINGS_FOUND=0
+
+          echo "## Site Testing Report - $(date '+%Y-%m-%d')" > _consolidated_report/report.md
+          echo "" >> _consolidated_report/report.md
+
+          # Check and terminate server if still running (with error handling)
+          if [ ! -z "${SERVER_PID:-}" ] && ps -p $SERVER_PID > /dev/null; then
+            echo "Terminating server process..."
+            kill $SERVER_PID || echo "Server already terminated"
+          fi
+
+          # Process accessibility reports
+          if [ -d "_reports_all/accessibility-reports" ]; then
+            echo "### Accessibility Issues" >> _consolidated_report/report.md
+            if [ -f "_reports_all/accessibility-reports/pa11y-results.json" ]; then
+              # Safely extract accessibility issues with error handling
+              A11Y_ISSUES=$(cat "_reports_all/accessibility-reports/pa11y-results.json" | jq 'length' 2>/dev/null || echo "Error processing file")
+              if [[ "$A11Y_ISSUES" =~ ^[0-9]+$ ]]; then
+                if [ $A11Y_ISSUES -gt 0 ]; then
+                  ERRORS_FOUND=$((ERRORS_FOUND + A11Y_ISSUES))
+                  REPORT_STATUS="failure"
+                  echo "- Found $A11Y_ISSUES accessibility issues" >> _consolidated_report/report.md
+                else
+                  echo "- No accessibility issues found" >> _consolidated_report/report.md
+                fi
+              else
+                echo "- Error processing accessibility report" >> _consolidated_report/report.md
+              fi
+            else
+              echo "- Accessibility report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Process performance reports
+          if [ -d "_reports_all/performance-reports" ]; then
+            echo "### Performance Metrics" >> _consolidated_report/report.md
+            if [ -f "_reports_all/performance-reports/lighthouse-report.json" ]; then
+              # Safely extract performance scores with error handling for missing metrics
+              PERF_SCORE=$(cat "_reports_all/performance-reports/lighthouse-report.json" | jq '.categories.performance.score' 2>/dev/null || echo "N/A")
+              FCP_SCORE=$(cat "_reports_all/performance-reports/lighthouse-report.json" | jq '.audits["first-contentful-paint"].score' 2>/dev/null || echo "N/A")
+              LCP_SCORE=$(cat "_reports_all/performance-reports/lighthouse-report.json" | jq '.audits["largest-contentful-paint"].score' 2>/dev/null || echo "N/A")
+
+              echo "- Performance score: $PERF_SCORE" >> _consolidated_report/report.md
+              echo "- First Contentful Paint: $FCP_SCORE" >> _consolidated_report/report.md
+              echo "- Largest Contentful Paint: $LCP_SCORE" >> _consolidated_report/report.md
+
+              # Check if performance score is below threshold
+              if [[ "$PERF_SCORE" =~ ^0\.[0-6][0-9]* ]]; then
+                REPORT_STATUS="failure"
+                WARNINGS_FOUND=$((WARNINGS_FOUND + 1))
+              fi
+            else
+              echo "- Performance report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Process SEO reports
+          if [ -d "_reports_all/seo-reports" ]; then
+            echo "### SEO Metrics" >> _consolidated_report/report.md
+            if [ -f "_reports_all/seo-reports/seo-report.json" ]; then
+              SEO_SCORE=$(cat "_reports_all/seo-reports/seo-report.json" | jq '.categories.seo.score' 2>/dev/null || echo "N/A")
+
+              echo "- SEO score: $SEO_SCORE" >> _consolidated_report/report.md
+
+              # Check if SEO score is below threshold
+              if [[ "$SEO_SCORE" =~ ^0\.[0-7][0-9]* ]]; then
+                REPORT_STATUS="failure"
+                WARNINGS_FOUND=$((WARNINGS_FOUND + 1))
+              fi
+            else
+              echo "- SEO report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Process HTML validation reports
+          if [ -d "_reports_all/html-reports" ]; then
+            echo "### HTML Validation Issues" >> _consolidated_report/report.md
+            if [ -f "_reports_all/html-reports/html-validation.txt" ]; then
+              HTML_ISSUES=$(grep -c "error" "_reports_all/html-reports/html-validation.txt" || echo 0)
+
+              if [ $HTML_ISSUES -gt 0 ]; then
+                ERRORS_FOUND=$((ERRORS_FOUND + HTML_ISSUES))
+                REPORT_STATUS="failure"
+                echo "- Found $HTML_ISSUES HTML validation errors" >> _consolidated_report/report.md
+              else
+                echo "- No HTML validation errors found" >> _consolidated_report/report.md
+              fi
+            else
+              echo "- HTML validation report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Process CSS analysis reports
+          if [ -d "_reports_all/css-reports" ]; then
+            echo "### CSS Issues" >> _consolidated_report/report.md
+            if [ -f "_reports_all/css-reports/stylelint-results.json" ]; then
+              CSS_ISSUES=$(cat "_reports_all/css-reports/stylelint-results.json" | jq '.[].warnings | length' 2>/dev/null | awk '{sum+=$1} END {print sum}' || echo 0)
+
+              if [ $CSS_ISSUES -gt 0 ]; then
+                WARNINGS_FOUND=$((WARNINGS_FOUND + CSS_ISSUES))
+                echo "- Found $CSS_ISSUES CSS style issues" >> _consolidated_report/report.md
+              else
+                echo "- No CSS style issues found" >> _consolidated_report/report.md
+              fi
+            else
+              echo "- CSS analysis report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Process link checker reports - fix the REDIRECT grep pattern issue
+          if [ -d "_reports_all/link-reports" ]; then
+            echo "### Link Issues" >> _consolidated_report/report.md
+            if [ -f "_reports_all/link-reports/summary.json" ]; then
+              # Parse the JSON directly rather than grepping the text file
+              BROKEN_INTERNAL=$(cat "_reports_all/link-reports/summary.json" | jq '.internal.broken' 2>/dev/null || echo 0)
+              REDIRECTS_INTERNAL=$(cat "_reports_all/link-reports/summary.json" | jq '.internal.redirects' 2>/dev/null || echo 0)
+              BROKEN_ALL=$(cat "_reports_all/link-reports/summary.json" | jq '.all.broken' 2>/dev/null || echo 0)
+              REDIRECTS_ALL=$(cat "_reports_all/link-reports/summary.json" | jq '.all.redirects' 2>/dev/null || echo 0)
+
+              # Internal link issues
+              echo "- Internal broken links: $BROKEN_INTERNAL" >> _consolidated_report/report.md
+              echo "- Internal redirects: $REDIRECTS_INTERNAL" >> _consolidated_report/report.md
+
+              # All link issues (including external)
+              echo "- Total broken links: $BROKEN_ALL" >> _consolidated_report/report.md
+              echo "- Total redirects: $REDIRECTS_ALL" >> _consolidated_report/report.md
+
+              # Update error/warning counts
+              if [ $BROKEN_INTERNAL -gt 0 ]; then
+                ERRORS_FOUND=$((ERRORS_FOUND + BROKEN_INTERNAL))
+                REPORT_STATUS="failure"
+              fi
+
+              if [ $REDIRECTS_INTERNAL -gt 0 ]; then
+                WARNINGS_FOUND=$((WARNINGS_FOUND + REDIRECTS_INTERNAL))
+              fi
+            else
+              echo "- Link report not found" >> _consolidated_report/report.md
+            fi
+            echo "" >> _consolidated_report/report.md
+          fi
+
+          # Add summary section at the top
+          SUMMARY="## Summary\n\n"
+          if [ "$REPORT_STATUS" == "success" ]; then
+            SUMMARY="${SUMMARY}✅ **All tests passed**\n\n"
+          else
+            SUMMARY="${SUMMARY}❌ **Tests failed**\n\n"
+          fi
+          SUMMARY="${SUMMARY}- Errors: $ERRORS_FOUND\n"
+          SUMMARY="${SUMMARY}- Warnings: $WARNINGS_FOUND\n\n"
+
+          # Insert summary at the top of the report
+          sed -i "3i\\$SUMMARY" _consolidated_report/report.md
+
+          # Save status as output
+          echo "report-status=$REPORT_STATUS" >> $GITHUB_OUTPUT
+          echo "errors-found=$ERRORS_FOUND" >> $GITHUB_OUTPUT
+          echo "warnings-found=$WARNINGS_FOUND" >> $GITHUB_OUTPUT
+
+      - name: Upload consolidated report
+        uses: actions/upload-artifact@v4
+        with:
+          name: consolidated-report
+          path: _consolidated_report/
+          retention-days: 14
+
+      - name: Create GitHub issue with report
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const reportContent = fs.readFileSync('_consolidated_report/report.md', 'utf8');
+
+            // Create a title with run status
+            let statusEmoji = "${{ steps.process_reports.outputs.report-status }}" === "success" ? "✅" : "❌";
+            let title = `${statusEmoji} Site Testing Report - ${new Date().toISOString().split('T')[0]}`;
+
+            if (parseInt("${{ steps.process_reports.outputs.errors-found }}") > 0) {
+              title += ` (${parseInt("${{ steps.process_reports.outputs.errors-found }}")} errors)`;
+            } else if (parseInt("${{ steps.process_reports.outputs.warnings-found }}") > 0) {
+              title += ` (${parseInt("${{ steps.process_reports.outputs.warnings-found }}")} warnings)`;
+            }
+
+            // Add run information to the report
+            let fullReport = reportContent + "\n\n---\n\n";
+            fullReport += `**Workflow run**: [View Run](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})\n`;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: fullReport,
+              labels: ['automated-report', 'site-testing']
+            });
