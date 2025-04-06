@@ -66,7 +66,7 @@ jobs:
           fi
 
           # Verify PDF structure (basic check)
-          if ! file jason-morris-resume.pdf | grep -q "PDF document"; then
+          if ! file "jason-morris-resume.pdf" | grep -q "PDF document"; then
             echo "Generated file is not a valid PDF"
             exit 1
           fi
