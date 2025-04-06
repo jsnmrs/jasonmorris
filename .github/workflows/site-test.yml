@@ -43,12 +43,15 @@ jobs:
       - name: Create reports directory with placeholder files
         run: |
           mkdir -p _reports/{accessibility,performance,seo,links,html,css}
-          touch _reports/accessibility/.placeholder
-          touch _reports/performance/.placeholder
-          touch _reports/seo/.placeholder
-          touch _reports/links/.placeholder
-          touch _reports/html/.placeholder
-          touch _reports/css/.placeholder
+          # Create non-empty placeholder files
+          echo "Placeholder for accessibility reports" > _reports/accessibility/placeholder.txt
+          echo "Placeholder for performance reports" > _reports/performance/placeholder.txt
+          echo "Placeholder for SEO reports" > _reports/seo/placeholder.txt
+          echo "Placeholder for link reports" > _reports/links/placeholder.txt
+          echo "Placeholder for HTML reports" > _reports/html/placeholder.txt
+          echo "Placeholder for CSS reports" > _reports/css/placeholder.txt
+          # List the directory to verify files exist
+          ls -la _reports/*/
 
       - name: Start development server
         run: |
@@ -78,6 +81,9 @@ jobs:
           name: reports-dir
           path: _reports/
           retention-days: 14
+          if-no-files-found: warn
+          overwrite: true
+          compression-level: 6
 
   accessibility:
     name: Accessibility Testing
@@ -301,9 +307,17 @@ jobs:
 
   create-report:
     name: Create Consolidated Report
-    needs: [accessibility, performance, seo, html-validation, css-analysis, link-checker]
+    needs:
+      [
+        accessibility,
+        performance,
+        seo,
+        html-validation,
+        css-analysis,
+        link-checker,
+      ]
     runs-on: ubuntu-latest
-    if: always()  # Run even if previous jobs failed
+    if: always() # Run even if previous jobs failed
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
