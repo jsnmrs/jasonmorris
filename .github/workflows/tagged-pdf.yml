@@ -1,22 +1,51 @@
 name: Resume to tagged PDF
+
 on:
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch: # enable run button on github.com
   push:
     branches:
       - main
     paths:
       - "pages/resume.md"
 
+concurrency:
+  group: pdf-generation
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   generate-pdf:
+    name: Generate tagged PDF
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Checkout repository
+      - name: Checkout branch
         uses: actions/checkout@v4
-      - name: Pause for 1 minute for deployment
-        run: sleep 60
-      - name: Generate PDF from DocRaptor
+
+      - name: Wait for deployment to complete
+        uses: fountainhead/action-wait-for-check@v1.1.0
+        id: wait-for-deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: deploy
+          ref: ${{ github.sha }}
+          timeoutSeconds: 300
+          intervalSeconds: 15
+
+      - name: Validate deployment status
+        if: steps.wait-for-deploy.outputs.conclusion != 'success'
         run: |
+          echo "Deployment did not complete successfully"
+          exit 1
+
+      - name: Generate PDF from DocRaptor
+        id: generate_pdf
+        timeout-minutes: 5
+        run: |
+          set -e
           curl https://${{ secrets.DOCRAPTOR_KEY }}@api.docraptor.com/docs \
           --fail --silent --show-error \
           --header "Content-Type:application/json" \
@@ -29,7 +58,23 @@ jobs:
             }
           }' > jason-morris-resume.pdf
 
+          # Verify file exists and has content
+          if [ ! -s "jason-morris-resume.pdf" ]; then
+            echo "PDF generation failed: Empty or missing file"
+            exit 1
+          fi
+
+          # Verify PDF structure (basic check)
+          if ! file jason-morris-resume.pdf | grep -q "PDF document"; then
+            echo "Generated file is not a valid PDF"
+            exit 1
+          fi
+
+          echo "PDF generated successfully"
+          echo "pdf_generated=true" >> $GITHUB_OUTPUT
+
       - name: Create Pull Request
+        if: success()
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: Update resume PDF
