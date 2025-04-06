@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # enable run button on github.com
   pull_request:
   schedule:
-    - cron: '03 00 * * 4' # Run every Thursday at 12:03am
+    - cron: "03 00 * * 4" # Run every Thursday at 12:03am
 
 concurrency:
   group: ${{ github.ref }}
@@ -26,9 +26,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
-          cache-dependency-path: './package-lock.json'
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
 
       - name: Install dependencies
         run: npm ci
@@ -65,7 +65,7 @@ jobs:
         id: scan
         uses: double-great/accessibility-scan-action@main
         with:
-          url: 'http://localhost:8080'
+          url: "http://localhost:8080"
 
       - name: Stop development server
         if: always()
@@ -75,7 +75,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: success() || failure()
         with:
-          name: 'Accessibility report'
+          name: "Accessibility report"
           path: ${{ github.workspace }}/_accessibility-reports/
 
       - name: Post comment to PR
