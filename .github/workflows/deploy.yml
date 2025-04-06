@@ -10,6 +10,9 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build-deploy:
     name: Build and deploy site
@@ -30,6 +33,7 @@ jobs:
 
       - name: Build site
         run: npm run build
+        timeout-minutes: 15
 
       - name: Check build output exists
         run: |
@@ -53,4 +57,39 @@ jobs:
 
       - name: Verify deployment
         if: success()
-        run: echo "Site deployed successfully at $(date)"
+        run: |
+          # Wait a few seconds for the deployment to finalize
+          sleep 5
+          SITE_URL="${{ secrets.SITE_URL }}"
+
+          # Perform basic health check
+          echo "Verifying deployment at $SITE_URL"
+          response=$(curl -s -L -o /dev/null -w "%{http_code}" --max-time 10 -k $SITE_URL)
+          if [ "$response" -ge 200 ] && [ "$response" -lt 400 ]; then
+            echo "Site is responding with HTTP $response"
+          else
+            echo "Site is not responding properly. Got HTTP status: $response"
+            exit 1
+          fi
+
+          # Check for expected content on the homepage
+          if curl -s -L --max-time 10 -k $SITE_URL | grep -q "Jason Morris"; then
+            echo "✅ Homepage contains expected content"
+          else
+            echo "❌ Homepage is missing expected content"
+            exit 1
+          fi
+
+          # Test critical functionality/pages
+          CRITICAL_PAGES=("/resume" "/accessibility")
+          for page in "${CRITICAL_PAGES[@]}"; do
+            response=$(curl -s -L -o /dev/null -w "%{http_code}" --max-time 10 -k $SITE_URL$page)
+            if [ "$response" -ge 200 ] && [ "$response" -lt 400 ]; then
+              echo "✅ Page $page is reachable"
+            else
+              echo "❌ Page $page is not reachable"
+              exit 1
+            fi
+          done
+
+          echo "Site deployed successfully and verified at $(date)"
