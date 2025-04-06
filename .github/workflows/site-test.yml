@@ -35,8 +35,6 @@ jobs:
           path: ~/.npm
           key: npm-deps-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-deps-
-          # Set reasonable cache expiration
-          retention-days: 7
 
       - name: Build site
         run: npm run build
