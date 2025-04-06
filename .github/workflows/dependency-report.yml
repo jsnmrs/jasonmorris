@@ -70,7 +70,7 @@ jobs:
           echo "```" >> dependency-report.md
 
           # Add overall summary
-          OUTDATED_COUNT=$(npm outdated --json | jq 'length')
+          OUTDATED_COUNT=$(npm outdated --json 2>/dev/null | jq 'length' || echo 0)
           VULNERABILITY_COUNT=$(npm audit --json | jq '.vulnerabilities | length')
 
           echo "## Summary" >> dependency-report.md
