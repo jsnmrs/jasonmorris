@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # enable run button on github.com
   pull_request:
   schedule:
-    - cron: "03 00 * * 4" # Run every Thursday at 12:03am
+    - cron: '03 00 * * 4' # Run every Thursday at 12:03am
 
 concurrency:
   group: ${{ github.ref }}
@@ -19,30 +19,40 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
+      # Build phase
       - name: Checkout branch
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: "npm"
-          cache-dependency-path: "./package-lock.json"
+          node-version: 'lts/*'
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
       - name: Build site and test
         run: npm run build
+        timeout-minutes: 15
 
+      # Accessibility testing phase
       - name: Create report directory
         run: mkdir -p _accessibility-reports
 
-      - run: npm run dev &
+      - name: Start development server
+        run: |
+          npm run dev &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
 
       - name: Wait for server to be ready
+        timeout-minutes: 2
         run: |
           attempt_counter=0
           max_attempts=20
           until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
-            if [ ${attempt_counter} -eq ${max_attempts} ];then
+            if [ ${attempt_counter} -eq ${max_attempts} ]; then
               echo "Max attempts reached. Server not started."
               exit 1
             fi
@@ -55,19 +65,24 @@ jobs:
         id: scan
         uses: double-great/accessibility-scan-action@main
         with:
-          url: "http://localhost:8080"
+          url: 'http://localhost:8080'
+
+      - name: Stop development server
+        if: always()
+        run: kill $SERVER_PID || true
 
       - name: Upload report as artifact
         uses: actions/upload-artifact@v4
         if: success() || failure()
         with:
-          name: "Accessibility report"
+          name: 'Accessibility report'
           path: ${{ github.workspace }}/_accessibility-reports/
 
-      - uses: actions/github-script@v7
+      - name: Post comment to PR
+        uses: actions/github-script@v7
         if: github.event_name == 'pull_request'
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,

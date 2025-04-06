@@ -6,6 +6,13 @@ on:
     branches:
       - main
 
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   build-deploy:
     name: Build and deploy site
@@ -13,23 +20,76 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: "npm"
-          cache-dependency-path: "./package-lock.json"
+          node-version: 'lts/*'
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
       - name: Build site
         run: npm run build
+        timeout-minutes: 15
+
+      - name: Check build output exists
+        run: |
+          if [ ! -d "_site" ] || [ -z "$(ls -A _site)" ]; then
+            echo "Build output directory '_site' does not exist or is empty"
+            exit 1
+          fi
+
       - name: Deploy over SSH
         uses: easingthemes/ssh-deploy@v4
-        env:
+        timeout-minutes: 5
+        with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: ${{ secrets.ARGS }}
-          SOURCE: "_site/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: '_site/'
           TARGET: ${{ secrets.TARGET }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          ARGS: ${{ secrets.ARGS }}
+          EXCLUDE: '.git*, node_modules'
+
+      - name: Verify deployment
+        if: success()
+        run: |
+          # Wait a few seconds for the deployment to finalize
+          sleep 5
+          SITE_URL="${{ secrets.SITE_URL }}"
+
+          # Perform basic health check
+          echo "Verifying deployment at $SITE_URL"
+          response=$(curl -s -L -o /dev/null -w "%{http_code}" --max-time 10 -k $SITE_URL)
+          if [ "$response" -ge 200 ] && [ "$response" -lt 400 ]; then
+            echo "Site is responding with HTTP $response"
+          else
+            echo "Site is not responding properly. Got HTTP status: $response"
+            exit 1
+          fi
+
+          # Check for expected content on the homepage
+          if curl -s -L --max-time 10 -k $SITE_URL | grep -q "Jason Morris"; then
+            echo "✅ Homepage contains expected content"
+          else
+            echo "❌ Homepage is missing expected content"
+            exit 1
+          fi
+
+          # Test critical functionality/pages
+          CRITICAL_PAGES=("/resume" "/accessibility")
+          for page in "${CRITICAL_PAGES[@]}"; do
+            response=$(curl -s -L -o /dev/null -w "%{http_code}" --max-time 10 -k $SITE_URL$page)
+            if [ "$response" -ge 200 ] && [ "$response" -lt 400 ]; then
+              echo "✅ Page $page is reachable"
+            else
+              echo "❌ Page $page is not reachable"
+              exit 1
+            fi
+          done
+
+          echo "Site deployed successfully and verified at $(date)"
