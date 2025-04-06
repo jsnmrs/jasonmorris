@@ -26,11 +26,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Wait for deployment to complete
-        uses: fountainhead/action-wait-for-check@v1.1.0
+        uses: fountainhead/action-wait-for-check@v1.2.0
         id: wait-for-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: deploy
+          checkName: build-deploy
           ref: ${{ github.sha }}
           timeoutSeconds: 300
           intervalSeconds: 15
