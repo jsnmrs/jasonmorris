@@ -30,7 +30,7 @@ jobs:
         id: wait-for-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build-deploy
+          checkName: "Build and deploy site"
           ref: ${{ github.sha }}
           timeoutSeconds: 300
           intervalSeconds: 15
