@@ -50,8 +50,8 @@ jobs:
           # Get all outdated dependencies with full details
           npm outdated --json | jq -r 'to_entries | .[] | select(.value.current != .value.latest) |
             "\(.key) | \(.value.current) | \(.value.latest) | \(.value.type) | \(if .value.latest_publish_date then .value.latest_publish_date else "Unknown" end) | \(
-              if (.value.latest | split(".")[0]) > (.value.current | split(".")[0]) then "⚠️ Major"
-              elif (.value.latest | split(".")[1]) > (.value.current | split(".")[1]) then "🔄 Minor"
+              if ((.value.latest | split(".")[0] | tonumber) > (.value.current | split(".")[0] | tonumber)) then "⚠️ Major"
+              elif ((.value.latest | split(".")[1] | tonumber) > (.value.current | split(".")[1] | tonumber)) then "🔄 Minor"
               else "📌 Patch" end
             )"' | sed 's/ | /|/g' >> dependency-report.md || echo "No outdated dependencies found."
 
