@@ -1,0 +1,238 @@
+name: Scheduled Full Site Testing
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # Run every Monday at 1:00 AM UTC
+  workflow_dispatch: # Enable manual triggering
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  full-site-testing:
+    name: Comprehensive Site Testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          cache-dependency-path: "./package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install testing tools
+        run: npm install -g pa11y-ci html-validate stylelint lighthouse
+
+      - name: Enable global npm cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-global-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-global-
+
+      - name: Build site
+        run: npm run build
+        timeout-minutes: 15
+
+      - name: Create reports directory
+        run: mkdir -p _reports/{accessibility,performance,seo}
+
+      - name: Start development server
+        run: |
+          npm run dev &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
+
+      - name: Wait for server to be ready
+        timeout-minutes: 2
+        run: |
+          attempt_counter=0
+          max_attempts=40
+          echo "Waiting for server to be ready..."
+          until $(curl --output /dev/null --silent --head --fail --max-time 3 http://localhost:8080); do
+            if [ ${attempt_counter} -eq ${max_attempts} ]; then
+              echo "Max attempts reached. Server not started."
+              exit 1
+            fi
+            echo "Attempt $attempt_counter/$max_attempts - Retrying in 2 seconds..."
+            attempt_counter=$((attempt_counter+1))
+            sleep 2
+          done
+          echo "Server is ready!"
+
+      # Accessibility Testing
+      - name: Run accessibility tests (WCAG2AAA)
+        id: a11y_tests
+        run: |
+          npx pa11y-ci --config .pa11yci --json > _reports/accessibility/pa11y-results.json
+          npx pa11y-ci --config .pa11yci --reporter html > _reports/accessibility/pa11y-report.html
+        continue-on-error: true
+
+      # Performance Testing with Lighthouse
+      - name: Run Lighthouse tests
+        id: lighthouse_tests
+        run: |
+          npx lighthouse http://localhost:8080 \
+            --chrome-flags="--headless --no-sandbox" \
+            --output html --output json \
+            --output-path=_reports/performance/lighthouse-report
+        continue-on-error: true
+
+      # SEO Testing
+      - name: Run SEO tests with Lighthouse
+        id: seo_tests
+        run: |
+          npx lighthouse http://localhost:8080 \
+            --only-categories=seo \
+            --chrome-flags="--headless --no-sandbox" \
+            --output html --output json \
+            --output-path=_reports/seo/seo-report
+        continue-on-error: true
+
+      # HTML Validation
+      - name: Run HTML validation tests
+        id: html_validation
+        run: |
+          npx html-validate _site --formatter json > _reports/html-validation.json
+          npx html-validate _site --formatter stylish > _reports/html-validation.txt
+        continue-on-error: true
+
+      # CSS Analysis
+      - name: Run CSS analysis
+        id: css_analysis
+        run: |
+          npx stylelint "css/**/*.css" --formatter json > _reports/stylelint-results.json
+        continue-on-error: true
+
+      - name: Stop development server
+        if: always()
+        run: kill $SERVER_PID || true
+
+      # Upload reports as artifacts
+      - name: Upload reports as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Site Testing Reports"
+          path: _reports/
+          retention-days: 14
+
+      # Create GitHub issue with summary
+      - name: Create issue with test results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+
+            // Function to check if file exists and is readable
+            function fileExists(path) {
+              try {
+                fs.accessSync(path, fs.constants.R_OK);
+                return true;
+              } catch (err) {
+                console.log(`File not found: ${path}`);
+                return false;
+              }
+            }
+
+            let issueBody = `# Weekly Site Testing Report\n\n`;
+            issueBody += `## Test Results Summary\n\n`;
+            issueBody += `Run ID: [${context.runId}](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n\n`;
+
+            const testSteps = {
+              'Performance': {id: '${{ steps.lighthouse_tests.outcome }}', file: '_reports/performance/lighthouse-report.json'},
+              'SEO': {id: '${{ steps.seo_tests.outcome }}', file: '_reports/seo/seo-report.json'},
+              'Accessibility': {id: '${{ steps.a11y_tests.outcome }}', file: '_reports/accessibility/pa11y-results.json'},
+              'HTML Validation': {id: '${{ steps.html_validation.outcome }}', file: '_reports/html-validation.json'},
+              'CSS Analysis': {id: '${{ steps.css_analysis.outcome }}', file: '_reports/stylelint-results.json'}
+            };
+
+            // Add status summary for each test
+            issueBody += `| Test | Status |\n| ---- | ------ |\n`;
+            for (const [test, info] of Object.entries(testSteps)) {
+              const status = info.id === 'success' ? '✅ Passed' : (info.id === 'failure' ? '❌ Failed' : '⚠️ Skipped');
+              issueBody += `| ${test} | ${status} |\n`;
+            }
+            issueBody += `\n`;
+
+            // Add Lighthouse Performance summary if available
+            if (fileExists('_reports/performance/lighthouse-report.json')) {
+              const lighthouseData = JSON.parse(fs.readFileSync('_reports/performance/lighthouse-report.json', 'utf8'));
+              const performanceScore = Math.round(lighthouseData.categories.performance.score * 100);
+              issueBody += `### Performance Score: ${performanceScore}/100\n\n`;
+
+              // Add key metrics
+              issueBody += `**Key Metrics:**\n`;
+              issueBody += `- First Contentful Paint: ${lighthouseData.audits['first-contentful-paint'].displayValue}\n`;
+              issueBody += `- Largest Contentful Paint: ${lighthouseData.audits['largest-contentful-paint'].displayValue}\n`;
+              issueBody += `- Cumulative Layout Shift: ${lighthouseData.audits['cumulative-layout-shift'].displayValue}\n`;
+              issueBody += `- Total Blocking Time: ${lighthouseData.audits['total-blocking-time'].displayValue}\n\n`;
+            }
+
+            // Add SEO summary if available
+            if (fileExists('_reports/seo/seo-report.json')) {
+              const seoData = JSON.parse(fs.readFileSync('_reports/seo/seo-report.json', 'utf8'));
+              const seoScore = Math.round(seoData.categories.seo.score * 100);
+              issueBody += `### SEO Score: ${seoScore}/100\n\n`;
+            }
+
+            // Add Accessibility summary if available
+            if (fileExists('_reports/accessibility/pa11y-results.json')) {
+              const a11yData = JSON.parse(fs.readFileSync('_reports/accessibility/pa11y-results.json', 'utf8'));
+              const totalIssues = a11yData.reduce((sum, result) => sum + result.issues.length, 0);
+
+              issueBody += `### Accessibility Issues: ${totalIssues}\n\n`;
+
+              if (totalIssues > 0) {
+                // Group issues by type
+                const issuesByType = {};
+                a11yData.forEach(result => {
+                  result.issues.forEach(issue => {
+                    if (!issuesByType[issue.type]) {
+                      issuesByType[issue.type] = 0;
+                    }
+                    issuesByType[issue.type]++;
+                  });
+                });
+
+                issueBody += `**Issue Breakdown:**\n`;
+                for (const [type, count] of Object.entries(issuesByType)) {
+                  issueBody += `- ${type}: ${count}\n`;
+                }
+                issueBody += `\n`;
+              }
+            }
+
+            // Add HTML validation summary if available
+            if (fileExists('_reports/html-validation.json')) {
+              const htmlData = JSON.parse(fs.readFileSync('_reports/html-validation.json', 'utf8'));
+              const errorCount = htmlData.results.reduce((sum, result) => sum + result.messages.filter(m => m.severity === 2).length, 0);
+              const warningCount = htmlData.results.reduce((sum, result) => sum + result.messages.filter(m => m.severity === 1).length, 0);
+
+              issueBody += `### HTML Validation:\n`;
+              issueBody += `- Errors: ${errorCount}\n`;
+              issueBody += `- Warnings: ${warningCount}\n\n`;
+            }
+
+            issueBody += `## Next Steps\n\n`;
+            issueBody += `- [Review detailed reports](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) in the workflow artifacts\n`;
+            issueBody += `- Address any critical issues\n`;
+            issueBody += `- Consider implementing improvements based on performance recommendations\n\n`;
+
+            // Create issue with the summary
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Weekly Site Testing Report - ${new Date().toISOString().split('T')[0]}`,
+              body: issueBody,
+              labels: ['automated-report', 'testing']
+            });
