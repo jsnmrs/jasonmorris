@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Checkout branch
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Wait for deployment to complete
