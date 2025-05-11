@@ -9,7 +9,7 @@ on:
       - "pages/resume.md"
 
 concurrency:
-  group: pdf-generation
+  group: pdf-generation-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:

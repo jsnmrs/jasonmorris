@@ -7,7 +7,7 @@ on:
       - main
 
 concurrency:
-  group: deploy
+  group: deploy-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -17,6 +17,7 @@ jobs:
   build-deploy:
     name: Build and deploy site
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,7 +36,7 @@ jobs:
         run: npm run build
         timeout-minutes: 15
 
-      - name: Check build output exists
+      - name: Verify build output
         run: |
           if [ ! -d "_site" ] || [ -z "$(ls -A _site)" ]; then
             echo "Build output directory '_site' does not exist or is empty"
