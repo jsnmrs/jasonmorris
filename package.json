@@ -20,7 +20,7 @@
     "build:html": "eleventy",
     "js:build": "run-s js:lint js:minify",
     "js:lint": "eslint \"js/*.js\" --fix",
-    "js:minify": "terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
+    "js:minify": "terser js/media-utils.js -c -m -o _includes/media-utils.js && terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
     "lint": "run-p lint:*",
     "lint:css": "stylelint \"css/**/*.css\" --fix",
     "lint:js": "eslint \"js/**/*.js\" --fix",

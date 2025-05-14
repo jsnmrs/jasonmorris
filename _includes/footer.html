@@ -1,3 +1,6 @@
+{% if has contains "video" or has contains "audio" %}
+<script>{% include "media-utils.js" %}</script>
+{% endif %}
 {% if has contains "video" %}
 <script>{% include "video.js" %}</script>
 {% elsif has contains "audio" %}

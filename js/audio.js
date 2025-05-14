@@ -4,21 +4,8 @@
   let player;
   let isPlaying = false;
 
-  // Add YouTube iframe API script with error handling
-  try {
-    const script = document.createElement("script");
-    script.src = "https://www.youtube.com/iframe_api";
-    script.onerror = function () {
-      console.error("Failed to load YouTube iframe API");
-    };
-    if (document.head) {
-      document.head.appendChild(script);
-    } else {
-      console.error("Document head not available for script insertion");
-    }
-  } catch (error) {
-    console.error("Error inserting YouTube API script:", error);
-  }
+  // Load YouTube iframe API using our shared utility
+  MediaUtils.youtube.loadAPI();
 
   window.onYouTubeIframeAPIReady = function () {
     const playerElement = document.getElementById("player");
@@ -27,18 +14,11 @@
     const videoId = playerElement.getAttribute("data-video-id");
     if (!videoId) return;
 
-    player = new YT.Player("player", {
-      height: "0",
-      width: "0",
-      videoId: videoId,
-      playerVars: {
-        autoplay: 0,
-        controls: 0,
-      },
-      events: {
-        onReady: initializeControls,
-      },
-    });
+    player = MediaUtils.youtube.createPlayer(
+      "player",
+      videoId,
+      initializeControls,
+    );
   };
 
   function initializeControls() {
