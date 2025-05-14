@@ -8,7 +8,7 @@
   try {
     const script = document.createElement("script");
     script.src = "https://www.youtube.com/iframe_api";
-    script.onerror = function() {
+    script.onerror = function () {
       console.error("Failed to load YouTube iframe API");
     };
     if (document.head) {

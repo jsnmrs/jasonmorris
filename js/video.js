@@ -12,7 +12,7 @@
       if (!videoHolder) return;
 
       const { type, id, width, height, title } = videoHolder.dataset;
-      
+
       // Validate required data attributes
       if (!type || !id) {
         console.error("Missing required video data attributes");
@@ -32,9 +32,9 @@
         iframe.height = height;
         iframe.setAttribute("frameborder", "0");
         iframe.setAttribute("allowfullscreen", "");
-        
+
         // Add error handler for iframe loading failures
-        iframe.onerror = function() {
+        iframe.onerror = function () {
           console.error(`Failed to load ${type} video with ID: ${id}`);
         };
 
