@@ -4,9 +4,21 @@
   let player;
   let isPlaying = false;
 
-  const script = document.createElement("script");
-  script.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(script);
+  // Add YouTube iframe API script with error handling
+  try {
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    script.onerror = function() {
+      console.error("Failed to load YouTube iframe API");
+    };
+    if (document.head) {
+      document.head.appendChild(script);
+    } else {
+      console.error("Document head not available for script insertion");
+    }
+  } catch (error) {
+    console.error("Error inserting YouTube API script:", error);
+  }
 
   window.onYouTubeIframeAPIReady = function () {
     const playerElement = document.getElementById("player");
