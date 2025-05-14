@@ -38,30 +38,44 @@
     },
 
     // Create iframe for video embedding
-    createVideoIframe: function (options) {
-      const { type, id, width, height, title } = options;
-
+    createVideoIframe: function ({
+      type,
+      id,
+      width = "640",
+      height = "360",
+      title = "",
+      allowFullscreen = true,
+      frameborder = "0",
+    } = {}) {
       // Validate required parameters
       if (!type || !id) {
-        MediaUtils.logError("Missing required video data attributes");
+        MediaUtils.logError(
+          "Missing required video data attributes (type and id)",
+        );
         return null;
       }
 
       try {
         const iframe = document.createElement("iframe");
+
+        // Set source URL based on video type
         const srcUrl =
           type === "vimeo"
             ? `https://player.vimeo.com/video/${id}?dnt=true&title=0&byline=0&portrait=0&color=ffffff`
             : `https://www.youtube-nocookie.com/embed/${id}?rel=0&showinfo=0`;
 
+        // Set iframe properties
         iframe.src = srcUrl;
         iframe.title = title
           ? `${title} — embedded video`
           : `Embedded ${type} video`;
-        iframe.width = width || "640";
-        iframe.height = height || "360";
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
+        iframe.width = width;
+        iframe.height = height;
+        iframe.setAttribute("frameborder", frameborder);
+
+        if (allowFullscreen) {
+          iframe.setAttribute("allowfullscreen", "");
+        }
 
         // Add error handler for iframe loading failures
         iframe.onerror = function () {
@@ -75,39 +89,6 @@
       }
     },
 
-    // YouTube API helpers
-    youtube: {
-      // Load YouTube API
-      loadAPI: function (callback) {
-        MediaUtils.loadScript(
-          "https://www.youtube.com/iframe_api",
-          callback,
-          function (error) {
-            MediaUtils.logError("Failed to load YouTube iframe API", error);
-          },
-        );
-      },
-
-      // Create invisible YouTube player
-      createPlayer: function (elementId, videoId, onReady) {
-        if (!window.YT) {
-          MediaUtils.logError("YouTube API not loaded");
-          return null;
-        }
-
-        return new YT.Player(elementId, {
-          height: "0",
-          width: "0",
-          videoId: videoId,
-          playerVars: {
-            autoplay: 0,
-            controls: 0,
-          },
-          events: {
-            onReady: onReady,
-          },
-        });
-      },
-    },
+    // YouTube API helpers moved to dedicated youtube-api.js module
   };
 })();
