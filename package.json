@@ -20,7 +20,7 @@
     "build:html": "eleventy",
     "js:build": "run-s js:lint js:minify",
     "js:lint": "eslint \"js/*.js\" --fix",
-    "js:minify": "terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
+    "js:minify": "terser js/media-utils.js -c -m -o _includes/media-utils.js && terser js/youtube-api.js -c -m -o _includes/youtube-api.js && terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
     "lint": "run-p lint:*",
     "lint:css": "stylelint \"css/**/*.css\" --fix",
     "lint:js": "eslint \"js/**/*.js\" --fix",
@@ -35,22 +35,22 @@
     "format": "run-s lint:prettier lint:css lint:js"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "6.0.2",
+    "@11ty/eleventy-img": "6.0.4",
     "@double-great/double-check": "0.5.2"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.0.0",
-    "@11ty/eleventy-plugin-rss": "2.0.3",
-    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
+    "@11ty/eleventy": "3.1.0",
+    "@11ty/eleventy-plugin-rss": "2.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.1",
     "@double-great/remark-lint-alt-text": "1.1.1",
     "@double-great/stylelint-a11y": "3.0.4",
     "autoprefixer": "10.4.21",
     "chokidar-cli": "3.0.0",
-    "cssnano": "7.0.6",
+    "cssnano": "7.0.7",
     "eleventy-plugin-git-commit-date": "0.1.3",
-    "eslint": "9.25.1",
-    "eslint-config-prettier": "10.1.2",
-    "eslint-plugin-prettier": "5.2.6",
+    "eslint": "9.26.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-plugin-prettier": "5.4.0",
     "html-validate": "9.5.3",
     "npm-run-all": "4.1.5",
     "postcss": "8.5.3",
@@ -64,6 +64,6 @@
     "stylelint-config-standard": "38.0.0",
     "stylelint-plugin-defensive-css": "1.0.4",
     "stylelint-plugin-logical-css": "1.2.3",
-    "terser": "5.39.0"
+    "terser": "5.39.1"
   }
 }

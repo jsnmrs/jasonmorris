@@ -2,32 +2,34 @@
   "use strict";
 
   function handleVideoClick(event) {
-    const link = event.target.closest(".facade__link");
-    if (!link) return;
+    try {
+      const link = event.target.closest(".facade__link");
+      if (!link) return;
 
-    event.preventDefault();
-    const videoHolder = link.nextElementSibling;
+      event.preventDefault();
+      const videoHolder = link.nextElementSibling;
 
-    if (!videoHolder) return;
+      if (!videoHolder) return;
 
-    const { type, id, width, height, title } = videoHolder.dataset;
+      const { type, id, width, height, title } = videoHolder.dataset;
 
-    const iframe = document.createElement("iframe");
-    const srcUrl =
-      type === "vimeo"
-        ? `https://player.vimeo.com/video/${id}?dnt=true&title=0&byline=0&portrait=0&color=ffffff`
-        : `https://www.youtube-nocookie.com/embed/${id}?rel=0&showinfo=0`;
+      // Create iframe using our shared utility
+      const iframe = MediaUtils.createVideoIframe({
+        type,
+        id,
+        width,
+        height,
+        title,
+      });
 
-    iframe.src = srcUrl;
-    iframe.title = `${title} — embedded video`;
-    iframe.width = width;
-    iframe.height = height;
-    iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("allowfullscreen", "");
-
-    videoHolder.classList.add("video");
-    videoHolder.appendChild(iframe);
-    link.remove();
+      if (iframe) {
+        videoHolder.classList.add("video");
+        videoHolder.appendChild(iframe);
+        link.remove();
+      }
+    } catch (error) {
+      MediaUtils.logError("Error handling video click event:", error);
+    }
   }
 
   document.addEventListener("click", handleVideoClick);

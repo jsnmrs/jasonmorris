@@ -1,7 +1,13 @@
+{% if has contains "video" or has contains "audio" %}
+<script defer>{% include "media-utils.js" %}</script>
+{% if has contains "audio" %}
+<script defer>{% include "youtube-api.js" %}</script>
+{% endif %}
+{% endif %}
 {% if has contains "video" %}
-<script>{% include "video.js" %}</script>
+<script defer>{% include "video.js" %}</script>
 {% elsif has contains "audio" %}
-<script>{% include "audio.js" %}</script>
+<script defer>{% include "audio.js" %}</script>
 {% endif %}
 </body>
 </html>

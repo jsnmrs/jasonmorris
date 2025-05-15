@@ -37,7 +37,7 @@
 
 html {
   scroll-padding: 5rem;
-  text-size-adjust: none; /* stylelint-disable-line */
+  text-size-adjust: none;
   font-size: 110%;
 }
 
