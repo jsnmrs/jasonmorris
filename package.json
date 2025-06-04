@@ -20,7 +20,7 @@
     "build:html": "eleventy",
     "js:build": "run-s js:lint js:minify",
     "js:lint": "eslint \"js/*.js\" --fix",
-    "js:minify": "terser js/media-utils.js -c -m -o _includes/media-utils.js && terser js/youtube-api.js -c -m -o _includes/youtube-api.js && terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
+    "js:minify": "terser js/logger.js -c -m -o _includes/logger.js && terser js/media-utils.js -c -m -o _includes/media-utils.js && terser js/youtube-api.js -c -m -o _includes/youtube-api.js && terser js/video.js -c -m -o _includes/video.js && terser js/audio.js -c -m -o _includes/audio.js",
     "lint": "run-p lint:*",
     "lint:css": "stylelint \"css/**/*.css\" --fix",
     "lint:js": "eslint \"js/**/*.js\" --fix",
@@ -39,7 +39,7 @@
     "@double-great/double-check": "0.5.2"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.0",
+    "@11ty/eleventy": "3.1.1",
     "@11ty/eleventy-plugin-rss": "2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.1",
     "@double-great/remark-lint-alt-text": "1.1.1",

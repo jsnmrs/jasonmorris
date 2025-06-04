@@ -1,4 +1,5 @@
 {% if has contains "video" or has contains "audio" %}
+<script defer>{% include "logger.js" %}</script>
 <script defer>{% include "media-utils.js" %}</script>
 {% if has contains "audio" %}
 <script defer>{% include "youtube-api.js" %}</script>
