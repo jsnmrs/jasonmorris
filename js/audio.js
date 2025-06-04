@@ -10,6 +10,12 @@
   let volumeControl;
   let volumeDisplay;
 
+  // AbortController for managing event listeners
+  let audioController = null;
+
+  // Track if audio controls have been initialized
+  let controlsInitialized = false;
+
   // Element selectors for audio controls
   const SELECTORS = {
     player: "#player",
@@ -70,6 +76,14 @@
   // Initialize audio control interface after player is ready
   function initializeControls() {
     try {
+      // Prevent multiple initializations
+      if (controlsInitialized) {
+        if (window.Logger && window.Logger.warn) {
+          window.Logger.warn("Audio controls already initialized");
+        }
+        return;
+      }
+
       // Cache DOM elements on initialization
       playButton = document.querySelector(SELECTORS.playButton);
       volumeControl = document.querySelector(SELECTORS.volumeControl);
@@ -81,12 +95,25 @@
         return;
       }
 
-      // Attach event listeners for user interaction
-      playButton.addEventListener("click", togglePlayPause);
-      volumeControl.addEventListener("input", updateVolume);
+      // Create AbortController for event listener management
+      audioController = new AbortController();
+
+      // Attach event listeners for user interaction with cleanup capability
+      playButton.addEventListener("click", togglePlayPause, {
+        signal: audioController.signal,
+      });
+      volumeControl.addEventListener("input", updateVolume, {
+        signal: audioController.signal,
+      });
+
+      controlsInitialized = true;
 
       // Set initial volume display
       updateVolume();
+
+      if (window.Logger && window.Logger.debug) {
+        window.Logger.debug("Audio controls initialized");
+      }
     } catch (error) {
       MediaUtils.logError("Error initializing audio controls:", error);
     }
@@ -142,4 +169,32 @@
       MediaUtils.logError("Error updating volume:", error);
     }
   }
+
+  // Cleanup function for removing event listeners
+  function cleanupAudioControls() {
+    if (audioController) {
+      audioController.abort();
+      audioController = null;
+    }
+
+    // Reset state
+    controlsInitialized = false;
+    player = null;
+    isPlaying = false;
+    playButton = null;
+    volumeControl = null;
+    volumeDisplay = null;
+
+    if (window.Logger && window.Logger.debug) {
+      window.Logger.debug("Audio controls cleanup completed");
+    }
+  }
+
+  // Expose cleanup function globally for potential SPA usage
+  if (window.MediaUtils) {
+    window.MediaUtils.audioCleanup = cleanupAudioControls;
+  }
+
+  // Cleanup on page unload (for SPA scenarios)
+  window.addEventListener("beforeunload", cleanupAudioControls);
 })();

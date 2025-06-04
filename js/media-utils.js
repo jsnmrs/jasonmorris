@@ -134,5 +134,19 @@
     },
 
     // YouTube API helpers moved to dedicated youtube-api.js module
+
+    // Cleanup all media utilities (available after audio/video modules load)
+    cleanup: function () {
+      if (window.MediaUtils.audioCleanup) {
+        window.MediaUtils.audioCleanup();
+      }
+      if (window.MediaUtils.videoCleanup) {
+        window.MediaUtils.videoCleanup();
+      }
+
+      if (window.Logger && window.Logger.debug) {
+        window.Logger.debug("All MediaUtils cleanup completed");
+      }
+    },
   };
 })();
