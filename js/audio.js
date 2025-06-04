@@ -20,7 +20,14 @@
 
   // Load YouTube iframe API using our shared utility
   if (typeof MediaUtils === "undefined") {
-    console.error("MediaUtils not loaded - audio player cannot initialize");
+    // Use Logger if available, otherwise fallback to console
+    if (window.Logger && window.Logger.error) {
+      window.Logger.error(
+        "MediaUtils not loaded - audio player cannot initialize",
+      );
+    } else {
+      console.error("MediaUtils not loaded - audio player cannot initialize");
+    }
     return;
   }
 

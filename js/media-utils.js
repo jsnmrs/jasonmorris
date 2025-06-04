@@ -1,31 +1,49 @@
 (function () {
   "use strict";
 
-  // Global error handler
-  window.addEventListener("error", function (event) {
-    if (window.MediaUtils && window.MediaUtils.logError) {
-      window.MediaUtils.logError("Global error:", {
-        message: event.message,
-        filename: event.filename,
-        line: event.lineno,
-        column: event.colno,
-        error: event.error,
-      });
-    }
-  });
+  // Ensure Logger is available before setting up handlers
+  function setupGlobalHandlers() {
+    // Global error handler
+    window.addEventListener("error", function (event) {
+      if (window.MediaUtils && window.MediaUtils.logError) {
+        window.MediaUtils.logError("Global error:", {
+          message: event.message,
+          filename: event.filename,
+          line: event.lineno,
+          column: event.colno,
+          error: event.error,
+        });
+      }
+    });
 
-  // Global unhandled promise rejection handler
-  window.addEventListener("unhandledrejection", function (event) {
-    if (window.MediaUtils && window.MediaUtils.logError) {
-      window.MediaUtils.logError("Unhandled promise rejection:", event.reason);
-    }
-  });
+    // Global unhandled promise rejection handler
+    window.addEventListener("unhandledrejection", function (event) {
+      if (window.MediaUtils && window.MediaUtils.logError) {
+        window.MediaUtils.logError(
+          "Unhandled promise rejection:",
+          event.reason,
+        );
+      }
+    });
+  }
+
+  // Set up handlers after a brief delay to ensure Logger is loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupGlobalHandlers);
+  } else {
+    setupGlobalHandlers();
+  }
 
   // Expose utilities through a namespace
   window.MediaUtils = {
     // Common error logging function
     logError: function (message, error) {
-      console.error(message, error || "");
+      // Use Logger if available, fallback to console.error
+      if (window.Logger && window.Logger.error) {
+        window.Logger.error(message, error);
+      } else {
+        console.error(message, error || "");
+      }
     },
 
     // Load external script with error handling

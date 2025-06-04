@@ -23,7 +23,12 @@
           },
         );
       } else {
-        console.error("MediaUtils.loadScript is not available");
+        // Use Logger if available, otherwise fallback to console
+        if (window.Logger && window.Logger.error) {
+          window.Logger.error("MediaUtils.loadScript is not available");
+        } else {
+          console.error("MediaUtils.loadScript is not available");
+        }
       }
     },
 

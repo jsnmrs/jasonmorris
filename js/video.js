@@ -3,7 +3,14 @@
 
   // Check if MediaUtils is available
   if (typeof MediaUtils === "undefined") {
-    console.error("MediaUtils not loaded - video player cannot initialize");
+    // Use Logger if available, otherwise fallback to console
+    if (window.Logger && window.Logger.error) {
+      window.Logger.error(
+        "MediaUtils not loaded - video player cannot initialize",
+      );
+    } else {
+      console.error("MediaUtils not loaded - video player cannot initialize");
+    }
     return;
   }
 
