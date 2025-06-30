@@ -43,6 +43,8 @@
 
 html {
   scroll-padding: 5rem;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-text-size-adjust: none; /* required for Safari iOS/iPadOS */
   text-size-adjust: none;
   font-size: 110%;
 }
