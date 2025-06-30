@@ -43,6 +43,7 @@
 
 html {
   scroll-padding: 5rem;
+  scrollbar-gutter: stable;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: none; /* required for Safari iOS/iPadOS */
   text-size-adjust: none;
@@ -227,6 +228,18 @@ ol {
   padding-inline: 0;
 }
 
+ul,
+ol,
+dl,
+dt,
+dd,
+p,
+figure,
+blockquote {
+  hanging-punctuation: first last;
+  text-wrap: pretty;
+}
+
 ul {
   list-style-type: circle;
 }
@@ -275,6 +288,13 @@ pre > code {
   background-color: transparent;
   border-block-width: 0;
   border-inline-width: 0;
+}
+
+@media (forced-colors: active) {
+  :where(mark) {
+    color: HighlightText;
+    background-color: Highlight;
+  }
 }
 
 input[type="checkbox"],
