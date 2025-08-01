@@ -61,7 +61,7 @@
     "remark-frontmatter-validator": "2.0.0",
     "rimraf": "6.0.1",
     "stylelint": "16.23.0",
-    "stylelint-config-standard": "38.0.0",
+    "stylelint-config-standard": "39.0.0",
     "stylelint-plugin-defensive-css": "1.0.4",
     "stylelint-plugin-logical-css": "1.2.3",
     "terser": "5.43.1"
