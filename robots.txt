@@ -2,6 +2,3 @@ Sitemap: https://jasonmorris.com/sitemap.xml
 
 User-agent: *
 Disallow:
-
-User-agent: GPTBot
-Disallow: /
