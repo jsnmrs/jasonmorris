@@ -3,22 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>{% if title %}{% if title != site.name %}{{ title }} &mdash; {% endif %}{% endif %}{{ site.name }}</title>
-  <meta name="author" content="{{ site.name }}">{% if meta %}
-  <meta name="description" content="{{ meta }}">{% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{% if title != site.name %}{{ title }} &mdash; {% endif %}{% endif %}{{ site.name }}</title>
+  <style>{% include "style.css" %}{% if has contains "code" %}{% include "style-mono.css" %}{% endif %}{% if has contains "resume" %}{% include "resume.css" %}{% endif %}</style>
   <link rel="preload" href="/fonts/atkinson-hyperlegible.woff2" as="font" type="font/woff2" crossorigin="anonymous">{% if has contains "code" %}
   <link rel="preload" href="/fonts/scp.woff2" as="font" type="font/woff2" crossorigin="anonymous">{% endif %}
+  <meta name="author" content="{{ site.name }}">{% if meta %}
+  <meta name="description" content="{{ meta }}">{% endif %}{% if subject %}
+  <meta name="subject" content="{{ subject }}">{% endif %}{% if keywords %}
+  <meta name="keywords" content="{{ keywords }}">{% endif %}
+  <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#727272">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">{% if subject %}
-  <meta name="subject" content="{{ subject }}">{% endif %}{% if keywords %}
-  <meta name="keywords" content="{{ keywords }}">{% endif %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="alternate" href="/atom.xml" title="{{ site.name }}" type="application/atom+xml">
-  <style>{% include "style.css" %}{% if has contains "code" %}{% include "style-mono.css" %}{% endif %}{% if has contains "resume" %}{% include "resume.css" %}{% endif %}</style>
+
 </head>
 
 <body>
