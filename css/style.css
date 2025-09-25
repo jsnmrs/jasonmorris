@@ -354,7 +354,7 @@ input[type="submit"] {
   box-shadow: none;
 }
 
-.sr:not(:focus-within, :active) {
+.visually-hidden:not(:focus-within, :active) {
   clip-path: inset(50%);
   block-size: 0.1rem;
   overflow: hidden;
