@@ -43,11 +43,18 @@
 
 html {
   scroll-padding: 5rem;
-  scrollbar-gutter: stable;
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: none; /* required for Safari iOS/iPadOS */
   text-size-adjust: none;
   font-size: 110%;
+}
+
+@supports (scrollbar-gutter: stable) {
+  html {
+    overflow-block: scroll;
+    overscroll-behavior-block: auto;
+    scrollbar-gutter: stable;
+  }
 }
 
 @media screen and (width >= 48em) {
