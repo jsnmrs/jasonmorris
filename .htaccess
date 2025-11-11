@@ -76,6 +76,8 @@ ServerSignature Off
   Header set Cache-Control "public, max-age=31536000, immutable" env=IMAGES
 
   Header set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
 </IfModule>
 
 AddDefaultCharset utf-8
