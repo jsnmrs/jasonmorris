@@ -56,28 +56,38 @@ ErrorDocument 404 /404.html
 ServerSignature Off
 
 <IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/manifest+json
+  AddOutputFilterByType DEFLATE application/xml
   AddOutputFilterByType DEFLATE image/svg+xml
-  AddOutputFilterByType DEFLATE image/x-icon
   AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
+  AddOutputFilterByType DEFLATE image/x-icon
   AddOutputFilterByType DEFLATE text/css
   AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/manifest+json
-</Ifmodule>
+  AddOutputFilterByType DEFLATE text/xml
+</IfModule>
 
-<IfModule mod_headers.c>
-  Header always append X-Frame-Options SAMEORIGIN
-  Header always set X-Content-Type-Options nosniff
-  RequestHeader unset Proxy
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
+<IfModule mod_rewrite.c>
+  # Set environment variable for image caching
   RewriteCond %{REQUEST_URI} ^/img
   RewriteRule ^ - [ENV=IMAGES:true]
-  Header set Cache-Control "public, max-age=31536000, immutable" env=IMAGES
+</IfModule>
 
-  Header set X-XSS-Protection "1; mode=block"
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+<IfModule mod_headers.c>
+  # Security headers
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self';"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options nosniff
+  Header always set X-Frame-Options SAMEORIGIN
+
+  # Remove proxy header for security
+  RequestHeader unset Proxy
+
+  # Cache control for images
+  Header set Cache-Control "public, max-age=31536000, immutable" env=IMAGES
 </IfModule>
 
 AddDefaultCharset utf-8
@@ -126,6 +136,3 @@ AddDefaultCharset utf-8
   # HTML
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
-
-# Set CSP Header
-Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; connect-src 'self';
