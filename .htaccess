@@ -43,6 +43,7 @@ AddType image/avif .avif
   Redirect 301 /github https://github.com/jsnmrs
   Redirect 301 /linkedin https://www.linkedin.com/in/jsnmrs/
   Redirect 301 /mastodon https://indieweb.social/@jasonmorris
+  Redirect 301 /bluesky https://bsky.app/profile/jasonmorris.com
 
   # Ensure Authorization header is passed along
   RewriteCond %{HTTP:Authorization} .
