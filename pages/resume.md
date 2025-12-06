@@ -13,7 +13,7 @@ keywords: "resume, jason morris, jason, morris, web, developer, accessibility, f
 
 ## Certifications
 
-[Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/28c50890-24d3-4712-87e5-88d966e8685e)
+[Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/39d7346e-637a-41fa-a7c6-2e61cc5fc466)
 International Association of Accessibility Professionals (IAAP)
 
 ## Experience
