@@ -23,11 +23,10 @@
   // Handle clicks on video facade links to load actual players
   function handleVideoClick(event) {
     try {
-      // Check if clicked element is within a video facade link
-      const link = event.target.closest(".facade__link");
-      if (!link) return;
-
       event.preventDefault();
+
+      // The link is the event target since we attach directly to it
+      const link = event.currentTarget;
 
       // Find the video holder element that follows the link
       const videoHolder = link.nextElementSibling;
@@ -57,6 +56,9 @@
           videoHolder.classList.add("video");
           videoHolder.appendChild(iframe);
           link.remove();
+
+          // Move focus to the iframe to maintain keyboard navigation
+          iframe.focus();
         } else {
           MediaUtils.logError("Failed to create video iframe");
         }
@@ -82,35 +84,24 @@
       // Create new AbortController for this initialization
       eventController = new AbortController();
 
-      // Use more specific event delegation - look for video containers
-      const videoContainers = document.querySelectorAll("[data-type]");
+      // Attach click listeners directly to facade links for accessibility
+      // This avoids adding click handlers to non-interactive parent divs
+      const facadeLinks = document.querySelectorAll(".facade__link");
 
-      if (videoContainers.length > 0) {
-        // Attach listeners to specific containers instead of document
-        videoContainers.forEach((container) => {
-          const parentElement = container.parentElement;
-          if (parentElement) {
-            parentElement.addEventListener("click", handleVideoClick, {
-              signal: eventController.signal,
-              passive: false,
-            });
-          }
-        });
-      } else {
-        // Fallback to document listener if no containers found
-        document.addEventListener("click", handleVideoClick, {
+      facadeLinks.forEach((link) => {
+        link.addEventListener("click", handleVideoClick, {
           signal: eventController.signal,
           passive: false,
         });
-      }
+      });
 
       isInitialized = true;
 
       if (window.Logger && window.Logger.debug) {
         window.Logger.debug(
           "Video player initialized with",
-          videoContainers.length,
-          "containers",
+          facadeLinks.length,
+          "facade links",
         );
       }
     } catch (error) {
