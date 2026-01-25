@@ -79,12 +79,13 @@ This command:
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run local` - Run full build, tests, then start development server
 - `npm run build` - Production build
 - `npm run lint` - Run all linters
 - `npm run validate` - Validate HTML output
 - `npm run format` - Format code with Prettier
 - `npm run clean` - Clean build directories
+- `npm run test` - Muscle memory, same as `npm run build`
 
 ## Content Management
 
