@@ -58,7 +58,7 @@ jobs:
       - name: Start development server
         if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
         run: |
-          npm run dev &
+          npm run local &
           echo "SERVER_PID=$!" >> $GITHUB_ENV
 
       - name: Wait for server to be ready
