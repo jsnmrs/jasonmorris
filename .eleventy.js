@@ -229,6 +229,7 @@ export default function (eleventyConfig) {
       return `
         <div class="facade">
           <a class="facade__link" href="${platformUrl}">
+            <span class="visually-hidden">Play: ${title} (embedded video)</span>
             <div class="facade__overlay"></div>
             <picture>
               ${Object.values(sources).join("\n")}
