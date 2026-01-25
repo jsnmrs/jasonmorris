@@ -10,10 +10,10 @@
     "url": "https://github.com/jsnmrs/jasonmorris.git"
   },
   "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
-    "dev:css": "postcss \"css/**/*.css\" --watch --dir \"_includes\"",
-    "dev:js": "chokidar \"js/**/*.js\" -c \"npm run js:build\"",
-    "dev:eleventy": "eleventy --serve --quiet",
+    "local": "npm run test && npm-run-all --parallel local:*",
+    "local:css": "postcss \"css/**/*.css\" --watch --dir \"_includes\"",
+    "local:js": "chokidar \"js/**/*.js\" -c \"npm run js:build\"",
+    "local:eleventy": "eleventy --serve --quiet",
     "build": "run-s clean lint build:* validate",
     "build:css": "postcss \"css/**/*.css\" --no-map --dir \"_includes\"",
     "build:js": "npm run js:build",
@@ -32,7 +32,8 @@
     "validate": "run-p validate:*",
     "validate:html": "html-validate _site",
     "clean": "rimraf _site _includes/*.{css,js}",
-    "format": "run-s lint:prettier lint:css lint:js"
+    "format": "run-s lint:prettier lint:css lint:js",
+    "test": "npm run build"
   },
   "dependencies": {
     "@11ty/eleventy-img": "6.0.4",

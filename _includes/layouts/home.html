@@ -1,9 +1,10 @@
 ---
 ---
 {% include "header.html" %}
-<main class="home" tabindex="-1">
+<main class="home">
   <h1>{{ title }}</h1>
-  <nav>
+  <nav aria-labelledby="posts">
+    <h2 id="posts" class="visually-hidden">Posts</h2>
     <ul class="chunk bump">
     {%- assign posts = collections.post | reverse -%}
     {%- for post in posts -%}
