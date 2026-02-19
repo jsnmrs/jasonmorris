@@ -15,6 +15,8 @@ permissions:
 
 jobs:
   build-deploy:
+    # This workflow name ("Deploy") is referenced by tagged-pdf.yml via workflow_run.
+    # If the workflow is renamed, update tagged-pdf.yml to match.
     name: Build and deploy site
     runs-on: ubuntu-latest
     timeout-minutes: 15
