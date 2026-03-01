@@ -1,11 +1,14 @@
 {
-  "extends": [
-    "stylelint-config-standard"
-  ],
   "plugins": [
     "@double-great/stylelint-a11y",
-    "stylelint-plugin-logical-css",
-    "stylelint-plugin-defensive-css"
+    "stylelint-plugin-defensive-css",
+    "stylelint-plugin-logical-css"
+  ],
+  "extends": [
+    "@double-great/stylelint-a11y/strict",
+    "stylelint-config-standard",
+    "stylelint-plugin-defensive-css/configs/strict",
+    "stylelint-plugin-logical-css/configs/recommended"
   ],
   "rules": {
     "declaration-property-value-no-unknown": true,
@@ -23,25 +26,10 @@
       "deg",
       "fr"
     ],
-
     "a11y/font-size-is-readable": [true, { "severity": "warning" }],
     "a11y/no-spread-text": [true, { "severity": "warning" }],
     "a11y/no-obsolete-attribute": [true, { "severity": "warning" }],
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
-    "a11y/no-text-align-justify": [true, { "severity": "error" }],
-
-    "plugin/use-logical-properties-and-values": [
-      true,
-      { "severity": "error" }
-    ],
-    "plugin/use-logical-units": [true, { "severity": "error" }],
-
-    "plugin/use-defensive-css": [true, {
-      "background-repeat": true,
-      "flex-wrapping": true,
-      "scroll-chaining": true,
-      "scrollbar-gutter": true,
-      "vendor-prefix-grouping": true
-    }]
-  }
+    "a11y/no-text-align-justify": [true, { "severity": "error" }]
+ }
 }
