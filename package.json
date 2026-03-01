@@ -14,7 +14,7 @@
     "local:css": "postcss \"css/**/*.css\" --watch --dir \"_includes\"",
     "local:js": "chokidar \"js/**/*.js\" -c \"npm run js:build\"",
     "local:eleventy": "eleventy --serve --quiet",
-    "build": "run-s clean lint build:* validate",
+    "build": "run-s lint clean build:* validate",
     "build:css": "postcss \"css/**/*.css\" --no-map --dir \"_includes\"",
     "build:js": "npm run js:build",
     "build:html": "eleventy",
