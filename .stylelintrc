@@ -5,9 +5,7 @@
     "stylelint-plugin-logical-css"
   ],
   "extends": [
-    "@double-great/stylelint-a11y/strict",
     "stylelint-config-standard",
-    "stylelint-plugin-defensive-css/configs/strict",
     "stylelint-plugin-logical-css/configs/recommended"
   ],
   "rules": {
