@@ -6,6 +6,7 @@
   ],
   "extends": [
     "stylelint-config-standard",
+    "@double-great/stylelint-a11y/recommended",
     "stylelint-plugin-logical-css/configs/recommended"
   ],
   "rules": {

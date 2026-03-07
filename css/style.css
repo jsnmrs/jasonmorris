@@ -157,9 +157,6 @@ body {
 :any-link:is(:hover, :focus, :active) {
   color: var(--link-hover);
   background-color: inherit;
-}
-
-:any-link:hover {
   text-decoration-thickness: 0.12rem;
 }
 
@@ -174,9 +171,11 @@ body {
     0 0.25rem var(--text);
 }
 
+/* stylelint-disable a11y/no-outline-none */
 :any-link:focus:not(:focus-visible) {
   outline: none;
 }
+/* stylelint-enable a11y/no-outline-none */
 
 h1,
 h2,
@@ -332,7 +331,13 @@ input[type="submit"] {
   line-height: 1;
   background-color: var(--text-accent);
   border-radius: 50%;
-  transition: background-color 0.5s ease;
+  transition: none;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .circle {
+    transition: background-color 0.5s ease;
+  }
 }
 
 .circle:is(:link, :visited) {
@@ -347,7 +352,13 @@ input[type="submit"] {
   background-size: 110%;
   border-block: 0.1875rem solid var(--link);
   border-inline: 0.1875rem solid var(--link);
-  transition: background-color 0.5s ease;
+  transition: none;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .circle:is(:hover, :focus) {
+    transition: background-color 0.5s ease;
+  }
 }
 
 .circle:focus {
@@ -569,8 +580,14 @@ main > figure {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 5rem;
-  transition: 0.3s background-size;
+  transition: none;
   content: " ";
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .facade__overlay {
+    transition: 0.3s background-size;
+  }
 }
 
 .facade__link {
@@ -580,7 +597,13 @@ main > figure {
 
 .facade__link:is(:hover, :focus) .facade__overlay {
   background-size: 6rem;
-  transition: 0.3s background-size;
+  transition: none;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .facade__link:is(:hover, :focus) .facade__overlay {
+    transition: 0.3s background-size;
+  }
 }
 
 .facade__link img {
