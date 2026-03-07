@@ -36,7 +36,7 @@ pre[class*="language-"] {
   background: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: start;
-  white-space: pre;
+  white-space: normal;
   word-spacing: normal;
   word-break: normal;
   overflow-wrap: normal;

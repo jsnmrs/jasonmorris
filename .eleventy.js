@@ -141,9 +141,7 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
 const configurePlugins = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    preAttributes: { tabindex: 0 },
-  });
+  eleventyConfig.addPlugin(syntaxHighlight);
 };
 
 // Main Configuration Function
