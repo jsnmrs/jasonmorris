@@ -32,6 +32,8 @@
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "error" }],
     "defensive-css/no-accidental-hover": null,
-    "defensive-css/require-focus-visible": null
+    "defensive-css/require-focus-visible": null,
+    "defensive-css/require-pure-selectors": null,
+    "defensive-css/require-system-font-fallback": null
  }
 }
