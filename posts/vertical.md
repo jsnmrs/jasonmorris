@@ -14,6 +14,6 @@ I&rsquo;ve stitched together a bunch of panoramic photos over the years. They we
 
 Devon Swahlan threw a proper tabletop out of this quarterpipe while I experimented. The end result is a blend from 12 exposures.
 
-A fun experiment that makes for tired scroll fingers.
+A fun experiment that makes for tired scroll fingers. Rest in peace, Devon.
 
 {% picture "vertical", "jpg", "344", "2048", "800", "Vertical panorama", "" %}
