@@ -39,72 +39,72 @@ jobs:
         timeout-minutes: 15
 
       # Accessibility testing phase - only run if relevant files changed
-      # - name: Check if files requiring accessibility testing changed
-      #   id: check_files
-      #   if: github.event_name == 'pull_request'
-      #   uses: dorny/paths-filter@v4
-      #   with:
-      #     filters: |
-      #       accessibility_scan_triggers:
-      #         - '**/*.md'
-      #         - '**/*.html'
-      #         - '**/*.njk'
-      #         - '**/*.css'
+      - name: Check if files requiring accessibility testing changed
+        id: check_files
+        if: github.event_name == 'pull_request'
+        uses: dorny/paths-filter@v4
+        with:
+          filters: |
+            accessibility_scan_triggers:
+              - '**/*.md'
+              - '**/*.html'
+              - '**/*.njk'
+              - '**/*.css'
 
-      # - name: Create report directory
-      #   if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
-      #   run: mkdir -p _accessibility-reports
+      - name: Create report directory
+        if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
+        run: mkdir -p _accessibility-reports
 
-      # - name: Start development server
-      #   if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
-      #   run: |
-      #     npm run local &
-      #     echo "SERVER_PID=$!" >> $GITHUB_ENV
+      - name: Start development server
+        if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
+        run: |
+          npm run local &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
 
-      # - name: Wait for server to be ready
-      #   if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
-      #   timeout-minutes: 2
-      #   run: |
-      #     attempt_counter=0
-      #     max_attempts=40
-      #     until $(curl --output /dev/null --silent --head --fail --max-time 3 http://localhost:8080); do
-      #       if [ ${attempt_counter} -eq ${max_attempts} ]; then
-      #         echo "Max attempts reached. Server not started."
-      #         exit 1
-      #       fi
-      #       printf '.'
-      #       attempt_counter=$((attempt_counter+1))
-      #       sleep 2
-      #     done
+      - name: Wait for server to be ready
+        if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
+        timeout-minutes: 2
+        run: |
+          attempt_counter=0
+          max_attempts=40
+          until $(curl --output /dev/null --silent --head --fail --max-time 3 http://localhost:8080); do
+            if [ ${attempt_counter} -eq ${max_attempts} ]; then
+              echo "Max attempts reached. Server not started."
+              exit 1
+            fi
+            printf '.'
+            attempt_counter=$((attempt_counter+1))
+            sleep 2
+          done
 
-      # - name: Scan site
-      #   id: scan
-      #   if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
-      #   uses: double-great/accessibility-scan-action@main
-      #   with:
-      #     url: "http://localhost:8080"
-      #   timeout-minutes: 5
+      - name: Scan site
+        id: scan
+        if: github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true'
+        uses: double-great/accessibility-scan-action@main
+        with:
+          url: "http://localhost:8080"
+        timeout-minutes: 5
 
-      # - name: Stop development server
-      #   if: (github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true') && always()
-      #   run: kill $SERVER_PID || true
+      - name: Stop development server
+        if: (github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true') && always()
+        run: kill $SERVER_PID || true
 
-      # - name: Upload report as artifact
-      #   if: (github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true') && (success() || failure())
-      #   uses: actions/upload-artifact@v7
-      #   with:
-      #     name: "Accessibility report"
-      #     path: ${{ github.workspace }}/_accessibility-reports/
+      - name: Upload report as artifact
+        if: (github.event_name != 'pull_request' || steps.check_files.outputs.accessibility_scan_triggers == 'true') && (success() || failure())
+        uses: actions/upload-artifact@v7
+        with:
+          name: "Accessibility report"
+          path: ${{ github.workspace }}/_accessibility-reports/
 
-      # - name: Post comment to PR
-      #   if: github.event_name == 'pull_request' && steps.check_files.outputs.accessibility_scan_triggers == 'true'
-      #   uses: actions/github-script@v9
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: `${{ steps.scan.outputs['summary-report'] }}`
-      #       })
+      - name: Post comment to PR
+        if: github.event_name == 'pull_request' && steps.check_files.outputs.accessibility_scan_triggers == 'true'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `${{ steps.scan.outputs['summary-report'] }}`
+            })
