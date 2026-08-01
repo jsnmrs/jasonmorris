@@ -36,7 +36,7 @@
     "test": "npm run build"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "6.0.4",
+    "@11ty/eleventy-img": "7.0.0",
     "@double-great/double-check": "0.5.3"
   },
   "devDependencies": {
