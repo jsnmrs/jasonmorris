@@ -1,0 +1,31 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name }}
+
+> {{ site.description }}
+
+All URLs below serve HTML; this site does not publish markdown versions of its
+pages. Markdown source for every post and page lives in the GitHub repository
+linked under Optional. Posts are grouped into four categories (bikes, code, diy,
+photo) and each post URL follows the pattern /<category>/<slug>/.
+
+## About
+
+- [Home]({{ site.url }}/): Short bio and a reverse-chronological index of every post.
+- [Resume]({{ site.url }}/resume/): Work history, certifications, and skills. Over 20 years building and validating accessible web experiences, largely for US federal government health agencies.
+- [Uses]({{ site.url }}/uses/): The hardware, software, and workspace defaults Jason works with.
+- [Accessibility statement]({{ site.url }}/accessibility/): This site's WCAG 2.2 AA conformance claim, how it is tested, and how to report a barrier.
+
+## Posts
+{% for post in collections.post | reverse %}
+- [{{ post.data.title }}]({{ site.url }}{{ post.url }}): {{ post.data.meta | trim }}
+{%- endfor %}
+
+## Optional
+
+- [Atom feed]({{ site.url }}/atom.xml): Full-content feed of all posts.
+- [Sitemap]({{ site.url }}/sitemap.xml): Complete list of indexable URLs.
+- [Resume as tagged PDF]({{ site.url }}/jason-morris-resume.pdf): Accessible tagged PDF of the resume page.
+- [Source repository](https://github.com/jsnmrs/jasonmorris): Eleventy source for this site, including the original markdown for every post and page.
