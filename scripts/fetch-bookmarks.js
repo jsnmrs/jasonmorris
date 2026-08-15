@@ -30,6 +30,53 @@ const OUTPUT = fileURLToPath(
 const MAX_SHRINK = 0.2;
 
 /**
+ * Hosts whose videos the site can embed. This list is deliberately the same
+ * shape as frame-src in .htaccess: anything not listed here stays a plain link
+ * rather than becoming an iframe the browser would refuse to load.
+ *
+ * Raindrop's own `type: "video"` is not enough to go on. It also covers TikTok
+ * and Instagram, which have no embed here, so the URL is the source of truth.
+ */
+const YOUTUBE_HOSTS = new Set([
+  "youtube.com",
+  "www.youtube.com",
+  "m.youtube.com",
+  "music.youtube.com",
+  "youtube-nocookie.com",
+  "www.youtube-nocookie.com",
+  "youtu.be",
+  "www.youtu.be",
+]);
+
+const VIMEO_HOSTS = new Set(["vimeo.com", "www.vimeo.com", "player.vimeo.com"]);
+
+const YOUTUBE_ID = /^[\w-]{11}$/;
+const VIMEO_ID = /^\d+$/;
+
+/** YouTube paths that carry the video id in the segment after the prefix. */
+const YOUTUBE_ID_PREFIXES = new Set(["embed", "shorts", "live", "v"]);
+
+/**
+ * hqdefault is the only YouTube thumbnail guaranteed to exist for every video.
+ * maxresdefault is a true 16:9 crop at a better resolution but 404s on plenty
+ * of videos, and a poster that sometimes fails is worse than one that never
+ * does. hqdefault is 4:3 with pillarbox bars; bookmarks.css crops it back.
+ */
+const YOUTUBE_POSTER_WIDTH = 480;
+const YOUTUBE_POSTER_HEIGHT = 360;
+
+const VIMEO_OEMBED = "https://vimeo.com/api/oembed.json";
+const VIMEO_POSTER_HOST = "i.vimeocdn.com";
+
+/**
+ * oEmbed sizes the thumbnail to the player width it is asked for, and its
+ * default is a 295x166 postage stamp. Asking for the width the facade actually
+ * renders at returns a 640x360 crop instead, which is both larger and a true
+ * 16:9 rather than YouTube's pillarboxed 4:3.
+ */
+const VIMEO_POSTER_REQUEST_WIDTH = 800;
+
+/**
  * Display dates are formatted here, not in the template, so output does not
  * depend on the build machine's clock. Liquid's date filter renders in local
  * time, which would put a UTC-midnight bookmark on different days depending on
@@ -108,6 +155,135 @@ function toPlainText(value) {
   );
 }
 
+/**
+ * Highlights are pulled out of page bodies, so unlike a title or an excerpt
+ * they carry real paragraph breaks. Split on blank lines before reducing each
+ * block, or toPlainText's whitespace collapsing would run several paragraphs
+ * together into one wall of text.
+ */
+function toPlainTextBlocks(value) {
+  if (typeof value !== "string") {
+    return [];
+  }
+
+  return value
+    .split(/\n\s*\n/)
+    .map(toPlainText)
+    .filter(Boolean);
+}
+
+function youtubeId(url) {
+  if (url.hostname.endsWith("youtu.be")) {
+    return url.pathname.split("/").filter(Boolean)[0] ?? "";
+  }
+
+  const segments = url.pathname.split("/").filter(Boolean);
+
+  if (segments[0] === "watch") {
+    return url.searchParams.get("v") ?? "";
+  }
+
+  return YOUTUBE_ID_PREFIXES.has(segments[0]) ? (segments[1] ?? "") : "";
+}
+
+/**
+ * Only the URL shapes whose id sits in a known position. vimeo.com/123/abc123
+ * is an unlisted video whose trailing hash the embed also needs, so it is left
+ * out: a plain link is a better outcome than an embed that fails to play.
+ */
+function vimeoId(url) {
+  const segments = url.pathname.split("/").filter(Boolean);
+
+  if (segments[0] === "video") {
+    return segments[1] ?? "";
+  }
+
+  if (segments[0] === "channels") {
+    return segments[2] ?? "";
+  }
+
+  if (segments[0] === "groups" && segments[2] === "videos") {
+    return segments[3] ?? "";
+  }
+
+  return segments.length === 1 ? segments[0] : "";
+}
+
+/**
+ * Map a bookmark link to an embeddable video, or null. Both ids are validated
+ * against their known shape, so an unrecognized URL degrades to a plain link
+ * instead of producing an iframe pointed at nothing.
+ */
+function parseVideo(link) {
+  let url;
+
+  try {
+    url = new URL(link);
+  } catch {
+    return null;
+  }
+
+  if (url.protocol !== "https:" && url.protocol !== "http:") {
+    return null;
+  }
+
+  const host = url.hostname.toLowerCase();
+
+  if (YOUTUBE_HOSTS.has(host)) {
+    const id = youtubeId(url);
+    return YOUTUBE_ID.test(id) ? { type: "youtube", id } : null;
+  }
+
+  if (VIMEO_HOSTS.has(host)) {
+    const id = vimeoId(url);
+    return VIMEO_ID.test(id) ? { type: "vimeo", id } : null;
+  }
+
+  return null;
+}
+
+/**
+ * YouTube derives a poster from the video id alone, so it costs nothing. Vimeo
+ * hides its thumbnails behind opaque i.vimeocdn.com hashes that only the oEmbed
+ * API can resolve, so those are filled in later by resolveVimeoPosters.
+ */
+function videoFor(link) {
+  const video = parseVideo(link);
+
+  if (!video) {
+    return null;
+  }
+
+  if (video.type === "youtube") {
+    return {
+      ...video,
+      poster: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+      posterWidth: YOUTUBE_POSTER_WIDTH,
+      posterHeight: YOUTUBE_POSTER_HEIGHT,
+    };
+  }
+
+  return { ...video, poster: null, posterWidth: null, posterHeight: null };
+}
+
+/**
+ * Colour and id are dropped: neither is rendered, and colour would only add
+ * noise to the nightly diff. Raindrop's order is preserved so the first
+ * highlight the template shows inline stays the same between runs.
+ */
+function toHighlights(highlights) {
+  if (!Array.isArray(highlights)) {
+    return [];
+  }
+
+  return highlights
+    .map((highlight) => ({
+      text: toPlainTextBlocks(highlight?.text),
+      note: toPlainText(highlight?.note),
+    }))
+    .filter((highlight) => highlight.text.length > 0);
+}
+
 async function fetchPage(collectionId, token, page) {
   const url = new URL(`${API}/raindrops/${collectionId}`);
   url.searchParams.set("perpage", String(PER_PAGE));
@@ -164,17 +340,83 @@ function normalize(item) {
     domain: item.domain ?? "",
     tags: Array.isArray(item.tags) ? [...item.tags].sort() : [],
     type: item.type ?? "link",
+    video: videoFor(item.link),
+    highlights: toHighlights(item.highlights),
     created: item.created,
     date: displayDate(item.created),
   };
 }
 
-async function countExisting() {
+async function readExisting() {
   try {
     const existing = JSON.parse(await readFile(OUTPUT, "utf8"));
-    return Array.isArray(existing) ? existing.length : 0;
+    return Array.isArray(existing) ? existing : [];
   } catch {
-    return 0;
+    return [];
+  }
+}
+
+async function fetchVimeoPoster(link) {
+  const url = new URL(VIMEO_OEMBED);
+  url.searchParams.set("url", link);
+  url.searchParams.set("width", String(VIMEO_POSTER_REQUEST_WIDTH));
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`${response.status} ${response.statusText}`);
+  }
+
+  const body = await response.json();
+  const poster = new URL(body.thumbnail_url);
+
+  // A redirect must not be able to smuggle a host past the site's img-src.
+  if (poster.hostname !== VIMEO_POSTER_HOST) {
+    throw new Error(`unexpected thumbnail host ${poster.hostname}`);
+  }
+
+  return {
+    poster: poster.href,
+    posterWidth: Number(body.thumbnail_width) || null,
+    posterHeight: Number(body.thumbnail_height) || null,
+  };
+}
+
+/**
+ * Fill in Vimeo posters, reusing whatever the last snapshot already resolved.
+ *
+ * Each unseen video costs an oEmbed request, so carrying resolved posters
+ * forward keeps the nightly job off Vimeo's API for videos already in the
+ * archive and keeps the committed diff to what actually changed.
+ *
+ * A failure here is not fatal. The page falls back to a poster-less facade
+ * that still plays, which beats refusing to write the whole snapshot because
+ * Vimeo was briefly unreachable.
+ */
+async function resolveVimeoPosters(bookmarks, previous) {
+  const seen = new Map(previous.map((entry) => [entry.id, entry]));
+
+  for (const bookmark of bookmarks) {
+    if (bookmark.video?.type !== "vimeo") {
+      continue;
+    }
+
+    const cached = seen.get(bookmark.id)?.video;
+
+    if (cached?.poster) {
+      bookmark.video.poster = cached.poster;
+      bookmark.video.posterWidth = cached.posterWidth;
+      bookmark.video.posterHeight = cached.posterHeight;
+      continue;
+    }
+
+    try {
+      Object.assign(bookmark.video, await fetchVimeoPoster(bookmark.link));
+    } catch (error) {
+      console.warn(
+        `Could not resolve a Vimeo poster for ${bookmark.link}: ${error.message}`,
+      );
+    }
   }
 }
 
@@ -227,12 +469,13 @@ async function main() {
     (a, b) => Date.parse(b.created) - Date.parse(a.created) || b.id - a.id,
   );
 
-  const previousCount = await countExisting();
-  validate(bookmarks, previousCount);
+  const previous = await readExisting();
+  await resolveVimeoPosters(bookmarks, previous);
+  validate(bookmarks, previous.length);
 
   await writeFile(OUTPUT, `${JSON.stringify(bookmarks, null, 2)}\n`);
   console.log(
-    `Wrote ${bookmarks.length} bookmarks to _data/bookmarks.json (was ${previousCount}).`,
+    `Wrote ${bookmarks.length} bookmarks to _data/bookmarks.json (was ${previous.length}).`,
   );
 }
 
