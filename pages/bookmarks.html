@@ -1,0 +1,46 @@
+---
+layout: doc
+title: Bookmarks
+has: bookmarks
+meta: "Links worth keeping — accessibility, front-end, and whatever else caught my eye."
+pagination:
+  data: bookmarks
+  size: 50
+  alias: entries
+  generatePageOnEmptyData: true
+permalink: "/bookmarks/{% unless pagination.pageNumber == 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endunless %}index.html"
+eleventyComputed:
+  title: "Bookmarks{% unless pagination.pageNumber == 0 %}, page {{ pagination.pageNumber | plus: 1 }}{% endunless %}"
+---
+
+{% if entries.size == 0 %}
+<p>Nothing here yet. Check back soon.</p>
+{% else %}
+<p class="date">{{ bookmarks.size }} link{% unless bookmarks.size == 1 %}s{% endunless %}, newest first.</p>
+
+<ul class="chunk bump bookmarks">
+{%- for entry in entries %}
+  <li>
+    <a href="{{ entry.link | escape }}" rel="external">{{ entry.title | escape }}</a>
+    {%- if entry.excerpt %}
+    <p class="bookmark-excerpt">{{ entry.excerpt | escape }}</p>
+    {%- endif %}
+    <p class="date"><span class="visually-hidden">Source: </span>{{ entry.domain | escape }}<span aria-hidden="true"> &middot; </span><span class="visually-hidden">saved </span><time datetime="{{ entry.created }}">{{ entry.date }}</time></p>
+  </li>
+{%- endfor %}
+</ul>
+{% endif %}
+
+{%- if pagination.pages.size > 1 %}
+<nav class="bookmark-pages" aria-label="Bookmark pages">
+  <p class="date">Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages.size }}</p>
+  <ul>
+    {%- if pagination.href.previous %}
+    <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span> Newer<span class="visually-hidden"> bookmarks</span></a></li>
+    {%- endif %}
+    {%- if pagination.href.next %}
+    <li class="next"><a href="{{ pagination.href.next }}">Older<span class="visually-hidden"> bookmarks</span> <span aria-hidden="true">&rarr;</span></a></li>
+    {%- endif %}
+  </ul>
+</nav>
+{%- endif %}
