@@ -8,6 +8,9 @@ pagination:
   size: 50
   alias: entries
   generatePageOnEmptyData: true
+  # Eleventy adds only the first page to collections by default, which would
+  # leave every page after /bookmarks/ out of the sitemap.
+  addAllPagesToCollections: true
 permalink: "/bookmarks/{% unless pagination.pageNumber == 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endunless %}index.html"
 eleventyComputed:
   title: "Bookmarks{% unless pagination.pageNumber == 0 %}, page {{ pagination.pageNumber | plus: 1 }}{% endunless %}"
