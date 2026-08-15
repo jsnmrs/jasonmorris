@@ -8,6 +8,14 @@
     "domain": "youtube.com",
     "tags": [],
     "type": "video",
+    "video": {
+      "type": "youtube",
+      "id": "6nYM9rkW5Hs",
+      "poster": "https://i.ytimg.com/vi/6nYM9rkW5Hs/hqdefault.jpg",
+      "posterWidth": 480,
+      "posterHeight": 360
+    },
+    "highlights": [],
     "created": "2026-08-15T00:22:23.508Z",
     "date": "August 14, 2026"
   }
