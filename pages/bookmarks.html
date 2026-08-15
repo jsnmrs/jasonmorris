@@ -1,7 +1,6 @@
 ---
 layout: doc
 title: Bookmarks
-has: bookmarks
 meta: "Links worth keeping — accessibility, front-end, and whatever else caught my eye."
 pagination:
   data: bookmarks
@@ -14,6 +13,9 @@ pagination:
 permalink: "/bookmarks/{% unless pagination.pageNumber == 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endunless %}index.html"
 eleventyComputed:
   title: "Bookmarks{% unless pagination.pageNumber == 0 %}, page {{ pagination.pageNumber | plus: 1 }}{% endunless %}"
+  # footer.html gates the media scripts on `has contains "video"`. Compute it per
+  # page so a page of plain links does not inline three scripts it never uses.
+  has: "bookmarks{% assign videos = entries | where: 'video' %}{% if videos.size > 0 %} video{% endif %}"
 ---
 
 {% if entries.size == 0 %}
@@ -25,8 +27,50 @@ eleventyComputed:
 {%- for entry in entries %}
   <li>
     <a href="{{ entry.link | escape }}" rel="external">{{ entry.title | escape }}</a>
-    {%- if entry.excerpt %}
+    {%- if entry.video %}
+    <div class="facade bookmark-video{% unless entry.video.poster %} facade--blank{% endunless %}">
+      <a class="facade__link" href="{{ entry.link | escape }}">
+        <span class="visually-hidden">Play: {{ entry.title | escape }} (embedded video)</span>
+        <div class="facade__overlay"></div>
+        {%- if entry.video.poster %}
+        <img src="{{ entry.video.poster | escape }}" alt="" loading="lazy" decoding="async" width="{{ entry.video.posterWidth }}" height="{{ entry.video.posterHeight }}">
+        {%- endif %}
+      </a>
+      <div class="facade__video" data-type="{{ entry.video.type }}" data-id="{{ entry.video.id | escape }}" data-width="800" data-height="450" data-title="{{ entry.title | escape }}"></div>
+    </div>
+    {%- endif %}
+    {%- if entry.note != blank %}
+    <p class="bookmark-note"><span class="visually-hidden">My note: </span>{{ entry.note | escape }}</p>
+    {%- endif %}
+    {%- if entry.excerpt != blank %}
     <p class="bookmark-excerpt">{{ entry.excerpt | escape }}</p>
+    {%- endif %}
+    {%- if entry.highlights.size > 0 %}
+    {%- assign lead = entry.highlights | first %}
+    <blockquote class="bookmark-highlight">
+      {%- for paragraph in lead.text %}
+      <p>{{ paragraph | escape }}</p>
+      {%- endfor %}
+      {%- if lead.note != blank %}
+      <p class="bookmark-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ lead.note | escape }}</p>
+      {%- endif %}
+    </blockquote>
+    {%- assign extra = entry.highlights.size | minus: 1 %}
+    {%- if extra > 0 %}
+    <details class="bookmark-highlights">
+      <summary>{{ extra }} more highlight{% unless extra == 1 %}s{% endunless %}<span class="visually-hidden"> from {{ entry.title | escape }}</span></summary>
+      {%- for highlight in entry.highlights offset: 1 %}
+      <blockquote class="bookmark-highlight">
+        {%- for paragraph in highlight.text %}
+        <p>{{ paragraph | escape }}</p>
+        {%- endfor %}
+        {%- if highlight.note != blank %}
+        <p class="bookmark-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ highlight.note | escape }}</p>
+        {%- endif %}
+      </blockquote>
+      {%- endfor %}
+    </details>
+    {%- endif %}
     {%- endif %}
     <p class="date"><span class="visually-hidden">Source: </span>{{ entry.domain | escape }}<span aria-hidden="true"> &middot; </span><span class="visually-hidden">saved </span><time datetime="{{ entry.created }}">{{ entry.date }}</time></p>
   </li>
