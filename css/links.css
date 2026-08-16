@@ -1,12 +1,17 @@
-/* The .chunk list assumes one link per item. Bookmarks add an excerpt and a
+/* The .chunk list assumes one link per item. These links add an excerpt and a
    source line, so the item padding moves off the anchor and onto the item. */
 
-.bookmarks li {
-  padding-block: 0.75rem;
-  padding-inline: 0.5rem;
+/* .doc ul indents its lists, which .chunk's margin-inline-start does not out-
+   specify. This list sits flush with the content edge instead. */
+.links {
+  margin-inline: 0;
 }
 
-.bookmarks a {
+.links li {
+  padding-block: 0.75rem;
+}
+
+.links a {
   padding-block: 0;
   padding-inline: 0;
   font-weight: 700;
@@ -14,14 +19,14 @@
 
 /* .facade sets its own 2rem bottom margin for standalone use in a post. Inside
    a list item the video is one element among several, so pull it back in. */
-.bookmark-video {
+.link-video {
   margin-block: 0.5rem 0.75rem;
 }
 
 /* YouTube's hqdefault is the only thumbnail size present for every video, and
    it is 4:3 with pillarbox bars. Cropping to 16:9 hides the bars and matches
    the aspect the iframe takes over at. */
-.bookmark-video img {
+.link-video img {
   inline-size: 100%;
   block-size: auto;
   aspect-ratio: 16 / 9;
@@ -37,7 +42,7 @@
 
 /* My own words about the link, so they lead and carry a rule to set them apart
    from the scraped excerpt below. */
-.bookmark-note {
+.link-note {
   margin-block: 0.5rem;
   margin-inline: 0;
   padding-inline-start: 0.75rem;
@@ -45,53 +50,53 @@
   line-height: 1.5;
 }
 
-.bookmark-excerpt {
+.link-excerpt {
   margin-block: 0.25rem;
   margin-inline: 0;
   color: var(--text-accent);
   line-height: 1.5;
 }
 
-.bookmark-highlight {
+.link-highlight {
   margin-block: 0.5rem;
   margin-inline: 0;
   padding-inline-start: 0.75rem;
   border-inline-start: 0.2rem solid var(--background-accent);
 }
 
-.bookmark-highlight p {
+.link-highlight p {
   margin-block: 0 0.5rem;
 }
 
-.bookmark-highlight p:last-child {
+.link-highlight p:last-child {
   margin-block-end: 0;
 }
 
-.bookmark-highlight-note {
+.link-highlight-note {
   color: var(--text-accent);
   font-size: 0.9rem;
 }
 
-.bookmark-highlights {
+.link-highlights {
   margin-block: 0.5rem;
 }
 
-.bookmark-highlights summary {
+.link-highlights summary {
   color: var(--text-accent);
   font-size: 0.9rem;
   cursor: pointer;
 }
 
-.bookmarks .date {
+.links .date {
   margin-block: 0.25rem 0;
   font-size: 0.9rem;
 }
 
-.bookmark-pages {
+.link-pages {
   margin-block: 2rem 3rem;
 }
 
-.bookmark-pages ul {
+.link-pages ul {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -101,13 +106,13 @@
   list-style-type: "";
 }
 
-.bookmark-pages li {
+.link-pages li {
   margin-block-end: 0;
 }
 
 /* Anchor "Older" to the end so it stays right whether or not "Newer" is
    present. Keyed to direction rather than position, so the lone "Newer" link
    on the last page stays at the start where a back link belongs. */
-.bookmark-pages .next {
+.link-pages .next {
   margin-inline-start: auto;
 }

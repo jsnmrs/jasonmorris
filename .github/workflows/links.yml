@@ -1,6 +1,6 @@
-name: Bookmarks
+name: Links
 
-# Refresh the /bookmarks/ feed from Raindrop.io.
+# Refresh the /links/ feed from Raindrop.io.
 #
 # main is a protected branch, so the refreshed snapshot arrives as a pull
 # request rather than a direct push. Merging it is an ordinary push to main,
@@ -17,12 +17,12 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: bookmarks
+  group: links
   cancel-in-progress: false
 
 jobs:
-  bookmarks:
-    name: Refresh bookmarks
+  links:
+    name: Refresh links
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -34,22 +34,22 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Fetch bookmarks from Raindrop
+      - name: Fetch links from Raindrop
         env:
           RAINDROP_TOKEN: ${{ secrets.RAINDROP_TOKEN }}
           RAINDROP_COLLECTION_ID: "73988867"
-        run: node scripts/fetch-bookmarks.js
+        run: node scripts/fetch-links.js
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          commit-message: Update bookmarks from Raindrop
-          title: "Update bookmarks from Raindrop"
+          commit-message: Update links from Raindrop
+          title: "Update links from Raindrop"
           body: |
-            Automated refresh of `_data/bookmarks.json` from the Raindrop.io collection.
+            Automated refresh of `_data/links.json` from the Raindrop.io collection.
 
-            The diff is the bookmarks added, removed, or retitled since the last refresh.
-          branch: update-bookmarks
+            The diff is the links added, removed, or retitled since the last refresh.
+          branch: update-links
           delete-branch: true
           base: main
-          add-paths: _data/bookmarks.json
+          add-paths: _data/links.json
