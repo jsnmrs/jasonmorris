@@ -1,9 +1,4 @@
-/* The .chunk list assumes one link per item. These links add an excerpt and a
-   source line, so the item padding moves off the anchor and onto the item. */
-
-/* .doc ul indents its lists, which .chunk's margin-inline-start does not out-
-   specify. This list sits flush with the content edge instead. */
-.links {
+.doc .links {
   margin-inline: 0;
 }
 
@@ -17,8 +12,6 @@
   font-weight: 700;
 }
 
-/* .facade sets its own 2rem bottom margin for standalone use in a post. Inside
-   a list item the video is one element among several, so pull it back in. */
 .link-video {
   margin-block: 0.5rem 0.75rem;
 }
@@ -42,15 +35,17 @@
 
 /* My own words about the link, so they lead and carry a rule to set them apart
    from the scraped excerpt below. */
-.link-note {
+.link-excerpt {
   margin-block: 0.5rem;
   margin-inline: 0;
-  padding-inline-start: 0.75rem;
-  border-inline-start: 0.2rem solid var(--background-border-accent);
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  background-color: var(--background-border-accent);
   line-height: 1.5;
+  font-size: 0.85rem;
 }
 
-.link-excerpt {
+.link-note {
   margin-block: 0.25rem;
   margin-inline: 0;
   color: var(--text-accent);
