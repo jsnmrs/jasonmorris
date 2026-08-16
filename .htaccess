@@ -26,6 +26,7 @@ AddType image/avif .avif
   Redirect 301 /rss.xml /atom.xml
   Redirect 301 /favicon.png /favicon.svg
   Redirect 301 /a11y /accessibility
+  Redirect 301 /bookmarks /links
   Redirect 301 /manual /readme
   Redirect 301 /how-i-like-to-work /readme
   Redirect 301 /working-with-me /readme

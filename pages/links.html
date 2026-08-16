@@ -1,34 +1,34 @@
 ---
 layout: doc
-title: Bookmarks
+title: Links
 meta: "Links worth keeping — accessibility, front-end, and whatever else caught my eye."
 pagination:
-  data: bookmarks
+  data: links
   size: 50
   alias: entries
   generatePageOnEmptyData: true
   # Eleventy adds only the first page to collections by default, which would
-  # leave every page after /bookmarks/ out of the sitemap.
+  # leave every page after /links/ out of the sitemap.
   addAllPagesToCollections: true
-permalink: "/bookmarks/{% unless pagination.pageNumber == 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endunless %}index.html"
+permalink: "/links/{% unless pagination.pageNumber == 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endunless %}index.html"
 eleventyComputed:
-  title: "Bookmarks{% unless pagination.pageNumber == 0 %}, page {{ pagination.pageNumber | plus: 1 }}{% endunless %}"
+  title: "Links{% unless pagination.pageNumber == 0 %}, page {{ pagination.pageNumber | plus: 1 }}{% endunless %}"
   # footer.html gates the media scripts on `has contains "video"`. Compute it per
   # page so a page of plain links does not inline three scripts it never uses.
-  has: "bookmarks{% assign videos = entries | where: 'video' %}{% if videos.size > 0 %} video{% endif %}"
+  has: "links{% assign videos = entries | where: 'video' %}{% if videos.size > 0 %} video{% endif %}"
 ---
 
 {% if entries.size == 0 %}
 <p>Nothing here yet. Check back soon.</p>
 {% else %}
-<p class="date">{{ bookmarks.size }} link{% unless bookmarks.size == 1 %}s{% endunless %}, newest first.</p>
+<p class="date">{{ links.size }} link{% unless links.size == 1 %}s{% endunless %}, newest first.</p>
 
-<ul class="chunk bump bookmarks">
+<ul class="chunk bump links">
 {%- for entry in entries %}
   <li>
     <a href="{{ entry.link | escape }}" rel="external">{{ entry.title | escape }}</a>
     {%- if entry.video %}
-    <div class="facade bookmark-video{% unless entry.video.poster %} facade--blank{% endunless %}">
+    <div class="facade link-video{% unless entry.video.poster %} facade--blank{% endunless %}">
       <a class="facade__link" href="{{ entry.link | escape }}">
         <span class="visually-hidden">Play: {{ entry.title | escape }} (embedded video)</span>
         <div class="facade__overlay"></div>
@@ -40,32 +40,32 @@ eleventyComputed:
     </div>
     {%- endif %}
     {%- if entry.note != blank %}
-    <p class="bookmark-note"><span class="visually-hidden">My note: </span>{{ entry.note | escape }}</p>
+    <p class="link-note"><span class="visually-hidden">My note: </span>{{ entry.note | escape }}</p>
     {%- endif %}
     {%- if entry.excerpt != blank %}
-    <p class="bookmark-excerpt">{{ entry.excerpt | escape }}</p>
+    <p class="link-excerpt">{{ entry.excerpt | escape }}</p>
     {%- endif %}
     {%- if entry.highlights.size > 0 %}
     {%- assign lead = entry.highlights | first %}
-    <blockquote class="bookmark-highlight">
+    <blockquote class="link-highlight">
       {%- for paragraph in lead.text %}
       <p>{{ paragraph | escape }}</p>
       {%- endfor %}
       {%- if lead.note != blank %}
-      <p class="bookmark-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ lead.note | escape }}</p>
+      <p class="link-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ lead.note | escape }}</p>
       {%- endif %}
     </blockquote>
     {%- assign extra = entry.highlights.size | minus: 1 %}
     {%- if extra > 0 %}
-    <details class="bookmark-highlights">
+    <details class="link-highlights">
       <summary>{{ extra }} more highlight{% unless extra == 1 %}s{% endunless %}<span class="visually-hidden"> from {{ entry.title | escape }}</span></summary>
       {%- for highlight in entry.highlights offset: 1 %}
-      <blockquote class="bookmark-highlight">
+      <blockquote class="link-highlight">
         {%- for paragraph in highlight.text %}
         <p>{{ paragraph | escape }}</p>
         {%- endfor %}
         {%- if highlight.note != blank %}
-        <p class="bookmark-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ highlight.note | escape }}</p>
+        <p class="link-highlight-note"><span class="visually-hidden">My note on this highlight: </span>{{ highlight.note | escape }}</p>
         {%- endif %}
       </blockquote>
       {%- endfor %}
@@ -79,14 +79,14 @@ eleventyComputed:
 {% endif %}
 
 {%- if pagination.pages.size > 1 %}
-<nav class="bookmark-pages" aria-label="Bookmark pages">
+<nav class="link-pages" aria-label="Link pages">
   <p class="date">Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages.size }}</p>
   <ul>
     {%- if pagination.href.previous %}
-    <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span> Newer<span class="visually-hidden"> bookmarks</span></a></li>
+    <li><a href="{{ pagination.href.previous }}"><span aria-hidden="true">&larr;</span> Newer<span class="visually-hidden"> links</span></a></li>
     {%- endif %}
     {%- if pagination.href.next %}
-    <li class="next"><a href="{{ pagination.href.next }}">Older<span class="visually-hidden"> bookmarks</span> <span aria-hidden="true">&rarr;</span></a></li>
+    <li class="next"><a href="{{ pagination.href.next }}">Older<span class="visually-hidden"> links</span> <span aria-hidden="true">&rarr;</span></a></li>
     {%- endif %}
   </ul>
 </nav>

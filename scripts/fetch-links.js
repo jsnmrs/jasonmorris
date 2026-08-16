@@ -1,12 +1,12 @@
 /**
- * Fetch a Raindrop.io collection and write it to _data/bookmarks.json.
+ * Fetch a Raindrop.io collection and write it to _data/links.json.
  *
  * Runs in CI only. The Eleventy build reads the committed JSON snapshot and
  * never talks to Raindrop, so a Raindrop outage cannot break a deploy or the
  * live site.
  *
  * Usage:
- *   RAINDROP_TOKEN=xxx RAINDROP_COLLECTION_ID=nnn node scripts/fetch-bookmarks.js
+ *   RAINDROP_TOKEN=xxx RAINDROP_COLLECTION_ID=nnn node scripts/fetch-links.js
  */
 
 import { readFile, writeFile } from "node:fs/promises";
@@ -15,9 +15,7 @@ import { fileURLToPath } from "node:url";
 // Overridable so the fetch loop can be exercised against a local mock.
 const API = process.env.RAINDROP_API ?? "https://api.raindrop.io/rest/v1";
 const PER_PAGE = 50; // Raindrop's maximum.
-const OUTPUT = fileURLToPath(
-  new URL("../_data/bookmarks.json", import.meta.url),
-);
+const OUTPUT = fileURLToPath(new URL("../_data/links.json", import.meta.url));
 
 /**
  * Guard against a partial fetch silently truncating the committed archive.
@@ -60,7 +58,7 @@ const YOUTUBE_ID_PREFIXES = new Set(["embed", "shorts", "live", "v"]);
  * hqdefault is the only YouTube thumbnail guaranteed to exist for every video.
  * maxresdefault is a true 16:9 crop at a better resolution but 404s on plenty
  * of videos, and a poster that sometimes fails is worse than one that never
- * does. hqdefault is 4:3 with pillarbox bars; bookmarks.css crops it back.
+ * does. hqdefault is 4:3 with pillarbox bars; links.css crops it back.
  */
 const YOUTUBE_POSTER_WIDTH = 480;
 const YOUTUBE_POSTER_HEIGHT = 360;
@@ -79,7 +77,7 @@ const VIMEO_POSTER_REQUEST_WIDTH = 800;
 /**
  * Display dates are formatted here, not in the template, so output does not
  * depend on the build machine's clock. Liquid's date filter renders in local
- * time, which would put a UTC-midnight bookmark on different days depending on
+ * time, which would put a UTC-midnight link on different days depending on
  * whether the build ran on a laptop in New York or a UTC runner in CI.
  *
  * Matches site.timezone in _data/site.json.
@@ -210,7 +208,7 @@ function vimeoId(url) {
 }
 
 /**
- * Map a bookmark link to an embeddable video, or null. Both ids are validated
+ * Map a saved link to an embeddable video, or null. Both ids are validated
  * against their known shape, so an unrecognized URL degrades to a plain link
  * instead of producing an iframe pointed at nothing.
  */
@@ -393,48 +391,48 @@ async function fetchVimeoPoster(link) {
  * that still plays, which beats refusing to write the whole snapshot because
  * Vimeo was briefly unreachable.
  */
-async function resolveVimeoPosters(bookmarks, previous) {
+async function resolveVimeoPosters(links, previous) {
   const seen = new Map(previous.map((entry) => [entry.id, entry]));
 
-  for (const bookmark of bookmarks) {
-    if (bookmark.video?.type !== "vimeo") {
+  for (const entry of links) {
+    if (entry.video?.type !== "vimeo") {
       continue;
     }
 
-    const cached = seen.get(bookmark.id)?.video;
+    const cached = seen.get(entry.id)?.video;
 
     if (cached?.poster) {
-      bookmark.video.poster = cached.poster;
-      bookmark.video.posterWidth = cached.posterWidth;
-      bookmark.video.posterHeight = cached.posterHeight;
+      entry.video.poster = cached.poster;
+      entry.video.posterWidth = cached.posterWidth;
+      entry.video.posterHeight = cached.posterHeight;
       continue;
     }
 
     try {
-      Object.assign(bookmark.video, await fetchVimeoPoster(bookmark.link));
+      Object.assign(entry.video, await fetchVimeoPoster(entry.link));
     } catch (error) {
       console.warn(
-        `Could not resolve a Vimeo poster for ${bookmark.link}: ${error.message}`,
+        `Could not resolve a Vimeo poster for ${entry.link}: ${error.message}`,
       );
     }
   }
 }
 
-function validate(bookmarks, previousCount) {
-  const incomplete = bookmarks.filter((entry) => !entry.link || !entry.title);
+function validate(links, previousCount) {
+  const incomplete = links.filter((entry) => !entry.link || !entry.title);
 
   if (incomplete.length > 0) {
     throw new Error(
-      `Refusing to write: ${incomplete.length} bookmark(s) are missing a link or title.`,
+      `Refusing to write: ${incomplete.length} link(s) are missing a link or title.`,
     );
   }
 
   const floor = Math.floor(previousCount * (1 - MAX_SHRINK));
 
-  if (previousCount > 0 && bookmarks.length < floor) {
+  if (previousCount > 0 && links.length < floor) {
     throw new Error(
-      `Refusing to write: bookmark count dropped from ${previousCount} to ${bookmarks.length}, ` +
-        `below the ${floor} floor. Re-run once Raindrop is healthy, or delete _data/bookmarks.json ` +
+      `Refusing to write: link count dropped from ${previousCount} to ${links.length}, ` +
+        `below the ${floor} floor. Re-run once Raindrop is healthy, or delete _data/links.json ` +
         `if the collection really was pruned.`,
     );
   }
@@ -452,11 +450,11 @@ async function main() {
     throw new Error("RAINDROP_COLLECTION_ID is not set.");
   }
 
-  const bookmarks = [];
+  const links = [];
 
   for (let page = 0; ; page += 1) {
     const items = await fetchPage(collectionId, token, page);
-    bookmarks.push(...items.map(normalize));
+    links.push(...items.map(normalize));
 
     if (items.length < PER_PAGE) {
       break;
@@ -465,17 +463,17 @@ async function main() {
 
   // Sort here rather than trusting the API's order, so an unchanged collection
   // always serializes identically and the daily commit diff stays meaningful.
-  bookmarks.sort(
+  links.sort(
     (a, b) => Date.parse(b.created) - Date.parse(a.created) || b.id - a.id,
   );
 
   const previous = await readExisting();
-  await resolveVimeoPosters(bookmarks, previous);
-  validate(bookmarks, previous.length);
+  await resolveVimeoPosters(links, previous);
+  validate(links, previous.length);
 
-  await writeFile(OUTPUT, `${JSON.stringify(bookmarks, null, 2)}\n`);
+  await writeFile(OUTPUT, `${JSON.stringify(links, null, 2)}\n`);
   console.log(
-    `Wrote ${bookmarks.length} bookmarks to _data/bookmarks.json (was ${previous.length}).`,
+    `Wrote ${links.length} links to _data/links.json (was ${previous.length}).`,
   );
 }
 
