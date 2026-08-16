@@ -21,12 +21,14 @@ eleventyComputed:
 {% if entries.size == 0 %}
 <p>Nothing here yet. Check back soon.</p>
 {% else %}
-<p class="date">{{ links.size }} link{% unless links.size == 1 %}s{% endunless %}, newest first.</p>
+<p>Interesting links from around the internet.</p>
 
 <ul class="chunk bump links">
 {%- for entry in entries %}
   <li>
     <a href="{{ entry.link | escape }}" rel="external">{{ entry.title | escape }}</a>
+    <p class="date"><span class="visually-hidden">saved </span><time datetime="{{ entry.created }}">{{ entry.date }}</time></p>
+
     {%- if entry.video %}
     <div class="facade link-video{% unless entry.video.poster %} facade--blank{% endunless %}">
       <a class="facade__link" href="{{ entry.link | escape }}">
@@ -39,11 +41,11 @@ eleventyComputed:
       <div class="facade__video" data-type="{{ entry.video.type }}" data-id="{{ entry.video.id | escape }}" data-width="800" data-height="450" data-title="{{ entry.title | escape }}"></div>
     </div>
     {%- endif %}
-    {%- if entry.note != blank %}
-    <p class="link-note"><span class="visually-hidden">My note: </span>{{ entry.note | escape }}</p>
-    {%- endif %}
     {%- if entry.excerpt != blank %}
     <p class="link-excerpt">{{ entry.excerpt | escape }}</p>
+    {%- endif %}
+    {%- if entry.note != blank %}
+    <p class="link-note"><span class="visually-hidden">My note: </span>{{ entry.note | escape }}</p>
     {%- endif %}
     {%- if entry.highlights.size > 0 %}
     {%- assign lead = entry.highlights | first %}
@@ -72,7 +74,6 @@ eleventyComputed:
     </details>
     {%- endif %}
     {%- endif %}
-    <p class="date">{% if entry.domain != blank %}<span class="visually-hidden">Source: </span>{{ entry.domain | escape }}<span aria-hidden="true"> &middot; </span>{% endif %}<span class="visually-hidden">saved </span><time datetime="{{ entry.created }}">{{ entry.date }}</time></p>
   </li>
 {%- endfor %}
 </ul>
