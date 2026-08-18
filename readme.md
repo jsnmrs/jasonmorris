@@ -6,7 +6,7 @@ This is the code repository for my [personal website, jasonmorris.com](https://j
 
 - Built with [Eleventy](https://www.11ty.dev/) static site generator
 - Fully responsive design using logical CSS properties
-- Strong focus on accessibility (strives for WCAG 2.2 AAA conformance)
+- Strong focus on accessibility (strives for WCAG 2.2 AA conformance and AAA where possible)
 - Performance optimized (Lighthouse score of 100 is average)
 - Blog with categories and tags
 - Built-in media handling for images, videos, and audio
