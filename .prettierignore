@@ -1,1 +1,5 @@
 _site
+
+# Build output: postcss and terser write these, clean deletes them.
+_includes/*.css
+_includes/*.js
