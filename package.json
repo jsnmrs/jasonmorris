@@ -47,7 +47,7 @@
     "@double-great/stylelint-a11y": "3.5.2",
     "autoprefixer": "10.5.4",
     "chokidar-cli": "3.0.0",
-    "cssnano": "8.0.2",
+    "cssnano": "9.0.1",
     "eleventy-plugin-git-commit-date": "1.0.2",
     "eslint": "10.9.1",
     "eslint-config-prettier": "10.1.8",
