@@ -102,3 +102,9 @@ dt {
 .loose {
   letter-spacing: 0.1rem;
 }
+
+/* Light-on-black variant of the home link for the black background */
+.circle:is(:link, :visited) {
+  color: var(--black);
+  background-color: var(--background);
+}
