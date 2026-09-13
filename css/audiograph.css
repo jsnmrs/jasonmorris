@@ -1,5 +1,6 @@
 /* shame, shame, I know your name */
-html {
+html,
+body {
   background-color: #000;
 }
 
