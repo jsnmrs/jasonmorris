@@ -20,6 +20,8 @@ Over time, I&rsquo;ve drifted between Sublime Text, Atom (RIP), [Nova](https://n
 
 My `.zshrc` or `.bash_profile`, this looks like this:
 
+<!-- code-label: Shell aliases for launching editors -->
+
 ```sh
 alias a="atom ."
 alias c="code ."

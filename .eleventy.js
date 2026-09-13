@@ -146,45 +146,42 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
     : picture;
 };
 
-/**
- * Hand-written accessible names for every code block on the site, keyed
- * by the block's first line of code. A new or edited code block whose
- * first line has no entry here fails the build until a label is added.
- */
-const CODE_BLOCK_LABELS = {
-  "cp -a ~/.ssh ~/ssh-backup": "Back up the SSH directory",
-  'ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment"':
-    "Generate a new SSH key",
-  "chmod 600 ~/.ssh/id_rsa*": "Restrict SSH key file permissions",
-  'eval "$(ssh-agent -s)"': "Start the SSH agent",
-  "ssh-add --apple-use-keychain ~/.ssh/id_rsa":
-    "Add the key to the agent and keychain",
-  "pbcopy < ~/.ssh/id_rsa.pub": "Copy the public key to the clipboard",
-  "cat ~/.ssh/id_rsa.pub": "Print the public key",
-  "ssh -T git@github.com -i ~/.ssh/id_rsa": "Test the key against GitHub",
-  'alias a="atom ."': "Shell aliases for launching editors",
-  "<ol>": "Nested ordered list HTML",
-  ".visually-hidden:not(:focus-within, :active) {":
-    "Visually hidden utility CSS",
-  "document.body.classList.remove('no-js');":
-    "JavaScript removing the no-js class",
-};
+// A code-label comment written on the line before a code block becomes
+// the block's aria-label. Escaped sample code renders as &lt;pre, so
+// neither pattern can match code that merely displays a pre tag.
+const CODE_LABEL_MARKER =
+  /<!--\s*code-label:\s*([\s\S]*?)\s*-->\s*(<pre class="language-[^"]*"[^>]*)>/g;
+const LEFTOVER_MARKER = /<!--\s*code-label:[\s\S]*?-->/g;
+const UNLABELED_PRE = /<pre class="language-[^"]*"(?![^>]*aria-label=)[^>]*>/g;
 
 /**
- * Looks up the hand-written label for a code block
- * @param {Object} context - Plugin callback context
- * @param {string} context.content - Raw code block content
- * @returns {string} - The block's accessible name
+ * Applies each code-label comment to the code block that follows it and
+ * fails the build if any block or label is left unpaired
+ * @param {string} content - Rendered HTML
+ * @param {string} sourceName - Content source, for error messages
+ * @returns {string} - HTML with labeled code blocks, comments removed
  */
-const codeBlockLabel = ({ content }) => {
-  const firstLine = content.trim().split("\n")[0].trim();
-  const label = CODE_BLOCK_LABELS[firstLine];
-  if (!label) {
+const applyCodeBlockLabels = (content, sourceName) => {
+  const html = content.replace(
+    CODE_LABEL_MARKER,
+    (match, label, preTag) => `${preTag} aria-label="${escapeHtml(label)}">`,
+  );
+
+  const leftovers = html.match(LEFTOVER_MARKER);
+  if (leftovers) {
     throw new Error(
-      `Add an aria-label to CODE_BLOCK_LABELS in .eleventy.js for the code block starting with: ${firstLine}`,
+      `${sourceName}: code-label comment is not immediately before a highlighted code block: ${leftovers.join(", ")}`,
     );
   }
-  return label;
+
+  const unlabeled = html.match(UNLABELED_PRE);
+  if (unlabeled) {
+    throw new Error(
+      `${sourceName}: highlighted code block has no accessible name. Add a "<!-- code-label: ... -->" comment on the line before it: ${unlabeled.join(", ")}`,
+    );
+  }
+
+  return html;
 };
 
 /**
@@ -196,12 +193,10 @@ const configurePlugins = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight, {
     // Code blocks scroll horizontally, so they must be keyboard
-    // focusable, and a focusable region needs an accessible name
-    preAttributes: {
-      tabindex: 0,
-      role: "region",
-      "aria-label": codeBlockLabel,
-    },
+    // focusable, and a focusable region needs an accessible name.
+    // The name comes from a code-label comment in the content file,
+    // applied by the codeBlockLabels transform and filter
+    preAttributes: { tabindex: 0, role: "region" },
   });
 };
 
@@ -313,6 +308,23 @@ export default function (eleventyConfig) {
 
   // Configure Plugins
   configurePlugins(eleventyConfig);
+
+  // Apply code-label comments to code blocks in rendered pages. The
+  // filter covers the atom feed, which embeds post content before
+  // transforms run
+  eleventyConfig.addTransform(
+    "codeBlockLabels",
+    function (content, outputPath) {
+      if (!outputPath || !outputPath.endsWith(".html")) {
+        return content;
+      }
+      return applyCodeBlockLabels(content, this.inputPath);
+    },
+  );
+
+  eleventyConfig.addFilter("codeBlockLabels", (content) =>
+    applyCodeBlockLabels(content, "atom feed entry"),
+  );
 
   // Browser Sync Configuration
   eleventyConfig.setBrowserSyncConfig({

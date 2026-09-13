@@ -20,6 +20,8 @@ Today, I rotated my SSH keys and configured GitHub to use these new keys. There 
 
 Copy your existing SSH folder to temporary folder for safekeeping.
 
+<!-- code-label: Back up the SSH directory -->
+
 ```sh
 cp -a ~/.ssh ~/ssh-backup
 ```
@@ -32,6 +34,8 @@ Generate a strong passphrase for your new SSH key. I use [1Password](https://1pa
 
 Create your new SSH key pair. If you already have a key named `id_rsa`, this will overwrite it. When prompted, enter the passphrase you generated earlier.
 
+<!-- code-label: Generate a new SSH key -->
+
 ```sh
 ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment"
 ```
@@ -39,6 +43,8 @@ ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment"
 ## Change permissions
 
 By default, my machine gives this new key permissions of 644 (user read+write, group read, world read). I want to change that to 600 (user read+write only) to avoid issues down the road. SSH connections may fail if the key files have permissions that are too loose. To change the private and public key files to 600:
+
+<!-- code-label: Restrict SSH key file permissions -->
 
 ```sh
 chmod 600 ~/.ssh/id_rsa*
@@ -48,11 +54,15 @@ chmod 600 ~/.ssh/id_rsa*
 
 To make sure the SSH agent is running, first run:
 
+<!-- code-label: Start the SSH agent -->
+
 ```sh
 eval "$(ssh-agent -s)"
 ```
 
 To add the new SSH key pair to the SSH agent and to the macOS [Keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>), run:
+
+<!-- code-label: Add the key to the agent and keychain -->
 
 ```sh
 ssh-add --apple-use-keychain ~/.ssh/id_rsa
@@ -62,11 +72,15 @@ ssh-add --apple-use-keychain ~/.ssh/id_rsa
 
 Add the public key to your GitHub account by following [these instructions from GitHub](https://docs.github.com/articles/adding-a-new-ssh-key-to-your-github-account). You&rsquo;ll copy your key to your clipboard using:
 
+<!-- code-label: Copy the public key to the clipboard -->
+
 ```sh
 pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 In the event that `pbcopy` isn&rsquo;t available, print the public key to the console for copy/pasting with:
+
+<!-- code-label: Print the public key -->
 
 ```sh
 cat ~/.ssh/id_rsa.pub
@@ -79,6 +93,8 @@ While you&rsquo;re there, it&rsquo;s a good opportunity to review any other SSH 
 ## Test new key&rsquo;s access to GitHub
 
 Verify you can login to GitHub with the new SSH key.
+
+<!-- code-label: Test the key against GitHub -->
 
 ```sh
 ssh -T git@github.com -i ~/.ssh/id_rsa
