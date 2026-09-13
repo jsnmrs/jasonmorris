@@ -53,7 +53,7 @@ h1 {
 }
 
 .blur {
-  color: transparent;
+  color: rgb(255 255 255 / 60%);
   text-shadow: 0 0 0.05rem rgb(255 255 255 / 95%);
 }
 
