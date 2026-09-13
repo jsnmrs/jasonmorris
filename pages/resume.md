@@ -2,6 +2,7 @@
 layout: doc
 has: resume
 title: Jason Morris
+docTitle: Resume
 permalink: "/resume/index.html"
 meta: "Jason Morris is an accessibility engineer and front-end developer with over 20 years of creating and validating accessible web experiences."
 subject: "Accessibility engineer and front-end developer with over 20 years of creating and validating accessible web experiences"
