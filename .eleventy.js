@@ -153,7 +153,10 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
 const configurePlugins = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    // Code blocks scroll horizontally, so they must be keyboard focusable
+    preAttributes: { tabindex: 0 },
+  });
 };
 
 // Main Configuration Function
