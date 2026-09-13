@@ -12,6 +12,11 @@ main {
   flex-wrap: wrap;
 }
 
+/* Without JavaScript the player can never start, so don't offer it */
+html.no-js .control-panel {
+  display: none;
+}
+
 .bind {
   display: flex;
   flex-wrap: wrap;
