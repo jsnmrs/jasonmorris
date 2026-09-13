@@ -289,6 +289,12 @@ pre > code {
   border-inline-width: 0;
 }
 
+.table-scroll {
+  overflow-inline: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
 @media (forced-colors: active) {
   :where(mark) {
     color: HighlightText;
@@ -309,6 +315,16 @@ select,
 textarea {
   font-family: inherit;
   font-size: inherit;
+}
+
+/* Keep intrinsically wide controls, like file inputs, from forcing
+   horizontal page scroll in narrow viewports. */
+fieldset {
+  min-inline-size: 0;
+}
+
+input {
+  max-inline-size: 100%;
 }
 
 /* This is intentional and reflects my explicit opinion while understanding recommendations against it. */

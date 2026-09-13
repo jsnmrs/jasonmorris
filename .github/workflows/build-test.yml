@@ -38,6 +38,16 @@ jobs:
         run: npm run build
         timeout-minutes: 15
 
+      # Narrow-viewport axe scan and custom widget assertions. Covers what
+      # the desktop-width crawl below cannot: reflow and scrollable regions
+      # at 320px, video facade focus handling, and audio player state.
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility tests
+        run: npm run test:a11y
+        timeout-minutes: 10
+
       # Accessibility testing phase - only run if relevant files changed
       - name: Check if files requiring accessibility testing changed
         id: check_files

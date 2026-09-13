@@ -8,6 +8,8 @@ pagination:
   alias: tag
 layout: tag
 permalink: /{{ tag }}/
+eleventyComputed:
+  title: "Posts tagged with {{ tag }}"
 ---
 <h1>Posts tagged with {{ tag }}</h1>
 

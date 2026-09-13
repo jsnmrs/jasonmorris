@@ -35,7 +35,7 @@ permalink: "/styleguide/index.html"
 </ul>
 <p>We need to button up our approach. Beef up we need to think big start small and scale fast to energize our clients cannibalize, it&rsquo;s all exactly as i said, but i don&rsquo;t like it dog pile that, nor think.</p>
 <figure>
-  <img src="/img/jason-640.webp" alt="Jason Morris.">
+  <img src="/img/jason-800.webp" alt="Jason Morris.">
   <figcaption>The author’s figcaption</figcaption>
 </figure>
 <hr>
@@ -54,6 +54,7 @@ permalink: "/styleguide/index.html"
 <p>The <sup>sup element</sup> example</p>
 <p>The <time datetime="2005-05-15 19:00">time element</time> example</p>
 <p>HTML</p>
+<!-- code-label: Nested ordered list HTML -->
 {% highlight html %}
 <ol>
   <li>List Item 1</li>
@@ -66,6 +67,7 @@ permalink: "/styleguide/index.html"
 </ol>
 {% endhighlight %}
 <p>CSS</p>
+<!-- code-label: Visually hidden utility CSS -->
 {% highlight css %}
 .visually-hidden:not(:focus-within, :active) {
   clip-path: inset(50%);
@@ -77,6 +79,7 @@ permalink: "/styleguide/index.html"
 }
 {% endhighlight %}
 <p>JavaScript</p>
+<!-- code-label: JavaScript removing the no-js class -->
 {% highlight js %}
 document.body.classList.remove('no-js');
 {% endhighlight %}
@@ -124,8 +127,9 @@ document.body.classList.remove('no-js');
   <dd>Definition Description 2</dd>
 </dl>
 <p>Table</p>
+<div class="table-scroll" tabindex="0" role="region" aria-labelledby="table-caption">
 <table>
-  <caption>
+  <caption id="table-caption">
     Academy Awards for Best Picture
     <span class="table__summary">Descriptions of the film title, production company(s), and producers for the years 1980-1989.</span>
   </caption>
@@ -210,6 +214,7 @@ document.body.classList.remove('no-js');
     </tr>
   </tfoot>
 </table>
+</div>
 
 <h2 id="subtitle-emoji">Emoji</h2>
 <ul>
@@ -258,13 +263,13 @@ document.body.classList.remove('no-js');
     <input id="input-text-with-placeholder" name="placeholder" placeholder="Placeholder" dir="auto" type="text">
 
     <label for="input-email">Email</label>
-    <input id="input-email" name="email" placeholder="name@example.com" autocapitalize="off" autocorrect="off" spellcheck="false" dir="auto" type="email">
+    <input id="input-email" name="email" placeholder="name@example.com" autocapitalize="off" autocorrect="off" autocomplete="email" spellcheck="false" dir="auto" type="email">
 
     <label for="input-password">Password</label>
-    <input id="input-password" name="password" autocapitalize="off" autocorrect="off" spellcheck="false" dir="auto" type="password">
+    <input id="input-password" name="password" autocapitalize="off" autocorrect="off" autocomplete="current-password" spellcheck="false" dir="auto" type="password">
 
     <label for="input-url">URL</label>
-    <input id="input-url" name="url" autocapitalize="off" spellcheck="false" dir="auto" type="url">
+    <input id="input-url" name="url" autocapitalize="off" autocomplete="url" spellcheck="false" dir="auto" type="url">
 
     <label for="input-telephone">Telephone</label>
     <input id="input-telephone" name="telephone" autocorrect="off" autocomplete="tel" spellcheck="false" dir="auto" type="tel">
@@ -445,10 +450,6 @@ document.body.classList.remove('no-js');
       </svg>
       Button with <abbr>SVG</abbr> icon
     </button>
-
-    <span role="button" tabindex="0">
-      Text Button
-    </span>
   </fieldset>
 
   <fieldset id="subsection-output">

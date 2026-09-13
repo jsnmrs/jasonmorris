@@ -1,6 +1,6 @@
 /* shame, shame, I know your name */
 html,
-main {
+body {
   background-color: #000;
 }
 
@@ -10,6 +10,11 @@ main {
   gap: 1.5rem;
   margin-block-start: 1.5rem;
   flex-wrap: wrap;
+}
+
+/* Without JavaScript the player can never start, so don't offer it */
+html.no-js .control-panel {
+  display: none;
 }
 
 .bind {
@@ -53,7 +58,7 @@ h1 {
 }
 
 .blur {
-  color: transparent;
+  color: rgb(255 255 255 / 60%);
   text-shadow: 0 0 0.05rem rgb(255 255 255 / 95%);
 }
 
@@ -101,4 +106,10 @@ dt {
 
 .loose {
   letter-spacing: 0.1rem;
+}
+
+/* Light-on-black variant of the home link for the black background */
+.circle:is(:link, :visited) {
+  color: var(--black);
+  background-color: var(--background);
 }

@@ -33,7 +33,7 @@
     },
 
     // Create invisible YouTube player for audio-only playback
-    createPlayer: function (elementId, videoId, onReady) {
+    createPlayer: function (elementId, videoId, onReady, onStateChange) {
       // Verify YouTube API is loaded
       if (!window.YT) {
         window.MediaUtils.logError("YouTube API not loaded");
@@ -41,6 +41,12 @@
       }
 
       try {
+        // Collect player event handlers, including optional state changes
+        const events = { onReady: onReady };
+        if (onStateChange) {
+          events.onStateChange = onStateChange;
+        }
+
         // Initialize player with minimal dimensions (audio-only use)
         return new YT.Player(elementId, {
           height: "0",
@@ -50,9 +56,7 @@
             autoplay: 0, // Don't autoplay
             controls: 0, // Hide default controls
           },
-          events: {
-            onReady: onReady,
-          },
+          events: events,
         });
       } catch (error) {
         window.MediaUtils.logError("Error creating YouTube player:", error);

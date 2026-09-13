@@ -7,7 +7,10 @@ export default {
       grid: false,
     }),
     cssnano({
-      preset: "default",
+      // reduceInitial rewrites color: CanvasText to color: initial,
+      // which engines resolve as the UA default instead of the
+      // theme-aware system color in forced-colors mode
+      preset: ["default", { reduceInitial: false }],
     }),
   ],
 };

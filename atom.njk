@@ -24,7 +24,7 @@
     <published>{{ post.date | dateToRfc3339 }}</published>
     <updated>{% if post.data.updated %}{{ post.data.updated | dateToRfc3339 }}{% else %}{{ post.date | dateToRfc3339 }}{% endif %}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content type="html" xml:base="{{ absolutePostUrl }}">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html" xml:base="{{ absolutePostUrl }}">{{ post.templateContent | codeBlockLabels | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
   {%- endfor %}
 </feed>

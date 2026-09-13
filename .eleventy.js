@@ -106,6 +106,18 @@ const generateSourcesets = (fullPath, sizes, formats) => {
 };
 
 /**
+ * Escapes text for safe interpolation into HTML markup
+ * @param {string} value - Raw text
+ * @returns {string} - Escaped text
+ */
+const escapeHtml = (value) =>
+  String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+
+/**
  * Creates a picture element with optional caption
  * @param {Object} sources - Source sets for different formats
  * @param {string} imgSrc - Default image source
@@ -121,7 +133,7 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
       ${Object.values(sources).join("\n")}
       <img
         src="${imgSrc}"
-        alt="${alt}"
+        alt="${escapeHtml(alt)}"
         loading="lazy"
         width="${width}"
         height="${height}"
@@ -130,8 +142,46 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
   `.trim();
 
   return caption
-    ? `<figure>${picture}<figcaption>${caption}</figcaption></figure>`
+    ? `<figure>${picture}<figcaption>${escapeHtml(caption)}</figcaption></figure>`
     : picture;
+};
+
+// A code-label comment written on the line before a code block becomes
+// the block's aria-label. Escaped sample code renders as &lt;pre, so
+// neither pattern can match code that merely displays a pre tag.
+const CODE_LABEL_MARKER =
+  /<!--\s*code-label:\s*([\s\S]*?)\s*-->\s*(<pre class="language-[^"]*"[^>]*)>/g;
+const LEFTOVER_MARKER = /<!--\s*code-label:[\s\S]*?-->/g;
+const UNLABELED_PRE = /<pre class="language-[^"]*"(?![^>]*aria-label=)[^>]*>/g;
+
+/**
+ * Applies each code-label comment to the code block that follows it and
+ * fails the build if any block or label is left unpaired
+ * @param {string} content - Rendered HTML
+ * @param {string} sourceName - Content source, for error messages
+ * @returns {string} - HTML with labeled code blocks, comments removed
+ */
+const applyCodeBlockLabels = (content, sourceName) => {
+  const html = content.replace(
+    CODE_LABEL_MARKER,
+    (match, label, preTag) => `${preTag} aria-label="${escapeHtml(label)}">`,
+  );
+
+  const leftovers = html.match(LEFTOVER_MARKER);
+  if (leftovers) {
+    throw new Error(
+      `${sourceName}: code-label comment is not immediately before a highlighted code block: ${leftovers.join(", ")}`,
+    );
+  }
+
+  const unlabeled = html.match(UNLABELED_PRE);
+  if (unlabeled) {
+    throw new Error(
+      `${sourceName}: highlighted code block has no accessible name. Add a "<!-- code-label: ... -->" comment on the line before it: ${unlabeled.join(", ")}`,
+    );
+  }
+
+  return html;
 };
 
 /**
@@ -141,7 +191,13 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
 const configurePlugins = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    // Code blocks scroll horizontally, so they must be keyboard
+    // focusable, and a focusable region needs an accessible name.
+    // The name comes from a code-label comment in the content file,
+    // applied by the codeBlockLabels transform and filter
+    preAttributes: { tabindex: 0, role: "region" },
+  });
 };
 
 // Main Configuration Function
@@ -227,11 +283,11 @@ export default function (eleventyConfig) {
       return `
         <div class="facade">
           <a class="facade__link" href="${platformUrl}">
-            <span class="visually-hidden">Play: ${title} (embedded video)</span>
+            <span class="visually-hidden">Play: ${escapeHtml(title)} (embedded video)</span>
             <div class="facade__overlay"></div>
             <picture>
               ${Object.values(sources).join("\n")}
-              <img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}">
+              <img src="${fullPath}-320.jpg" alt="" loading="lazy" width="${width}" height="${height}">
             </picture>
           </a>
           <div
@@ -240,7 +296,7 @@ export default function (eleventyConfig) {
             data-id="${videoId}"
             data-width="${width}"
             data-height="${height}"
-            data-title="${title}"
+            data-title="${escapeHtml(title)}"
           ></div>
         </div>
       `.trim();
@@ -252,6 +308,23 @@ export default function (eleventyConfig) {
 
   // Configure Plugins
   configurePlugins(eleventyConfig);
+
+  // Apply code-label comments to code blocks in rendered pages. The
+  // filter covers the atom feed, which embeds post content before
+  // transforms run
+  eleventyConfig.addTransform(
+    "codeBlockLabels",
+    function (content, outputPath) {
+      if (!outputPath || !outputPath.endsWith(".html")) {
+        return content;
+      }
+      return applyCodeBlockLabels(content, this.inputPath);
+    },
+  );
+
+  eleventyConfig.addFilter("codeBlockLabels", (content) =>
+    applyCodeBlockLabels(content, "atom feed entry"),
+  );
 
   // Browser Sync Configuration
   eleventyConfig.setBrowserSyncConfig({

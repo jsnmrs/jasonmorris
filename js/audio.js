@@ -67,6 +67,7 @@
         SELECTORS.player.substring(1), // Remove # for YouTube API
         videoId,
         initializeControls,
+        handlePlayerStateChange,
       );
     } catch (error) {
       MediaUtils.logError("Error initializing YouTube player:", error);
@@ -108,6 +109,9 @@
 
       controlsInitialized = true;
 
+      // Enable the button now that the player can respond to it
+      playButton.disabled = false;
+
       // Set initial volume display
       updateVolume();
 
@@ -137,6 +141,21 @@
       isPlaying = !isPlaying;
     } catch (error) {
       MediaUtils.logError("Error toggling play/pause state:", error);
+    }
+  }
+
+  // Keep the button label in sync with the player's reported state,
+  // covering changes the button didn't cause, like the track ending
+  function handlePlayerStateChange(event) {
+    try {
+      if (!playButton || !window.YT) return;
+
+      isPlaying =
+        event.data === YT.PlayerState.PLAYING ||
+        event.data === YT.PlayerState.BUFFERING;
+      playButton.textContent = isPlaying ? "Pause" : "Play";
+    } catch (error) {
+      MediaUtils.logError("Error handling player state change:", error);
     }
   }
 
