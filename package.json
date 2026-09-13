@@ -33,7 +33,8 @@
     "validate:html": "html-validate _site",
     "clean": "rimraf _site _includes/*.{css,js}",
     "format": "run-s lint:prettier lint:css lint:js",
-    "test": "npm run build"
+    "test": "npm run build",
+    "test:a11y": "playwright test"
   },
   "dependencies": {
     "@11ty/eleventy-img": "7.0.0",
@@ -43,8 +44,10 @@
     "@11ty/eleventy": "3.1.6",
     "@11ty/eleventy-plugin-rss": "3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
+    "@axe-core/playwright": "4.13.0",
     "@double-great/remark-lint-alt-text": "1.1.1",
     "@double-great/stylelint-a11y": "3.5.2",
+    "@playwright/test": "1.63.0",
     "autoprefixer": "10.5.4",
     "chokidar-cli": "3.0.0",
     "cssnano": "9.0.1",
