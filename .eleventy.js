@@ -231,7 +231,7 @@ export default function (eleventyConfig) {
             <div class="facade__overlay"></div>
             <picture>
               ${Object.values(sources).join("\n")}
-              <img src="${fullPath}-320.jpg" alt="${title}" loading="lazy" width="${width}" height="${height}">
+              <img src="${fullPath}-320.jpg" alt="" loading="lazy" width="${width}" height="${height}">
             </picture>
           </a>
           <div
