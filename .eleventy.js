@@ -147,6 +147,47 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
 };
 
 /**
+ * Hand-written accessible names for every code block on the site, keyed
+ * by the block's first line of code. A new or edited code block whose
+ * first line has no entry here fails the build until a label is added.
+ */
+const CODE_BLOCK_LABELS = {
+  "cp -a ~/.ssh ~/ssh-backup": "Back up the SSH directory",
+  'ssh-keygen -t rsa -b 4096 ~/.ssh/id_rsa -C "comment"':
+    "Generate a new SSH key",
+  "chmod 600 ~/.ssh/id_rsa*": "Restrict SSH key file permissions",
+  'eval "$(ssh-agent -s)"': "Start the SSH agent",
+  "ssh-add --apple-use-keychain ~/.ssh/id_rsa":
+    "Add the key to the agent and keychain",
+  "pbcopy < ~/.ssh/id_rsa.pub": "Copy the public key to the clipboard",
+  "cat ~/.ssh/id_rsa.pub": "Print the public key",
+  "ssh -T git@github.com -i ~/.ssh/id_rsa": "Test the key against GitHub",
+  'alias a="atom ."': "Shell aliases for launching editors",
+  "<ol>": "Nested ordered list HTML",
+  ".visually-hidden:not(:focus-within, :active) {":
+    "Visually hidden utility CSS",
+  "document.body.classList.remove('no-js');":
+    "JavaScript removing the no-js class",
+};
+
+/**
+ * Looks up the hand-written label for a code block
+ * @param {Object} context - Plugin callback context
+ * @param {string} context.content - Raw code block content
+ * @returns {string} - The block's accessible name
+ */
+const codeBlockLabel = ({ content }) => {
+  const firstLine = content.trim().split("\n")[0].trim();
+  const label = CODE_BLOCK_LABELS[firstLine];
+  if (!label) {
+    throw new Error(
+      `Add an aria-label to CODE_BLOCK_LABELS in .eleventy.js for the code block starting with: ${firstLine}`,
+    );
+  }
+  return label;
+};
+
+/**
  * Configures plugins for Eleventy
  * @param {Object} eleventyConfig - Eleventy configuration object
  */
@@ -154,8 +195,13 @@ const configurePlugins = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginGitCommitDate);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight, {
-    // Code blocks scroll horizontally, so they must be keyboard focusable
-    preAttributes: { tabindex: 0 },
+    // Code blocks scroll horizontally, so they must be keyboard
+    // focusable, and a focusable region needs an accessible name
+    preAttributes: {
+      tabindex: 0,
+      role: "region",
+      "aria-label": codeBlockLabel,
+    },
   });
 };
 
