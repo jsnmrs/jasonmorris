@@ -106,6 +106,18 @@ const generateSourcesets = (fullPath, sizes, formats) => {
 };
 
 /**
+ * Escapes text for safe interpolation into HTML markup
+ * @param {string} value - Raw text
+ * @returns {string} - Escaped text
+ */
+const escapeHtml = (value) =>
+  String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+
+/**
  * Creates a picture element with optional caption
  * @param {Object} sources - Source sets for different formats
  * @param {string} imgSrc - Default image source
@@ -121,7 +133,7 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
       ${Object.values(sources).join("\n")}
       <img
         src="${imgSrc}"
-        alt="${alt}"
+        alt="${escapeHtml(alt)}"
         loading="lazy"
         width="${width}"
         height="${height}"
@@ -130,7 +142,7 @@ const createPictureElement = (sources, imgSrc, alt, width, height, caption) => {
   `.trim();
 
   return caption
-    ? `<figure>${picture}<figcaption>${caption}</figcaption></figure>`
+    ? `<figure>${picture}<figcaption>${escapeHtml(caption)}</figcaption></figure>`
     : picture;
 };
 
@@ -227,7 +239,7 @@ export default function (eleventyConfig) {
       return `
         <div class="facade">
           <a class="facade__link" href="${platformUrl}">
-            <span class="visually-hidden">Play: ${title} (embedded video)</span>
+            <span class="visually-hidden">Play: ${escapeHtml(title)} (embedded video)</span>
             <div class="facade__overlay"></div>
             <picture>
               ${Object.values(sources).join("\n")}
@@ -240,7 +252,7 @@ export default function (eleventyConfig) {
             data-id="${videoId}"
             data-width="${width}"
             data-height="${height}"
-            data-title="${title}"
+            data-title="${escapeHtml(title)}"
           ></div>
         </div>
       `.trim();
