@@ -42,11 +42,7 @@ const MEDIA_BREAKPOINTS = {
   },
   desktop: {
     width: 1024,
-    media: "(min-width: 801px)",
-  },
-  wide: {
-    width: 1600,
-    media: "(min-width: 1025px)",
+    media: "(max-width: 1024px)",
   },
 };
 
@@ -88,7 +84,7 @@ const safeImageProcess = async (
 /**
  * Generates source sets for different image formats and sizes
  * @param {string} fullPath - Base path to the image
- * @param {Array<{width: number, media: string}>} sizes - Array of size configurations
+ * @param {Array<{width: number, media?: string}>} sizes - Array of size configurations; an entry without media matches all remaining viewports
  * @param {string[]} formats - Array of image formats
  * @returns {Object} - Object containing source sets for each format
  */
@@ -98,7 +94,7 @@ const generateSourcesets = (fullPath, sizes, formats) => {
     sources[format] = sizes
       .map(
         (size) =>
-          `<source media="${size.media}" srcset="${fullPath}-${size.width}.${format === "jpeg" ? "jpg" : format}" ${format !== "jpeg" ? `type="image/${format}"` : ""}>`,
+          `<source ${size.media ? `media="${size.media}" ` : ""}srcset="${fullPath}-${size.width}.${format === "jpeg" ? "jpg" : format}" ${format !== "jpeg" ? `type="image/${format}"` : ""}>`,
       )
       .join("\n");
   });
@@ -234,8 +230,13 @@ export default function (eleventyConfig) {
         sizes.push({ width: 1024, media: MEDIA_BREAKPOINTS.desktop.media });
       }
       if (max === "1600") {
-        sizes.push({ width: 1600, media: MEDIA_BREAKPOINTS.wide.media });
+        sizes.push({ width: 1600 });
       }
+
+      // The largest source carries no media query so it matches every
+      // viewport wider than the capped sizes; otherwise wide screens fall
+      // through to the smallest fallback <img>
+      delete sizes[sizes.length - 1].media;
 
       // Process image
       await safeImageProcess(
@@ -265,7 +266,7 @@ export default function (eleventyConfig) {
       const sizes = [
         { width: 320, media: MEDIA_BREAKPOINTS.mobile.media },
         { width: 800, media: MEDIA_BREAKPOINTS.tablet.media },
-        { width: 1280, media: MEDIA_BREAKPOINTS.desktop.media },
+        { width: 1280 },
       ];
 
       await safeImageProcess(
