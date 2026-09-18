@@ -5,7 +5,7 @@
   --background-accent: oklch(92.5% 0 0deg);
   --text: oklch(25.16% 0 0deg);
   --text-accent: oklch(38.7% 0 0deg);
-  --form-accent: rebeccapurple;
+  --form-accent: oklch(0.6329 0.1555 301.17);
   --link: oklch(45.28% 0.177 261.07deg);
   --link-visited: var(--link);
   --link-hover: oklch(32.02% 0.119 260.78deg);
