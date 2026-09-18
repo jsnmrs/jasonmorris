@@ -300,6 +300,11 @@ pre > code {
     color: HighlightText;
     background-color: Highlight;
   }
+
+  /* avoid forced-colors + light overlay shift for contrast */
+  .facade__overlay {
+    forced-color-adjust: none;
+  }
 }
 
 input[type="checkbox"],
