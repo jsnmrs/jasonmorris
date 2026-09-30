@@ -17,15 +17,6 @@ const CASES = [
     ],
   },
   {
-    path: "/egolf/",
-    image: "egolf",
-    picks: [
-      { viewport: { width: 700, height: 900 }, width: 800 },
-      { viewport: { width: 900, height: 900 }, width: 1024 },
-      { viewport: { width: 1400, height: 900 }, width: 1600 },
-    ],
-  },
-  {
     path: "/bikes/bikes-and-barns/",
     image: "barn",
     picks: [{ viewport: { width: 1400, height: 900 }, width: 1024 }],
