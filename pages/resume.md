@@ -4,12 +4,12 @@ has: resume
 title: Jason Morris
 docTitle: Resume
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web."
-subject: "Accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web."
+meta: "Jason Morris is an accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance."
+subject: "Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance"
 keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, digital accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
-<p class="note">Accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web.</p>
+<p class="note">Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance.</p>
 
 ## Experience
 
@@ -19,23 +19,19 @@ January 2026 to present
 
 #### Engineering Team Lead
 
-- Leads a team of developers and digital strategists on Federal government and public health projects
-- Responsible for front-end development, back-end development, and digital accessibility for the Office of Disease Prevention and Health Promotion (ODPHP) website, which served nearly 11 million users in 2024
-- Maintains the Office of the National Coordinator for Health Information Technology (ONC) Health IT Playbooks
+- Leads a team of 5 developers and digital strategists building and maintaining the Office of Disease Prevention and Health Promotion website, which serves about 10 million users a year
 
 ### CommunicateHealth
 
 March 2014 to March 2023, July 2024 to December 2025
 
-#### Accessibility Engineer, Development and Digital Strategy Team Lead
+#### Accessibility Engineer and Team Lead, Development and Digital Strategy
 
-- Developed and maintained high-traffic federal government websites, tools, and applications related to public health
-- Led front-end development work for multiple federal agencies including Department of Veterans Affairs, ODPHP, ONC, National Eye Institute (NEI), National Cancer Institute, Centers for Disease Control, and Centers for Medicare and Medicaid Services
-- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline
-- Launched Healthy People 2030, which served 4 million users in 2024, and built Move Your Way campaign components that reached 50 million people
-- Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), VA, and National Institutes of Health (NIH)
-- Establishing development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
-- Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
+- Led front-end development for federal agencies including the Department of Veterans Affairs, Centers for Disease Control and Prevention, National Institutes of Health, and Centers for Medicare and Medicaid Services, delivering Section 508-compliant products validated by agency accessibility teams
+- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
+- Developed the Healthy People 2030 website, which serves 4 million users a year, and built Move Your Way campaign components that reached 50 million people
+- Rebuilt the award-winning National Eye Institute website to score 100 in all 4 Lighthouse categories (performance, accessibility, best practices, and SEO) across 1,000+ pages at launch
+- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and consistent code quality
 
 ### Perkins School for the Blind
 
@@ -43,12 +39,11 @@ March 2023 to June 2024
 
 #### Senior Digital Accessibility Consultant
 
-- Led client engagements combining accessibility consulting, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
-- Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) and completed Accessibility Conformance Reports (ACR) using the Voluntary Product Accessibility Template (VPAT)
-- Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, VoiceOver, TalkBack, and platform-provided accessibility features
-- Provided accessibility strategy and remediation guidance on complex interfaces, including data visualizations, mobile applications, and canvas-centric applications
-- Developed role-based training for design, engineering, QA, and content teams on writing accessible code and integrating accessibility review into development workflow
-- Built browser-based tools to support the accessibility review process and an accessible client portal and knowledge base integrated with an internal auditing platform
+- Led engagements combining accessibility consulting, strategy, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
+- Assessed websites, applications, documents, multimedia, and data visualizations against WCAG 2.2
+- Performed manual testing with assistive technologies and completed Accessibility Conformance Reports (VPAT)
+- Developed role-based training for design, engineering, QA, and content teams on writing accessible code and integrating accessibility review into development workflows
+- Built browser-based tools to support the accessibility review process
 
 ### The Research Foundation for SUNY
 
@@ -56,21 +51,28 @@ January 2006 to March 2014
 
 #### Senior Programmer/Analyst
 
-- Developed internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA), including the first responsive agency website in the state
-- Maintained compliance with New York State accessibility policy
+- Developed multilingual internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA)
 - Organized user testing sessions to incrementally improve UX for 200,000 monthly visitors
 
-## Awards
+## Skills
 
-- [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused NEI redesign
-- [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed a guide for parents on physical development delays for the American Academy of Pediatrics (AAP)
-- [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Created a responsive website for OTDA
+- Accessibility: WCAG 2.2, Section 508, axe, WAVE, JAWS, NVDA, VoiceOver, TalkBack
+- Languages and frameworks: HTML, CSS, JavaScript, PHP, U.S. Web Design System (USWDS), CodeIgniter
+- Platforms: Drupal, WordPress, Eleventy
+- Tooling: Git, GitHub Actions, Playwright, Lighthouse
 
 ## Certifications and Education
 
-- [Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/39d7346e-637a-41fa-a7c6-2e61cc5fc466), International Association of Accessibility Professionals (IAAP)
-- [Trusted Tester v5](https://www.section508.gov/test/trusted-tester/), Department of Homeland Security (DHS)
+- [Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/39d7346e-637a-41fa-a7c6-2e61cc5fc466), International Association of Accessibility Professionals
+- [Trusted Tester v5](https://www.section508.gov/test/trusted-tester/), Department of Homeland Security
 - [Russell Sage College](https://www.sage.edu/), Bachelor of Science, Computer Information Systems
+
+## Publications and Awards
+
+- Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
+- [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused National Eye Institute redesign
+- [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed a guide for parents on physical development delays for the American Academy of Pediatrics
+- [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Developed New York’s first responsive state agency website for OTDA
 
 <div class="footnote">
 
