@@ -4,12 +4,12 @@ has: resume
 title: Jason Morris
 docTitle: Resume
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects."
-subject: "Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects"
+meta: "Jason Morris is an accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance."
+subject: "Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance"
 keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, digital accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
-<p class="note">Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects.</p>
+<p class="note">Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, with active clearance.</p>
 
 ## Experience
 
@@ -27,10 +27,11 @@ March 2014 to March 2023, July 2024 to December 2025
 
 #### Accessibility Engineer and Team Lead, Development and Digital Strategy
 
-- Led front-end development for federal agencies including the Department of Veterans Affairs, Centers for Disease Control and Prevention, National Institutes of Health, and Centers for Medicare and Medicaid Services, delivering Section 508 compliant products validated by agency accessibility teams
+- Led front-end development for federal agencies including the Department of Veterans Affairs, Centers for Disease Control and Prevention, National Institutes of Health, and Centers for Medicare and Medicaid Services, delivering Section 508-compliant products validated by agency accessibility teams
 - Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
 - Developed the Healthy People 2030 website, which serves 4 million users a year, and built Move Your Way campaign components that reached 50 million people
-- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in improved code consistency and developer experience.
+- Rebuilt the award-winning National Eye Institute website to score 100 in all 4 Lighthouse categories (performance, accessibility, best practices, and SEO) across 1,000+ pages at launch
+- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and consistent code quality
 
 ### Perkins School for the Blind
 
@@ -39,7 +40,8 @@ March 2023 to June 2024
 #### Senior Digital Accessibility Consultant
 
 - Led engagements combining accessibility consulting, strategy, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
-- Assessed websites, applications, documents, multimedia, and data visualizations against WCAG 2.2 using manual testing with assistive technologies, and completed Accessibility Conformance Reports (VPAT)
+- Assessed websites, applications, documents, multimedia, and data visualizations against WCAG 2.2
+- Performed manual testing with assistive technologies and completed Accessibility Conformance Reports (VPAT)
 - Developed role-based training for design, engineering, QA, and content teams on writing accessible code and integrating accessibility review into development workflows
 - Built browser-based tools to support the accessibility review process
 
@@ -55,9 +57,9 @@ January 2006 to March 2014
 ## Skills
 
 - Accessibility: WCAG 2.2, Section 508, axe, WAVE, JAWS, NVDA, VoiceOver, TalkBack
-- Front-end: HTML, CSS, JavaScript, U.S. Web Design System (USWDS)
-- Platforms: Drupal, WordPress, Eleventy, PHP
-- Tooling: Git, GitHub Actions, Playwright
+- Languages and frameworks: HTML, CSS, JavaScript, PHP, U.S. Web Design System (USWDS), CodeIgniter
+- Platforms: Drupal, WordPress, Eleventy
+- Tooling: Git, GitHub Actions, Playwright, Lighthouse
 
 ## Certifications and Education
 
