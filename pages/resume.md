@@ -4,12 +4,12 @@ has: resume
 title: Jason Morris
 docTitle: Resume
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with 20+ years of creating and validating experiences on the web."
-subject: "Accessibility engineer and front-end developer with 20+ years of creating and validating experiences on the web."
+meta: "Jason Morris is an accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects."
+subject: "Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects"
 keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, digital accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
-<p class="note">Accessibility engineer and front-end developer with 20+ years of creating and validating experiences on the web.</p>
+<p class="note">Accessibility engineer and front-end developer with 20+ years of experience building federal public health websites that serve millions of people. CPWA and Trusted Tester certified, eligible to work on sensitive projects.</p>
 
 ## Experience
 
@@ -30,7 +30,7 @@ March 2014 to March 2023, July 2024 to December 2025
 - Led front-end development for federal agencies including the Department of Veterans Affairs, Centers for Disease Control and Prevention, National Institutes of Health, and Centers for Medicare and Medicaid Services, delivering Section 508 compliant products validated by agency accessibility teams
 - Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
 - Developed the Healthy People 2030 website, which serves 4 million users a year, and built Move Your Way campaign components that reached 50 million people
-- Established development workflows, CI/CD pipelines, and quality standards across projects
+- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in improved code consistency and developer experience.
 
 ### Perkins School for the Blind
 
@@ -65,8 +65,8 @@ January 2006 to March 2014
 - [Trusted Tester v5](https://www.section508.gov/test/trusted-tester/), Department of Homeland Security
 - [Russell Sage College](https://www.sage.edu/), Bachelor of Science, Computer Information Systems
 
-## Awards
-
+## Publications and Awards
+- Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
 - [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused National Eye Institute redesign
 - [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed a guide for parents on physical development delays for the American Academy of Pediatrics
 - [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Developed New York’s first responsive state agency website for OTDA
