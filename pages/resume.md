@@ -66,6 +66,7 @@ January 2006 to March 2014
 - [Russell Sage College](https://www.sage.edu/), Bachelor of Science, Computer Information Systems
 
 ## Publications and Awards
+
 - Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
 - [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused National Eye Institute redesign
 - [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed a guide for parents on physical development delays for the American Academy of Pediatrics
