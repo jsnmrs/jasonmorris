@@ -10,13 +10,20 @@
   font-display: optional;
 }
 
-.resume {
-  margin: 0;
+
+html {
+  font-size: 100%;
 }
 
-.resume p,
-.resume li {
-  font-size: 0.9rem;
+main {
+  grid-template-columns:
+    [full-start] minmax(0, 1fr)
+    [main-start] minmax(0, 50rem) [main-end]
+    minmax(0, 1fr) [full-end];
+}
+
+.resume {
+  margin: 2rem 0 0;
 }
 
 .resume h1 {
@@ -30,15 +37,17 @@
 }
 
 .resume h2 {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   margin: 1rem 0 0;
   font-weight: 700;
+  border-bottom: 0.1rem solid var(--background-accent);
 }
 
 .resume h3 {
   margin: 0.5rem 0 0;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.2;
+  font-weight: 700;
 }
 
 .resume h4 {
@@ -50,12 +59,12 @@
 }
 
 .resume li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .resume h3 + p {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-accent);
 }
 
@@ -81,6 +90,10 @@
 }
 
 @media print {
+  .resume {
+    margin-top: 0;
+  }
+
   .resume a[href]::after {
     content: "";
   }
