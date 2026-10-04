@@ -19,7 +19,7 @@ January 2026 to present
 
 #### Engineering Team Lead
 
-- Leads a team of developers and digital strategists on federal government and public health projects
+- Leads a team of 5 developers and digital strategists on federal government and public health projects
 - Responsible for front-end development, back-end development, and digital accessibility for the Office of Disease Prevention and Health Promotion (ODPHP) website, which served nearly 11 million users in 2024
 
 ### CommunicateHealth
@@ -30,7 +30,7 @@ March 2014 to March 2023, July 2024 to December 2025
 
 - Built and maintained high-traffic federal government websites and applications related to public health
 - Led front-end development work for multiple federal agencies including the Department of Veterans Affairs (VA), ODPHP, Office of the National Coordinator for Health Information Technology, National Eye Institute (NEI), National Cancer Institute, Centers for Disease Control and Prevention (CDC), and Centers for Medicare and Medicaid Services
-- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline
+- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
 - Developed the Healthy People 2030 website, which served 4 million users in 2024, and built Move Your Way campaign components that reached 50 million people
 - Delivered Section 508 compliant web products validated by accessibility teams from the Department of Health and Human Services, CDC, VA, and National Institutes of Health
 - Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
