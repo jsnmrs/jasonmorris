@@ -9,14 +9,13 @@ subject: "Accessibility engineer and front-end developer with 26+ years of creat
 keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, digital accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
-<!-- double-check disable assistance -->
 <p class="note">Accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web.</p>
 
 ## Experience
 
 ### Lumina Corps
 
-Full-time, remote (January 2026 to present)
+January 2026 to present
 
 #### Engineering Team Lead
 
@@ -26,22 +25,21 @@ Full-time, remote (January 2026 to present)
 
 ### CommunicateHealth
 
-Full-time, remote (March 2014 to December 2025)
+March 2014 to March 2023, July 2024 to December 2025
 
 #### Accessibility Engineer, Development and Digital Strategy Team Lead
 
 - Developed and maintained high-traffic federal government websites, tools, and applications related to public health
-- Led front-end development work for 8 federal agencies: Department of Veterans Affairs (VA), ODPHP, ONC, National Eye Institute (NEI), National Cancer Institute (NCI), National Heart, Lung, and Blood Institute (NHLBI), Agency for Toxic Substances and Disease Registry (ATSDR), and Centers for Medicare and Medicaid Services (CMS)
-- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline, and kept it there across several years of releases
+- Led front-end development work for multiple federal agencies including Department of Veterans Affairs, ODPHP, ONC, National Eye Institute (NEI), National Cancer Institute, Centers for Disease Control, and Centers for Medicare and Medicaid Services
+- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline
 - Launched Healthy People 2030, which served 4 million users in 2024, and built Move Your Way campaign components that reached 50 million people
-- Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
 - Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), VA, and National Institutes of Health (NIH)
-- Led a team of developers and digital strategists, establishing development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
+- Establishing development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
 - Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
 
 ### Perkins School for the Blind
 
-Full-time, remote (March 2023 to June 2024)
+March 2023 to June 2024
 
 #### Senior Digital Accessibility Consultant
 
@@ -54,22 +52,19 @@ Full-time, remote (March 2023 to June 2024)
 
 ### The Research Foundation for SUNY
 
-Full-time, on-site and hybrid (January 2006 to March 2014)
+January 2006 to March 2014
 
 #### Senior Programmer/Analyst
 
-- Developed and maintained internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA), including the first responsive agency website in the state
+- Developed internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA), including the first responsive agency website in the state
 - Maintained compliance with New York State accessibility policy
 - Organized user testing sessions to incrementally improve UX for 200,000 monthly visitors
 
 ## Awards
 
-- [2022 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20260305142101/https://centerforplainlanguage.org/2022-clearmark-winners/) — Developed the Les Turner ALS Foundation “My ALS Decision Tool”
-- [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused National Eye Institute redesign
-- [2020 NAGC Blue Pencil & Gold Screen Award, Second Place for Websites](https://web.archive.org/web/20210318235916/https://nagc.com/page/2020-award-winners) — National Eye Institute redesign
-- [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed an online guide for parents around physical development delays for the American Academy of Pediatrics
-- [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Created a responsive web design for the New York State Office of Temporary and Disability Assistance
-- [2008 Best of the Web Award for State Government Websites from the New York State Forum](https://web.archive.org/web/20110106010851/https://www.pdp.albany.edu/About/awards_honors.cfm) — Built Arabic, Chinese, Russian, and Spanish web presence for the New York State Office of Temporary and Disability Assistance
+- [2020 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220331000945/https://centerforplainlanguage.org/awards/2020-clearmark-award-winners/) — Led the development of an accessibility-focused NEI redesign
+- [2016 ClearMark Award from the Center for Plain Language](https://web.archive.org/web/20220428112734/https://centerforplainlanguage.org/awards/clearmark/2016-winners/) — Developed a guide for parents on physical development delays for the American Academy of Pediatrics (AAP)
+- [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Created a responsive website for OTDA
 
 ## Certifications and Education
 
