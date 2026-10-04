@@ -4,18 +4,13 @@ has: resume
 title: Jason Morris
 docTitle: Resume
 permalink: "/resume/index.html"
-meta: "Jason Morris is an accessibility engineer and front-end developer with 26+ years of creating and validating accessible web experiences."
-subject: "Accessibility engineer and front-end developer with 26+ years of creating and validating accessible web experiences."
+meta: "Jason Morris is an accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web."
+subject: "Accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web."
 keywords: "resume, jason morris, jason, morris, web, developer, accessibility, front-end, engineer, web developer, digital accessibility, accessibility engineer, front-end developer, front-end engineer"
 ---
 
 <!-- double-check disable assistance -->
-<p class="note">Accessibility engineer and front-end developer with 26+ years of creating and validating accessible web experiences.</p>
-
-## Certifications
-
-- [Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/39d7346e-637a-41fa-a7c6-2e61cc5fc466), International Association of Accessibility Professionals (IAAP)
-- Trusted Tester v5, Department of Homeland Security (DHS)
+<p class="note">Accessibility engineer and front-end developer with 26+ years of creating and validating experiences on the web.</p>
 
 ## Experience
 
@@ -42,7 +37,7 @@ Full-time, remote (March 2014 to December 2025)
 - Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
 - Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), VA, and National Institutes of Health (NIH)
 - Led a team of developers and digital strategists, establishing development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
-- Regularly communicated with stakeholders to receive feedback and suggest solutions
+- Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
 
 ### Perkins Access
 
@@ -78,19 +73,11 @@ Full-time, on-site and hybrid (January 2006 to March 2014)
 - [2011 Best of New York Award for Innovative Use of Technology from the Center for Digital Government](https://web.archive.org/web/20220924022210/https://www.govtech.com/archive/2011-best-of-new-york-winners-honored.html) — Created a responsive web design for the New York State Office of Temporary and Disability Assistance
 - [2008 Best of the Web Award for State Government Websites from the New York State Forum](https://web.archive.org/web/20110106010851/https://www.pdp.albany.edu/About/awards_honors.cfm) — Built Arabic, Chinese, Russian, and Spanish web presence for the New York State Office of Temporary and Disability Assistance
 
-## Publications and Open Source
+## Certifications and Education
 
-- [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors) — Contributing Editor, Office of Disease Prevention and Health Promotion, April 2025
-
-## Open Source
-
-- [Double Great](https://github.com/double-great) — Accessibility tooling collaboration since 2019, including stylelint-a11y (adopted by the IBM Carbon Design System and FreeTube), alt-text, and remark-lint-link-text
-
-- [BMXfeed](https://bmxfeed.com) — BMX news and video aggregator running continuously since 2006 with a 47,000+ video library, open-sourced in 2021 as [Aggro](https://github.com/jsnmrs/aggro), a PHP and CodeIgniter platform
-
-## Education
-
-[Russell Sage College](https://www.sage.edu/) — Bachelor of Science, Computer Information Systems
+- [Certified Professional in Web Accessibility (CPWA)](https://www.credly.com/badges/39d7346e-637a-41fa-a7c6-2e61cc5fc466), International Association of Accessibility Professionals (IAAP)
+- [Trusted Tester v5](https://www.section508.gov/test/trusted-tester/), Department of Homeland Security (DHS)
+- [Russell Sage College](https://www.sage.edu/), Bachelor of Science, Computer Information Systems
 
 <div class="footnote">
 
