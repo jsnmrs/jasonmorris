@@ -10,7 +10,6 @@
   font-display: optional;
 }
 
-
 html {
   font-size: 100%;
 }
@@ -39,7 +38,7 @@ main {
 .resume h2 {
   font-size: 1.35rem;
   margin: 1rem 0 0;
-  font-weight: 700;
+  /* font-weight: 700; */
   border-bottom: 0.1rem solid var(--background-accent);
 }
 

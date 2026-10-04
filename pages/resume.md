@@ -20,9 +20,9 @@ Full-time, remote (January 2026 to present)
 
 #### Engineering Team Lead
 
-- Leads a team of developers and digital strategists as both manager and individual contributor, following the January 2026 merger of CommunicateHealth with Lumina Corps
-- Owns front-end development, back-end development, and digital accessibility for the Office of Disease Prevention and Health Promotion (ODPHP) website, which served 10.82 million users in 2024
-- Maintains the Office of the National Coordinator for Health Information Technology (ONC) Health IT Playbook and Patient Engagement Playbook and support other federal health projects
+- Leads a team of developers and digital strategists on Federal government and public health projects
+- Responsible for front-end development, back-end development, and digital accessibility for the Office of Disease Prevention and Health Promotion (ODPHP) website, which served nearly 11 million users in 2024
+- Maintains the Office of the National Coordinator for Health Information Technology (ONC) Health IT Playbooks
 
 ### CommunicateHealth
 
@@ -31,27 +31,25 @@ Full-time, remote (March 2014 to December 2025)
 #### Accessibility Engineer, Development and Digital Strategy Team Lead
 
 - Developed and maintained high-traffic federal government websites, tools, and applications related to public health
-- Led front-end development for 8 federal agencies: Department of Veterans Affairs (VA), ODPHP, ONC, National Eye Institute (NEI), National Cancer Institute (NCI), National Heart, Lung, and Blood Institute (NHLBI), Agency for Toxic Substances and Disease Registry (ATSDR), and Centers for Medicare and Medicaid Services (CMS)
-- Raised Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline, and kept it there across several years of releases
-- Launched Healthy People 2030, which served 4.18 million users in 2024, and built Move Your Way campaign components that reached 50 million people
+- Led front-end development work for 8 federal agencies: Department of Veterans Affairs (VA), ODPHP, ONC, National Eye Institute (NEI), National Cancer Institute (NCI), National Heart, Lung, and Blood Institute (NHLBI), Agency for Toxic Substances and Disease Registry (ATSDR), and Centers for Medicare and Medicaid Services (CMS)
+- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings, a 26x improvement from its baseline, and kept it there across several years of releases
+- Launched Healthy People 2030, which served 4 million users in 2024, and built Move Your Way campaign components that reached 50 million people
 - Assessed and remediated accessibility of digital documents, audio, video, legacy web applications, and iOS/Android applications
 - Delivered web products validated by accessibility teams from the Department of Health and Human Services (HHS), Centers for Disease Control and Prevention (CDC), VA, and National Institutes of Health (NIH)
 - Led a team of developers and digital strategists, establishing development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and increased code consistency
 - Contributing Editor to [Health Literacy Online, Third Edition](https://odphp.health.gov/healthliteracyonline/appendices/appendix-reviewers-and-contributors)
 
-### Perkins Access
+### Perkins School for the Blind
 
 Full-time, remote (March 2023 to June 2024)
 
 #### Senior Digital Accessibility Consultant
 
-- Led client engagements combining accessibility consulting, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, Disability Rights Fund, and Massachusetts EOTSS
+- Led client engagements combining accessibility consulting, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
 - Assessed websites, applications, documents, and multimedia for conformance with the Web Content Accessibility Guidelines (WCAG) and completed Accessibility Conformance Reports (ACR) using the Voluntary Product Accessibility Template (VPAT)
 - Performed manual accessibility testing with assistive technologies, including JAWS, NVDA, VoiceOver, TalkBack, and platform-provided accessibility features
 - Provided accessibility strategy and remediation guidance on complex interfaces, including data visualizations, mobile applications, and canvas-centric applications
 - Developed role-based training for design, engineering, QA, and content teams on writing accessible code and integrating accessibility review into development workflow
-- Consulted on inclusive design practices early in the product lifecycle to reduce the effort and cost required to build inclusive digital experiences
-- Helped interview, onboard, and mentor 12+ contractors, reviewing their deliverables before client submission
 - Built browser-based tools to support the accessibility review process and an accessible client portal and knowledge base integrated with an internal auditing platform
 
 ### The Research Foundation for SUNY
