@@ -28,9 +28,8 @@ March 2014 to March 2023, July 2024 to December 2025
 #### Accessibility Engineer and Team Lead, Development and Digital Strategy
 
 - Delivered Section 508-compliant web products validated by accessibility teams at Department of Veterans Affairs, Centers for Disease Control and Prevention, and National Institutes of Health
-- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
-- Rebuilt the National Eye Institute website to score 100 in all 4 Lighthouse categories (performance, accessibility, best practices, and SEO) across 1,000+ pages at launch
-- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and consistent code quality
+- Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings and rebuilt the National Eye Institute site to score 100 in all 4 Lighthouse categories across 1,000+ pages at launch
+- Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local environments and improved code quality
 
 ### Perkins School for the Blind
 
@@ -38,10 +37,9 @@ March 2023 to June 2024
 
 #### Senior Digital Accessibility Consultant
 
-- Led engagements combining accessibility strategy, technical guidance, role-based training, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
-- Audited websites, applications, documents, multimedia, and data visualizations against WCAG 2.2
-- Performed manual testing with assistive technologies and completed Accessibility Conformance Reports (VPAT)
-- Built browser-based tools and guides, improving accessibility auditor effectiveness and efficiency
+- Led engagements combining accessibility strategy, technical guidance, role-based training, and program planning for clients including LEGO, Sprout Social, Cengage, and Curriculum Associates
+- Audited websites, complex applications, and data visualizations against WCAG 2.2 through manual testing with assistive technologies, and delivered Accessibility Conformance Reports (VPAT)
+- Built browser-based tools and guides that made accessibility audits faster and more consistent
 
 ### The Research Foundation for SUNY
 
