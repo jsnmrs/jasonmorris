@@ -27,10 +27,9 @@ March 2014 to March 2023, July 2024 to December 2025
 
 #### Accessibility Engineer and Team Lead, Development and Digital Strategy
 
-- Led front-end development for federal agencies including the Department of Veterans Affairs, Centers for Disease Control and Prevention, National Institutes of Health, and Centers for Medicare and Medicaid Services, delivering Section 508-compliant products validated by agency accessibility teams
+- Delivered Section 508-compliant web products validated by accessibility teams at Department of Veterans Affairs, Centers for Disease Control and Prevention, and National Institutes of Health
 - Brought Health.gov into the top 1% of the WebAIM Million accessibility rankings
-- Developed the Healthy People 2030 website, which serves 4 million users a year, and built Move Your Way campaign components that reached 50 million people
-- Rebuilt the award-winning National Eye Institute website to score 100 in all 4 Lighthouse categories (performance, accessibility, best practices, and SEO) across 1,000+ pages at launch
+- Rebuilt the National Eye Institute website to score 100 in all 4 Lighthouse categories (performance, accessibility, best practices, and SEO) across 1,000+ pages at launch
 - Established development workflows, CI/CD pipelines, and quality standards across projects, resulting in zero-config local development environments and consistent code quality
 
 ### Perkins School for the Blind
@@ -39,11 +38,10 @@ March 2023 to June 2024
 
 #### Senior Digital Accessibility Consultant
 
-- Led engagements combining accessibility consulting, strategy, technical guidance, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
-- Assessed websites, applications, documents, multimedia, and data visualizations against WCAG 2.2
+- Led engagements combining accessibility strategy, technical guidance, role-based training, and program planning for clients including LEGO, Sprout Social, Cengage Learning, Curriculum Associates, and the Commonwealth of Massachusetts
+- Audited websites, applications, documents, multimedia, and data visualizations against WCAG 2.2
 - Performed manual testing with assistive technologies and completed Accessibility Conformance Reports (VPAT)
-- Developed role-based training for design, engineering, QA, and content teams on writing accessible code and integrating accessibility review into development workflows
-- Built browser-based tools to support the accessibility review process
+- Built browser-based tools and guides, improving accessibility auditor effectiveness and efficiency
 
 ### The Research Foundation for SUNY
 
@@ -51,7 +49,7 @@ January 2006 to March 2014
 
 #### Senior Programmer/Analyst
 
-- Developed multilingual internal and external websites for the New York State Office of Temporary and Disability Assistance (OTDA)
+- Developed multilingual, responsive websites for the New York State Office of Temporary and Disability Assistance (OTDA)
 - Organized user testing sessions to incrementally improve UX for 200,000 monthly visitors
 
 ## Skills
