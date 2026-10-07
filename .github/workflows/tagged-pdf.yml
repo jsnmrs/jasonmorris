@@ -63,16 +63,16 @@ jobs:
               "type": "pdf",
               "prince_options": { "profile": "PDF/UA-1", "tagged-pdf": true }
             }
-          }' > jason-morris-resume.pdf
+          }' > static/jason-morris-resume.pdf
 
           # Verify file exists and has content
-          if [ ! -s "jason-morris-resume.pdf" ]; then
+          if [ ! -s "static/jason-morris-resume.pdf" ]; then
             echo "PDF generation failed: Empty or missing file"
             exit 1
           fi
 
           # Verify PDF structure (basic check)
-          if ! file "jason-morris-resume.pdf" | grep -q "PDF document"; then
+          if ! file "static/jason-morris-resume.pdf" | grep -q "PDF document"; then
             echo "Generated file is not a valid PDF"
             exit 1
           fi

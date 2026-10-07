@@ -14,22 +14,11 @@ const LAYOUT_ALIASES = {
   tag: "layouts/tag.html",
 };
 
-const STATIC_ASSETS = [
-  "fonts",
-  "img",
-  "css",
-  "favicon.ico",
-  "favicon.svg",
-  "jason-morris-resume.pdf",
-  "manifest.webmanifest",
-  "apple-touch-icon.png",
-  "apple-touch-icon-192.png",
-  "apple-touch-icon-512.png",
-  "robots.txt",
-  "rss.xsl",
-  "sitemap.xsl",
-  ".htaccess",
-];
+const STATIC_ASSETS = ["fonts", "img", "css"];
+
+// Files that must land at the site root (favicons, manifest, robots.txt,
+// XSL stylesheets, .htaccess, resume PDF) live in static/
+const ROOT_ASSETS = { static: "/" };
 
 const MEDIA_BREAKPOINTS = {
   mobile: {
@@ -207,6 +196,7 @@ export default function (eleventyConfig) {
   STATIC_ASSETS.forEach((asset) => {
     eleventyConfig.addPassthroughCopy(asset);
   });
+  eleventyConfig.addPassthroughCopy(ROOT_ASSETS);
 
   // Configure Liquid Options
   eleventyConfig.setLiquidOptions({
