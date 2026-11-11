@@ -55,8 +55,8 @@ January 2006 to March 2014
 ## Skills
 
 - Accessibility: WCAG 2.2, Section 508, axe, WAVE, JAWS, NVDA, VoiceOver, TalkBack
-- Languages and frameworks: HTML, CSS, JavaScript, PHP, U.S. Web Design System (USWDS), CodeIgniter
-- Platforms: Drupal, WordPress, Eleventy
+- Languages: HTML, CSS, JavaScript, PHP
+- Platforms: Drupal, WordPress, Eleventy (Build Awesome), CodeIgniter
 - Tooling: Git, GitHub Actions, Playwright, Lighthouse
 
 ## Certifications and Education
